@@ -66,6 +66,16 @@ struct StubView: View {
         }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
-        
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    concert.isFavorite.toggle()
+                    print(concert.isFavorite)
+                } label:  {
+                    Image(systemName: concert.isFavorite ? "heart.fill" : "heart")
+                }
+                .foregroundStyle(concert.isFavorite ? .pink : .gray)
+            }
+        }
     }
 }
