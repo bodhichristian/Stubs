@@ -14,11 +14,22 @@ struct ContentView: View {
     
     @State private var isAddingConcert = false
     
+    @State private var searchPrompt = "Find a stub"
+    @State private var searchText = ""
+    
+    var filteredConcerts: [Concert] {
+        if searchText.isEmpty {
+            return concerts
+        } else {
+            return concerts.filter { $0.artist.contains(searchText)}
+        }
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
                 List { // Concerts
-                    ForEach(concerts) { concert in
+                    ForEach(filteredConcerts) { concert in
                         NavigationLink {
                             StubView(concert: concert)
                         } label: {
@@ -27,7 +38,8 @@ struct ContentView: View {
                     }
                     .onDelete(perform: delete)
                 }
-                
+                .searchable(text: $searchText, prompt: searchPrompt)
+
                 if concerts.isEmpty {
                     Button { // Generate Sample Data
                         withAnimation {
