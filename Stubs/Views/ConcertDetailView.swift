@@ -23,11 +23,10 @@ struct ConcertDetailView: View {
                 ticketStubBase
                 concertDetails
             }
-            .navigationTitle("Stub")
-            .navigationBarTitleDisplayMode(.inline)
-
             actionButtons
         }
+        .navigationTitle("Stub")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
