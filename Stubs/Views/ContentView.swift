@@ -14,7 +14,7 @@ struct ContentView: View {
     
     @State private var isAddingConcert = false
     
-    @State private var searchPrompt = "Find a stub"
+    @State private var searchPrompt = "Find a concert"
     @State private var searchText = ""
     
     var filteredConcerts: [Concert] {
@@ -31,7 +31,7 @@ struct ContentView: View {
                 List { // Concerts
                     ForEach(filteredConcerts) { concert in
                         NavigationLink {
-                            StubView(concert: concert)
+                            ConcertDetailView(concert: concert)
                         } label: {
                             ConcertLabel(concert: concert)
                         }

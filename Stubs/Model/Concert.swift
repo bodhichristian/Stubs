@@ -10,7 +10,6 @@ import SwiftData
 import SwiftUI
 
 @Model
-
 final class Concert {
     var artist: String
     var venue: String

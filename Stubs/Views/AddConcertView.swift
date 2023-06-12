@@ -18,8 +18,8 @@ struct AddConcertView: View {
     @State private var venue = ""
     @State private var city = ""
     @State private var date = Date()
-    @State private var iconName = "guitars" // Provides a default
-    @State private var accentColor = "blue" // Provides a default
+    @State private var iconName = "guitars" // Provides a default value
+    @State private var accentColor = "blue" // Provides a default value
     
     @State private var colorOptions = Customizable.colors
     @State private var iconOptions = Customizable.icons

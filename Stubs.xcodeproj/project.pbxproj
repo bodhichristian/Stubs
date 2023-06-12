@@ -16,7 +16,7 @@
 		AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* ConcertLabel.swift */; };
 		AA8A74892A32D65E003E9B41 /* ExampleConcerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* ExampleConcerts.swift */; };
-		AA8A748C2A33A43E003E9B41 /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* StubView.swift */; };
+		AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */; };
 		AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* Customizable.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		AA8A74812A32C912003E9B41 /* Extension-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-Color.swift"; sourceTree = "<group>"; };
 		AA8A74852A32D5B1003E9B41 /* ConcertLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertLabel.swift; sourceTree = "<group>"; };
 		AA8A74882A32D65E003E9B41 /* ExampleConcerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleConcerts.swift; sourceTree = "<group>"; };
-		AA8A748B2A33A43E003E9B41 /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
+		AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailView.swift; sourceTree = "<group>"; };
 		AA8A74902A33EE53003E9B41 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +98,7 @@
 				AA8A746D2A32BDF3003E9B41 /* ContentView.swift */,
 				AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertLabel.swift */,
-				AA8A748B2A33A43E003E9B41 /* StubView.swift */,
+				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
-				AA8A748C2A33A43E003E9B41 /* StubView.swift in Sources */,
+				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* ExampleConcerts.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
