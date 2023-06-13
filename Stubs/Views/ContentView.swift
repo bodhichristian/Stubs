@@ -21,7 +21,7 @@ struct ContentView: View {
         if searchText.isEmpty {
             return concerts
         } else {
-            return concerts.filter { $0.artist.contains(searchText)}
+            return concerts.filter { $0.artist.contains(searchText) }
         }
     }
     

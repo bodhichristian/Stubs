@@ -35,7 +35,7 @@ struct AddConcertView: View {
                 
                 iconSelection
                 
-                colorSelection
+                ColorSelector(accentColor: $accentColor)
             }
             .navigationTitle("Add Concert")
             .toolbar {

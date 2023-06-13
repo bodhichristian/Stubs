@@ -88,9 +88,7 @@ extension ConcertDetailView {
                 }
             } label: {
                 Label(title: {
-                    Text(concert.isFavorite
-                         ? "Unfavorite"
-                         : "Favorite")
+                    Text("Favorite")
                     .foregroundColor(.primary)
                     .frame(width: 80)
                 }, icon: {
