@@ -33,7 +33,7 @@ struct AddConcertView: View {
             Form {
                 detailInput
                 
-                iconSelection
+                IconSelector(iconName: $iconName, accentColor: $accentColor)
                 
                 ColorSelector(accentColor: $accentColor)
             }
@@ -69,56 +69,6 @@ extension AddConcertView {
             TextField("Venue", text: $venue)
             TextField("City", text: $city)
             DatePicker("Date", selection: $date, displayedComponents: .date)
-        }
-    }
-    
-    private var iconSelection: some View {
-        Section("Icon") {
-            VStack {
-                Image(systemName: iconName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)
-                    .foregroundStyle(Color(colorName: accentColor)!)
-                    .shadow(radius: 5, y: 8)
-                
-                ScrollView(.horizontal){
-                    HStack(spacing: 20) {
-                        ForEach(iconOptions, id: \.self) { icon in
-                            
-                            Button {
-                                iconName = icon
-                            } label: {
-                                Image(systemName: icon)
-                                    .font(.largeTitle)
-                                    .frame(width: 40)
-                            }
-                        }
-                    }
-                    .foregroundStyle(.primary)
-                }
-                .padding(.vertical, 10)
-            }
-        }
-    }
-    
-    private var colorSelection: some View {
-        Section("Accent Color") {
-            ScrollView(.horizontal){
-                HStack(spacing: 20) {
-                    ForEach(colorOptions, id: \.self) { color in
-                        Button {
-                            accentColor = color
-                        } label: {
-                            Circle()
-                                .frame(width: 40)
-                                .foregroundStyle(Color(colorName: color)!)
-                        }
-                    }
-                }
-            }
-            .shadow(radius: 5, y: 8)
-            .padding(.vertical, 10)
         }
     }
     

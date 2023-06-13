@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
+		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
 		AA8A746E2A32BDF3003E9B41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* ContentView.swift */; };
 		AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
+		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsApp.swift; sourceTree = "<group>"; };
 		AA8A746D2A32BDF3003E9B41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				AA8A74852A32D5B1003E9B41 /* ConcertLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
+				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* ExampleConcerts.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
+				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */,
 				AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */,
