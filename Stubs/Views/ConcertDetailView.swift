@@ -11,6 +11,7 @@ struct ConcertDetailView: View {
     @Environment(\.modelContext) var modelContext
     let concert: Concert
     
+    
     let gradient = LinearGradient( // For stub base
         colors: [.clear, .black.opacity(0.5)],
         startPoint: .topLeading,
@@ -52,6 +53,8 @@ extension ConcertDetailView {
                 .foregroundStyle(.white)
                 .shadow(radius: 4, y: 6)
                 .padding(40)
+                
+                
         }
     }
     
