@@ -63,6 +63,7 @@ struct AddConcertView: View {
 }
 
 extension AddConcertView {
+    // Section for user input of concert details
     private var detailInput: some View {
         Section("Details") {
             TextField("Artist", text: $artist)
@@ -71,15 +72,15 @@ extension AddConcertView {
             DatePicker("Date", selection: $date, displayedComponents: .date)
         }
     }
-    
+    // Add a new concert from the View's current State
     private func addConcert() {
+        let newConcert = Concert(artist: artist,
+                                 venue: venue,
+                                 city: city,
+                                 date: date,
+                                 iconName: iconName,
+                                 accentColor: accentColor)
         withAnimation {
-            let newConcert = Concert(artist: artist,
-                                     venue: venue,
-                                     city: city,
-                                     date: date,
-                                     iconName: iconName,
-                                     accentColor: accentColor)
             modelContext.insert(newConcert)
         }
     }

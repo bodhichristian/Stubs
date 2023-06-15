@@ -31,8 +31,8 @@ struct ConcertDetailView: View {
     }
 }
 
-
 extension ConcertDetailView {
+    // Stub base, color, and icon
     private var ticketStubBase: some View {
         ZStack(alignment: .bottomTrailing) {
             RoundedRectangle(cornerRadius: 20) // Stub Background
@@ -57,7 +57,7 @@ extension ConcertDetailView {
                 
         }
     }
-    
+    // Concert details
     private var concertDetails: some View {
         VStack(alignment: .leading) {
             Text(concert.artist)
@@ -82,7 +82,7 @@ extension ConcertDetailView {
         .frame(height: 330)
         .padding(40)
     }
-    
+    // Favorite...
     private var actionButtons: some View {
         HStack {
             Button { // Favorite toggle
