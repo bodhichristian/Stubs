@@ -30,6 +30,7 @@ struct ContentView: View {
                                     ConcertLabel(concert: concert)
                                 }
                             }
+                            .onDelete(perform: delete)
                         }
                     }
                 }

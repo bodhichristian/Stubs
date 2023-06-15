@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 let calendar = Calendar.current
-let dateFormatter = DateFormatter()
 
 struct SampleData {
     // MARK: An Array of Sample Concerts
@@ -27,9 +26,9 @@ struct SampleData {
             artist: "Taylor Swift",
             venue: "Nissan Stadium",
             city: "Nashville, TN",
-            date: calendar.date(from: DateComponents(year: 2016,month: 10,day: 5))!,
+            date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
             iconName: "music.mic",
-            accentColor: "blue"
+            accentColor: "indigo"
         ),
         
         Concert(
@@ -56,7 +55,7 @@ struct SampleData {
             city: "London England",
             date: calendar.date(from: DateComponents(year: 2001,month: 7,day: 15))!,
             iconName: "airpodsmax",
-            accentColor: "orange"
+            accentColor: "indigo"
         ),
         
         Concert(
@@ -119,7 +118,7 @@ struct SampleData {
             city: "Paris, France",
             date: calendar.date(from: DateComponents(year: 1987, month: 9, day: 1))!,
             iconName: "music.note",
-            accentColor: "green"
+            accentColor: "indigo"
         ),
         
         Concert(
@@ -146,7 +145,7 @@ struct SampleData {
             city: "London, UK",
             date: calendar.date(from: DateComponents(year: 1977, month: 6, day: 4))!,
             iconName: "wave.3.forward",
-            accentColor: "yellow"
+            accentColor: "purple"
         ),
         
         Concert(

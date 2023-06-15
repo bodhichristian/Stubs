@@ -18,6 +18,8 @@ struct ConcertLabel: View {
                 .scaledToFit()
                 .frame(width: 50, height: 50)
                 .shadow(color: .black.opacity(0.3), radius: 3, y: 4)
+                .padding(.leading, 6)
+                .padding(.trailing, 12)
             
             VStack(alignment: .leading) {
                 
