@@ -10,44 +10,33 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var concerts: [Concert]
+    @Query private var allConcerts: [Concert]
     
     @State private var isAddingConcert = false
     
-    @State private var searchPrompt = "Find a concert"
+    @State private var searchPrompt = "Artist, Venue, City, or Date"
     @State private var searchText = ""
-    
-    var filteredConcerts: [Concert] {
-        if searchText.isEmpty {
-            return concerts
-        } else {
-            return concerts.filter { $0.artist.contains(searchText) }
-        }
-    }
     
     var body: some View {
         NavigationView {
             ZStack {
-                List { // Concerts
-                    ForEach(filteredConcerts) { concert in
-                        NavigationLink {
-                            ConcertDetailView(concert: concert)
-                        } label: {
-                            ConcertLabel(concert: concert)
+                List {
+                    ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
+                        Section(header: decadeHeader(decade)) {
+                            ForEach(concertsByDecade[decade]!, id: \.id) { concert in
+                                NavigationLink{
+                                    ConcertDetailView(concert: concert)
+                                } label: {
+                                    ConcertLabel(concert: concert)
+                                }
+                            }
                         }
                     }
-                    .onDelete(perform: delete)
                 }
                 .searchable(text: $searchText, prompt: searchPrompt)
-
-                if concerts.isEmpty {
-                    Button { // Generate Sample Data
-                        withAnimation {
-                            addSampleData()
-                        }
-                    } label: {
-                        Text("Add Sample Data")
-                    }
+                
+                if allConcerts.isEmpty {
+                    noConcertsView
                 }
             }
             .navigationTitle("Concerts")
@@ -77,22 +66,79 @@ struct ContentView: View {
 }
 
 extension ContentView {
-    private func delete(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(concerts[index])
+    // Concerts whose data contains searchText
+    private var filteredConcerts: [Concert] {
+        if searchText.isEmpty {
+            return allConcerts
+        } else {
+            return allConcerts.filter { concert in
+                return concert.artist.lowercased().contains(searchText.lowercased()) ||
+                concert.venue.lowercased().contains(searchText.lowercased()) ||
+                concert.city.lowercased().contains(searchText.lowercased()) ||
+                concert.date.formatted().contains(searchText)
             }
         }
     }
-    
-    private func addSampleData() {
-        modelContext.insert(ExampleConcerts.concert1)
-        modelContext.insert(ExampleConcerts.concert2)
-        modelContext.insert(ExampleConcerts.concert3)
-        modelContext.insert(ExampleConcerts.concert4)
-        modelContext.insert(ExampleConcerts.concert5)
-        modelContext.insert(ExampleConcerts.concert6)
-        modelContext.insert(ExampleConcerts.concert7)
-        modelContext.insert(ExampleConcerts.concert8)
+    // Concerts sorted into decade groups
+    private var concertsByDecade: [Int: [Concert]] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        
+        let groups = Dictionary(grouping: filteredConcerts) { concert in
+            let year = Calendar.current.component(.year, from: concert.date)
+            let decade = (year / 10) * 10 // Round down to the nearest decade
+            return decade
+        }
+        
+        return groups.mapValues { concerts in
+            concerts.sorted { concert1, concert2 in
+                concert1.date > concert2.date
+            }
+        }
+    }
+    // Header for decade sections in list
+    private func decadeHeader(_ decade: Int) -> some View {
+        Text(("\(decade)s")
+            .replacingOccurrences(of: ",", with: ""))
+        .textCase(nil)
+        .font(.title2)
+        .bold()
+    }
+    // Delete concert
+    private func delete(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(allConcerts[index])
+            }
+        }
+    }
+    // View that instructs user to add first concert
+    private var noConcertsView: some View {
+        VStack {
+            Spacer()
+            
+            Image(systemName: "music.mic")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+                .foregroundStyle(.secondary)
+            
+            Text("No saved concerts.")
+                .font(.title2)
+                .bold()
+            
+            Text("Tap the + Button to Add a Concert")
+            
+            Spacer()
+#if DEBUG
+            Button { // Generate Sample Data
+                withAnimation {
+                    SampleData().addSampleData(to: modelContext)
+                }
+            } label: {
+                Text("Add Sample Data")
+            }
+#endif
+        }
     }
 }

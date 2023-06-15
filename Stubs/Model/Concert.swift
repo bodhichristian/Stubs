@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftData
-import SwiftUI
 
 @Model
+// MARK: Concert Type
 final class Concert {
+    let uuid: UUID
     var artist: String
     var venue: String
     var city: String
@@ -19,7 +20,7 @@ final class Concert {
     var accentColor: String
     var isFavorite: Bool
     
-    init(artist: String, venue: String, city: String, date: Date, iconName: String, accentColor: String, isFavorite: Bool = false) {
+    init(uuid: UUID = UUID(), artist: String, venue: String, city: String, date: Date, iconName: String, accentColor: String, isFavorite: Bool = false) {
         self.artist = artist
         self.venue = venue
         self.city = city
