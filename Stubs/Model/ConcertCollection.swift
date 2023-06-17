@@ -9,7 +9,6 @@
 //import SwiftUI
 //import SwiftData
 //
-//let calendar = Calendar.current
 //
 //@Model
 //// MARK: Collection Model
@@ -19,6 +18,25 @@
 //    init(concerts: [Concert]) {
 //        self.savedConcerts = concerts
 //    }
+//    
+//    var concertsByDecade: [Int: [Concert]] {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy"
+//        
+//        let groups = Dictionary(grouping: savedConcerts.sorted(by: { $0.date < $1.date })) { concert in
+//            let year = Calendar.current.component(.year, from: concert.date)
+//            let decade = (year / 10) * 10 // Round down to the nearest decade
+//            return decade
+//        }
+//        
+//        return groups.mapValues { concerts in
+//            concerts.sorted { concert1, concert2 in
+//                concert1.date > concert2.date
+//            }
+//        }
+//    }
+//    
+//    
 //    
 //    // MARK: Collection Protocol
 //    typealias Index = Array<Concert>.Index
@@ -42,6 +60,8 @@
 //    var count: Int {
 //        return savedConcerts.count 
 //    }
+//    
+//    
 //    
 //    // MARK: An Array of Sample Concerts
 //    static let sampleConcerts: [Concert] = [

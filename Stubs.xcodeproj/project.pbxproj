@@ -20,6 +20,7 @@
 		AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* SampleData.swift */; };
 		AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */; };
 		AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* Customizable.swift */; };
+		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		AA8A74882A32D65E003E9B41 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailView.swift; sourceTree = "<group>"; };
 		AA8A74902A33EE53003E9B41 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
+		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
 				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
+				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			files = (
 				AA8A746E2A32BDF3003E9B41 /* ContentView.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
+				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,

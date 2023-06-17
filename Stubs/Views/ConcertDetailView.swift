@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConcertDetailView: View {
     @Environment(\.modelContext) var modelContext
-    let concert: Concert
+    @State var concert: Concert
     
     
     let gradient = LinearGradient( // For stub base
@@ -53,8 +53,6 @@ extension ConcertDetailView {
                 .foregroundStyle(.white)
                 .shadow(radius: 4, y: 6)
                 .padding(40)
-                
-                
         }
     }
     // Concert details
@@ -82,31 +80,23 @@ extension ConcertDetailView {
         .frame(height: 330)
         .padding(40)
     }
-    // Favorite...
+    // Favorite, Delete
     private var actionButtons: some View {
-        HStack {
-            Button { // Favorite toggle
-                withAnimation(.interactiveSpring) {
-                    concert.isFavorite.toggle()
-                }
-            } label: {
-                Label(title: {
-                    Text("Favorite")
-                    .foregroundColor(.primary)
-                    .frame(width: 80)
-                }, icon: {
-                    Image(systemName: concert.isFavorite
-                          ? "checkmark.seal"
-                          : "checkmark.seal.fill")
-                    .renderingMode(.template)
-                    .foregroundColor(.yellow)
-                    
-                } )
-                .padding(5)
-                
+        HStack(spacing: 20) {
+            ActionButton(titleKey: "Favorite",
+                         defaultImageName: "checkmark.seal",
+                         highlightedImageName: "checkmark.seal.fill",
+                         accentColor: .yellow,
+                         concert: $concert) {
+                concert.isFavorite.toggle()
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.secondary.opacity(0.1))
+            
+            ActionButton(titleKey: "Delete",
+                         defaultImageName: "trash",
+                         accentColor: .red,
+                         concert: $concert) {
+                modelContext.delete(concert)
+            }
         }
     }
 }

@@ -30,7 +30,6 @@ struct ContentView: View {
                                     ConcertLabel(concert: concert)
                                 }
                             }
-                            .onDelete(perform: delete)
                         }
                     }
                 }
@@ -45,10 +44,6 @@ struct ContentView: View {
                 AddConcertView()
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                
                 ToolbarItem {
                     Button {
                         isAddingConcert = true
@@ -114,6 +109,7 @@ extension ContentView {
         }
     }
     // View that instructs user to add first concert
+    // Includes Sample Data generation when running in Xcode
     private var noConcertsView: some View {
         VStack {
             Spacer()
