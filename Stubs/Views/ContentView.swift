@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var allConcerts: [Concert]
+    @Query private var concerts: [Concert]
     
     @State private var isAddingConcert = false
     
@@ -20,22 +20,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List {
-                    ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
-                        Section(header: decadeHeader(decade)) {
-                            ForEach(concertsByDecade[decade]!, id: \.id) { concert in
-                                NavigationLink{
-                                    ConcertDetailView(concert: concert)
-                                } label: {
-                                    ConcertLabel(concert: concert)
+                    List {
+                        ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
+                            Section(header: decadeHeader(decade)) {
+                                ForEach(concertsByDecade[decade]!, id: \.id) { concert in
+                                    NavigationLink{
+                                        ConcertDetailView(concert: concert)
+                                    } label: {
+                                        ConcertLabel(concert: concert)
+                                    }
+                                    
                                 }
                             }
                         }
                     }
-                }
-                .searchable(text: $searchText, prompt: searchPrompt)
+                    .searchable(text: $searchText, prompt: searchPrompt)
+                    
                 
-                if allConcerts.isEmpty {
+                if concerts.isEmpty {
                     noConcertsView
                 }
             }
@@ -65,9 +67,9 @@ extension ContentView {
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {
-            return allConcerts
+            return concerts
         } else {
-            return allConcerts.filter { concert in
+            return concerts.filter { concert in
                 return concert.artist.lowercased().contains(searchText.lowercased()) ||
                 concert.venue.lowercased().contains(searchText.lowercased()) ||
                 concert.city.lowercased().contains(searchText.lowercased()) ||
@@ -104,7 +106,7 @@ extension ContentView {
     private func delete(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(allConcerts[index])
+                modelContext.delete(concerts[index])
             }
         }
     }

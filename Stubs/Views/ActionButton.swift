@@ -16,7 +16,7 @@ struct ActionButton: View {
 
     let action: () -> ()
 
-    init(titleKey: String,defaultImageName: String,highlightedImageName: String? = nil,accentColor: Color,concert: Binding<Concert>,action: @escaping () -> ()) {
+    init(titleKey: String,defaultImageName: String, highlightedImageName: String? = nil,accentColor: Color,concert: Binding<Concert>,action: @escaping () -> ()) {
             self.titleKey = titleKey
             self.defaultImageName = defaultImageName
             self.highlightedImageName = highlightedImageName
