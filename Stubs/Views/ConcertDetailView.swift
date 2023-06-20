@@ -15,6 +15,8 @@ struct ConcertDetailView: View {
     @State private var deleteAlertTitle = Text("Delete Stub")
     @State private var deleteAlertMessage = Text("Are you sure you want to delete this ticket stub?")
     
+    @State private var iconTapped = false
+    
     let gradient = LinearGradient( // For stub base
         colors: [.clear, .black.opacity(0.5)],
         startPoint: .topLeading,
@@ -75,6 +77,14 @@ extension ConcertDetailView {
                 .foregroundStyle(.white)
                 .shadow(radius: 4, y: 6)
                 .padding(40)
+                .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
+                .onAppear {
+                    iconTapped.toggle()
+                }
+                .onTapGesture {
+                    iconTapped.toggle()
+                }
+                
         }
     }
     // Concert details
