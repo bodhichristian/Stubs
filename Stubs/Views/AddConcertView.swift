@@ -24,6 +24,8 @@ struct AddConcertView: View {
     @State private var colorOptions = Customizable.colors
     @State private var iconOptions = Customizable.icons
     
+
+    
     var formNotComplete: Bool { // Returns true if any field is empty
         artist.isEmpty || venue.isEmpty || city.isEmpty
     }

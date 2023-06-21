@@ -28,7 +28,7 @@ struct SampleData {
             city: "Nashville, TN",
             date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
             iconName: "music.mic",
-            accentColor: "indigo"
+            accentColor: "cyan"
         ),
         
         Concert(
@@ -73,7 +73,7 @@ struct SampleData {
             city: "San Quentin, CA",
             date: calendar.date(from: DateComponents(year: 1969,month: 2,day: 24))!,
             iconName: "wave.3.forward",
-            accentColor: "red"
+            accentColor: "orange"
         ),
         
         Concert(
@@ -91,7 +91,7 @@ struct SampleData {
             city: "Memphis, TN",
             date: calendar.date(from: DateComponents(year: 1954, month: 7, day: 30))!,
             iconName: "guitars",
-            accentColor: "orange"
+            accentColor: "brown"
         ),
         
         Concert(
@@ -100,7 +100,7 @@ struct SampleData {
             city: "New York, NY",
             date: calendar.date(from: DateComponents(year: 1965, month: 8, day: 15))!,
             iconName: "music.mic",
-            accentColor: "blue"
+            accentColor: "teal"
         ),
         
         Concert(
@@ -136,7 +136,7 @@ struct SampleData {
             city: "Reading, UK",
             date: calendar.date(from: DateComponents(year: 1992, month: 8, day: 30))!,
             iconName: "music.quarternote.3",
-            accentColor: "yellow"
+            accentColor: "brown"
         ),
         
         Concert(
@@ -154,7 +154,7 @@ struct SampleData {
             city: "Indio, CA",
             date: calendar.date(from: DateComponents(year: 2018, month: 4, day: 14))!,
             iconName: "music.note.list",
-            accentColor: "blue"
+            accentColor: "yellow"
         ),
         
         Concert(

@@ -13,6 +13,8 @@ struct IconSelector: View {
     
     let iconOptions = Customizable.icons
     
+    @State private var iconTapped = false
+
     var body: some View {
         Section("Icon") {
             VStack {
@@ -22,6 +24,10 @@ struct IconSelector: View {
                     .frame(width: 150, height: 150)
                     .foregroundStyle(Color(colorName: accentColor)!)
                     .shadow(radius: 5, y: 8)
+                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
+                    .onAppear {
+                        iconTapped.toggle()
+                    }
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 20) {

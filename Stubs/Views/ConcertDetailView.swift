@@ -127,12 +127,9 @@ extension ConcertDetailView {
                          defaultImageName: "trash",
                          accentColor: .red,
                          concert: $concert) {
-                showingDeleteAlert = true
+                modelContext.delete(concert)
             }
         }
     }
-    
-    private func delete() {
-        modelContext.delete(concert)
-    }
+
 }
