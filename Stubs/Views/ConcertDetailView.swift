@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct ConcertDetailView: View {
-    @Environment(\.modelContext) var modelContext
     @State var concert: Concert
-    
-    @State private var showingDeleteAlert = false
-    @State private var deleteAlertTitle = Text("Delete Stub")
-    @State private var deleteAlertMessage = Text("Are you sure you want to delete this ticket stub?")
-    
-    @State private var iconTapped = false
-    
+    @State private var iconTapped = false // For icon animation
+    @Environment(\.modelContext) var modelContext
+
     let gradient = LinearGradient( // For stub base
         colors: [.clear, .black.opacity(0.5)],
         startPoint: .topLeading,
@@ -33,25 +28,6 @@ struct ConcertDetailView: View {
         }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
-        
-        
-        
-        // MARK: Alert for deletion is causing an error when the delete function is finally called.
-        // This does not occur if the action is called directly from the Delete button
-        
-//        .alert(isPresented: $showingDeleteAlert, content: {
-//            Alert(
-//                title: deleteAlertTitle,
-//                message: deleteAlertMessage,
-//                primaryButton: .default(Text("Cancel")),
-//                secondaryButton: .destructive(Text("Delete"), action:  {
-//                    delete()
-//                }
-//                                             ))
-//        })
-        
-        
-        
     }
 }
 
@@ -84,7 +60,6 @@ extension ConcertDetailView {
                 .onTapGesture {
                     iconTapped.toggle()
                 }
-                
         }
     }
     // Concert details

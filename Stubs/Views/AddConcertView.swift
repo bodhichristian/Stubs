@@ -9,9 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct AddConcertView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) var dismiss
-    
     @Query var concerts: [Concert]
     
     @State private var artist = ""
@@ -24,7 +21,8 @@ struct AddConcertView: View {
     @State private var colorOptions = Customizable.colors
     @State private var iconOptions = Customizable.icons
     
-
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
     
     var formNotComplete: Bool { // Returns true if any field is empty
         artist.isEmpty || venue.isEmpty || city.isEmpty

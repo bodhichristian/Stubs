@@ -10,10 +10,10 @@ import SwiftUI
 struct IconSelector: View {
     @Binding var iconName: String
     @Binding var accentColor: String
-    
-    let iconOptions = Customizable.icons
-    
+        
     @State private var iconTapped = false // For animating icons
+
+    let iconOptions = Customizable.icons
 
     var body: some View {
         Section("Icon") {

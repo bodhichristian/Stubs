@@ -10,14 +10,15 @@ import SwiftData
 
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
     @Query private var concerts: [Concert]
     
-    @State private var isAddingConcert = false
+    @State private var isAddingConcert = false // AddConcertView presented when true
     
     @State private var searchPrompt = "Artist, Venue, City, or Date"
     @State private var searchText = ""
     
+    @Environment(\.modelContext) private var modelContext
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -30,13 +31,11 @@ struct ContentView: View {
                                     } label: {
                                         ConcertLabel(concert: concert)
                                     }
-                                    
                                 }
                             }
                         }
                     }
                     .searchable(text: $searchText, prompt: searchPrompt)
-                    
                 
                 if concerts.isEmpty {
                     noConcertsView
