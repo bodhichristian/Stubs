@@ -23,12 +23,12 @@ extension Color {
             self = .indigo
         case "purple":
             self = .purple
-        case "teal":
-            self = .teal
         case "cyan":
             self = .cyan
         case "mint":
             self = .mint
+        case "teal":
+            self = .teal
         case "brown":
             self = .brown
         case "gray":
