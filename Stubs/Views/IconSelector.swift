@@ -13,7 +13,7 @@ struct IconSelector: View {
     
     let iconOptions = Customizable.icons
     
-    @State private var iconTapped = false
+    @State private var iconTapped = false // For animating icons
 
     var body: some View {
         Section("Icon") {
@@ -28,7 +28,6 @@ struct IconSelector: View {
                     .onAppear {
                         iconTapped.toggle()
                     }
-                    
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 20) {
@@ -41,7 +40,6 @@ struct IconSelector: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
-                                
                             }
                         }
                     }
