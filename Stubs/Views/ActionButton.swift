@@ -16,7 +16,7 @@ struct ActionButton: View {
 
     let action: () -> ()
 
-    init(titleKey: String,defaultImageName: String, highlightedImageName: String? = nil,accentColor: Color,concert: Binding<Concert>,action: @escaping () -> ()) {
+    init(titleKey: String, defaultImageName: String, highlightedImageName: String? = nil,accentColor: Color,concert: Binding<Concert>,action: @escaping () -> ()) {
             self.titleKey = titleKey
             self.defaultImageName = defaultImageName
             self.highlightedImageName = highlightedImageName
@@ -36,9 +36,12 @@ struct ActionButton: View {
                 .foregroundColor(.primary)
                 .frame(width: 80)
             }, icon: {
+                // If concert is Favorite
                 Image(systemName: concert.isFavorite
-                      ? defaultImageName
-                      : highlightedImageName ?? defaultImageName)
+                      // Display highlighted Image, nil coalescing to the non-optional default
+                      ? highlightedImageName ?? defaultImageName
+                      // Else, display defaul image
+                      : defaultImageName)
                 .renderingMode(.template)
                 .foregroundColor(accentColor)
                 
