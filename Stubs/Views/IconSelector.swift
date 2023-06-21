@@ -28,6 +28,7 @@ struct IconSelector: View {
                     .onAppear {
                         iconTapped.toggle()
                     }
+                    .padding()
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 20) {
