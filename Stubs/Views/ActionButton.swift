@@ -44,10 +44,8 @@ struct ActionButton: View {
                       : defaultImageName)
                 .renderingMode(.template)
                 .foregroundColor(accentColor)
-                
             } )
             .padding(5)
-            
         }
         .buttonStyle(.borderedProminent)
         .tint(.secondary.opacity(0.1))

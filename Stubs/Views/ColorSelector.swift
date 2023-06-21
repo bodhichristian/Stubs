@@ -27,6 +27,7 @@ struct ColorSelector: View {
                     }
                 }
             }
+            .scrollTargetBehavior(.paging)
             .shadow(radius: 5, y: 8)
             .padding(.vertical, 10)
         }

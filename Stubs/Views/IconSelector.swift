@@ -30,13 +30,15 @@ struct IconSelector: View {
                                 iconName = icon
                             } label: {
                                 Image(systemName: icon)
-                                    .font(.largeTitle)
-                                    .frame(width: 40)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
                             }
                         }
                     }
                     .foregroundStyle(.primary)
                 }
+                .scrollTargetBehavior(.paging)
                 .padding(.vertical, 10)
             }
         }
@@ -46,3 +48,6 @@ struct IconSelector: View {
 #Preview {
     IconSelector(iconName: .constant("guitars"), accentColor: .constant("blue"))
 }
+
+
+

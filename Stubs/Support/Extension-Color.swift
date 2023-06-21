@@ -25,8 +25,19 @@ extension Color {
             self = .indigo
         case "purple":
             self = .purple
+        case "teal":
+            self = .teal
+        case "cyan":
+            self = .cyan
+        case "brown":
+            self = .brown
+        case "gray":
+            self = .gray
+            
         default:
             self = .blue
         }
+        
+        
     }
 }
