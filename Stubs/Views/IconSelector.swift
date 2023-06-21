@@ -28,17 +28,20 @@ struct IconSelector: View {
                     .onAppear {
                         iconTapped.toggle()
                     }
+                    
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 20) {
                         ForEach(iconOptions, id: \.self) { icon in
                             Button {
                                 iconName = icon
+                                iconTapped.toggle()
                             } label: {
                                 Image(systemName: icon)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
+                                
                             }
                         }
                     }
