@@ -3,7 +3,8 @@ A SwiftUI app for storing digital representations of concert ticket stubs. This 
 
 <b>Stubs</b> benefits from:
 * SwiftData for persistence.
+* MapKit updates for SwiftUI
 * Animated SF Symbols
 * New ScrollView APIs
   
-![‎Stubs Showcase ‎001](https://github.com/bodhichristian/Stubs/assets/110639779/bb17299b-264f-400c-8f9f-34bcf7d55a4a)
+![‎Stubs Showcase ‎001](https://github.com/bodhichristian/Stubs/assets/110639779/6409955b-0cc6-4b84-b804-e9aa708a8da0)
