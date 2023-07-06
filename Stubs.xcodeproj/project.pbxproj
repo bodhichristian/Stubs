@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
+		AA6ED6E02A57142400174574 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* ItemInfoView.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
 		AA8A746E2A32BDF3003E9B41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* ContentView.swift */; };
 		AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */; };
@@ -20,12 +21,14 @@
 		AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* SampleData.swift */; };
 		AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */; };
 		AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* Customizable.swift */; };
+		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
+		AA6ED6DF2A57142400174574 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsApp.swift; sourceTree = "<group>"; };
 		AA8A746D2A32BDF3003E9B41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		AA8A74882A32D65E003E9B41 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailView.swift; sourceTree = "<group>"; };
 		AA8A74902A33EE53003E9B41 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
+		AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +112,8 @@
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
 				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
+				AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */,
+				AA6ED6DF2A57142400174574 /* ItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,8 +199,10 @@
 			files = (
 				AA8A746E2A32BDF3003E9B41 /* ContentView.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
+				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
+				AA6ED6E02A57142400174574 /* ItemInfoView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
@@ -336,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stubs/Preview Content\"";
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -364,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Stubs/Preview Content\"";
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

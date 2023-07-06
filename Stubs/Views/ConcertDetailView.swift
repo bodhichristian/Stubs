@@ -10,6 +10,7 @@ import SwiftUI
 struct ConcertDetailView: View {
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
+    @State private var showingMapView = false
     @Environment(\.modelContext) var modelContext
 
     let gradient = LinearGradient( // For stub base
@@ -18,6 +19,7 @@ struct ConcertDetailView: View {
         endPoint: .bottomTrailing
     )
     
+    
     var body: some View {
         VStack{
             ZStack(alignment: .topLeading) {
@@ -25,9 +27,14 @@ struct ConcertDetailView: View {
                 concertDetails
             }
             actionButtons
+            
         }
+        
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showingMapView) {
+            VenueMapView(concert: concert)
+        }
     }
 }
 
@@ -89,7 +96,14 @@ extension ConcertDetailView {
     }
     // Favorite, Delete
     private var actionButtons: some View {
-        HStack(spacing: 20) {
+        VStack {
+            ActionButton(titleKey: "Map View",
+                         defaultImageName: "mappin.and.ellipse",
+                         accentColor: .green,
+                         concert: $concert) {
+                showingMapView = true
+            }
+            
             ActionButton(titleKey: "Favorite",
                          defaultImageName: "checkmark.seal",
                          highlightedImageName: "checkmark.seal.fill",
@@ -103,7 +117,7 @@ extension ConcertDetailView {
                          accentColor: .red,
                          concert: $concert) {
                 modelContext.delete(concert)
-            }
+            }            
         }
     }
 

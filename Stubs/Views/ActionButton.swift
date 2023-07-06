@@ -34,7 +34,7 @@ struct ActionButton: View {
             Label(title: {
                 Text(titleKey)
                 .foregroundColor(.primary)
-                .frame(width: 80)
+                .frame(width: 120)
             }, icon: {
                 // If concert is Favorite
                 Image(systemName: concert.isFavorite
