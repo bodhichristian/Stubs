@@ -47,7 +47,7 @@ struct VenueMapView: View {
                 VStack {
                     Spacer()
                     if let location {
-                        ItemInfoView(location: location, route: route)
+                        ItemInfoView(location: location)
                             .frame(height: 128)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .padding([.top, .horizontal])

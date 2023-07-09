@@ -23,6 +23,7 @@
 		AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* Customizable.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
+		AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AAB0501B2A5AF07700EB88BD /* YouTubeKit */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,9 @@
 			dependencies = (
 			);
 			name = Stubs;
+			packageProductDependencies = (
+				AAB0501B2A5AF07700EB88BD /* YouTubeKit */,
+			);
 			productName = Stubs;
 			productReference = AA8A74682A32BDF3003E9B41 /* Stubs.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +179,9 @@
 				Base,
 			);
 			mainGroup = AA8A745F2A32BDF3003E9B41;
+			packageReferences = (
+				AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */,
+			);
 			productRefGroup = AA8A74692A32BDF3003E9B41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -420,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/b5i/YouTubeKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AAB0501B2A5AF07700EB88BD /* YouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */;
+			productName = YouTubeKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA8A74602A32BDF3003E9B41 /* Project object */;
 }

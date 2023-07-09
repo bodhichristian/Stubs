@@ -21,6 +21,7 @@ final class Concert {
     var isFavorite: Bool
     
     init(uuid: UUID = UUID(), artist: String, venue: String, city: String, date: Date, iconName: String, accentColor: String, isFavorite: Bool = false) {
+        self.uuid = uuid
         self.artist = artist
         self.venue = venue
         self.city = city
