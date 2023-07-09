@@ -12,9 +12,18 @@ struct VenueMapView: View {
     let concert: Concert
     let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
+    let gradient = LinearGradient( // For stub base
+        colors: [.clear, .black.opacity(0.5)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    
+    
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     @State private var route: MKRoute?
+    
+    
 
     @Environment(\.dismiss) var dismiss
     
@@ -27,6 +36,12 @@ struct VenueMapView: View {
             ZStack {
                 Map(position: $position, selection: $location) {
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
+                    
+                    Annotation(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates) {
+                        StubView(concert: concert, size: .small)
+                            .offset(y: -120)
+                    }
+                    
                 }
                 
                 VStack {
