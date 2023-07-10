@@ -30,10 +30,4 @@ final class Concert {
         self.accentColor = accentColor
         self.isFavorite = isFavorite
     }
-    
-    var decade: Int {
-        let year = Calendar.current.component(.year, from: date)
-        let decade = (year / 10) * 10 // Round down to the nearest decade
-        return decade
-    }
 }
