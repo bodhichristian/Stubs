@@ -26,11 +26,9 @@ struct ItemInfoView: View {
                 .onAppear {
                     getLookAroundScene()
                 }
-        
     }
     
     func getLookAroundScene() {
-        lookAroundScene = nil
         Task {
             let request = MKLookAroundSceneRequest(mapItem: location)
             lookAroundScene = try? await request.scene
