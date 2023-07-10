@@ -16,7 +16,12 @@ struct ActionButton: View {
 
     let action: () -> ()
 
-    init(titleKey: String, defaultImageName: String, highlightedImageName: String? = nil, accentColor: Color,concert: Binding<Concert>, action: @escaping () -> ()) {
+    init(titleKey: String,
+         defaultImageName: String,
+         highlightedImageName: String? = nil,
+         accentColor: Color,
+         concert: Binding<Concert>,
+         action: @escaping () -> ()) {
             self.titleKey = titleKey
             self.defaultImageName = defaultImageName
             self.highlightedImageName = highlightedImageName
@@ -53,5 +58,11 @@ struct ActionButton: View {
 }
 
 #Preview {
-    ActionButton(titleKey: "Favorite", defaultImageName: "checkmark", highlightedImageName: "checkmark.seal", accentColor: .yellow, concert: .constant(SampleData.concerts[0]), action: {})
+    ActionButton(titleKey: "Favorite",
+                 defaultImageName: "checkmark",
+                 highlightedImageName: "checkmark.seal",
+                 accentColor: .yellow,
+                 concert: .constant(SampleData.concerts[0]),
+                 action: {}
+    )
 }

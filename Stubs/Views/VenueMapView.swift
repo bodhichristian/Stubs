@@ -12,28 +12,19 @@ struct VenueMapView: View {
     let concert: Concert
     let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
-    let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.5)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-    
-    
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     @State private var route: MKRoute?
-    
-    
 
     @Environment(\.dismiss) var dismiss
     
-    var query: String {
+    var query: String { // Creates the location query
         return concert.venue + " " + concert.city
     }
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack { // Apple Maps base
                 Map(position: $position, selection: $location) {
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
                     
@@ -41,10 +32,9 @@ struct VenueMapView: View {
                         StubView(concert: concert, size: .small)
                             .offset(y: -120)
                     }
-                    
                 }
                 
-                VStack {
+                VStack { // Look Around preview
                     Spacer()
                     if let location {
                         ItemInfoView(location: location)
@@ -82,8 +72,6 @@ struct VenueMapView: View {
     }
 }
 
-
-//
-//#Preview {
-//    VenueMapView(concert: SampleData.concerts[0])
-//}
+#Preview {
+    VenueMapView(concert: SampleData.concerts[0])
+}

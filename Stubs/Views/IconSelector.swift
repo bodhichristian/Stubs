@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct IconSelector: View {
+    let iconOptions = Customizable.icons
+    
+    @State private var iconTapped = false // For animating icons
+
     @Binding var iconName: String
     @Binding var accentColor: String
         
-    @State private var iconTapped = false // For animating icons
-
-    let iconOptions = Customizable.icons
-
     var body: some View {
         Section("Icon") {
             VStack {
-                Image(systemName: iconName)
+                Image(systemName: iconName) // Large Icon Preview
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
@@ -30,7 +30,7 @@ struct IconSelector: View {
                     }
                     .padding()
                 
-                ScrollView(.horizontal){
+                ScrollView(.horizontal){ // Icon options
                     HStack(spacing: 20) {
                         ForEach(iconOptions, id: \.self) { icon in
                             Button {

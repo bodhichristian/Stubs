@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ColorSelector: View {
-    @Binding var accentColor: String
-
     let colorOptions = Customizable.colors
+
+    @Binding var accentColor: String
     
     var body: some View {
         Section("Accent Color") {

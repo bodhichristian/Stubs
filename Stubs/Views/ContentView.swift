@@ -23,8 +23,11 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                     List {
+                        // Sort concerts in reverse chronological order
                         ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
+                            // Create a section for each decade
                             Section(header: decadeHeader(decade)) {
+                                // Create a NavLink to ConcertDetailView for each concert
                                 ForEach(concertsByDecade[decade]!, id: \.id) { concert in
                                     NavigationLink{
                                         ConcertDetailView(concert: concert)
@@ -37,7 +40,7 @@ struct ContentView: View {
                     }
                     .searchable(text: $searchText, prompt: searchPrompt)
                 
-                if concerts.isEmpty {
+                if concerts.isEmpty { // If no concerts have been saved
                     noConcertsView
                 }
             }

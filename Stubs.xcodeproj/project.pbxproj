@@ -101,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
-				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,14 +110,14 @@
 			children = (
 				AA8A746D2A32BDF3003E9B41 /* ContentView.swift */,
 				AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */,
-				AAB050182A59D88600EB88BD /* StubView.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
+				AAB050182A59D88600EB88BD /* StubView.swift */,
+				AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */,
+				AA6ED6DF2A57142400174574 /* ItemInfoView.swift */,
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
 				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
-				AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */,
-				AA6ED6DF2A57142400174574 /* ItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +125,7 @@
 		AA8A74802A32C8FE003E9B41 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
 				AA8A74812A32C912003E9B41 /* Extension-Color.swift */,
 				AA8A74902A33EE53003E9B41 /* Customizable.swift */,
 			);

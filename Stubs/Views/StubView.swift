@@ -29,13 +29,13 @@ struct StubView: View {
             ticketStubBase
             concertDetails
         }
+        .padding(.horizontal)
     }
 }
 
 #Preview {
     StubView(concert: SampleData.concerts[0], size: .large)
 }
-
 
 extension StubView {
     // Stub base, color, and icon
@@ -102,7 +102,7 @@ extension StubView {
         .frame(height: size == .small ? 70 : 210)
         .padding(size == .small ? 30 : 40)
     }
-    
+    // Artist name with truncation where needed
     private var artistName: String {
         switch size {
         case .small:
@@ -116,7 +116,7 @@ extension StubView {
             return concert.artist
         }
     }
-    
+    // Calculate font weight based on StubSize
     private var titleFont: Font {
         switch size {
         case .small:
@@ -125,7 +125,7 @@ extension StubView {
             return .largeTitle.bold()
         }
     }
-    
+    // Calculate font weight based on StubSize
     private var secondaryFont: Font {
         switch size {
         case .small:
