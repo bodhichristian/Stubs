@@ -8,9 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct AddConcertView: View {
-    //@Query var concerts: [Concert]
-    
+struct AddConcertView: View {    
     @State private var artist = ""
     @State private var venue = ""
     @State private var city = ""
