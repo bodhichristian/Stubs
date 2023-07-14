@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
+		AA48FECE2A60CB52005BA775 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AA48FECD2A60CB52005BA775 /* Kingfisher */; };
+		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
+		AA48FED22A60E854005BA775 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FED12A60E854005BA775 /* SafariView.swift */; };
 		AA6ED6E02A57142400174574 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* ItemInfoView.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
 		AA8A746E2A32BDF3003E9B41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* ContentView.swift */; };
@@ -21,6 +24,7 @@
 		AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* SampleData.swift */; };
 		AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */; };
 		AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* Customizable.swift */; };
+		AA8AA4612A60434C005692C9 /* YouTubeSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
 		AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AAB0501B2A5AF07700EB88BD /* YouTubeKit */; };
@@ -30,6 +34,8 @@
 /* Begin PBXFileReference section */
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
+		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
+		AA48FED12A60E854005BA775 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsApp.swift; sourceTree = "<group>"; };
@@ -43,6 +49,7 @@
 		AA8A74882A32D65E003E9B41 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailView.swift; sourceTree = "<group>"; };
 		AA8A74902A33EE53003E9B41 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
+		AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSearchResultsView.swift; sourceTree = "<group>"; };
 		AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA48FECE2A60CB52005BA775 /* Kingfisher in Frameworks */,
 				AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +126,7 @@
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
 				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
+				AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +137,8 @@
 				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
 				AA8A74812A32C912003E9B41 /* Extension-Color.swift */,
 				AA8A74902A33EE53003E9B41 /* Customizable.swift */,
+				AA48FECF2A60DE3E005BA775 /* Extension-String.swift */,
+				AA48FED12A60E854005BA775 /* SafariView.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 			name = Stubs;
 			packageProductDependencies = (
 				AAB0501B2A5AF07700EB88BD /* YouTubeKit */,
+				AA48FECD2A60CB52005BA775 /* Kingfisher */,
 			);
 			productName = Stubs;
 			productReference = AA8A74682A32BDF3003E9B41 /* Stubs.app */;
@@ -181,6 +193,7 @@
 			mainGroup = AA8A745F2A32BDF3003E9B41;
 			packageReferences = (
 				AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */,
+				AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = AA8A74692A32BDF3003E9B41 /* Products */;
 			projectDirPath = "";
@@ -217,7 +230,10 @@
 				AA6ED6E02A57142400174574 /* ItemInfoView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
+				AA8AA4612A60434C005692C9 /* YouTubeSearchResultsView.swift in Sources */,
+				AA48FED22A60E854005BA775 /* SafariView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
+				AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
@@ -430,6 +446,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.1;
+			};
+		};
 		AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/b5i/YouTubeKit";
@@ -441,6 +465,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AA48FECD2A60CB52005BA775 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		AAB0501B2A5AF07700EB88BD /* YouTubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */;

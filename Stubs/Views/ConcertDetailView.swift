@@ -18,6 +18,7 @@ struct ConcertDetailView: View {
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
+
         
     var body: some View {
         VStack{
@@ -38,27 +39,50 @@ struct ConcertDetailView: View {
 extension ConcertDetailView {
     // Map View, Favorite, Delete
     private var actionButtons: some View {
-        VStack {
-            ActionButton(titleKey: "Map View",
-                         defaultImageName: "mappin.and.ellipse",
-                         accentColor: .green,
-                         concert: $concert) {
-                showingMapView = true
+        HStack {
+            VStack {
+                ActionButton(titleKey: "Map View",
+                             defaultImageName: "mappin.and.ellipse",
+                             accentColor: .green,
+                             concert: $concert) {
+                    showingMapView = true
+                }
+                
+                ActionButton(titleKey: "Favorite",
+                             defaultImageName: "checkmark.seal",
+                             highlightedImageName: "checkmark.seal.fill",
+                             accentColor: .yellow,
+                             concert: $concert) {
+                    concert.isFavorite.toggle()
+                }
             }
             
-            ActionButton(titleKey: "Favorite",
-                         defaultImageName: "checkmark.seal",
-                         highlightedImageName: "checkmark.seal.fill",
-                         accentColor: .yellow,
-                         concert: $concert) {
-                concert.isFavorite.toggle()
-            }
-            
-            ActionButton(titleKey: "Delete",
-                         defaultImageName: "trash",
-                         accentColor: .red,
-                         concert: $concert) {
-                modelContext.delete(concert)
+            VStack {
+                NavigationLink {
+                    YouTubeSearchResultsView(concert: concert)
+                } label: {
+                    
+                    Label(title: {
+                        Text("YouTube")
+                        .foregroundColor(.primary)
+                        .frame(width: 120)
+                    }, icon: {
+                        // If concert is Favorite
+                        Image(systemName: "video")
+                        .renderingMode(.template)
+                        .foregroundColor(.red)
+                    } )
+                    .padding(5)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.secondary.opacity(0.1))
+                
+                ActionButton(titleKey: "Delete",
+                             defaultImageName: "trash",
+                             accentColor: .red,
+                             concert: $concert) {
+                    modelContext.delete(concert)
+                }
             }
         }
     }
