@@ -14,7 +14,7 @@ struct StubsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConcertsView()
         }
         .modelContainer(for: Concert.self)
     }

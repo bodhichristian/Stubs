@@ -17,22 +17,14 @@ struct YouTubeSearchResultsView: View {
     let concert: Concert
     let youtubeModel = YouTubeModel()
     let youtubeURL = "http://www.youtube.com"
-    //let defaultURL = URL(string: "http://www.youtube.com")!
     
-    
-    var query: String {
-        concert.artist + " live at " + concert.venue + concert.city + concert.date.formatted()
+    var defaultURL: String {
+        "https://www.youtube.com/results?search_query=\(concert.artist)"
     }
-    
-    var defaultURL: URL {
-        URL(string: "https://www.youtube.com/results?search_query=\(concert.artist)")!
-    }
-    
     
     @State private var videoList: [YTVideo] = []
     @State private var showingSafariView = false
     @State private var selectedVideoURL: String?
-
     
     var body: some View {
         NavigationStack {
@@ -75,7 +67,7 @@ struct YouTubeSearchResultsView: View {
                                     }
                                     
                                     VStack(alignment: .leading, spacing: 0) {
-                                        Text(video.title ?? query)
+                                        Text(video.title ?? concert.youTubeQuery)
                                             .font(.title3)
                                             .bold()
                                             .foregroundStyle(.primary)
@@ -114,7 +106,7 @@ struct YouTubeSearchResultsView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .sheet(isPresented: $showingSafariView) {
-                    SafariView(url: URL(string: selectedVideoURL ?? youtubeURL)!)
+                    SafariView(url: URL(string: defaultURL)!)
                 }
             }
             .navigationTitle("YouTube Search")
@@ -122,7 +114,7 @@ struct YouTubeSearchResultsView: View {
             .toolbar(.hidden)
         }
         .onAppear {
-            searchYoutube(for: query)
+            searchYoutube(for: concert.youTubeQuery)
         }
     }
     
@@ -133,12 +125,14 @@ struct YouTubeSearchResultsView: View {
             if let results = result?.results as? [YTVideo] {
                 videoList = results
                 print(results)
+            } else if let error {
+                print(error.localizedDescription)
             }
         }
     }
     
     func watchVideo(video: YTVideo) {
-        selectedVideoURL = "https://www.youtube.com/watch?v=\(video.videoId)"
+        selectedVideoURL = "https://www.youtube.com/watch?v=\(videoList[0].videoId)"
         showingSafariView = true
     }
     
