@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 
-struct ConcertsView: View {
+struct ConcertCollection: View {
     @Query private var concerts: [Concert]
     
     @State private var isAddingConcert = false // AddConcertView presented when true
@@ -62,11 +62,11 @@ struct ConcertsView: View {
 }
 
 #Preview {
-    ConcertsView()
+    ConcertCollection()
         .modelContainer(for: Concert.self, inMemory: true)
 }
 
-extension ConcertsView {
+extension ConcertCollection {
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {
