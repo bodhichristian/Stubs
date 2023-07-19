@@ -8,13 +8,12 @@
 import SwiftUI
 import SwiftData
 
-
 @main
 struct StubsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ConcertsView()
+            ConcertCollection()
         }
         .modelContainer(for: Concert.self)
     }

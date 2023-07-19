@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+// MARK: StubView - SwiftUI View
+// A View that represents a ticket stub
+// Available in multiple sizes
+
 enum StubSize {
     case small
     case large

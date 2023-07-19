@@ -8,6 +8,11 @@
 import SwiftUI
 import MapKit
 
+// MARK: VenueMapView - SwiftUI View
+// A View for displaying a concert's venue on a map
+// Custom StubView annotation
+// Look Around Preview
+
 struct VenueMapView: View {
     let concert: Concert
     let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -40,7 +45,7 @@ struct VenueMapView: View {
                     Spacer()
                     if let location {
                         // Provide a Look Around preview
-                        ItemInfoView(location: location)
+                        LookAroundView(location: location)
                             .frame(height: 128)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .padding([.top, .horizontal])

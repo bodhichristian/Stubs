@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// MARK: ConcertLabel - SwiftUI View
+// A View for previewing concert details
+
 struct ConcertLabel: View {
     let concert: Concert
     

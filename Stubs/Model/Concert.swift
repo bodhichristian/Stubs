@@ -9,8 +9,10 @@ import Foundation
 import SwiftData
 import YouTubeKit
 
-@Model
 // MARK: Concert Type
+// An object that represents a single concert
+
+@Model
 final class Concert {
     let uuid: UUID
     var artist: String

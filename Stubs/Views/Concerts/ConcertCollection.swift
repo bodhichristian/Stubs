@@ -8,11 +8,15 @@
 import SwiftUI
 import SwiftData
 
+// MARK: ConcertCollection - SwiftUI View
+// A View for displaying and searching for saved concerts
+// Performs query from SwiftData store
+// Groups concerts by decade
 
 struct ConcertCollection: View {
     @Query private var concerts: [Concert]
     
-    @State private var isAddingConcert = false // AddConcertView presented when true
+    @State private var isAddingConcert = false
     
     @State private var searchPrompt = "Artist, Venue, City, or Date"
     @State private var searchText = ""

@@ -8,10 +8,8 @@
 import SwiftUI
 import YouTubeKit
 
-import SwiftUI
-import YouTubeKit
-import Kingfisher
-import SafariServices
+// MARK: YouTubeSearchResultsView - SwiftUI View
+// A View for displaying YouTube videos returned from a concert-based search
 
 struct YouTubeSearchResultsView: View {
     let concert: Concert
@@ -29,22 +27,22 @@ struct YouTubeSearchResultsView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
-            ScrollView {
-                VStack(alignment: .leading){
-                    ForEach(videoList, id: \.id) { video in
-                        Button {
-                            watchVideo(video: video)
-                        } label: {
-                            VideoLabel(video: video, geo: geo)
+                ScrollView {
+                    VStack(alignment: .leading){
+                        ForEach(videoList, id: \.id) { video in
+                            Button {
+                                watchVideo(video: video)
+                            } label: {
+                                VideoLabel(video: video, geo: geo)
+                            }
                         }
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
+                .sheet(isPresented: $showingSafariView) {
+                    SafariView(url: URL(string: selectedVideoURL ?? defaultURL)!)
+                }
             }
-            .sheet(isPresented: $showingSafariView) {
-                SafariView(url: URL(string: selectedVideoURL ?? defaultURL)!)
-            }
-        }
             .navigationTitle("YouTube Search")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden)
@@ -53,7 +51,7 @@ struct YouTubeSearchResultsView: View {
             searchYoutube(for: concert.youTubeQuery)
         }
     }
-    
+    // Retrieve videos from YouTube
     func searchYoutube(for query: String) {
         let dataParams: [HeadersList.AddQueryInfo.ContentTypes: String] = [.query: query]
         
@@ -66,12 +64,11 @@ struct YouTubeSearchResultsView: View {
             }
         }
     }
-    
+    // Launch a sheet with SafariView presenting the selected video
     func watchVideo(video: YTVideo) {
         selectedVideoURL = "https://www.youtube.com/watch?v=\(video.videoId)"
         showingSafariView = true
     }
-    
 }
 
 #Preview {

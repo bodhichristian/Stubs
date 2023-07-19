@@ -9,6 +9,9 @@ import SwiftUI
 import YouTubeKit
 import Kingfisher
 
+// MARK: VideoLabel - SwiftUI View
+// A View for displaying details for a given YouTube video
+
 struct VideoLabel: View {
     let video: YTVideo
     let geo: GeometryProxy
@@ -40,7 +43,6 @@ struct VideoLabel: View {
                                 .bold()
                                 .foregroundStyle(.primary)
                                 .offset(y: geo.size.height * -0.07)
-                            
                         }
                     }
                 }

@@ -8,7 +8,10 @@
 import SwiftUI
 import MapKit
 
-struct ItemInfoView: View {
+// MARK: ItemInfoView - SwiftUI View
+// A View for displaying a Look Around Scene in a Look Around Preview
+
+struct LookAroundView: View {
     let location: MKMapItem // Currently selected POI
 
     @State private var lookAroundScene: MKLookAroundScene?
@@ -37,7 +40,7 @@ struct ItemInfoView: View {
 }
 
 #Preview {
-    ItemInfoView(location: MKMapItem(
+    LookAroundView(location: MKMapItem(
         placemark: MKPlacemark(
             coordinate: CLLocationCoordinate2D(latitude: 40.7305, longitude: -73.9934)))
     )

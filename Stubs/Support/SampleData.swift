@@ -11,7 +11,7 @@ import SwiftData
 let calendar = Calendar.current
 
 struct SampleData {
-    // MARK: An Array of Sample Concerts
+    // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
         Concert(
             artist: "Blind Breed",
@@ -166,9 +166,10 @@ struct SampleData {
             accentColor: "orange"
         )
     ]
-    let concertCount = concerts.count
     
-    // MARK: A function for adding Sample Data to a view's ModelContext
+    // Add Sample Data to a view's ModelContext
+    let concertCount = concerts.count
+
     func addSampleData(to modelContext: ModelContext) {
         for i in 0..<concertCount {
             modelContext.insert(SampleData.concerts[i])

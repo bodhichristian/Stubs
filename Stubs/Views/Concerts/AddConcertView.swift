@@ -8,7 +8,10 @@
 import SwiftUI
 import SwiftData
 
-struct AddConcertView: View {    
+// MARK: AddConcertView - SwiftUI View
+// A View that provides a form to add a new concert
+
+struct AddConcertView: View {
     @State private var artist = ""
     @State private var venue = ""
     @State private var city = ""

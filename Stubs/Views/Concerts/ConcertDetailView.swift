@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+// MARK: ConcertDetailView - SwiftUI View
+// A View for displaying the ticket stub and providing interactivity
+// Concert actions: Map View, YouTube, Favorite, Delete
+
 struct ConcertDetailView: View {
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
