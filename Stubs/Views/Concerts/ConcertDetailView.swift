@@ -11,6 +11,7 @@ struct ConcertDetailView: View {
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
     @State private var showingMapView = false
+    
     @Environment(\.modelContext) var modelContext
 
     let gradient = LinearGradient( // For stub base
@@ -22,10 +23,10 @@ struct ConcertDetailView: View {
         
     var body: some View {
         VStack{
+            // Display Ticket Stub
             StubView(concert: concert, size: .large)
-            
+            // Provide Action Buttons: Map View, YouTube, Favorite, Delete
             actionButtons
-            
         }
         
         .navigationTitle("Stub")
@@ -37,7 +38,7 @@ struct ConcertDetailView: View {
 }
 
 extension ConcertDetailView {
-    // Map View, Favorite, Delete
+    // Map View, YouTube, Favorite, Delete
     private var actionButtons: some View {
         HStack {
             VStack {

@@ -9,9 +9,9 @@ import SwiftUI
 import MapKit
 
 struct ItemInfoView: View {
+    let location: MKMapItem // Currently selected POI
+
     @State private var lookAroundScene: MKLookAroundScene?
-    
-    var location: MKMapItem // Currently selected POI
     
     var body: some View {
             LookAroundPreview(initialScene: lookAroundScene)

@@ -24,19 +24,22 @@ struct VenueMapView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack { // Apple Maps base
+            ZStack {
+                // Apple Maps base
                 Map(position: $position, selection: $location) {
+                    // Default Map Marker
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
-                    
+                    // Display a custom Annotation with StubView label
                     Annotation(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates) {
                         StubView(concert: concert, size: .small)
                             .offset(y: -120)
                     }
                 }
                 
-                VStack { // Look Around preview
+                VStack {
                     Spacer()
                     if let location {
+                        // Provide a Look Around preview
                         ItemInfoView(location: location)
                             .frame(height: 128)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -67,7 +70,13 @@ struct VenueMapView: View {
             let search = MKLocalSearch(request: request)
             let response = try? await search.start()
             location = response?.mapItems[0] ?? [][0]
-            position = .camera(MapCamera(centerCoordinate: location?.placemark.coordinate ?? defaultCoordinates, distance: 1500, heading: 242, pitch: 60))
+            position = .camera(
+                MapCamera(
+                    centerCoordinate: location?.placemark.coordinate ?? defaultCoordinates,
+                    distance: 1500,
+                    heading: 242,
+                    pitch: 60)
+            )
         }
     }
 }

@@ -38,7 +38,7 @@ struct ConcertsView: View {
                             }
                         }
                     }
-                    .searchable(text: $searchText, prompt: searchPrompt)
+                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
                 
                 if concerts.isEmpty { // If no concerts have been saved
                     noConcertsView

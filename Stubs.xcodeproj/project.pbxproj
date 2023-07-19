@@ -12,6 +12,7 @@
 		AA48FECE2A60CB52005BA775 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AA48FECD2A60CB52005BA775 /* Kingfisher */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA48FED22A60E854005BA775 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FED12A60E854005BA775 /* SafariView.swift */; };
+		AA4B4E2C2A677A5F00197B28 /* VideoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4E2B2A677A5F00197B28 /* VideoLabel.swift */; };
 		AA6ED6E02A57142400174574 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* ItemInfoView.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
 		AA8A746E2A32BDF3003E9B41 /* ConcertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* ConcertsView.swift */; };
@@ -36,6 +37,7 @@
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
 		AA48FED12A60E854005BA775 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		AA4B4E2B2A677A5F00197B28 /* VideoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLabel.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsApp.swift; sourceTree = "<group>"; };
@@ -78,7 +80,6 @@
 				AAB050182A59D88600EB88BD /* StubView.swift */,
 				AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */,
 				AA6ED6DF2A57142400174574 /* ItemInfoView.swift */,
-				AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */,
 			);
 			path = Concerts;
 			sourceTree = "<group>";
@@ -91,6 +92,15 @@
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AA4B4E2A2A677A1300197B28 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */,
+				AA4B4E2B2A677A5F00197B28 /* VideoLabel.swift */,
+			);
+			path = YouTube;
 			sourceTree = "<group>";
 		};
 		AA8A745F2A32BDF3003E9B41 = {
@@ -142,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				AA48FED32A64E51C005BA775 /* Concerts */,
+				AA4B4E2A2A677A1300197B28 /* YouTube */,
 				AA48FED42A64E63E005BA775 /* Components */,
 			);
 			path = Views;
@@ -254,6 +265,7 @@
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */,
+				AA4B4E2C2A677A5F00197B28 /* VideoLabel.swift in Sources */,
 				AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

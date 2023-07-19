@@ -38,7 +38,7 @@ struct StubView: View {
 }
 
 extension StubView {
-    // Stub base, color, and icon
+    // Create stub base, color, and icon
     private var ticketStubBase: some View {
         ZStack(alignment: .bottomTrailing) {
             RoundedRectangle(cornerRadius: 20) // Stub Background
@@ -74,7 +74,7 @@ extension StubView {
                 }
         }
     }
-    // Concert details
+    // Display concert details
     private var concertDetails: some View {
         VStack(alignment: .leading) {
             Text(artistName)
@@ -102,7 +102,7 @@ extension StubView {
         .frame(height: size == .small ? 70 : 210)
         .padding(size == .small ? 30 : 40)
     }
-    // Artist name with truncation where needed
+    // Create a display-ready artist name, truncate where needed
     private var artistName: String {
         switch size {
         case .small:
