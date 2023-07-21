@@ -11,4 +11,4 @@ Package Dependencies:
 * [YouTubeKit](https://github.com/b5i/YouTubeKit) by [b5i](https://github.com/b5i)
 * [Kingfisher](https://github.com/onevcat/Kingfisher) by [onevcat](https://github.com/onevcat)
   
-![‎Stubs Showcase ‎001](https://github.com/bodhichristian/Stubs/assets/110639779/6409955b-0cc6-4b84-b804-e9aa708a8da0)
+![‎Stubs Showcase ‎001](https://github.com/bodhichristian/Stubs/assets/110639779/087f534f-0c7c-4b20-943e-4445b7c4d638)
