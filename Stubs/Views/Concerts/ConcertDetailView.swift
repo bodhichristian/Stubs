@@ -18,13 +18,6 @@ struct ConcertDetailView: View {
     
     @Environment(\.modelContext) var modelContext
 
-    let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.5)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-
-        
     var body: some View {
         VStack{
             // Display Ticket Stub
@@ -32,7 +25,6 @@ struct ConcertDetailView: View {
             // Provide Action Buttons: Map View, YouTube, Favorite, Delete
             actionButtons
         }
-        
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showingMapView) {
@@ -45,7 +37,7 @@ extension ConcertDetailView {
     // Map View, YouTube, Favorite, Delete
     private var actionButtons: some View {
         HStack {
-            VStack {
+            
                 ActionButton(titleKey: "Map View",
                              defaultImageName: "mappin.and.ellipse",
                              accentColor: .green,
@@ -60,35 +52,17 @@ extension ConcertDetailView {
                              concert: $concert) {
                     concert.isFavorite.toggle()
                 }
-            }
             
-            VStack {
-                NavigationLink {
-                    YouTubeSearchResultsView(concert: concert)
-                } label: {
-                    
-                    Label(title: {
-                        Text("YouTube")
-                        .foregroundColor(.primary)
-                        .frame(width: 120)
-                    }, icon: {
-                        // If concert is Favorite
-                        Image(systemName: "video")
-                        .renderingMode(.template)
-                        .foregroundColor(.red)
-                    } )
-                    .padding(5)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.secondary.opacity(0.1))
-                
+            
+            
                 ActionButton(titleKey: "Delete",
                              defaultImageName: "trash",
                              accentColor: .red,
                              concert: $concert) {
                     modelContext.delete(concert)
                 }
-            }
+            
         }
+        
     }
 }

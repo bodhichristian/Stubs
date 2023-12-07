@@ -21,3 +21,4 @@ struct SafariView: UIViewControllerRepresentable {
         // No implementation needed in this case as the Safari view controller does not require any updates.
     }
 }
+

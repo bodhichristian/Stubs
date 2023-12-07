@@ -47,9 +47,9 @@ struct YouTubeSearchResultsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden)
         }
-        .onAppear {
-            searchYoutube(for: concert.youTubeQuery)
-        }
+//        .onAppear {
+//            searchYoutube(for: concert.youTubeQuery)
+//        }
     }
     // Retrieve videos from YouTube
     func searchYoutube(for query: String) {
