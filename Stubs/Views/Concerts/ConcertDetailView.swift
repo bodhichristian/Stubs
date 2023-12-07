@@ -24,6 +24,7 @@ struct ConcertDetailView: View {
             StubView(concert: concert, size: .large)
             // Provide Action Buttons: Map View, YouTube, Favorite, Delete
             actionButtons
+                .padding()
         }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
@@ -38,7 +39,7 @@ extension ConcertDetailView {
     private var actionButtons: some View {
         HStack {
             
-                ActionButton(titleKey: "Map View",
+                ActionButton(titleKey: "Map",
                              defaultImageName: "mappin.and.ellipse",
                              accentColor: .green,
                              concert: $concert) {

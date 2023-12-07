@@ -13,47 +13,55 @@ struct ActionButton: View {
     let highlightedImageName: String?
     let accentColor: Color
     @Binding var concert: Concert
-
+    
     let action: () -> ()
-
+    
     init(titleKey: String,
          defaultImageName: String,
          highlightedImageName: String? = nil,
          accentColor: Color,
          concert: Binding<Concert>,
          action: @escaping () -> ()) {
-            self.titleKey = titleKey
-            self.defaultImageName = defaultImageName
-            self.highlightedImageName = highlightedImageName
-            self.accentColor = accentColor
-            self._concert = concert
-            self.action = action
-        }
+        self.titleKey = titleKey
+        self.defaultImageName = defaultImageName
+        self.highlightedImageName = highlightedImageName
+        self.accentColor = accentColor
+        self._concert = concert
+        self.action = action
+    }
     
     var body: some View {
-        Button { // Favorite toggle
-            withAnimation(.interactiveSpring) {
-                action()
+        GeometryReader { geo in
+            Button { // Favorite toggle
+                withAnimation(.interactiveSpring) {
+                    action()
+                }
+            } label: {
+                
+                HStack {
+                    
+                    // If concert is Favorite
+                    Image(systemName: concert.isFavorite
+                          // Display highlighted Image, nil coalescing to the non-optional default
+                          ? highlightedImageName ?? defaultImageName
+                          // Else, display defaul image
+                          : defaultImageName)
+                    .renderingMode(.template)
+                    .foregroundColor(accentColor)
+                    
+                    Text(titleKey)
+                        .foregroundColor(.primary)
+                    
+                    
+                }
+                .font(.callout)
+                .fontWeight(.semibold)
+                .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.4)
             }
-        } label: {
-            Label(title: {
-                Text(titleKey)
-                .foregroundColor(.primary)
-                .frame(width: 120)
-            }, icon: {
-                // If concert is Favorite
-                Image(systemName: concert.isFavorite
-                      // Display highlighted Image, nil coalescing to the non-optional default
-                      ? highlightedImageName ?? defaultImageName
-                      // Else, display defaul image
-                      : defaultImageName)
-                .renderingMode(.template)
-                .foregroundColor(accentColor)
-            } )
-            .padding(5)
+            .position(x: geo.size.width / 2, y: geo.size.width / 2)
+            .buttonStyle(.borderedProminent)
+            .tint(.secondary.opacity(0.1))
         }
-        .buttonStyle(.borderedProminent)
-        .tint(.secondary.opacity(0.1))
     }
 }
 
