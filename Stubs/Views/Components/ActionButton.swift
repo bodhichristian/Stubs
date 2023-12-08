@@ -56,7 +56,7 @@ struct ActionButton: View {
                 }
                 .font(.callout)
                 .fontWeight(.semibold)
-                .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.4)
+                .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.3)
             }
             .position(x: geo.size.width / 2, y: geo.size.width / 2)
             .buttonStyle(.borderedProminent)

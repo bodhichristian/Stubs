@@ -29,88 +29,81 @@ struct StubView: View {
     @State private var iconTapped = false // For icon animation
     
     var body: some View {
-        ZStack(alignment: .center) {
-            ticketStubBase
-            concertDetails
+        GeometryReader { geo in
+            ZStack{
+                RoundedRectangle(cornerRadius: 20) // Stub Background
+                    .foregroundStyle(Color(colorName: concert.accentColor)!)
+                    .shadow(radius: 6, y: 10)
+                RoundedRectangle(cornerRadius: 20) // Gradient overlay
+                    .foregroundStyle(gradient)
+                   
+                
+                HStack(alignment: .bottom) {
+                    
+                    // Concert Details
+                    VStack(alignment: .leading) {
+                        
+                        // Artist Name
+                        Text(artistName)
+                            .font(titleFont)
+                            .foregroundStyle(.white)
+                            .shadow(radius: 2)
+                        
+                        // Venue Details
+                        if size == .large {
+                            Text(concert.venue)
+                                .font(secondaryFont)
+                                .foregroundStyle(.black)
+                            
+                            Text(concert.city)
+                                .font(secondaryFont)
+                                .foregroundStyle(.white)
+                        }
+                        
+                        Spacer()
+                        
+                        // Concert Date
+                        Text(concert.date.formatted(date: .abbreviated, time: .omitted)) // Format: Jun 9, 2023
+                            .fontDesign(.monospaced)
+                            .font(secondaryFont)
+                            .foregroundStyle(.black)
+                    }
+                    
+                    Spacer()
+
+                    Image(systemName: concert.iconName) // Concert icon
+                        .resizable()
+                        .scaledToFit()
+                        .frame(
+                            width: size == .small ? 30 : geo.size.width * 0.2,
+                            height: size == .small ? 30 : geo.size.width * 0.2)
+                        .foregroundStyle(.white)
+                        .shadow(radius: 4, x: 2, y: 6)
+                        .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
+                        .onAppear {
+                            iconTapped.toggle()
+                        }
+                        .onTapGesture {
+                            iconTapped.toggle()
+                        }
+                    
+                }
+                .padding()
+            }
+            // Main ZStack
+            .frame(width: geo.size.width, height: geo.size.width * 0.7)
+            .position(x: geo.size.width / 2, y: geo.size.width / 2 )
         }
-        //.padding(.horizontal)
+        // Maximum height for GeometryReader
+        .frame(maxHeight: 320)
     }
 }
 
 #Preview {
-    StubView(concert: SampleData.concerts[0], size: .large)
+    StubView(concert: SampleData.concerts[0], size: .small)
 }
 
 extension StubView {
-    // Create stub base, color, and icon
-    private var ticketStubBase: some View {
-        GeometryReader { geo in
-            ZStack(alignment: .bottomTrailing) {
-                RoundedRectangle(cornerRadius: 20) // Stub Background
-                    .foregroundStyle(Color(colorName: concert.accentColor)!)
-                    .frame(
-                        width: size == .small ? 200 : geo.size.width * 0.9,
-                        height: size == .small ? 100 : geo.size.width * 0.63)
-                    .shadow(radius: 6, y: 10)
-                
-                RoundedRectangle(cornerRadius: 20) // Gradient overlay
-                    .foregroundStyle(gradient)
-                    .frame(
-                        width: size == .small ? 200 : geo.size.width * 0.9,
-                        height: size == .small ? 100 : geo.size.width * 0.63)
-                
-                Image(systemName: concert.iconName) // Concert icon
-                    .resizable()
-                    .scaledToFit()
-                    .frame(
-                        width: size == .small ? 30 : geo.size.width * 0.2,
-                        height: size == .small ? 30 : geo.size.width * 0.2)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 4, x: 2, y: 6)
-                    .padding(size == .small ? 30 : 25)
-                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-                    .onAppear {
-                        iconTapped.toggle()
-                    }
-                    .onTapGesture {
-                        iconTapped.toggle()
-                    }
-            }
-            .position(x: geo.size.width / 2, y: geo.size.width / 2)
-        }
-    }
-    // Display concert details
-    private var concertDetails: some View {
-        GeometryReader { geo in
-            
-            VStack(alignment: .leading) {
-                Spacer()
-                Text(artistName)
-                    .font(titleFont)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 2)
-                    
-                
-                if size == .large {
-                    Text(concert.venue)
-                        .font(secondaryFont)
-                        .foregroundStyle(.black)
-                    
-                    Text(concert.city)
-                        .font(secondaryFont)
-                        .foregroundStyle(.white)
-                }
-                
-                Spacer()
-                
-                Text(concert.date.formatted(date: .abbreviated, time: .omitted)) // Format: Jun 9, 2023
-                    .font(secondaryFont)
-                    .foregroundStyle(.black)
-            }
-            .frame(height: size == .small ? 70 : geo.size.height * 0.7)
-            .padding(size == .small ? 30 : 40)
-        }
-    }
     // Create a display-ready artist name, truncate where needed
     private var artistName: String {
         switch size {
@@ -120,11 +113,12 @@ extension StubView {
             } else {
                 return concert.artist
             }
-        
+            
         default:
             return concert.artist
         }
     }
+    
     // Calculate font weight based on StubSize
     private var titleFont: Font {
         switch size {

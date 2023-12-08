@@ -17,17 +17,16 @@ struct ConcertDetailView: View {
     @State private var showingMapView = false
     
     @Environment(\.modelContext) var modelContext
-
+    
     var body: some View {
         VStack{
-            // Display Ticket Stub
             StubView(concert: concert, size: .large)
-            // Provide Action Buttons: Map View, YouTube, Favorite, Delete
+            
             actionButtons
-                .padding()
         }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
+        .padding(.horizontal)
         .sheet(isPresented: $showingMapView) {
             VenueMapView(concert: concert)
         }
@@ -35,35 +34,35 @@ struct ConcertDetailView: View {
 }
 
 extension ConcertDetailView {
-    // Map View, YouTube, Favorite, Delete
+    
+    // Horizontal Stack of Buttons
     private var actionButtons: some View {
         HStack {
+            // View on Map
+            ActionButton(titleKey: "Map",
+                         defaultImageName: "mappin.and.ellipse",
+                         accentColor: .green,
+                         concert: $concert) {
+                showingMapView = true
+            }
             
-                ActionButton(titleKey: "Map",
-                             defaultImageName: "mappin.and.ellipse",
-                             accentColor: .green,
-                             concert: $concert) {
-                    showingMapView = true
-                }
-                
-                ActionButton(titleKey: "Favorite",
-                             defaultImageName: "checkmark.seal",
-                             highlightedImageName: "checkmark.seal.fill",
-                             accentColor: .yellow,
-                             concert: $concert) {
-                    concert.isFavorite.toggle()
-                }
+            // Toggle Favorite Status
+            ActionButton(titleKey: "Favorite",
+                         defaultImageName: "checkmark.seal",
+                         highlightedImageName: "checkmark.seal.fill",
+                         accentColor: .yellow,
+                         concert: $concert) {
+                concert.isFavorite.toggle()
+            }
             
-            
-            
-                ActionButton(titleKey: "Delete",
-                             defaultImageName: "trash",
-                             accentColor: .red,
-                             concert: $concert) {
-                    modelContext.delete(concert)
-                }
+            // Delete Concert
+            ActionButton(titleKey: "Delete",
+                         defaultImageName: "trash",
+                         accentColor: .red,
+                         concert: $concert) {
+                modelContext.delete(concert)
+            }
             
         }
-        
     }
 }
