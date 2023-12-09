@@ -22,8 +22,8 @@ struct StubView: View {
     
     let gradient = LinearGradient( // For stub base
         colors: [.clear, .black.opacity(0.5)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
+        startPoint: .top,
+        endPoint: .bottom
     )
     
     @State private var iconTapped = false // For icon animation
@@ -31,14 +31,14 @@ struct StubView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack{
-                RoundedRectangle(cornerRadius: 20) // Stub Background
+                TicketShape()
                     .foregroundStyle(Color(colorName: concert.accentColor)!)
                     .shadow(radius: 6, y: 10)
-                RoundedRectangle(cornerRadius: 20) // Gradient overlay
+                TicketShape()
                     .foregroundStyle(gradient)
-                   
-                
+
                 HStack(alignment: .bottom) {
+                    Divider()
                     
                     // Concert Details
                     VStack(alignment: .leading) {
@@ -70,7 +70,7 @@ struct StubView: View {
                     }
                     
                     Spacer()
-
+                    
                     Image(systemName: concert.iconName) // Concert icon
                         .resizable()
                         .scaledToFit()
@@ -87,11 +87,12 @@ struct StubView: View {
                             iconTapped.toggle()
                         }
                     
+                    Divider()
                 }
-                .padding()
+                .padding(30)
             }
             // Main ZStack
-            .frame(width: geo.size.width, height: geo.size.width * 0.7)
+            .frame(width: geo.size.width, height: geo.size.width * 0.60)
             .position(x: geo.size.width / 2, y: geo.size.width / 2 )
         }
         // Maximum height for GeometryReader
