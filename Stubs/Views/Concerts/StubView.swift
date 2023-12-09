@@ -38,7 +38,9 @@ struct StubView: View {
                     .foregroundStyle(gradient)
 
                 HStack(alignment: .bottom) {
-                    Divider()
+                    Rectangle()
+                        .frame(width: 2)
+                        .padding(.trailing, 10)
                     
                     // Concert Details
                     VStack(alignment: .leading) {
@@ -87,7 +89,10 @@ struct StubView: View {
                             iconTapped.toggle()
                         }
                     
-                    Divider()
+                    Rectangle()
+                        .frame(width: 2)
+                        .padding(.leading, 10)
+                    
                 }
                 .padding(30)
             }
