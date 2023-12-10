@@ -22,7 +22,6 @@ final class Concert {
     var iconName: String
     var accentColor: String
     var isFavorite: Bool
-    //var youTubeQuery: String
     
     init(uuid: UUID = UUID(),
          artist: String,
@@ -41,14 +40,5 @@ final class Concert {
         self.iconName = iconName
         self.accentColor = accentColor
         self.isFavorite = isFavorite
-        //self.youTubeQuery = createYouTubeQuery()
-    }
-    
-    // Create the query to search YouTube
-    private func createYouTubeQuery() -> String {
-        // Concatenate the necessary strings for the query
-        let query = artist + " live at " + venue + " " + city + " " + date.formatted()
-        
-        return query
     }
 }

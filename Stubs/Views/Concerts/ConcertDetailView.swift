@@ -14,21 +14,25 @@ import SwiftUI
 struct ConcertDetailView: View {
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
-    @State private var showingMapView = false
+    @State private var showingMap = false
     
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack{
+            
             StubView(concert: concert)
             
             actionButtons
+            
         }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
-        .sheet(isPresented: $showingMapView) {
+        .sheet(isPresented: $showingMap) {
+            
             VenueMapView(concert: concert)
+            
         }
     }
 }
@@ -43,7 +47,7 @@ extension ConcertDetailView {
                          defaultImageName: "mappin.and.ellipse",
                          accentColor: .green,
                          concert: $concert) {
-                showingMapView = true
+                showingMap = true
             }
             
             // Toggle Favorite Status
