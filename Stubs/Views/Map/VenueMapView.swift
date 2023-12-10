@@ -24,7 +24,7 @@ struct VenueMapView: View {
     @Environment(\.dismiss) var dismiss
     
     var query: String { // Creates the location query
-        return concert.venue + " " + concert.city
+        return concert.venue + " venue " + concert.city
     }
     
     var body: some View {
@@ -36,6 +36,7 @@ struct VenueMapView: View {
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
 
                 }
+                
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

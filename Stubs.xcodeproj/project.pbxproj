@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
-		AA48FECE2A60CB52005BA775 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AA48FECD2A60CB52005BA775 /* Kingfisher */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA48FED22A60E854005BA775 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FED12A60E854005BA775 /* SafariView.swift */; };
 		AA4B4E2C2A677A5F00197B28 /* VideoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4E2B2A677A5F00197B28 /* VideoLabel.swift */; };
@@ -29,7 +28,7 @@
 		AA8AA4612A60434C005692C9 /* YouTubeSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8AA4602A60434C005692C9 /* YouTubeSearchResultsView.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
-		AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AAB0501B2A5AF07700EB88BD /* YouTubeKit */; };
+		AAC16E262B25FD560058F662 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = AAC16E252B25FD560058F662 /* SpotifyiOS */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA48FECE2A60CB52005BA775 /* Kingfisher in Frameworks */,
-				AAB0501C2A5AF07700EB88BD /* YouTubeKit in Frameworks */,
+				AAC16E262B25FD560058F662 /* SpotifyiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +196,7 @@
 			);
 			name = Stubs;
 			packageProductDependencies = (
-				AAB0501B2A5AF07700EB88BD /* YouTubeKit */,
-				AA48FECD2A60CB52005BA775 /* Kingfisher */,
+				AAC16E252B25FD560058F662 /* SpotifyiOS */,
 			);
 			productName = Stubs;
 			productReference = AA8A74682A32BDF3003E9B41 /* Stubs.app */;
@@ -230,8 +227,7 @@
 			);
 			mainGroup = AA8A745F2A32BDF3003E9B41;
 			packageReferences = (
-				AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */,
-				AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AAC16E242B25FD560058F662 /* XCRemoteSwiftPackageReference "ios-sdk" */,
 			);
 			productRefGroup = AA8A74692A32BDF3003E9B41 /* Products */;
 			projectDirPath = "";
@@ -486,34 +482,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		AAC16E242B25FD560058F662 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			repositoryURL = "https://github.com/spotify/ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.8.1;
-			};
-		};
-		AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/b5i/YouTubeKit";
-			requirement = {
-				branch = main;
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AA48FECD2A60CB52005BA775 /* Kingfisher */ = {
+		AAC16E252B25FD560058F662 /* SpotifyiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA48FECC2A60CB52005BA775 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		AAB0501B2A5AF07700EB88BD /* YouTubeKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAB0501A2A5AF07700EB88BD /* XCRemoteSwiftPackageReference "YouTubeKit" */;
-			productName = YouTubeKit;
+			package = AAC16E242B25FD560058F662 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SpotifyiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,21 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "kingfisher",
+      "identity" : "ios-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "location" : "https://github.com/spotify/ios-sdk.git",
       "state" : {
-        "revision" : "c1f60c63f356d364f4284ba82961acbe7de79bcc",
-        "version" : "7.8.1"
-      }
-    },
-    {
-      "identity" : "youtubekit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/b5i/YouTubeKit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "19442e37fec024cf455ef24f803fcea4fdac5d87"
+        "branch" : "master",
+        "revision" : "cdbdcb341ace5defa863cf323749376f7e4888e9"
       }
     }
   ],
