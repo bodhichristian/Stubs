@@ -20,7 +20,7 @@ struct ConcertDetailView: View {
     
     var body: some View {
         VStack{
-            StubView(concert: concert, size: .large)
+            StubView(concert: concert)
             
             actionButtons
         }
