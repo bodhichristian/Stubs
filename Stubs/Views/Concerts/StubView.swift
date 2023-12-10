@@ -21,7 +21,7 @@ struct StubView: View {
     let size: StubSize
     
     let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.5)],
+        colors: [.clear, .black.opacity(0.3)],
         startPoint: .top,
         endPoint: .bottom
     )

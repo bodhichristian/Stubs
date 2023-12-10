@@ -34,27 +34,12 @@ struct VenueMapView: View {
                 Map(position: $position, selection: $location) {
                     // Default Map Marker
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
-                    // Display a custom Annotation with StubView label
-                    Annotation(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates) {
-                        StubView(concert: concert, size: .small)
-                            .offset(y: -120)
-                    }
-                }
-                
-                VStack {
-                    Spacer()
-                    if let location {
-                        // Provide a Look Around preview
-                        LookAroundView(location: location)
-                            .frame(height: 128)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding([.top, .horizontal])
-                    }
+
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Cancel")
+                    Text("Back")
                         .onTapGesture {
                             dismiss()
                         }
