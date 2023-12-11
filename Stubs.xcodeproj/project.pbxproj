@@ -117,6 +117,7 @@
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
 				AA8A747B2A32BE0A003E9B41 /* Model */,
+				AAC16E2C2B2608820058F662 /* Services */,
 				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A74802A32C8FE003E9B41 /* Support */,
 				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
@@ -161,6 +162,13 @@
 				AA48FED12A60E854005BA775 /* SafariView.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		AAC16E2C2B2608820058F662 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,20 +12,22 @@ import SwiftUI
 // Concert actions: Map View, YouTube, Favorite, Delete
 
 struct ConcertDetailView: View {
+    
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
     @State private var showingMap = false
-    
+        
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack{
             
             StubView(concert: concert)
-            
+               
             actionButtons
-            
+           
         }
+        
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)

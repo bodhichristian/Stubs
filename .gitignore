@@ -1,5 +1,9 @@
 # Xcode
 #
+
+## Spotify API Key
+SpotifyAPIKey.swift
+
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 .DS_Store

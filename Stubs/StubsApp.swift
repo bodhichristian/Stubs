@@ -10,7 +10,8 @@ import SwiftData
 
 @main
 struct StubsApp: App {
-
+    
+    
     var body: some Scene {
         WindowGroup {
             ConcertCollection()
