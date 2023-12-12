@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 // MARK: ConcertDetailView - SwiftUI View
 // A View for displaying the ticket stub and providing interactivity
 // Concert actions: Map View, YouTube, Favorite, Delete
 
 struct ConcertDetailView: View {
+    @StateObject var viewModel = ConcertDetailView.ViewModel()
     
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
@@ -25,9 +27,28 @@ struct ConcertDetailView: View {
             StubView(concert: concert)
                
             actionButtons
-           
+            
+            VStack(alignment: .leading){
+                Text("Albums by \(concert.artist)")
+                    .font(.title2.bold())
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(viewModel.albums, id: \.idAlbum) { album in
+                            Text(album.strAlbum ?? "")
+                                .frame(width: 120, height: 120)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .foregroundStyle(.ultraThinMaterial)
+                                        
+                                }
+                        }
+                    }
+                }
+            }
         }
-        
+        .onAppear {
+            viewModel.searchAlbums(for: concert.artist)
+        }
         .navigationTitle("Stub")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
@@ -40,6 +61,23 @@ struct ConcertDetailView: View {
 }
 
 extension ConcertDetailView {
+    
+    class ViewModel: ObservableObject {
+        private let albumService = AlbumSearchService()
+        private var cancellables = Set<AnyCancellable>()
+        
+        @Published var albums: [Album] = []
+        
+        func searchAlbums(for artist: String) {
+            albumService.$albums
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] in self?.albums = $0 }
+                .store(in: &cancellables)
+            
+            albumService.searchAlbums(for: artist)
+        }
+    }
+    
     
     // Horizontal Stack of Buttons
     private var actionButtons: some View {

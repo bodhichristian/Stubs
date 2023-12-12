@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1F47332B2890C5002CD983 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F47322B2890C5002CD983 /* RapidAPIKey.swift */; };
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA48FED22A60E854005BA775 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FED12A60E854005BA775 /* SafariView.swift */; };
+		AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */; };
 		AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* LookAroundView.swift */; };
 		AA7C57EE2B249B7B006843C4 /* TicketShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* TicketShape.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
@@ -30,10 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA1F47322B2890C5002CD983 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
 		AA48FED12A60E854005BA775 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchService.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		AA7C57ED2B249B7B006843C4 /* TicketShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketShape.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +100,15 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		AA5615F52B27AB3500A35D4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */,
+				AA1F47322B2890C5002CD983 /* RapidAPIKey.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AA8A745F2A32BDF3003E9B41 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +130,7 @@
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
 				AA8A747B2A32BE0A003E9B41 /* Model */,
-				AAC16E2C2B2608820058F662 /* Services */,
+				AA5615F52B27AB3500A35D4A /* Services */,
 				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A74802A32C8FE003E9B41 /* Support */,
 				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
@@ -162,13 +175,6 @@
 				AA48FED12A60E854005BA775 /* SafariView.swift */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		AAC16E2C2B2608820058F662 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,11 +258,13 @@
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
+				AA1F47332B2890C5002CD983 /* RapidAPIKey.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA48FED22A60E854005BA775 /* SafariView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
 				AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */,
+				AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* TicketShape.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
