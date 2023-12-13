@@ -27,36 +27,52 @@ struct ConcertDetailView: View {
             StubView(concert: concert)
             
             actionButtons
-
+            
             
             
             VStack(alignment: .leading){
                 Text("Albums by \(concert.artist)")
                     .font(.title2.bold())
-                                
+                
                 ScrollView(.horizontal) {
                     HStack {
-                        if viewModel.albums.isEmpty { 
+                        if viewModel.albums.isEmpty {
                             ForEach(0..<5) { _ in
                                 RoundedRectangle(cornerRadius: 15)
                                     .fill(.secondary.opacity(0.1))
                                     .frame(width: 120, height: 120)
-
+                                    .shadow(radius: 3, x: 5, y: 5)
+                                
+                                
                             }
                         } else {
-                            ForEach(viewModel.albums, id: \.idAlbum) { album in
+                            ForEach(viewModel.albums.sorted { $0.intYearReleased ?? "" > $1.intYearReleased ?? ""}, id: \.idAlbum) { album in
                                 
-                                AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable()
-                                } placeholder: {
-                                    Color.secondary.opacity(0.1)
+                                VStack(alignment: .leading) {
+                                    AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable()
+                                    } placeholder: {
+                                        Color.secondary.opacity(0.1)
+                                    }
+                                    .frame(width: 120, height: 120)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                                    .shadow(radius: 3, x: 5, y: 5)
+                                    
+                                    
+                                    
+                                    Text(album.strAlbum ?? "")
+                                        .font(.headline)
+                                        .frame(maxWidth: 120, alignment: .leading)
+                                        .lineLimit(1)
+                                    
+                                    Text(album.intYearReleased ?? "")
+                                    
+                                    //.frame(width: 120)
+                                    
+                                    
                                 }
-                                .frame(width: 120, height: 120)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                
                             }
                         }
-                    }                                
-                    .shadow(radius: 3, x: 5, y: 5)
+                    }
                     .padding(.vertical)
                 }
                 Spacer()
