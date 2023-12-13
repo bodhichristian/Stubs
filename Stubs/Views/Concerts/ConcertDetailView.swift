@@ -25,7 +25,7 @@ struct ConcertDetailView: View {
         VStack{
             
             StubView(concert: concert)
-            
+                .background { Color.blue }
             actionButtons
 
             VStack(alignment: .leading){

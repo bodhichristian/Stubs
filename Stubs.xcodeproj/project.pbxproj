@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< Updated upstream
 		AA1F473A2B295CFC002CD983 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F47392B295CFC002CD983 /* APIKey.swift */; };
+=======
+		AA1F47382B295C2A002CD983 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F47372B295C2A002CD983 /* APIKey.swift */; };
+>>>>>>> Stashed changes
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -32,7 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< Updated upstream
 		AA1F47392B295CFC002CD983 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+=======
+		AA1F47372B295C2A002CD983 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -104,7 +112,11 @@
 			isa = PBXGroup;
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */,
+<<<<<<< Updated upstream
 				AA1F47392B295CFC002CD983 /* APIKey.swift */,
+=======
+				AA1F47372B295C2A002CD983 /* APIKey.swift */,
+>>>>>>> Stashed changes
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +268,7 @@
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
+				AA1F47382B295C2A002CD983 /* APIKey.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,

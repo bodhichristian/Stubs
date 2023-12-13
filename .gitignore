@@ -3,7 +3,10 @@
 
 ## RapidAPI Key
 Stubs/Services/APIKey.swift
+<<<<<<< Updated upstream
 Services/APIKey.swift
+=======
+>>>>>>> Stashed changes
 
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
