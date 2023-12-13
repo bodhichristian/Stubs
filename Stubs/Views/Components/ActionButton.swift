@@ -58,10 +58,11 @@ struct ActionButton: View {
                 .fontWeight(.semibold)
                 .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.3)
             }
-            .position(x: geo.size.width / 2, y: geo.size.width / 2)
+            .position(x: geo.size.width / 2, y: geo.size.height / 2)
             .buttonStyle(.borderedProminent)
             .tint(.secondary.opacity(0.1))
         }
+        .frame(maxHeight: 100)
     }
 }
 

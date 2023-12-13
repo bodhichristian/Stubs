@@ -98,7 +98,7 @@ struct StubView: View {
             }
             // Main ZStack
             .frame(width: geo.size.width, height: geo.size.width * 0.60)
-            .position(x: geo.size.width / 2, y: geo.size.width / 2 )
+            .position(x: geo.size.width / 2, y: geo.size.height / 2 )
         }
         // Maximum height for GeometryReader
         .frame(maxHeight: 320)
