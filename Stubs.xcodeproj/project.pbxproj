@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA1F47352B29542D002CD983 /* ChristiansKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F47342B29542D002CD983 /* ChristiansKey.swift */; };
+		AA1F473A2B295CFC002CD983 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F47392B295CFC002CD983 /* APIKey.swift */; };
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA1F47342B29542D002CD983 /* ChristiansKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristiansKey.swift; sourceTree = "<group>"; };
+		AA1F47392B295CFC002CD983 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */,
-				AA1F47342B29542D002CD983 /* ChristiansKey.swift */,
+				AA1F47392B295CFC002CD983 /* APIKey.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -265,12 +265,12 @@
 				AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */,
 				AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* TicketShape.swift in Sources */,
+				AA1F473A2B295CFC002CD983 /* APIKey.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */,
 				AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */,
-				AA1F47352B29542D002CD983 /* ChristiansKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
