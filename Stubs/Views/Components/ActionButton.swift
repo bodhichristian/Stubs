@@ -62,7 +62,7 @@ struct ActionButton: View {
             .buttonStyle(.borderedProminent)
             .tint(.secondary.opacity(0.1))
         }
-        .frame(maxHeight: 100)
+        .frame(maxHeight: 80)
     }
 }
 

@@ -22,33 +22,46 @@ struct ConcertDetailView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        VStack{
+        VStack(spacing: 0){
             
             StubView(concert: concert)
             
             actionButtons
 
+            
+            
             VStack(alignment: .leading){
                 Text("Albums by \(concert.artist)")
                     .font(.title2.bold())
+                                
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(viewModel.albums, id: \.idAlbum) { album in
-                            
-                            AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable()
-                            } placeholder: {
-                                Color.secondary
+                        if viewModel.albums.isEmpty { 
+                            ForEach(0..<5) { _ in
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(.secondary.opacity(0.1))
+                                    .frame(width: 120, height: 120)
+
                             }
-                            .frame(width: 120, height: 120)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .shadow(radius: 5, y: 7)
-                            
+                        } else {
+                            ForEach(viewModel.albums, id: \.idAlbum) { album in
+                                
+                                AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable()
+                                } placeholder: {
+                                    Color.secondary.opacity(0.1)
+                                }
+                                .frame(width: 120, height: 120)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                
+                            }
                         }
-                    }
+                    }                                
+                    .shadow(radius: 3, x: 5, y: 5)
                     .padding(.vertical)
                 }
                 Spacer()
             }
+            .padding(.top)
         }
         .onAppear {
             viewModel.searchAlbums(for: concert.artist)

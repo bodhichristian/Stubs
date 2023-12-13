@@ -7,4 +7,4 @@
 
 import Foundation
 
-let test = "test4"
+let christiansKey = ""
