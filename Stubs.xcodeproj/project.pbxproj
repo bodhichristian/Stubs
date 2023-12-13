@@ -13,6 +13,7 @@
 		AA48FED22A60E854005BA775 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FED12A60E854005BA775 /* SafariView.swift */; };
 		AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */; };
 		AA62228B2B2A36B7004899A9 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228A2B2A36B7004899A9 /* SwiftUIView.swift */; };
+		AA62228E2B2A58F5004899A9 /* AlbumsByArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */; };
 		AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* LookAroundView.swift */; };
 		AA7C57EE2B249B7B006843C4 /* TicketShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* TicketShape.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
@@ -39,6 +40,7 @@
 		AA48FED12A60E854005BA775 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchService.swift; sourceTree = "<group>"; };
 		AA62228A2B2A36B7004899A9 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsByArtist.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		AA7C57ED2B249B7B006843C4 /* TicketShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketShape.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		AA62228C2B2A58DA004899A9 /* ArtistData */ = {
+			isa = PBXGroup;
+			children = (
+				AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */,
+			);
+			path = ArtistData;
+			sourceTree = "<group>";
+		};
 		AA8A745F2A32BDF3003E9B41 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		AA8A747C2A32BE12003E9B41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA62228C2B2A58DA004899A9 /* ArtistData */,
 				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA4B4E2D2A677CC100197B28 /* Map */,
 				AA48FED42A64E63E005BA775 /* Components */,
@@ -259,6 +270,7 @@
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
+				AA62228E2B2A58F5004899A9 /* AlbumsByArtist.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
