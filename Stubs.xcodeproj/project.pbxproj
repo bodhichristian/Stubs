@@ -11,7 +11,6 @@
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */; };
-		AA62228B2B2A36B7004899A9 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228A2B2A36B7004899A9 /* SwiftUIView.swift */; };
 		AA62228E2B2A58F5004899A9 /* AlbumsByArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */; };
 		AA6222902B2B367C004899A9 /* NoConcertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228F2B2B367C004899A9 /* NoConcertsView.swift */; };
 		AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* LookAroundView.swift */; };
@@ -38,7 +37,6 @@
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
 		AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchService.swift; sourceTree = "<group>"; };
-		AA62228A2B2A36B7004899A9 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsByArtist.swift; sourceTree = "<group>"; };
 		AA62228F2B2B367C004899A9 /* NoConcertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConcertsView.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA4B4E2D2A677CC100197B28 /* Map */,
 				AA48FED42A64E63E005BA775 /* Components */,
-				AA62228A2B2A36B7004899A9 /* SwiftUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 				AA8A74862A32D5B1003E9B41 /* ConcertLabel.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
-				AA62228B2B2A36B7004899A9 /* SwiftUIView.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA6222902B2B367C004899A9 /* NoConcertsView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
