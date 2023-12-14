@@ -13,10 +13,11 @@ import MapKit
 
 struct LookAroundView: View {
     let location: MKMapItem // Currently selected POI
-
+    
     @State private var lookAroundScene: MKLookAroundScene?
     
     var body: some View {
+        if let lookAroundScene {
             LookAroundPreview(initialScene: lookAroundScene)
                 .overlay(alignment: .bottomTrailing) {
                     HStack {
@@ -29,6 +30,9 @@ struct LookAroundView: View {
                 .onAppear {
                     getLookAroundScene()
                 }
+        } else {
+            EmptyView()
+        }
     }
     
     func getLookAroundScene() {

@@ -14,6 +14,34 @@ struct SampleData {
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
         Concert(
+            artist: "A Day to Remember",
+            venue: "Bridgeport Amphitheatre",
+            city: "Bridgeport, CT",
+            date: calendar.date(from: DateComponents(year: 2022, month: 8 ,day: 9))!,
+            iconName: "airpodsmax",
+            accentColor: "orange"
+        ),
+        
+        
+        Concert(
+            artist: "Thrice",
+            venue: "Terminal 5",
+            city: "Brooklyn, NY",
+            date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
+            iconName: "wave.3.forward",
+            accentColor: "green"
+        ),
+        
+        Concert(
+            artist: "Bring Me The Horizon",
+            venue: "Barclays Center",
+            city: "Brooklyn, NY",
+            date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
+            iconName: "guitars",
+            accentColor: "red"
+        ),
+        
+        Concert(
             artist: "Blind Breed",
             venue: "The End",
             city: "Nashville, TN",

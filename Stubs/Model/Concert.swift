@@ -30,8 +30,7 @@ final class Concert {
          date: Date,
          iconName: String,
          accentColor: String,
-         isFavorite: Bool = false,
-         youTubeQuery: String = "") {
+         isFavorite: Bool = false) {
         self.uuid = uuid
         self.artist = artist
         self.venue = venue
@@ -41,4 +40,5 @@ final class Concert {
         self.accentColor = accentColor
         self.isFavorite = isFavorite
     }
+
 }

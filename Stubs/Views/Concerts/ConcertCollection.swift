@@ -14,18 +14,22 @@ import SwiftData
 // Groups concerts by decade
 
 struct ConcertCollection: View {
+    @Environment(\.modelContext) private var modelContext
+    
     @Query private var concerts: [Concert]
     
     @State private var isAddingConcert = false
-    
-    @State private var searchPrompt = "Artist, Venue, City, or Date"
     @State private var searchText = ""
     
-    @Environment(\.modelContext) private var modelContext
-
+    let searchPrompt = "Artist, Venue, City, or Date"
+    
     var body: some View {
         NavigationView {
-            ZStack {
+            VStack {
+                
+                if concerts.isEmpty { // If no concerts have been saved
+                    NoConcertsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
+                } else  {
                     List {
                         // Sort concerts in reverse chronological order
                         ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
@@ -43,10 +47,9 @@ struct ConcertCollection: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-                
-                if concerts.isEmpty { // If no concerts have been saved
-                    noConcertsView
+                    
                 }
+                    
             }
             .navigationTitle("Concerts")
             .sheet(isPresented: $isAddingConcert) {
@@ -61,6 +64,7 @@ struct ConcertCollection: View {
                     }
                 }
             }
+            
         }
     }
 }
@@ -117,34 +121,6 @@ extension ConcertCollection {
             }
         }
     }
-    // View that instructs user to add first concert
-    // Includes Sample Data generation when running in Xcode
-    private var noConcertsView: some View {
-        VStack {
-            Spacer()
-            
-            Image(systemName: "music.mic")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100)
-                .foregroundStyle(.secondary)
-            
-            Text("No saved concerts.")
-                .font(.title2)
-                .bold()
-            
-            Text("Tap the + Button to Add a Concert")
-            
-            Spacer()
-#if DEBUG
-            Button { // Generate Sample Data
-                withAnimation {
-                    SampleData().addSampleData(to: modelContext)
-                }
-            } label: {
-                Text("Add Sample Data")
-            }
-#endif
-        }
-    }
+    
+    
 }
