@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: ConcertLabel - SwiftUI View
 // A View for previewing concert details
 
-struct ConcertLabel: View {
+struct ConcertRowLabel: View {
     let concert: Concert
     
     var body: some View {

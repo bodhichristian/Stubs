@@ -40,7 +40,7 @@ struct ConcertCollection: View {
                                     NavigationLink{
                                         ConcertDetailView(concert: concert)
                                     } label: {
-                                        ConcertLabel(concert: concert)
+                                        ConcertRowLabel(concert: concert)
                                     }
                                 }
                             }
