@@ -51,7 +51,7 @@ struct ConcertDetailView: View {
 
         }
         
-        .navigationTitle("Stub")
+        .navigationTitle("\(concert.artist) | \(concert.venue)" )
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
         .sheet(isPresented: $showingMap) {

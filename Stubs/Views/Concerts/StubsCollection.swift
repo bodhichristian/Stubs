@@ -13,7 +13,7 @@ import SwiftData
 // Performs query from SwiftData store
 // Groups concerts by decade
 
-struct ConcertCollection: View {
+struct StubsCollection: View {
     @Environment(\.modelContext) private var modelContext
     
     @Query private var concerts: [Concert]
@@ -53,7 +53,7 @@ struct ConcertCollection: View {
                 }
                     
             }
-            .navigationTitle("Concerts")
+            .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 AddConcertView()
             }
@@ -72,11 +72,11 @@ struct ConcertCollection: View {
 }
 
 #Preview {
-    ConcertCollection()
+    StubsCollection()
         .modelContainer(for: Concert.self, inMemory: true)
 }
 
-extension ConcertCollection {
+extension StubsCollection {
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {

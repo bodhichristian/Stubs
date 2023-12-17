@@ -16,7 +16,7 @@
 		AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* LookAroundView.swift */; };
 		AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
-		AA8A746E2A32BDF3003E9B41 /* ConcertCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* ConcertCollection.swift */; };
+		AA8A746E2A32BDF3003E9B41 /* StubsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* StubsCollection.swift */; };
 		AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */; };
 		AA8A74732A32BDF4003E9B41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A74722A32BDF4003E9B41 /* Preview Assets.xcassets */; };
 		AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
@@ -47,7 +47,7 @@
 		AA7C57ED2B249B7B006843C4 /* StubShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubShape.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsApp.swift; sourceTree = "<group>"; };
-		AA8A746D2A32BDF3003E9B41 /* ConcertCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertCollection.swift; sourceTree = "<group>"; };
+		AA8A746D2A32BDF3003E9B41 /* StubsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsCollection.swift; sourceTree = "<group>"; };
 		AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA8A74722A32BDF4003E9B41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA8A74742A32BDF4003E9B41 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				AA62228F2B2B367C004899A9 /* NoConcertsView.swift */,
-				AA8A746D2A32BDF3003E9B41 /* ConcertCollection.swift */,
+				AA8A746D2A32BDF3003E9B41 /* StubsCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
 			);
@@ -290,7 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8A746E2A32BDF3003E9B41 /* ConcertCollection.swift in Sources */,
+				AA8A746E2A32BDF3003E9B41 /* StubsCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
