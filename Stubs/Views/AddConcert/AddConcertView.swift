@@ -29,7 +29,7 @@ struct AddConcertView: View {
     var body: some View {
         NavigationStack{
             Form {
-                addConcertDetails
+                AddConcertDetails(concert: $concert)
                 
                 IconSelector(iconName: $concert.iconName, accentColor: $concert.accentColor)
                 
@@ -66,7 +66,14 @@ extension AddConcertView {
     // Section for user input of concert details
     private var addConcertDetails: some View {
         Section("Details") {
-            TextField("Artist", text: $concert.artist)
+            HStack {
+                TextField("Artist", text: $concert.artist)
+                
+                Image(systemName: concert.artist.isEmpty ? "play.circle": "play.circle.fill")
+                    .foregroundStyle(concert.artist.isEmpty
+                                     ? .gray
+                                     : .green)
+            }
             TextField("Venue", text: $concert.venue)
             TextField("City", text: $concert.city)
             DatePicker("Date", selection: $concert.date, displayedComponents: .date)

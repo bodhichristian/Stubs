@@ -30,6 +30,7 @@
 		AAA418472B29DC2400E59B51 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* APIKey.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
+		AAC4D4D02B2E77F80098D28D /* AddConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		AAA418462B29DC2400E59B51 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertDetails.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +81,6 @@
 				AA8A746D2A32BDF3003E9B41 /* ConcertCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
-				AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */,
 			);
 			path = Concerts;
 			sourceTree = "<group>";
@@ -172,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
+				AAC4D4D12B2E79CB0098D28D /* AddConcert */,
 				AA62228C2B2A58DA004899A9 /* ArtistData */,
 				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA4B4E2D2A677CC100197B28 /* Map */,
@@ -189,6 +191,15 @@
 				AA48FECF2A60DE3E005BA775 /* Extension-String.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		AAC4D4D12B2E79CB0098D28D /* AddConcert */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */,
+				AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */,
+			);
+			path = AddConcert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */,
+				AAC4D4D02B2E77F80098D28D /* AddConcertDetails.swift in Sources */,
 				AA8A74912A33EE53003E9B41 /* Customizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
