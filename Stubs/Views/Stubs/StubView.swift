@@ -15,7 +15,7 @@ struct StubView: View {
     let isAddingConcert: Bool
     
     let gradient = LinearGradient( // For stub base
-        colors: [/* .black.opacity(0.2), */.clear, .black.opacity(0.2)],
+        colors: [.clear, .black.opacity(0.2)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
@@ -114,6 +114,7 @@ struct StubView: View {
                             
                         }
                     }
+                    .padding(.leading)
                     
                     VerticalLineBoundary() // Right Edge
                 

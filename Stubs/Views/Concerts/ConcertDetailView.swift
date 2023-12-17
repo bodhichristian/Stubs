@@ -30,6 +30,7 @@ struct ConcertDetailView: View {
                 HStack {
                     Text("Notes")
                         .font(.title2.bold())
+                        .padding(.bottom)
                     Spacer()
                 }
                 if let notes = concert.notes {
@@ -44,7 +45,8 @@ struct ConcertDetailView: View {
             }
             .padding(.vertical)
             
-
+            Divider()
+            
             AlbumsByArtist(concert: concert)
 
         }

@@ -11,7 +11,7 @@ struct VerticalLineBoundary: View {
     var body: some View {
         Rectangle()
             .frame(width: 2)
-            .padding(.trailing, 10)
+           // .padding(.trailing, 10)
             .foregroundStyle(.black)
     }
 }

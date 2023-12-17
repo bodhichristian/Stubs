@@ -65,6 +65,7 @@ struct AlbumsByArtist: View {
             }
             Spacer()
         }
+        .padding(.vertical)
         .onAppear {
             viewModel.searchAlbums(for: concert.artist)
         }

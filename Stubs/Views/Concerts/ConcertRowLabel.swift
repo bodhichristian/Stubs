@@ -15,14 +15,36 @@ struct ConcertRowLabel: View {
     
     var body: some View {
         HStack {
-            Image(systemName: concert.iconName)
-                .resizable()
-                .foregroundStyle(Color(colorName: concert.accentColor)!)
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-                .shadow(color: .black.opacity(0.3), radius: 3, y: 4)
-                .padding(.leading, 6)
-                .padding(.trailing, 12)
+            
+            //Color(colorName: concert.accentColor)!
+            
+            ZStack {
+                
+                StubShape()
+                    .foregroundStyle(Color(colorName: concert.accentColor)!)
+                
+                HStack {
+                    VerticalLineBoundary()
+                    Spacer()
+                    
+                    Image(systemName: concert.iconName)
+                        .resizable()
+                        .foregroundStyle(.white)
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                    
+                    Spacer()
+                    VerticalLineBoundary()
+                }
+                .frame(maxWidth: 60)
+            }
+            .shadow(color: .black.opacity(0.3), radius: 3, y: 2)
+
+            .rotationEffect(Angle(degrees: -15))
+
+            .frame(width: 70, height: 49)
+            .padding(.trailing)
+            
             
             VStack(alignment: .leading) {
                 
