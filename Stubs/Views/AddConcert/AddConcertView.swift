@@ -12,12 +12,11 @@ import SwiftData
 // A View that provides a form to add a new concert
 
 struct AddConcertView: View {
-    // MARK: concert
     // Create an instance of concert with default icon and accent color
     @State private var concert = Concert(artist: "", venue: "", city: "", date: Date.now, iconName: "guitars", accentColor: "blue")
     
-    @State private var colorOptions = Customizable.colors
-    @State private var iconOptions = Customizable.icons
+    @State private var colorOptions = StubStyle.colors
+    @State private var iconOptions = StubStyle.icons
     
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
@@ -29,6 +28,8 @@ struct AddConcertView: View {
     var body: some View {
         NavigationStack{
             Form {
+                StubPreview(concert: concert)
+                
                 AddConcertDetails(concert: $concert)
                 
                 IconSelector(iconName: $concert.iconName, accentColor: $concert.accentColor)

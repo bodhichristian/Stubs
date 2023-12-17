@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ColorSelector: View {
-    let colorOptions = Customizable.colors
-
     @Binding var accentColor: String
-    
+
+    let colorOptions = StubStyle.colors
+
     var body: some View {
-        Section("Accent Color") {
+        Section("Ticket Color") {
             ScrollView(.horizontal){
                 HStack(spacing: 20) {
                     ForEach(colorOptions, id: \.self) { color in
@@ -28,7 +28,7 @@ struct ColorSelector: View {
                 }
             }
             .scrollTargetBehavior(.paging)
-            .shadow(radius: 5, y: 8)
+            .shadow(radius: 5, y: 3)
             .padding(.vertical, 10)
         }
     }

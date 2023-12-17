@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TicketShape: Shape {
+struct StubShape: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
             // MARK: Starting position
