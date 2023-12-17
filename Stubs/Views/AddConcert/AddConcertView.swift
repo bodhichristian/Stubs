@@ -12,8 +12,16 @@ import SwiftData
 // A View that provides a form to add a new concert
 
 struct AddConcertView: View {
+    
     // Create an instance of concert with default icon and accent color
-    @State private var concert = Concert(artist: "", venue: "", city: "", date: Date.now, iconName: "waveform", accentColor: "cyan")
+    @State private var concert = Concert(
+        artist: "",
+        venue: "",
+        city: "",
+        date: Date.now,
+        iconName: "waveform", // Provide an SF symbol
+        accentColor: "cyan", // Provide a value that coincides with a Color type
+        notes: " ")
     
     @State private var colorOptions = StubStyle.colors
     @State private var iconOptions = StubStyle.icons
@@ -21,8 +29,11 @@ struct AddConcertView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     
-    var formIncomplete: Bool { // Returns true if any field is empty
-        concert.artist.isEmpty || concert.venue.isEmpty || concert.city.isEmpty
+    // Returns true if any field is empty
+    var formIncomplete: Bool {
+        concert.artist.isEmpty 
+        || concert.venue.isEmpty
+        || concert.city.isEmpty
     }
   
     var body: some View {

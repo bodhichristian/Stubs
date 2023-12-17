@@ -14,6 +14,7 @@ import SwiftData
 
 @Model
 final class Concert {
+    
     let uuid: UUID
     var artist: String
     var venue: String
@@ -42,6 +43,8 @@ final class Concert {
         self.accentColor = accentColor
         self.notes = notes
         self.isFavorite = isFavorite
+        
     }
-
 }
+
+

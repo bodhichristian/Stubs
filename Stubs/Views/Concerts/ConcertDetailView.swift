@@ -8,12 +8,9 @@
 import SwiftUI
 import Combine
 
-// MARK: ConcertDetailView - SwiftUI View
-// A View for displaying the ticket stub and providing interactivity
-// Concert actions: Map View, YouTube, Favorite, Delete
-
+// MARK: ConcertDetailView
+// A View for displaying the ticket stub and relevant data
 struct ConcertDetailView: View {
-   // @StateObject var viewModel = ConcertDetailView.ViewModel()
     
     @State var concert: Concert
     @State private var iconTapped = false // For icon animation
@@ -28,6 +25,25 @@ struct ConcertDetailView: View {
             StubView(concert: concert, isAddingConcert: false)
             
             actionButtons
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Notes")
+                        .font(.title2.bold())
+                    Spacer()
+                }
+                if let notes = concert.notes {
+                    Text(notes)
+                        .padding(.bottom)
+                } else {
+                    Text("Add Notes in Ticket Editor.")
+                        .foregroundStyle(.tertiary)
+                        .padding(.bottom)
+                }
+                
+            }
+            .padding(.vertical)
+            
 
             AlbumsByArtist(concert: concert)
 
@@ -46,7 +62,8 @@ struct ConcertDetailView: View {
 
 extension ConcertDetailView {
     
-    // Horizontal Stack of Buttons
+    // MARK: actionButtons
+    // Map, Favorite, and Delete selections
     private var actionButtons: some View {
         HStack {
             // View on Map
@@ -73,9 +90,6 @@ extension ConcertDetailView {
                          concert: $concert) {
                 modelContext.delete(concert)
             }
-            
         }
-        .padding(.bottom)
     }
-    
 }

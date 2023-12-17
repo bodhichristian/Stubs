@@ -19,7 +19,8 @@ struct SampleData {
             city: "Bridgeport, CT",
             date: calendar.date(from: DateComponents(year: 2022, month: 8 ,day: 9))!,
             iconName: "airpodsmax",
-            accentColor: "orange"
+            accentColor: "orange",
+            notes: "The lead singer's energy was electrifying! They performed my favorite song as the closing number. Bought a t-shirt as a souvenir."
         ),
         
         
@@ -29,7 +30,8 @@ struct SampleData {
             city: "Brooklyn, NY",
             date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
             iconName: "wave.3.forward",
-            accentColor: "green"
+            accentColor: "green",
+            notes: "Arrived late due to traffic, missed the first two songs. The light show was mesmerizing. Made friends with the people sitting next to me."
         ),
         
         Concert(
@@ -38,7 +40,8 @@ struct SampleData {
             city: "Brooklyn, NY",
             date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
             iconName: "guitars",
-            accentColor: "red"
+            accentColor: "red",
+            notes: ""
         ),
         
         Concert(
@@ -47,7 +50,8 @@ struct SampleData {
             city: "Nashville, TN",
             date: calendar.date(from: DateComponents(year: 2016,month: 10,day: 5))!,
             iconName: "guitars",
-            accentColor: "orange"
+            accentColor: "orange",
+            notes: "This was their farewell tour - felt so emotional. The acoustic set in the middle was a pleasant surprise. Got the setlist autographed after the show!"
         ),
         
         Concert(
@@ -56,7 +60,8 @@ struct SampleData {
             city: "Nashville, TN",
             date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
             iconName: "music.mic",
-            accentColor: "cyan"
+            accentColor: "cyan",
+            notes: ""
         ),
         
         Concert(
@@ -65,7 +70,8 @@ struct SampleData {
             city: "New York, NY",
             date: calendar.date(from: DateComponents(year: 2021,month: 12,day: 20))!,
             iconName: "waveform",
-            accentColor: "purple"
+            accentColor: "purple",
+            notes: "Took a road trip to see this concert - totally worth it. The band played a rare B-side track. Made unforgettable memories with friends."
         ),
         
         Concert(
@@ -74,7 +80,8 @@ struct SampleData {
             city: "Los Angeles, CA",
             date: calendar.date(from: DateComponents(year: 2015,month: 6,day: 15))!,
             iconName: "music.note",
-            accentColor: "green"
+            accentColor: "green",
+            notes: "Took a road trip to see this concert - totally worth it. The band played a rare B-side track. Made unforgettable memories with friends."
         ),
         
         Concert(
@@ -83,7 +90,8 @@ struct SampleData {
             city: "London England",
             date: calendar.date(from: DateComponents(year: 2001,month: 7,day: 15))!,
             iconName: "airpodsmax",
-            accentColor: "indigo"
+            accentColor: "indigo",
+            notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious."
         ),
         
         Concert(
@@ -92,7 +100,8 @@ struct SampleData {
             city: "Paris, FR",
             date: calendar.date(from: DateComponents(year: 1970,month: 9,day: 12))!,
             iconName: "music.quarternote.3",
-            accentColor: "yellow"
+            accentColor: "yellow",
+            notes: "Outdoor venue was perfect for this band's style. Enjoyed a picnic with friends before it started. The encore was even better than expected."
         ),
         
         Concert(
@@ -101,7 +110,8 @@ struct SampleData {
             city: "San Quentin, CA",
             date: calendar.date(from: DateComponents(year: 1969,month: 2,day: 24))!,
             iconName: "wave.3.forward",
-            accentColor: "orange"
+            accentColor: "orange",
+            notes: "The vocalist's range was astounding. Each song told a different story. Left feeling inspired and rejuvenated."
         ),
         
         Concert(
@@ -110,7 +120,8 @@ struct SampleData {
             city: "Los Angeles, CA",
             date: calendar.date(from: DateComponents(year: 1970,month: 8,day: 25))!,
             iconName: "music.note.list",
-            accentColor: "blue"
+            accentColor: "blue",
+            notes: "The rhythm and beats were impossible not to dance to. Loved the unexpected encore. The night flew by too quickly."
         ),
         
         Concert(
@@ -119,7 +130,8 @@ struct SampleData {
             city: "Memphis, TN",
             date: calendar.date(from: DateComponents(year: 1954, month: 7, day: 30))!,
             iconName: "guitars",
-            accentColor: "brown"
+            accentColor: "brown",
+            notes:  "The lead singer's voice was even better live. The visual effects complemented the music perfectly. Left with a huge smile on my face."
         ),
         
         Concert(
@@ -128,7 +140,8 @@ struct SampleData {
             city: "New York, NY",
             date: calendar.date(from: DateComponents(year: 1965, month: 8, day: 15))!,
             iconName: "music.mic",
-            accentColor: "teal"
+            accentColor: "teal",
+            notes: "Rain almost ruined the concert, but the band played on. The crowd's energy was incredible, everyone singing in the rain. Lost my umbrella but it was worth it."
         ),
         
         Concert(
@@ -137,7 +150,8 @@ struct SampleData {
             city: "Munich, Germany",
             date: calendar.date(from: DateComponents(year: 1997, month: 7, day: 4))!,
             iconName: "waveform",
-            accentColor: "purple"
+            accentColor: "purple",
+            notes: "The fusion of rock and electronic music was mind-blowing. Dance floor was wild! Lost my voice from singing along."
         ),
         
         Concert(
@@ -146,7 +160,8 @@ struct SampleData {
             city: "Paris, France",
             date: calendar.date(from: DateComponents(year: 1987, month: 9, day: 1))!,
             iconName: "music.note",
-            accentColor: "indigo"
+            accentColor: "indigo",
+            notes: "First time seeing a jazz concert - completely blown away. The saxophone solo was unforgettable. Plan to explore more jazz music now."
         ),
         
         Concert(
@@ -155,7 +170,8 @@ struct SampleData {
             city: "London, UK",
             date: calendar.date(from: DateComponents(year: 1986, month: 7, day: 12))!,
             iconName: "airpodsmax",
-            accentColor: "green"
+            accentColor: "green",
+            notes: "Had front row seats - felt like a dream. The guitar solo gave me chills. Managed to catch a drumstick!"
         ),
         
         Concert(
@@ -164,7 +180,8 @@ struct SampleData {
             city: "Reading, UK",
             date: calendar.date(from: DateComponents(year: 1992, month: 8, day: 30))!,
             iconName: "music.quarternote.3",
-            accentColor: "brown"
+            accentColor: "brown",
+            notes: "The opening act was surprisingly good, need to check out their album. Met the drummer at the merchandise stand. The main band played an extra-long set!"
         ),
         
         Concert(
@@ -173,7 +190,8 @@ struct SampleData {
             city: "London, UK",
             date: calendar.date(from: DateComponents(year: 1977, month: 6, day: 4))!,
             iconName: "wave.3.forward",
-            accentColor: "purple"
+            accentColor: "purple",
+            notes: "Took my younger sister to her first concert. She was thrilled when the band played her favorite song. Bought matching band bracelets as a keepsake."
         ),
         
         Concert(
@@ -182,7 +200,8 @@ struct SampleData {
             city: "Indio, CA",
             date: calendar.date(from: DateComponents(year: 2018, month: 4, day: 14))!,
             iconName: "music.note.list",
-            accentColor: "yellow"
+            accentColor: "yellow",
+            notes: "Stadium was packed, atmosphere was electric. Loved the new arrangements of old classics. The light sticks created a sea of stars."
         ),
         
         Concert(
@@ -191,7 +210,8 @@ struct SampleData {
             city: "New York, NY",
             date: calendar.date(from: DateComponents(year: 1978, month: 9, day: 19))!,
             iconName: "guitars",
-            accentColor: "orange"
+            accentColor: "orange",
+            notes: "Acoustic solo performance - intimate and moving. The artist shared stories behind each song. Left feeling deeply connected to the music."
         )
     ]
     
