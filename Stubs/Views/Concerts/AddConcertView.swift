@@ -12,12 +12,9 @@ import SwiftData
 // A View that provides a form to add a new concert
 
 struct AddConcertView: View {
-    @State private var artist = ""
-    @State private var venue = ""
-    @State private var city = ""
-    @State private var date = Date()
-    @State private var iconName = "guitars" // Provides a default value
-    @State private var accentColor = "blue" // Provides a default value
+    // MARK: concert
+    // Create an instance of concert with default icon and accent color
+    @State private var concert = Concert(artist: "", venue: "", city: "", date: Date.now, iconName: "guitars", accentColor: "blue")
     
     @State private var colorOptions = Customizable.colors
     @State private var iconOptions = Customizable.icons
@@ -25,18 +22,18 @@ struct AddConcertView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     
-    var formNotComplete: Bool { // Returns true if any field is empty
-        artist.isEmpty || venue.isEmpty || city.isEmpty
+    var formIncomplete: Bool { // Returns true if any field is empty
+        concert.artist.isEmpty || concert.venue.isEmpty || concert.city.isEmpty
     }
   
     var body: some View {
         NavigationStack{
             Form {
-                detailInput
+                addConcertDetails
                 
-                IconSelector(iconName: $iconName, accentColor: $accentColor)
+                IconSelector(iconName: $concert.iconName, accentColor: $concert.accentColor)
                 
-                ColorSelector(accentColor: $accentColor)
+                ColorSelector(accentColor: $concert.accentColor)
             }
             .navigationTitle("Add Concert")
             .toolbar {
@@ -51,11 +48,31 @@ struct AddConcertView: View {
                         addConcert()
                         dismiss()
                     }
-                    .disabled(formNotComplete)
+                    .disabled(formIncomplete)
                 }
             }
         }
     }
+    
+    // Add a new concert from the View's current State
+    private func addConcert() {
+        withAnimation {
+            modelContext.insert(concert)
+        }
+    }
+}
+
+extension AddConcertView {
+    // Section for user input of concert details
+    private var addConcertDetails: some View {
+        Section("Details") {
+            TextField("Artist", text: $concert.artist)
+            TextField("Venue", text: $concert.venue)
+            TextField("City", text: $concert.city)
+            DatePicker("Date", selection: $concert.date, displayedComponents: .date)
+        }
+    }
+    
 }
 
 #Preview {
@@ -63,27 +80,4 @@ struct AddConcertView: View {
         .modelContainer(for: Concert.self, inMemory: true)
 }
 
-extension AddConcertView {
-    // Section for user input of concert details
-    private var detailInput: some View {
-        Section("Details") {
-            TextField("Artist", text: $artist)
-            TextField("Venue", text: $venue)
-            TextField("City", text: $city)
-            DatePicker("Date", selection: $date, displayedComponents: .date)
-        }
-    }
-    // Add a new concert from the View's current State
-    private func addConcert() {
-        let newConcert = Concert(artist: artist,
-                                 venue: venue,
-                                 city: city,
-                                 date: date,
-                                 iconName: iconName,
-                                 accentColor: accentColor)
-        withAnimation {
-            modelContext.insert(newConcert)
-        }
-    }
-}
 
