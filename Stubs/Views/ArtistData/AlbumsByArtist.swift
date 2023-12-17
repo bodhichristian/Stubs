@@ -38,11 +38,11 @@ struct AlbumsByArtist: View {
                         ForEach(viewModel.albums.sorted { $0.intYearReleased ?? "" > $1.intYearReleased ?? ""}, id: \.idAlbum) { album in
                             
                             VStack(alignment: .leading) {
-                                AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable()
+                                AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable().scaledToFit()
                                 } placeholder: {
                                     Color.secondary.opacity(0.1)
                                 }
-                                .frame(width: 120, height: 120)
+                                .frame(width: 100, height: 100)
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                                 .shadow(radius: 3, x: 5, y: 5)
                                 

@@ -22,6 +22,7 @@ struct ConcertDetailView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
+        
         VStack(spacing: 0){
             
             StubView(concert: concert, isAddingConcert: false)
@@ -44,24 +45,6 @@ struct ConcertDetailView: View {
 }
 
 extension ConcertDetailView {
-    
-    class ViewModel: ObservableObject {
-        private let albumService = AlbumSearchService()
-        private var cancellables = Set<AnyCancellable>()
-        
-        @Published var albums: [Album] = []
-        
-        func searchAlbums(for artist: String) {
-            albumService.$albums
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] in self?.albums = $0 }
-                .store(in: &cancellables)
-            
-            albumService.searchAlbums(for: artist)
-            
-        }
-    }
-    
     
     // Horizontal Stack of Buttons
     private var actionButtons: some View {
@@ -94,4 +77,5 @@ extension ConcertDetailView {
         }
         .padding(.bottom)
     }
+    
 }
