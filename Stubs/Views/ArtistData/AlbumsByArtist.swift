@@ -14,7 +14,9 @@ struct AlbumsByArtist: View {
     @StateObject var viewModel = AlbumsByArtist.ViewModel()
 
     var body: some View {
-        VStack(alignment: .leading){
+        
+        VStack(alignment: .leading) {
+            
             if viewModel.albums.isEmpty{
                 Text("Albums")
                     .font(.title2.bold())
@@ -24,6 +26,7 @@ struct AlbumsByArtist: View {
             }
             
             ScrollView(.horizontal) {
+                
                 HStack {
                     if viewModel.albums.isEmpty {
                         ForEach(0..<5) { _ in
@@ -31,8 +34,7 @@ struct AlbumsByArtist: View {
                                 .fill(.secondary.opacity(0.1))
                                 .frame(width: 120, height: 120)
                                 .shadow(radius: 3, x: 5, y: 5)
-                            
-                            
+  
                         }
                     } else {
                         ForEach(viewModel.albums.sorted { $0.intYearReleased ?? "" > $1.intYearReleased ?? ""}, id: \.idAlbum) { album in
@@ -54,9 +56,6 @@ struct AlbumsByArtist: View {
                                     .lineLimit(1)
                                 
                                 Text(album.intYearReleased ?? "")
-                                
-                                //.frame(width: 120)
-                                
                                 
                             }
                         }

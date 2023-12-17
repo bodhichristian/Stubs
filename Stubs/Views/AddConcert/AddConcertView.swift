@@ -23,6 +23,8 @@ struct AddConcertView: View {
         accentColor: "cyan", // Provide a value that coincides with a Color type
         notes: " ")
     
+    @State private var concertNotes = "" // Local note
+    
     @State private var colorOptions = StubStyle.colors
     @State private var iconOptions = StubStyle.icons
     
@@ -31,11 +33,11 @@ struct AddConcertView: View {
     
     // Returns true if any field is empty
     var formIncomplete: Bool {
-        concert.artist.isEmpty 
+        concert.artist.isEmpty
         || concert.venue.isEmpty
         || concert.city.isEmpty
     }
-  
+    
     var body: some View {
         NavigationStack{
             Form {
@@ -46,6 +48,10 @@ struct AddConcertView: View {
                 IconSelector(iconName: $concert.iconName, accentColor: $concert.accentColor)
                 
                 ColorSelector(accentColor: $concert.accentColor)
+                
+                Section("Notes"){
+                    TextEditor(text: $concertNotes)
+                }
             }
             .navigationTitle("Add Concert")
             .toolbar {
@@ -68,9 +74,11 @@ struct AddConcertView: View {
     
     // Add a new concert from the View's current State
     private func addConcert() {
-        withAnimation {
-            modelContext.insert(concert)
-        }
+        // Create concert object to insert from data in the View.
+        let newConcert = Concert(artist: concert.artist, venue: concert.venue, city: concert.city, date: concert.date, iconName: concert.iconName, accentColor: concert.accentColor, notes: concertNotes)
+        
+        modelContext.insert(newConcert)
+        
     }
 }
 

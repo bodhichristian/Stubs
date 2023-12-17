@@ -41,7 +41,7 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
             iconName: "guitars",
             accentColor: "red",
-            notes: ""
+            notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious."
         ),
         
         Concert(
@@ -61,7 +61,7 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
             iconName: "music.mic",
             accentColor: "cyan",
-            notes: ""
+            notes: "This was a charity concert with multiple artists performing. Each performance was unique and heartfelt, contributing to the cause. The finale featured all artists on stage together, creating a memorable and powerful moment. Bought a special edition poster to support the charity."
         ),
         
         Concert(
