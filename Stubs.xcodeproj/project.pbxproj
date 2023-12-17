@@ -173,12 +173,12 @@
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
-				AAC4D4D62B2F4AC10098D28D /* Stubs */,
 				AAC4D4D12B2E79CB0098D28D /* AddConcert */,
 				AA62228C2B2A58DA004899A9 /* ArtistData */,
 				AA48FED32A64E51C005BA775 /* Concerts */,
-				AA4B4E2D2A677CC100197B28 /* Map */,
 				AA48FED42A64E63E005BA775 /* Components */,
+				AA4B4E2D2A677CC100197B28 /* Map */,
+				AAC4D4D62B2F4AC10098D28D /* Stubs */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -11,7 +11,7 @@ struct StubPreview: View {
     let concert: Concert
     
     var body: some View {
-            StubView(concert: concert)
+            StubView(concert: concert, isAddingConcert: true)
                 .frame(minHeight: 250)
         
     }

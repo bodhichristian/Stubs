@@ -24,7 +24,7 @@ struct ConcertDetailView: View {
     var body: some View {
         VStack(spacing: 0){
             
-            StubView(concert: concert)
+            StubView(concert: concert, isAddingConcert: false)
             
             actionButtons
 

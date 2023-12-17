@@ -12,6 +12,7 @@ import SwiftUI
 
 struct StubView: View {
     let concert: Concert
+    let isAddingConcert: Bool
     
     let gradient = LinearGradient( // For stub base
         colors: [.clear, .black.opacity(0.2), .black.opacity(0.4)],
@@ -20,6 +21,7 @@ struct StubView: View {
     )
     
     @State private var iconTapped = false // For icon animation
+
     
     var body: some View {
         GeometryReader { geo in
@@ -43,7 +45,11 @@ struct StubView: View {
                         
                         // Artist Name
                         Text(concert.artist)
-                            .font(.title.bold())
+                            .font(isAddingConcert
+                                  ? .title2
+                                  : .title
+                            )
+                            .bold()
                             .foregroundStyle(.white)
                             .shadow(radius: 2)
                         
@@ -54,12 +60,18 @@ struct StubView: View {
                                 
                                 // Venue Details
                                 Text(concert.venue)
-                                    .font(.title2)
+                                    .font(isAddingConcert
+                                          ? .title3
+                                          : .title2
+                                    )
                                     .foregroundStyle(.black)
                                 
                                 // City
                                 Text(concert.city)
-                                    .font(.title2)
+                                    .font(isAddingConcert
+                                          ? .title3
+                                          : .title2
+                                    )
                                     .foregroundStyle(.white)
                                 
                                 Spacer()
@@ -112,5 +124,5 @@ struct StubView: View {
 }
 
 #Preview {
-    StubView(concert: SampleData.concerts[0])
+    StubView(concert: SampleData.concerts[0], isAddingConcert: false)
 }
