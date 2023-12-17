@@ -15,7 +15,10 @@ struct AlbumsByArtist: View {
 
     var body: some View {
         VStack(alignment: .leading){
-            if !viewModel.albums.isEmpty{
+            if viewModel.albums.isEmpty{
+                Text("Albums")
+                    .font(.title2.bold())
+            } else {
                 Text("Albums by \(viewModel.albums[0].strArtist ?? "")")
                     .font(.title2.bold())
             }

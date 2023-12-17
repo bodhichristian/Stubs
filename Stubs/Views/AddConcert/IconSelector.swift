@@ -17,19 +17,7 @@ struct IconSelector: View {
         
     var body: some View {
         Section("Icon") {
-//            VStack {
-//                Image(systemName: iconName) // Large Icon Preview
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 150, height: 150)
-//                    .foregroundStyle(Color(colorName: accentColor)!)
-//                    .shadow(radius: 5, y: 8)
-//                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-//                    .onAppear {
-//                        iconTapped.toggle()
-//                    }
-//                    .padding()
-//                
+
                 ScrollView(.horizontal){ // Icon options
                     HStack(spacing: 20) {
                         ForEach(iconOptions, id: \.self) { icon in

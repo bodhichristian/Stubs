@@ -15,9 +15,9 @@ struct StubView: View {
     let isAddingConcert: Bool
     
     let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.2), .black.opacity(0.4)],
-        startPoint: .bottom,
-        endPoint: .top
+        colors: [/* .black.opacity(0.2), */.clear, .black.opacity(0.2)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
     )
     
     @State private var iconTapped = false // For icon animation
@@ -64,6 +64,7 @@ struct StubView: View {
                                           ? .title3
                                           : .title2
                                     )
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.black)
                                 
                                 // City
@@ -80,29 +81,36 @@ struct StubView: View {
                                 // Format: `Jun 9, 2023`
                                 Text(concert.date.formatted(date: .abbreviated, time: .omitted))
                                     .fontDesign(.monospaced)
-                                    .font(.title2)
+                                    .font(isAddingConcert
+                                          ? .title3
+                                          : .title2
+                                    )
                                     .foregroundStyle(.black)
                                 
                             }
                             
                             Spacer()
                             
-                            // MARK: Concert icon
-                            Image(systemName: concert.iconName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(
-                                    width: geo.size.width * 0.2,
-                                    height: geo.size.width * 0.2)
-                                .foregroundStyle(.white)
-                                .shadow(radius: 4, x: 2, y: 6)
-                                .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-                                .onAppear {
-                                    iconTapped.toggle()
-                                }
-                                .onTapGesture {
-                                    iconTapped.toggle()
-                                }
+                            VStack {
+                                Spacer()
+                                
+                                // MARK: Concert icon
+                                Image(systemName: concert.iconName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(
+                                        width: geo.size.width * 0.2,
+                                        height: geo.size.width * 0.2)
+                                    .foregroundStyle(.white)
+                                    .shadow(radius: 4, x: 2, y: 6)
+                                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
+                                    .onAppear {
+                                        iconTapped.toggle()
+                                    }
+                                    .onTapGesture {
+                                        iconTapped.toggle()
+                                    }
+                            }
                             
                         }
                     }

@@ -13,7 +13,7 @@ import SwiftData
 
 struct AddConcertView: View {
     // Create an instance of concert with default icon and accent color
-    @State private var concert = Concert(artist: "", venue: "", city: "", date: Date.now, iconName: "guitars", accentColor: "blue")
+    @State private var concert = Concert(artist: "", venue: "", city: "", date: Date.now, iconName: "waveform", accentColor: "cyan")
     
     @State private var colorOptions = StubStyle.colors
     @State private var iconOptions = StubStyle.icons

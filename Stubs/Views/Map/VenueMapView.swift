@@ -36,6 +36,7 @@ struct VenueMapView: View {
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
 
                 }
+                .mapStyle(.hybrid(elevation: .realistic, pointsOfInterest: .all))
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

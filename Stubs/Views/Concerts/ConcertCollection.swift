@@ -29,7 +29,9 @@ struct ConcertCollection: View {
                 
                 if concerts.isEmpty { // If no concerts have been saved
                     NoConcertsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
+                    
                 } else  {
+                    
                     List {
                         // Sort concerts in reverse chronological order
                         ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in

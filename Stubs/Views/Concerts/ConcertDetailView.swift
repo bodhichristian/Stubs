@@ -92,5 +92,6 @@ extension ConcertDetailView {
             }
             
         }
+        .padding(.bottom)
     }
 }

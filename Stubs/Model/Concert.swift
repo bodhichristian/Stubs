@@ -21,6 +21,7 @@ final class Concert {
     var date: Date
     var iconName: String
     var accentColor: String
+    var notes: String?
     var isFavorite: Bool
     
     init(uuid: UUID = UUID(),
@@ -30,6 +31,7 @@ final class Concert {
          date: Date,
          iconName: String,
          accentColor: String,
+         notes: String = "",
          isFavorite: Bool = false) {
         self.uuid = uuid
         self.artist = artist
@@ -38,6 +40,7 @@ final class Concert {
         self.date = date
         self.iconName = iconName
         self.accentColor = accentColor
+        self.notes = notes
         self.isFavorite = isFavorite
     }
 

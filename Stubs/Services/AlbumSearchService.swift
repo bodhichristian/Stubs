@@ -13,7 +13,7 @@ class AlbumSearchService: ObservableObject {
     
     func searchAlbums(for artist: String) {
         let headers = [
-            "X-RapidAPI-Key": christiansKey,
+            "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
 
