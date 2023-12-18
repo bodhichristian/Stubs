@@ -5,8 +5,9 @@
 //  Created by christian on 6/9/23.
 //
 
-import SwiftUI
 import Combine
+import SwiftData
+import SwiftUI
 
 // MARK: ConcertDetailView
 // A View for displaying the ticket stub and relevant data
@@ -18,38 +19,51 @@ struct ConcertDetailView: View {
     
     @Environment(\.modelContext) var modelContext
     
+    @Query var concerts: [Concert]
+    
+    private var concertsByArtist: [Concert] {
+        return concerts.filter({ $0.artist == concert.artist })
+    }
+    
     var body: some View {
         
         VStack(spacing: 0){
             
             StubView(concert: concert, isAddingConcert: false)
             
-            //
-            actionButtons
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Notes")
-                        .font(.title2.bold())
-                        .padding(.bottom)
-                    Spacer()
+            ScrollView{
+                concertButtonRow
+
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Notes")
+                            .font(.title2.bold())
+                            //.padding(.bottom)
+                        Spacer()
+                    }
+                    if let notes = concert.notes {
+                        Text(notes)
+                            .font(.callout)
+                            .padding(.bottom)
+                    } else {
+                        Text("Add Notes in Ticket Editor.")
+                            .foregroundStyle(.tertiary)
+                            .padding(.bottom)
+                    }
+                    
                 }
-                if let notes = concert.notes {
-                    Text(notes)
-                        .padding(.bottom)
-                } else {
-                    Text("Add Notes in Ticket Editor.")
-                        .foregroundStyle(.tertiary)
-                        .padding(.bottom)
-                }
+                .padding(.vertical)
+                
+                Divider()
+                
+                StubThumbnailScrollView(concerts: concertsByArtist)
+                
+                Divider()
+                
+                AlbumsByArtist(concert: concert)
+
                 
             }
-            .padding(.vertical)
-            
-            Divider()
-            
-            AlbumsByArtist(concert: concert)
-
         }
         
         .navigationTitle("\(concert.artist) | \(concert.venue)" )
@@ -67,7 +81,7 @@ extension ConcertDetailView {
     
     // MARK: actionButtons
     // Map, Favorite, and Delete selections
-    private var actionButtons: some View {
+    private var concertButtonRow: some View {
         HStack {
             // View on Map
             ActionButton(titleKey: "Map",
@@ -93,5 +107,6 @@ extension ConcertDetailView {
                 modelContext.delete(concert)
             }
         }
+        .padding(.vertical, 30)
     }
 }

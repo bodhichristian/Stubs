@@ -16,7 +16,7 @@ struct SampleData {
         Concert(
             artist: "A Day to Remember",
             venue: "Bridgeport Amphitheatre",
-            city: "Bridgeport, CT",
+            city: "Bridgeport",
             date: calendar.date(from: DateComponents(year: 2022, month: 8 ,day: 9))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
@@ -28,7 +28,7 @@ struct SampleData {
         Concert(
             artist: "Thrice",
             venue: "Terminal 5",
-            city: "Brooklyn, NY",
+            city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
@@ -39,7 +39,7 @@ struct SampleData {
         Concert(
             artist: "Bring Me The Horizon",
             venue: "Barclays Center",
-            city: "Brooklyn, NY",
+            city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
@@ -49,7 +49,7 @@ struct SampleData {
         Concert(
             artist: "Blind Breed",
             venue: "The End",
-            city: "Nashville, TN",
+            city: "Nashville",
             date: calendar.date(from: DateComponents(year: 2016,month: 10,day: 5))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
@@ -58,19 +58,9 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Taylor Swift",
-            venue: "Nissan Stadium",
-            city: "Nashville, TN",
-            date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
-            iconName: StubStyle.icons.randomElement()!,
-            accentColor: StubStyle.colors.randomElement()!,
-            notes: "This was a charity concert with multiple artists performing. Each performance was unique and heartfelt, contributing to the cause. The finale featured all artists on stage together, creating a memorable and powerful moment. Bought a special edition poster to support the charity."
-        ),
-        
-        Concert(
             artist: "Billy Joel",
             venue: "Madison Square Garden",
-            city: "New York, NY",
+            city: "New York",
             date: calendar.date(from: DateComponents(year: 2021,month: 12,day: 20))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,

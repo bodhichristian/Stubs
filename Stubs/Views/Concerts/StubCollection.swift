@@ -119,17 +119,9 @@ extension StubCollection {
                 .replacingOccurrences(of: ",", with: ""))
             .textCase(nil)
         
-        .font(.title)
+        .font(.title2)
         .bold()
-//        HStack {
-//            Image(systemName: "calendar.circle")
-//            Text(("\(decade)")
-//                .replacingOccurrences(of: ",", with: ""))
-//            .textCase(nil)
-//            Spacer()
-//        }
-//        .font(.title2)
-//        .bold()
+
     }
     // Delete concert
     private func delete(offsets: IndexSet) {

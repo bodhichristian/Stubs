@@ -15,7 +15,7 @@ struct AlbumsByArtist: View {
 
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             
             if viewModel.albums.isEmpty{
                 Text("Albums")
@@ -32,7 +32,7 @@ struct AlbumsByArtist: View {
                         ForEach(0..<5) { _ in
                             RoundedRectangle(cornerRadius: 15)
                                 .fill(.secondary.opacity(0.1))
-                                .frame(width: 120, height: 120)
+                                .frame(width: 100, height: 100)
                                 .shadow(radius: 3, x: 5, y: 5)
   
                         }
@@ -44,7 +44,7 @@ struct AlbumsByArtist: View {
                                 } placeholder: {
                                     Color.secondary.opacity(0.1)
                                 }
-                                .frame(width: 100, height: 100)
+                                .frame(width: 86, height: 86)
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                                 .shadow(radius: 3, x: 5, y: 5)
                                 
@@ -52,7 +52,7 @@ struct AlbumsByArtist: View {
                                 
                                 Text(album.strAlbum ?? "")
                                     .font(.headline)
-                                    .frame(maxWidth: 120, alignment: .leading)
+                                    .frame(maxWidth: 100, alignment: .leading)
                                     .lineLimit(1)
                                 
                                 Text(album.intYearReleased ?? "")
