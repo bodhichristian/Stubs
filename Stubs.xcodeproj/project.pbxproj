@@ -37,6 +37,7 @@
 		AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
 		AAC4D4E02B2FF4E00098D28D /* StubThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */; };
 		AAC4D4E22B2FF5A40098D28D /* StubThumbnailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */; };
+		AAC4D4E42B2FFF400098D28D /* StubNavLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
 		AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubThumbnail.swift; sourceTree = "<group>"; };
 		AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubThumbnailScrollView.swift; sourceTree = "<group>"; };
+		AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNavLabel.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 				AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */,
 				AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */,
 				AA7C57ED2B249B7B006843C4 /* StubShape.swift */,
+				AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */,
 				AA8A74902A33EE53003E9B41 /* StubStyle.swift */,
 				AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */,
 			);
@@ -306,6 +309,7 @@
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
+				AAC4D4E42B2FFF400098D28D /* StubNavLabel.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,

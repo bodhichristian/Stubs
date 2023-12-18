@@ -13,6 +13,62 @@ let calendar = Calendar.current
 struct SampleData {
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
+        
+        Concert(
+            artist: "Bruno Mars",
+            venue: "The Forum",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2021, month: 6, day: 21))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Bruno Mars turned The Forum into a funk-filled party. His charismatic performance of '24K Magic' had everyone dancing. A night of pure joy and entertainment.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Taylor Swift",
+            venue: "Wembley Stadium",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2018, month: 6, day: 22))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Taylor Swift's show was a spectacular display of storytelling and music. 'Delicate' was a touching and beautifully performed song. An unforgettable evening.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Lady Gaga",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2022, month: 5, day: 11))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Lady Gaga's performance was a powerful blend of art and pop. The theatricality of 'Bad Romance' was a highlight. A truly immersive experience.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Ariana Grande",
+            venue: "Staples Center",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2019, month: 5, day: 7))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Ariana Grande's vocal prowess was on full display. Her performance of 'Thank U, Next' was both empowering and poignant. An inspiring concert.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Billy Joel",
+            venue: "Barclays Center",
+            city: "Brooklyn",
+            date: calendar.date(from: DateComponents(year: 2016, month: 12, day: 17))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Billy Joel's timeless music resonated through the Barclays Center. 'Piano Man' created a unifying and nostalgic moment for all. A legendary performance.",
+            isFavorite: true
+        ),
+        
         Concert(
             artist: "A Day to Remember",
             venue: "Bridgeport Amphitheatre",
@@ -405,6 +461,60 @@ struct SampleData {
             accentColor: StubStyle.colors.randomElement()!,
             notes: "Florence Welch's ethereal presence and voice captivated everyone at the Hollywood Bowl. 'Dog Days Are Over' had the entire crowd on their feet.",
             isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Beyoncé",
+            venue: "The O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2016, month: 7, day: 14))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Beyoncé's performance was a spectacular blend of vocals and visuals. The energy during 'Formation' was incredible. A truly empowering concert experience.",
+            isFavorite: true
+        ),
+        Concert(
+            artist: "Coldplay",
+            venue: "Rose Bowl",
+            city: "Pasadena",
+            date: calendar.date(from: DateComponents(year: 2017, month: 10, day: 6))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Coldplay's concert was a kaleidoscope of colors and sounds. The live version of 'Fix You' was emotionally stirring. The band connected beautifully with the audience.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Ed Sheeran",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2021, month: 9, day: 30))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Ed Sheeran's one-man show was a masterpiece of musical talent. His performance of 'Perfect' was a highlight, leaving many in the audience teary-eyed.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Adele",
+            venue: "Barclays Center",
+            city: "Brooklyn",
+            date: calendar.date(from: DateComponents(year: 2016, month: 11, day: 4))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Adele's voice resonated with soulful depth throughout the Barclays Center. Her humorous interactions with the audience added a lovely personal touch to the night.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Radiohead",
+            venue: "The Hollywood Bowl",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2017, month: 4, day: 18))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Radiohead delivered an otherworldly experience with their experimental sounds. 'Creep' was a surprising and much-celebrated addition to the setlist.",
+            isFavorite: true
         )
 
     ]

@@ -22,20 +22,13 @@ struct StubThumbnailScrollView: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(concerts, id: \.uuid) { concert in
-                        VStack(alignment: .leading) {
-                            
-                            StubThumbnail(concert: concert)
-                                .frame(minHeight: 60)
-                                .offset(x: 8)
-                            
-                            Text(concert.city)
-                                .font(.headline)
-                                .bold()
-                            
-                            Text(concert.date.formatted(date: .abbreviated, time: .omitted))
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
+                        
+                        NavigationLink {
+                            ConcertDetailView(concert: concert)
+                        } label: {
+                            StubNavLabel(concert: concert)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.vertical)
