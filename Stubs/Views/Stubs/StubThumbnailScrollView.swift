@@ -16,7 +16,7 @@ struct StubThumbnailScrollView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0 ) {
-            Text("Stubs from \(artist)")
+            Text("More from \(artist)")
                 .font(.title2.bold())
 
             ScrollView(.horizontal) {

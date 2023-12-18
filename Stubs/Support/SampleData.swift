@@ -80,18 +80,6 @@ struct SampleData {
             isFavorite: true
         ),
         
-        
-        Concert(
-            artist: "Thrice",
-            venue: "Terminal 5",
-            city: "Brooklyn",
-            date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
-            iconName: StubStyle.icons.randomElement()!,
-            accentColor: StubStyle.colors.randomElement()!,
-            notes: "Arrived late due to traffic, missed the first two songs. The light show was mesmerizing. Made friends with the people sitting next to me.",
-            isFavorite: true
-        ),
-        
         Concert(
             artist: "Bring Me The Horizon",
             venue: "Barclays Center",
@@ -266,14 +254,47 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "U2",
-            venue: "Slane Castle",
-            city: "Meath",
-            date: calendar.date(from: DateComponents(year: 2011, month: 7, day: 17))!,
+            artist: "Drake",
+            venue: "Barclays Center",
+            city: "Brooklyn",
+            date: calendar.date(from: DateComponents(year: 2023, month: 5, day: 22))!,
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
-            notes: "U2's homecoming concert was a powerful, emotive experience. Their performance of 'Beautiful Day' was a standout. The Irish scenery added to the magic.",
+            notes: "Drake's performance was a mesmerizing blend of his new and classic hits. The venue's atmosphere was electric, making for an unforgettable night.",
             isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Kendrick Lamar",
+            venue: "The Forum",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2017, month: 8, day: 11))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Kendrick Lamar's concert was a masterclass in storytelling through music. His connection with the audience was profound and deeply moving.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Rihanna",
+            venue: "Coachella",
+            city: "Indio",
+            date: calendar.date(from: DateComponents(year: 2023, month: 4, day: 15))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Rihanna's headlining at Coachella was historic. Her setlist was a perfect mix of her hits and new songs, and the stage presence was simply mesmerizing.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Foo Fighters",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2017, month: 7, day: 13))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Foo Fighters brought the house down with their relentless energy and iconic rock anthems. The crowd's response was electric throughout the show.",
+            isFavorite: true
         ),
         
         Concert(
@@ -514,6 +535,28 @@ struct SampleData {
             iconName: StubStyle.icons.randomElement()!,
             accentColor: StubStyle.colors.randomElement()!,
             notes: "Radiohead delivered an otherworldly experience with their experimental sounds. 'Creep' was a surprising and much-celebrated addition to the setlist.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Adele",
+            venue: "The O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2023, month: 3, day: 5))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Adele's performance was breathtakingly beautiful, filled with emotional depth and vocal prowess. The intimacy of her interaction with the audience was heartwarming.",
+            isFavorite: true
+        ),
+
+        Concert(
+            artist: "Beyoncé",
+            venue: "SoFi Stadium",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2023, month: 6, day: 14))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Beyoncé's show was a dazzling display of artistry and empowerment. Her performance was a blend of spectacular visuals, dance, and incredible vocals.",
             isFavorite: true
         )
 

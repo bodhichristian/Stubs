@@ -17,13 +17,8 @@ struct AlbumsByArtist: View {
         
         VStack(alignment: .leading, spacing: 0) {
             
-            if viewModel.albums.isEmpty{
-                Text("Albums")
-                    .font(.title2.bold())
-            } else {
-                Text("Albums by \(viewModel.albums[0].strArtist ?? "")")
-                    .font(.title2.bold())
-            }
+            Text("Albums")
+                .font(.title2.bold())
             
             ScrollView(.horizontal) {
                 
