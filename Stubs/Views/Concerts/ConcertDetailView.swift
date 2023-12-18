@@ -31,8 +31,10 @@ struct ConcertDetailView: View {
             
             StubView(concert: concert, isAddingConcert: false)
             
+            concertButtonRow
+            
             ScrollView{
-                concertButtonRow
+                
 
                 VStack(alignment: .leading) {
                     HStack {
@@ -108,6 +110,5 @@ extension ConcertDetailView {
                 modelContext.delete(concert)
             }
         }
-        .padding(.vertical, 30)
     }
 }
