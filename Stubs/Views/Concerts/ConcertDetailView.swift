@@ -38,7 +38,7 @@ struct ConcertDetailView: View {
                     HStack {
                         Text("Notes")
                             .font(.title2.bold())
-                            //.padding(.bottom)
+                            .padding(.bottom, 10)
                         Spacer()
                     }
                     if let notes = concert.notes {
@@ -52,9 +52,10 @@ struct ConcertDetailView: View {
                     }
                     
                 }
-                .padding(.vertical)
+                .padding(.top)
                 
                 Divider()
+                    .padding(.bottom)
                 
                 StubThumbnailScrollView(concerts: concertsByArtist)
                 
