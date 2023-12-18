@@ -44,7 +44,15 @@ struct ConcertRowLabel: View {
 
             .frame(width: 70, height: 49)
             .padding(.trailing)
-            
+            .overlay {
+                if concert.isFavorite {
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundStyle(.yellow)
+                        .shadow(radius: 4)
+                        .frame(width: 70, height: 49, alignment: .bottomTrailing)
+                        
+                }
+            }
             
             VStack(alignment: .leading) {
                 

@@ -24,6 +24,7 @@ struct ConcertDetailView: View {
             
             StubView(concert: concert, isAddingConcert: false)
             
+            //
             actionButtons
             
             VStack(alignment: .leading) {
@@ -70,7 +71,7 @@ extension ConcertDetailView {
         HStack {
             // View on Map
             ActionButton(titleKey: "Map",
-                         defaultImageName: "mappin.and.ellipse",
+                         systemImage: "mappin.and.ellipse",
                          accentColor: .green,
                          concert: $concert) {
                 showingMap = true
@@ -78,7 +79,7 @@ extension ConcertDetailView {
             
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
-                         defaultImageName: "checkmark.seal",
+                         systemImage: "checkmark.seal",
                          highlightedImageName: "checkmark.seal.fill",
                          accentColor: .yellow,
                          concert: $concert) {
@@ -87,7 +88,7 @@ extension ConcertDetailView {
             
             // Delete Concert
             ActionButton(titleKey: "Delete",
-                         defaultImageName: "trash",
+                         systemImage: "trash",
                          accentColor: .red,
                          concert: $concert) {
                 modelContext.delete(concert)

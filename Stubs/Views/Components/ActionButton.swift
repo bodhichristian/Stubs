@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct ActionButton: View {
+    
     let titleKey: String
-    let defaultImageName: String
+    let systemImage: String
     let highlightedImageName: String?
     let accentColor: Color
+    
     @Binding var concert: Concert
     
     let action: () -> ()
     
     init(titleKey: String,
-         defaultImageName: String,
+         systemImage: String,
          highlightedImageName: String? = nil,
          accentColor: Color,
          concert: Binding<Concert>,
          action: @escaping () -> ()) {
         self.titleKey = titleKey
-        self.defaultImageName = defaultImageName
+        self.systemImage = systemImage
         self.highlightedImageName = highlightedImageName
         self.accentColor = accentColor
         self._concert = concert
@@ -31,11 +33,13 @@ struct ActionButton: View {
     }
     
     var body: some View {
+        
         GeometryReader { geo in
-            Button { // Favorite toggle
-                withAnimation(.interactiveSpring) {
-                    action()
-                }
+            
+            Button {
+                
+                action() // Perform given function
+                
             } label: {
                 
                 HStack {
@@ -43,32 +47,34 @@ struct ActionButton: View {
                     // If concert is Favorite
                     Image(systemName: concert.isFavorite
                           // Display highlighted Image, nil coalescing to the non-optional default
-                          ? highlightedImageName ?? defaultImageName
-                          // Else, display defaul image
-                          : defaultImageName)
+                          ? highlightedImageName ?? systemImage
+                          // Otherwise, display default image
+                          : systemImage)
                     .renderingMode(.template)
                     .foregroundColor(accentColor)
                     
                     Text(titleKey)
                         .foregroundColor(.primary)
-                    
-                    
+                                        
                 }
                 .font(.callout)
                 .fontWeight(.semibold)
                 .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.3)
+                
             }
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
             .buttonStyle(.borderedProminent)
             .tint(.secondary.opacity(0.1))
+            
         }
         .frame(maxHeight: 80)
+        
     }
 }
 
 #Preview {
     ActionButton(titleKey: "Favorite",
-                 defaultImageName: "checkmark",
+                 systemImage: "checkmark",
                  highlightedImageName: "checkmark.seal",
                  accentColor: .yellow,
                  concert: .constant(SampleData.concerts[0]),
