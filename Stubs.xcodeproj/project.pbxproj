@@ -33,6 +33,8 @@
 		AAC4D4D02B2E77F80098D28D /* AddConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */; };
 		AAC4D4D82B2F4EA90098D28D /* StubPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D72B2F4EA90098D28D /* StubPreview.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
+		AAC4D4DC2B2FC9900098D28D /* ConcertButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */; };
+		AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertDetails.swift; sourceTree = "<group>"; };
 		AAC4D4D72B2F4EA90098D28D /* StubPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPreview.swift; sourceTree = "<group>"; };
 		AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLineBoundary.swift; sourceTree = "<group>"; };
+		AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertButtonRow.swift; sourceTree = "<group>"; };
+		AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 				AA8A746D2A32BDF3003E9B41 /* StubsCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
+				AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */,
 			);
 			path = Concerts;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
+				AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -294,9 +300,11 @@
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
+				AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
 				AA62228E2B2A58F5004899A9 /* AlbumsByArtist.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* ConcertRowLabel.swift in Sources */,
+				AAC4D4DC2B2FC9900098D28D /* ConcertButtonRow.swift in Sources */,
 				AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,

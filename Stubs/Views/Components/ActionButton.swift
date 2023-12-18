@@ -11,7 +11,6 @@ struct ActionButton: View {
     
     let titleKey: String
     let systemImage: String
-    let highlightedImageName: String?
     let accentColor: Color
     
     @Binding var concert: Concert
@@ -20,13 +19,12 @@ struct ActionButton: View {
     
     init(titleKey: String,
          systemImage: String,
-         highlightedImageName: String? = nil,
+         alternateSystemImage: String? = nil,
          accentColor: Color,
          concert: Binding<Concert>,
          action: @escaping () -> ()) {
         self.titleKey = titleKey
         self.systemImage = systemImage
-        self.highlightedImageName = highlightedImageName
         self.accentColor = accentColor
         self._concert = concert
         self.action = action
@@ -44,18 +42,13 @@ struct ActionButton: View {
                 
                 HStack {
                     
-                    // If concert is Favorite
-                    Image(systemName: concert.isFavorite
-                          // Display highlighted Image, nil coalescing to the non-optional default
-                          ? highlightedImageName ?? systemImage
-                          // Otherwise, display default image
-                          : systemImage)
-                    .renderingMode(.template)
-                    .foregroundColor(accentColor)
-                    
+                    Image(systemName: systemImage)
+                        .renderingMode(.template)
+                        .foregroundColor(accentColor)
+                        
                     Text(titleKey)
                         .foregroundColor(.primary)
-                                        
+                    
                 }
                 .font(.callout)
                 .fontWeight(.semibold)
@@ -75,7 +68,7 @@ struct ActionButton: View {
 #Preview {
     ActionButton(titleKey: "Favorite",
                  systemImage: "checkmark",
-                 highlightedImageName: "checkmark.seal",
+                 alternateSystemImage: "checkmark.seal",
                  accentColor: .yellow,
                  concert: .constant(SampleData.concerts[0]),
                  action: {}
