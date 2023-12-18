@@ -51,6 +51,7 @@ struct AddConcertView: View {
                 
                 Section("Notes"){
                     TextEditor(text: $concertNotes)
+                        .frame(minHeight: 100)
                 }
             }
             .navigationTitle("Add Concert")

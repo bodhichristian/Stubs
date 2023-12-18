@@ -53,19 +53,21 @@ struct StubView: View {
                             .foregroundStyle(.white)
                             .shadow(radius: 2)
                         
+                        // Venue Details
+                        Text(concert.venue)
+                            .font(isAddingConcert
+                                  ? .title3
+                                  : .title2
+                            )
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.black)
+                        
                         HStack {
                             
                             // MARK: Location
                             VStack(alignment: .leading) {
                                 
-                                // Venue Details
-                                Text(concert.venue)
-                                    .font(isAddingConcert
-                                          ? .title3
-                                          : .title2
-                                    )
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.black)
+                                
                                 
                                 // City
                                 Text(concert.city)

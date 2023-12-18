@@ -28,19 +28,23 @@ struct StubCollection: View {
             VStack {
                 
                 if concerts.isEmpty { // If no concerts have been saved
-                    NoConcertsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
+                    NoStubsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
                     
                 } else  {
                     
                     List {
                         // Sort concerts in reverse chronological order
-                        ForEach(concertsByDecade.keys.sorted().reversed(), id: \.self) { decade in
+                        ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
+                            
                             // Create a section for each decade
-                            Section(header: decadeHeader(decade)) {
+                            Section(header: decadeHeader(year)) {
+                                
                                 // Create a NavLink to ConcertDetailView for each concert
-                                ForEach(concertsByDecade[decade]!, id: \.id) { concert in
-                                    NavigationLink{
+                                ForEach(concertsByYear[year]!, id: \.id) { concert in
+                                    
+                                    NavigationLink {
                                         ConcertDetailView(concert: concert)
+                                        
                                     } label: {
                                         ConcertRowLabel(concert: concert)
                                     }
@@ -91,14 +95,14 @@ extension StubCollection {
         }
     }
     // Concerts sorted into decade groups
-    private var concertsByDecade: [Int: [Concert]] {
+    private var concertsByYear: [Int: [Concert]] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
         
         let groups = Dictionary(grouping: filteredConcerts) { concert in
             let year = Calendar.current.component(.year, from: concert.date)
-            let decade = (year / 10) * 10 // Round down to the nearest decade
-            return decade
+            //let decade = (year / 10) * 10 // Round down to the nearest decade
+            return year
         }
         
         return groups.mapValues { concerts in
@@ -109,11 +113,23 @@ extension StubCollection {
     }
     // Header for decade sections in list
     private func decadeHeader(_ decade: Int) -> some View {
-        Text(("\(decade)s")
-            .replacingOccurrences(of: ",", with: ""))
-        .textCase(nil)
-        .font(.title2)
+        
+
+            Text(("\(decade)")
+                .replacingOccurrences(of: ",", with: ""))
+            .textCase(nil)
+        
+        .font(.title)
         .bold()
+//        HStack {
+//            Image(systemName: "calendar.circle")
+//            Text(("\(decade)")
+//                .replacingOccurrences(of: ",", with: ""))
+//            .textCase(nil)
+//            Spacer()
+//        }
+//        .font(.title2)
+//        .bold()
     }
     // Delete concert
     private func delete(offsets: IndexSet) {

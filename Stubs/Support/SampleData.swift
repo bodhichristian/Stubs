@@ -18,8 +18,8 @@ struct SampleData {
             venue: "Bridgeport Amphitheatre",
             city: "Bridgeport, CT",
             date: calendar.date(from: DateComponents(year: 2022, month: 8 ,day: 9))!,
-            iconName: "airpodsmax",
-            accentColor: "orange",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "The lead singer's energy was electrifying! They performed my favorite song as the closing number. Bought a t-shirt as a souvenir.",
             isFavorite: true
         ),
@@ -30,8 +30,8 @@ struct SampleData {
             venue: "Terminal 5",
             city: "Brooklyn, NY",
             date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
-            iconName: "wave.3.forward",
-            accentColor: "green",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "Arrived late due to traffic, missed the first two songs. The light show was mesmerizing. Made friends with the people sitting next to me.",
             isFavorite: true
         ),
@@ -41,8 +41,8 @@ struct SampleData {
             venue: "Barclays Center",
             city: "Brooklyn, NY",
             date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
-            iconName: "guitars",
-            accentColor: "red",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious."
         ),
         
@@ -51,8 +51,8 @@ struct SampleData {
             venue: "The End",
             city: "Nashville, TN",
             date: calendar.date(from: DateComponents(year: 2016,month: 10,day: 5))!,
-            iconName: "guitars",
-            accentColor: "orange",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "This was their farewell tour - felt so emotional. The acoustic set in the middle was a pleasant surprise. Got the setlist autographed after the show!",
             isFavorite: true
         ),
@@ -62,8 +62,8 @@ struct SampleData {
             venue: "Nissan Stadium",
             city: "Nashville, TN",
             date: calendar.date(from: DateComponents(year: 2023,month: 5,day: 7))!,
-            iconName: "music.mic",
-            accentColor: "cyan",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "This was a charity concert with multiple artists performing. Each performance was unique and heartfelt, contributing to the cause. The finale featured all artists on stage together, creating a memorable and powerful moment. Bought a special edition poster to support the charity."
         ),
         
@@ -72,161 +72,356 @@ struct SampleData {
             venue: "Madison Square Garden",
             city: "New York, NY",
             date: calendar.date(from: DateComponents(year: 2021,month: 12,day: 20))!,
-            iconName: "waveform",
-            accentColor: "purple",
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
             notes: "Took a road trip to see this concert - totally worth it. The band played a rare B-side track. Made unforgettable memories with friends."
         ),
         
         Concert(
-            artist: "Ed Sheeran",
-            venue: "Hollywood Bowl",
-            city: "Los Angeles, CA",
-            date: calendar.date(from: DateComponents(year: 2015,month: 6,day: 15))!,
-            iconName: "music.note",
-            accentColor: "green",
-            notes: "Took a road trip to see this concert - totally worth it. The band played a rare B-side track. Made unforgettable memories with friends."
-        ),
-        
-        Concert(
-            artist: "Usher",
-            venue: "Hyde Park",
-            city: "London England",
-            date: calendar.date(from: DateComponents(year: 2001,month: 7,day: 15))!,
-            iconName: "airpodsmax",
-            accentColor: "indigo",
-            notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious.",
-            isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Pink Floyd",
-            venue: "Fete de L'Humanité",
-            city: "Paris, FR",
-            date: calendar.date(from: DateComponents(year: 1970,month: 9,day: 12))!,
-            iconName: "music.quarternote.3",
-            accentColor: "yellow",
-            notes: "Outdoor venue was perfect for this band's style. Enjoyed a picnic with friends before it started. The encore was even better than expected."
-        ),
-        
-        Concert(
-            artist: "Johnny Cash",
-            venue: "San Quentin Prison",
-            city: "San Quentin, CA",
-            date: calendar.date(from: DateComponents(year: 1969,month: 2,day: 24))!,
-            iconName: "wave.3.forward",
-            accentColor: "orange",
-            notes: "The vocalist's range was astounding. Each song told a different story. Left feeling inspired and rejuvenated."
-        ),
-        
-        Concert(
-            artist: "Elton John",
-            venue: "Troubadour",
-            city: "Los Angeles, CA",
-            date: calendar.date(from: DateComponents(year: 1970,month: 8,day: 25))!,
-            iconName: "music.note.list",
-            accentColor: "blue",
-            notes: "The rhythm and beats were impossible not to dance to. Loved the unexpected encore. The night flew by too quickly.",
-            isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Elvis Presley",
-            venue: "Memphis Auditorium",
-            city: "Memphis, TN",
-            date: calendar.date(from: DateComponents(year: 1954, month: 7, day: 30))!,
-            iconName: "guitars",
-            accentColor: "brown",
-            notes:  "The lead singer's voice was even better live. The visual effects complemented the music perfectly. Left with a huge smile on my face."
-        ),
-        
-        Concert(
-            artist: "The Beatles",
-            venue: "Shea Stadium",
-            city: "New York, NY",
-            date: calendar.date(from: DateComponents(year: 1965, month: 8, day: 15))!,
-            iconName: "music.mic",
-            accentColor: "teal",
-            notes: "Rain almost ruined the concert, but the band played on. The crowd's energy was incredible, everyone singing in the rain. Lost my umbrella but it was worth it."
-        ),
-        
-        Concert(
-            artist: "Michael Jackson",
-            venue: "Munich Olympic Stadium",
-            city: "Munich, Germany",
-            date: calendar.date(from: DateComponents(year: 1997, month: 7, day: 4))!,
-            iconName: "waveform",
-            accentColor: "purple",
-            notes: "The fusion of rock and electronic music was mind-blowing. Dance floor was wild! Lost my voice from singing along."
-        ),
-        
-        Concert(
-            artist: "Madonna",
-            venue: "Stade de France",
-            city: "Paris, France",
-            date: calendar.date(from: DateComponents(year: 1987, month: 9, day: 1))!,
-            iconName: "music.note",
-            accentColor: "indigo",
-            notes: "First time seeing a jazz concert - completely blown away. The saxophone solo was unforgettable. Plan to explore more jazz music now.",
-            isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Queen",
+            artist: "Coldplay",
             venue: "Wembley Stadium",
-            city: "London, UK",
-            date: calendar.date(from: DateComponents(year: 1986, month: 7, day: 12))!,
-            iconName: "airpodsmax",
-            accentColor: "green",
-            notes: "Had front row seats - felt like a dream. The guitar solo gave me chills. Managed to catch a drumstick!"
-        ),
-        
-        Concert(
-            artist: "Nirvana",
-            venue: "Reading Festival",
-            city: "Reading, UK",
-            date: calendar.date(from: DateComponents(year: 1992, month: 8, day: 30))!,
-            iconName: "music.quarternote.3",
-            accentColor: "brown",
-            notes: "The opening act was surprisingly good, need to check out their album. Met the drummer at the merchandise stand. The main band played an extra-long set!",
-            isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Bob Marley",
-            venue: "Rainbow Theatre",
-            city: "London, UK",
-            date: calendar.date(from: DateComponents(year: 1977, month: 6, day: 4))!,
-            iconName: "wave.3.forward",
-            accentColor: "purple",
-            notes: "Took my younger sister to her first concert. She was thrilled when the band played her favorite song. Bought matching band bracelets as a keepsake.",
-            isFavorite: true
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2021, month: 7, day: 15))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Coldplay's performance was out of this world. The light show complemented their music perfectly. A memorable night under the stars.",
+            isFavorite: false
         ),
         
         Concert(
             artist: "Beyoncé",
-            venue: "Coachella Valley Music and Arts Festival",
-            city: "Indio, CA",
-            date: calendar.date(from: DateComponents(year: 2018, month: 4, day: 14))!,
-            iconName: "music.note.list",
-            accentColor: "yellow",
-            notes: "Stadium was packed, atmosphere was electric. Loved the new arrangements of old classics. The light sticks created a sea of stars.",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2019, month: 9, day: 22))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Beyoncé ruled the stage with her incredible voice. Every song was a hit. The crowd went wild for 'Halo'.",
             isFavorite: true
         ),
         
         Concert(
-            artist: "Bruce Springsteen",
+            artist: "Radiohead",
+            venue: "The Hollywood Bowl",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2006, month: 6, day: 29))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Radiohead's set was a journey through sound. 'Karma Police' was a standout. The atmosphere was electric.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Taylor Swift",
+            venue: "Sydney Opera House",
+            city: "Sydney",
+            date: calendar.date(from: DateComponents(year: 2022, month: 11, day: 3))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Taylor's show was a mix of storytelling and music. The acoustic set was intimate. Left with tears of joy.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Ed Sheeran",
+            venue: "The O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2018, month: 4, day: 12))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Ed Sheeran's solo performance was mesmerizing. His loop pedal mastery made it feel like a full band was playing. 'Shape of You' had everyone singing along.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Lady Gaga",
+            venue: "Staples Center",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2020, month: 1, day: 30))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Lady Gaga's theatrical performance was breathtaking. The costumes, the choreography, and her voice were all perfect. The encore was a real treat!",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Bruno Mars",
+            venue: "Tokyo Dome",
+            city: "Tokyo",
+            date: calendar.date(from: DateComponents(year: 2023, month: 5, day: 15))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Bruno Mars brought the funk and soul to Tokyo. His dance moves and vocal range were incredible. The energy during 'Uptown Funk' was off the charts.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Ariana Grande",
+            venue: "AccorHotels Arena",
+            city: "Paris",
+            date: calendar.date(from: DateComponents(year: 2017, month: 8, day: 25))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Ariana Grande's voice was as stunning as ever. The high notes in 'No Tears Left to Cry' gave everyone chills. A truly captivating show.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Adele",
+            venue: "Royal Albert Hall",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2011, month: 9, day: 22))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Adele's voice filled the Royal Albert Hall with warmth. Her rendition of 'Someone Like You' was emotionally powerful. A night of soulful music and heartfelt stories.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Drake",
             venue: "Madison Square Garden",
-            city: "New York, NY",
-            date: calendar.date(from: DateComponents(year: 1978, month: 9, day: 19))!,
-            iconName: "guitars",
-            accentColor: "orange",
-            notes: "Acoustic solo performance - intimate and moving. The artist shared stories behind each song. Left feeling deeply connected to the music."
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2016, month: 8, day: 8))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Drake's charisma shone through in his performance. The energy when 'Hotline Bling' played was infectious. A night where hip-hop met grand spectacle.",
+            isFavorite: false
+        ),
+        Concert(
+            artist: "Kendrick Lamar",
+            venue: "Staples Center",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2015, month: 10, day: 27))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Kendrick Lamar delivered a thought-provoking and intense performance. His lyrical genius was evident in every song. The crowd was completely captivated.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Rihanna",
+            venue: "The O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2012, month: 11, day: 19))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Rihanna's show was a blend of pop and R&B perfection. The stage design was stunning, and her vocals were impeccable. 'Diamonds' shone the brightest that night.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Foo Fighters",
+            venue: "Wembley Stadium",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2010, month: 6, day: 6))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Foo Fighters rocked Wembley with their electrifying energy. 'Everlong' was a crowd favorite. An unforgettable rock concert experience.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "U2",
+            venue: "Slane Castle",
+            city: "Meath",
+            date: calendar.date(from: DateComponents(year: 2011, month: 7, day: 17))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "U2's homecoming concert was a powerful, emotive experience. Their performance of 'Beautiful Day' was a standout. The Irish scenery added to the magic.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Beyoncé",
+            venue: "Rose Bowl",
+            city: "Pasadena",
+            date: calendar.date(from: DateComponents(year: 2013, month: 6, day: 28))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Beyoncé's stage presence was unmatched. The choreography and vocals for 'Halo' were spectacular. Truly a queen of the stage.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Elton John",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2014, month: 12, day: 4))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Elton John's performance was a journey through his hits. 'Rocket Man' was a crowd pleaser. A night of nostalgia and sing-alongs.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "The Rolling Stones",
+            venue: "Maracanã Stadium",
+            city: "Rio de Janeiro",
+            date: calendar.date(from: DateComponents(year: 2016, month: 2, day: 20))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "The Rolling Stones brought rock and roll to Rio. Their energy was contagious, especially during 'Start Me Up'. A legendary performance.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Adele",
+            venue: "The SSE Hydro",
+            city: "Glasgow",
+            date: calendar.date(from: DateComponents(year: 2016, month: 3, day: 25))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Adele's voice was mesmerizing in Glasgow. Her banter with the audience was charming. 'Someone Like You' was a tearjerker.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Billie Eilish",
+            venue: "Coachella Valley Music and Arts Festival",
+            city: "Indio",
+            date: calendar.date(from: DateComponents(year: 2019, month: 4, day: 20))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Billie Eilish's Coachella debut was hauntingly beautiful. Her voice resonated perfectly in the desert night. 'Bad Guy' had everyone dancing.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Bruno Mars",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2018, month: 9, day: 22))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Bruno Mars turned MSG into a funk and soul party. His energy was infectious, and the band was on fire. A concert that felt like a celebration.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Ariana Grande",
+            venue: "The O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2019, month: 8, day: 17))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Ariana Grande's vocal range was on full display at The O2. The production was top-notch. 'Thank U, Next' was a powerful finale.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Travis Scott",
+            venue: "Astroworld Festival",
+            city: "Houston",
+            date: calendar.date(from: DateComponents(year: 2021, month: 11, day: 5))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Travis Scott's Astroworld was a wild ride. The energy in the crowd was electric. His performance of 'Sicko Mode' was the highlight.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Dua Lipa",
+            venue: "Staples Center",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2022, month: 3, day: 13))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Dua Lipa's pop extravaganza was dazzling. Her dance moves and stage presence were impressive. 'Levitating' had the whole arena dancing.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Harry Styles",
+            venue: "Madison Square Garden",
+            city: "New York",
+            date: calendar.date(from: DateComponents(year: 2020, month: 7, day: 6))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Harry Styles' charm and talent lit up MSG. His performance was both intimate and electrifying. 'Watermelon Sugar' was a joyous sing-along.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Muse",
+            venue: "O2 Arena",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2012, month: 10, day: 26))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Muse's concert was a high-energy, visually stunning spectacle. Their live rendition of 'Madness' was particularly mesmerizing.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Rihanna",
+            venue: "Barclays Center",
+            city: "Brooklyn",
+            date: calendar.date(from: DateComponents(year: 2016, month: 3, day: 27))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Rihanna's stage presence was absolutely captivating. The performance of 'Work' had the entire arena dancing along.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Hozier",
+            venue: "Red Rocks Amphitheatre",
+            city: "Morrison",
+            date: calendar.date(from: DateComponents(year: 2015, month: 8, day: 2))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Hozier's soulful voice echoed through Red Rocks. His performance of 'Take Me to Church' was hauntingly beautiful and left the audience in awe.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Tame Impala",
+            venue: "Alexandra Palace",
+            city: "London",
+            date: calendar.date(from: DateComponents(year: 2016, month: 2, day: 13))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Tame Impala's psychedelic sound created an incredible atmosphere. The visuals for 'Let It Happen' were mesmerizing, adding to the surreal experience.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Alabama Shakes",
+            venue: "The Greek Theatre",
+            city: "Berkeley",
+            date: calendar.date(from: DateComponents(year: 2015, month: 5, day: 22))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Alabama Shakes brought raw energy and soulful blues to The Greek. Brittany Howard's vocals were powerful and moving, especially during 'Sound & Color'.",
+            isFavorite: false
+        ),
+        
+        Concert(
+            artist: "Vance Joy",
+            venue: "Sydney Opera House",
+            city: "Sydney",
+            date: calendar.date(from: DateComponents(year: 2017, month: 11, day: 23))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Vance Joy's intimate performance was a delight. His storytelling through songs like 'Riptide' connected deeply with the audience.",
+            isFavorite: true
+        ),
+        
+        Concert(
+            artist: "Florence + The Machine",
+            venue: "Hollywood Bowl",
+            city: "Los Angeles",
+            date: calendar.date(from: DateComponents(year: 2015, month: 10, day: 17))!,
+            iconName: StubStyle.icons.randomElement()!,
+            accentColor: StubStyle.colors.randomElement()!,
+            notes: "Florence Welch's ethereal presence and voice captivated everyone at the Hollywood Bowl. 'Dog Days Are Over' had the entire crowd on their feet.",
+            isFavorite: false
         )
+
     ]
     
     // Add Sample Data to a view's ModelContext
     let concertCount = concerts.count
-
+    
     func addSampleData(to modelContext: ModelContext) {
         for i in 0..<concertCount {
             modelContext.insert(SampleData.concerts[i])
