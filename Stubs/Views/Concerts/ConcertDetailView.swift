@@ -79,8 +79,7 @@ extension ConcertDetailView {
             
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
-                         systemImage: "checkmark.seal",
-                         alternateSystemImage: "checkmark.seal.fill",
+                         systemImage: concert.isFavorite ? "checkmark.seal.fill" : "checkmark.seal",
                          accentColor: .yellow,
                          concert: $concert) {
                 concert.isFavorite.toggle()

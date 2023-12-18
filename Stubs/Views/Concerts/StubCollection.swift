@@ -8,15 +8,15 @@
 import SwiftUI
 import SwiftData
 
-// MARK: ConcertCollection - SwiftUI View
+// MARK: StubCollection - SwiftUI View
 // A View for displaying and searching for saved concerts
 // Performs query from SwiftData store
 // Groups concerts by decade
 
-struct StubsCollection: View {
+struct StubCollection: View {
     @Environment(\.modelContext) private var modelContext
     
-    @Query private var concerts: [Concert]
+    @Query(sort: \Concert.date) private var concerts: [Concert]
     
     @State private var isAddingConcert = false
     @State private var searchText = ""
@@ -72,11 +72,11 @@ struct StubsCollection: View {
 }
 
 #Preview {
-    StubsCollection()
+    StubCollection()
         .modelContainer(for: Concert.self, inMemory: true)
 }
 
-extension StubsCollection {
+extension StubCollection {
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {

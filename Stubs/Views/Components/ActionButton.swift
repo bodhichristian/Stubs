@@ -19,7 +19,6 @@ struct ActionButton: View {
     
     init(titleKey: String,
          systemImage: String,
-         alternateSystemImage: String? = nil,
          accentColor: Color,
          concert: Binding<Concert>,
          action: @escaping () -> ()) {
@@ -68,7 +67,6 @@ struct ActionButton: View {
 #Preview {
     ActionButton(titleKey: "Favorite",
                  systemImage: "checkmark",
-                 alternateSystemImage: "checkmark.seal",
                  accentColor: .yellow,
                  concert: .constant(SampleData.concerts[0]),
                  action: {}

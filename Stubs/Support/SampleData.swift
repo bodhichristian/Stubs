@@ -20,7 +20,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2022, month: 8 ,day: 9))!,
             iconName: "airpodsmax",
             accentColor: "orange",
-            notes: "The lead singer's energy was electrifying! They performed my favorite song as the closing number. Bought a t-shirt as a souvenir."
+            notes: "The lead singer's energy was electrifying! They performed my favorite song as the closing number. Bought a t-shirt as a souvenir.",
+            isFavorite: true
         ),
         
         
@@ -31,7 +32,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2023, month: 6 ,day: 1))!,
             iconName: "wave.3.forward",
             accentColor: "green",
-            notes: "Arrived late due to traffic, missed the first two songs. The light show was mesmerizing. Made friends with the people sitting next to me."
+            notes: "Arrived late due to traffic, missed the first two songs. The light show was mesmerizing. Made friends with the people sitting next to me.",
+            isFavorite: true
         ),
         
         Concert(
@@ -51,7 +53,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2016,month: 10,day: 5))!,
             iconName: "guitars",
             accentColor: "orange",
-            notes: "This was their farewell tour - felt so emotional. The acoustic set in the middle was a pleasant surprise. Got the setlist autographed after the show!"
+            notes: "This was their farewell tour - felt so emotional. The acoustic set in the middle was a pleasant surprise. Got the setlist autographed after the show!",
+            isFavorite: true
         ),
         
         Concert(
@@ -91,7 +94,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2001,month: 7,day: 15))!,
             iconName: "airpodsmax",
             accentColor: "indigo",
-            notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious."
+            notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious.",
+            isFavorite: true
         ),
         
         Concert(
@@ -121,7 +125,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 1970,month: 8,day: 25))!,
             iconName: "music.note.list",
             accentColor: "blue",
-            notes: "The rhythm and beats were impossible not to dance to. Loved the unexpected encore. The night flew by too quickly."
+            notes: "The rhythm and beats were impossible not to dance to. Loved the unexpected encore. The night flew by too quickly.",
+            isFavorite: true
         ),
         
         Concert(
@@ -161,7 +166,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 1987, month: 9, day: 1))!,
             iconName: "music.note",
             accentColor: "indigo",
-            notes: "First time seeing a jazz concert - completely blown away. The saxophone solo was unforgettable. Plan to explore more jazz music now."
+            notes: "First time seeing a jazz concert - completely blown away. The saxophone solo was unforgettable. Plan to explore more jazz music now.",
+            isFavorite: true
         ),
         
         Concert(
@@ -181,7 +187,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 1992, month: 8, day: 30))!,
             iconName: "music.quarternote.3",
             accentColor: "brown",
-            notes: "The opening act was surprisingly good, need to check out their album. Met the drummer at the merchandise stand. The main band played an extra-long set!"
+            notes: "The opening act was surprisingly good, need to check out their album. Met the drummer at the merchandise stand. The main band played an extra-long set!",
+            isFavorite: true
         ),
         
         Concert(
@@ -191,7 +198,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 1977, month: 6, day: 4))!,
             iconName: "wave.3.forward",
             accentColor: "purple",
-            notes: "Took my younger sister to her first concert. She was thrilled when the band played her favorite song. Bought matching band bracelets as a keepsake."
+            notes: "Took my younger sister to her first concert. She was thrilled when the band played her favorite song. Bought matching band bracelets as a keepsake.",
+            isFavorite: true
         ),
         
         Concert(
@@ -201,7 +209,8 @@ struct SampleData {
             date: calendar.date(from: DateComponents(year: 2018, month: 4, day: 14))!,
             iconName: "music.note.list",
             accentColor: "yellow",
-            notes: "Stadium was packed, atmosphere was electric. Loved the new arrangements of old classics. The light sticks created a sea of stars."
+            notes: "Stadium was packed, atmosphere was electric. Loved the new arrangements of old classics. The light sticks created a sea of stars.",
+            isFavorite: true
         ),
         
         Concert(
