@@ -12,6 +12,8 @@ struct ConcertNotesTextEditor: View {
     
     @State private var isEditing: Bool = false
     
+    @FocusState private var editingFocus: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -26,14 +28,15 @@ struct ConcertNotesTextEditor: View {
                     Text("EDITING")
                         .font(.callout.bold())
                         .foregroundStyle(.secondary)
-                        .opacity(isEditing ? 100 : 0)
-                        .transition(.move(edge: .trailing))
-                        
+                        .transition(.push(from: .top))
+                        .opacity(isEditing ? 1 : 0)
+
                 }
                 
                 Button {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
                         isEditing.toggle()
+                        editingFocus.toggle()
                     }
                 } label: {
                     Image(systemName: isEditing
@@ -42,7 +45,7 @@ struct ConcertNotesTextEditor: View {
                     )
                     .foregroundStyle(.secondary)
                     .scaledToFit()
-                    .padding()
+                    //.padding()
                     .frame(width: 20, height: 20)
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -51,10 +54,13 @@ struct ConcertNotesTextEditor: View {
             .padding(.bottom, 10)
 
             TextEditor(text: $concert.notes)
+                .foregroundStyle(isEditing 
+                                 ? .secondary
+                                 : .primary)
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 100)
                 .disabled(!isEditing)
-            
+                .focused($editingFocus)
         }
         .padding(.top)
     }
