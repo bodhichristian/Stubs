@@ -106,9 +106,6 @@ struct StubView: View {
                                     .foregroundStyle(.white)
                                     .shadow(radius: 4, x: 2, y: 6)
                                     .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-                                    .onAppear {
-                                        iconTapped.toggle()
-                                    }
                                     .onTapGesture {
                                         iconTapped.toggle()
                                     }

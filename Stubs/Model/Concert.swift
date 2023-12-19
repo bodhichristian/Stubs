@@ -22,7 +22,7 @@ final class Concert {
     var date: Date
     var iconName: String
     var accentColor: String
-    var notes: String?
+    var notes: String
     var isFavorite: Bool
     
     init(uuid: UUID = UUID(),
@@ -32,7 +32,7 @@ final class Concert {
          date: Date,
          iconName: String,
          accentColor: String,
-         notes: String = "",
+         notes: String,
          isFavorite: Bool = false) {
         self.uuid = uuid
         self.artist = artist

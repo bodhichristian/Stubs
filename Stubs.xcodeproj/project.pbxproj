@@ -37,7 +37,8 @@
 		AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
 		AAC4D4E02B2FF4E00098D28D /* StubThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */; };
 		AAC4D4E22B2FF5A40098D28D /* StubThumbnailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */; };
-		AAC4D4E42B2FFF400098D28D /* StubNavLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */; };
+		AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */; };
+		AAC4D4E62B31B7470098D28D /* ConcertNotesTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +74,8 @@
 		AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
 		AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubThumbnail.swift; sourceTree = "<group>"; };
 		AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubThumbnailScrollView.swift; sourceTree = "<group>"; };
-		AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNavLabel.swift; sourceTree = "<group>"; };
+		AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistStubsLabel.swift; sourceTree = "<group>"; };
+		AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertNotesTextEditor.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
+				AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */,
 				AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */,
 			);
 			path = Concerts;
@@ -224,7 +227,7 @@
 				AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */,
 				AAC4D4E12B2FF5A40098D28D /* StubThumbnailScrollView.swift */,
 				AA7C57ED2B249B7B006843C4 /* StubShape.swift */,
-				AAC4D4E32B2FFF400098D28D /* StubNavLabel.swift */,
+				AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */,
 				AA8A74902A33EE53003E9B41 /* StubStyle.swift */,
 				AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */,
 			);
@@ -309,7 +312,7 @@
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
-				AAC4D4E42B2FFF400098D28D /* StubNavLabel.swift in Sources */,
+				AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
@@ -326,6 +329,7 @@
 				AAC4D4E02B2FF4E00098D28D /* StubThumbnail.swift in Sources */,
 				AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */,
 				AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */,
+				AAC4D4E62B31B7470098D28D /* ConcertNotesTextEditor.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,

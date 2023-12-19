@@ -17,6 +17,7 @@ struct ConcertDetailView: View {
     @State private var iconTapped = false // For icon animation
     @State private var showingMap = false
     
+    
     @Environment(\.modelContext) var modelContext
     
     @Query var concerts: [Concert]
@@ -30,36 +31,17 @@ struct ConcertDetailView: View {
         VStack(spacing: 0){
             
             StubView(concert: concert, isAddingConcert: false)
-            
+
             concertButtonRow
             
-            ScrollView{
+            ScrollView {
                 
+                ConcertNotesTextEditor(concert: $concert)
 
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Notes")
-                            .font(.title2.bold())
-                            .padding(.bottom, 10)
-                        Spacer()
-                    }
-                    if let notes = concert.notes {
-                        Text(notes)
-                            .font(.callout)
-                            .padding(.bottom)
-                    } else {
-                        Text("Add Notes in Ticket Editor.")
-                            .foregroundStyle(.tertiary)
-                            .padding(.bottom)
-                    }
-                    
-                }
-                .padding(.top)
-                
                 Divider()
                     .padding(.bottom)
                 
-                StubThumbnailScrollView(concerts: concertsByArtist)
+                StubThumbnailScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 
                 Divider()
                 

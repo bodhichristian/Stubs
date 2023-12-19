@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StubThumbnailScrollView: View {
+    @Binding var selectedConcert: Concert
+    
     let concerts: [Concert]
     
     var artist: String {
@@ -16,19 +18,19 @@ struct StubThumbnailScrollView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0 ) {
-            Text("More from \(artist)")
+            Text("\(artist) Stubs")
                 .font(.title2.bold())
 
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(concerts, id: \.uuid) { concert in
                         
-                        NavigationLink {
-                            ConcertDetailView(concert: concert)
-                        } label: {
-                            StubNavLabel(concert: concert)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                        ArtistStubsLabel(concert: concert)
+                            .onTapGesture {
+                                withAnimation(.easeInOut){
+                                    selectedConcert = concert
+                                }
+                            }
                     }
                 }
                 .padding(.vertical)
@@ -38,5 +40,5 @@ struct StubThumbnailScrollView: View {
 }
 
 #Preview {
-    StubThumbnailScrollView(concerts: [SampleData.concerts[0]])
+    StubThumbnailScrollView(selectedConcert: .constant(SampleData.concerts[0]), concerts: [SampleData.concerts[0]])
 }

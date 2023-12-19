@@ -25,10 +25,11 @@ struct AlbumsByArtist: View {
                 HStack {
                     if viewModel.albums.isEmpty {
                         ForEach(0..<5) { _ in
-                            RoundedRectangle(cornerRadius: 15)
+                            RoundedRectangle(cornerRadius: 10)
                                 .fill(.secondary.opacity(0.1))
                                 .frame(width: 100, height: 100)
                                 .shadow(radius: 3, x: 5, y: 5)
+                                .padding(.trailing, 10)
   
                         }
                     } else {
@@ -40,9 +41,10 @@ struct AlbumsByArtist: View {
                                     Color.secondary.opacity(0.1)
                                 }
                                 .frame(width: 86, height: 86)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .shadow(radius: 3, x: 5, y: 5)
-                                
+                                .padding(.trailing, 10)
+
                                 
                                 
                                 Text(album.strAlbum ?? "")
@@ -51,7 +53,8 @@ struct AlbumsByArtist: View {
                                     .lineLimit(1)
                                 
                                 Text(album.intYearReleased ?? "")
-                                
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }

@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct StubNavLabel: View {
+struct ArtistStubsLabel: View {
     let concert: Concert
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             
             StubThumbnail(concert: concert)
@@ -29,5 +30,5 @@ struct StubNavLabel: View {
 }
 
 #Preview {
-    StubNavLabel(concert: SampleData.concerts[0])
+    ArtistStubsLabel(concert: SampleData.concerts[0])
 }
