@@ -23,13 +23,12 @@ struct StubThumbnailScrollView: View {
 
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(concerts, id: \.uuid) { concert in
+                    ForEach(concerts.reversed(), id: \.uuid) { concert in
                         
                         ArtistStubsLabel(concert: concert)
                             .onTapGesture {
-                                withAnimation(.easeInOut){
-                                    selectedConcert = concert
-                                }
+                                        selectedConcert = concert
+                                    
                             }
                     }
                 }

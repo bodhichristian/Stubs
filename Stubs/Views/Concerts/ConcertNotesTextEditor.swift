@@ -17,7 +17,7 @@ struct ConcertNotesTextEditor: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            HStack(alignment: .bottom) {
+            HStack {
                 
                 Text("Notes")
                     .font(.title2.bold())
@@ -34,19 +34,19 @@ struct ConcertNotesTextEditor: View {
                 }
                 
                 Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
                 } label: {
                     Image(systemName: isEditing
                             ? "square.and.pencil.circle.fill"
-                            : "square.and.pencil"
+                            : "square.and.pencil.circle"
                     )
-                    .foregroundStyle(.secondary)
+                    .resizable()
                     .scaledToFit()
-                    //.padding()
-                    .frame(width: 20, height: 20)
+                    .frame(width: 30, height: 30)
+                    .foregroundStyle(isEditing ? .blue: .secondary)
                 }
                 .buttonStyle(PlainButtonStyle())
 
@@ -55,7 +55,7 @@ struct ConcertNotesTextEditor: View {
 
             TextEditor(text: $concert.notes)
                 .foregroundStyle(isEditing 
-                                 ? .secondary
+                                 ? .blue
                                  : .primary)
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 100)

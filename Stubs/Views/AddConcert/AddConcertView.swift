@@ -25,9 +25,6 @@ struct AddConcertView: View {
     
     @State private var concertNotes = "" // Local note
     
-    @State private var colorOptions = StubStyle.colors
-    @State private var iconOptions = StubStyle.icons
-    
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     

@@ -13,13 +13,12 @@ import SwiftUI
 // A View for displaying the ticket stub and relevant data
 struct ConcertDetailView: View {
     
-    @State var concert: Concert
-    @State private var iconTapped = false // For icon animation
-    @State private var showingMap = false
-    
-    
     @Environment(\.modelContext) var modelContext
     
+    @State var concert: Concert
+    
+    @State private var showingMap = false
+
     @Query var concerts: [Concert]
     
     private var concertsByArtist: [Concert] {
@@ -31,9 +30,9 @@ struct ConcertDetailView: View {
         VStack(spacing: 0){
             
             StubView(concert: concert, isAddingConcert: false)
-
-            concertButtonRow
             
+            concertButtonRow
+                
             ScrollView {
                 
                 ConcertNotesTextEditor(concert: $concert)
