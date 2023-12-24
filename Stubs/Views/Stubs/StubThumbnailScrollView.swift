@@ -20,20 +20,23 @@ struct StubThumbnailScrollView: View {
         VStack(alignment: .leading, spacing: 0 ) {
             Text("\(artist) Stubs")
                 .font(.title2.bold())
-
+            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(concerts.reversed(), id: \.uuid) { concert in
                         
                         ArtistStubsLabel(concert: concert)
                             .onTapGesture {
-                                        selectedConcert = concert
-                                    
+                                selectedConcert = concert
+                                
                             }
                     }
                 }
                 .padding(.vertical)
             }
+            
+            Divider()
+            
         }
     }
 }

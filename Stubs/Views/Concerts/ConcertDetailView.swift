@@ -35,18 +35,12 @@ struct ConcertDetailView: View {
                 
             ScrollView {
                 
-                ConcertNotesTextEditor(concert: $concert)
-
-                Divider()
-                    .padding(.bottom)
+                ConcertNotesView(concert: concert)
                 
                 StubThumbnailScrollView(selectedConcert: $concert, concerts: concertsByArtist)
-                
-                Divider()
-                
+                                
                 AlbumsByArtist(concert: concert)
 
-                
             }
         }
         

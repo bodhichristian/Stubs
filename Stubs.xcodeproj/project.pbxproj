@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2FA8C82B38EA5E008EA1AA /* ConcertNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */; };
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertNotesView.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
+				AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */,
 				AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */,
 				AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */,
 			);
@@ -311,6 +314,7 @@
 				AAC4D4E22B2FF5A40098D28D /* StubThumbnailScrollView.swift in Sources */,
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
+				AA2FA8C82B38EA5E008EA1AA /* ConcertNotesView.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
