@@ -8,10 +8,10 @@
 import SwiftUI
 import SwiftData
 
-// MARK: AddConcertView - SwiftUI View
+// MARK: StubEditor
 // A View that provides a form to add a new concert
 
-struct AddConcertView: View {
+struct StubEditor: View {
     
     // Create an instance of concert with default icon and accent color
     @State private var concert = Concert(
@@ -38,9 +38,9 @@ struct AddConcertView: View {
     var body: some View {
         NavigationStack{
             Form {
-                StubPreview(concert: concert)
+                StubEditorPreview(concert: concert)
                 
-                AddConcertDetails(concert: $concert)
+                StubDetailsForm(concert: $concert)
                 
                 IconSelector(iconName: $concert.iconName, accentColor: $concert.accentColor)
                 
@@ -51,7 +51,7 @@ struct AddConcertView: View {
                         .frame(minHeight: 100)
                 }
             }
-            .navigationTitle("Add Concert")
+            .navigationTitle("Stub Editor")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
@@ -80,7 +80,7 @@ struct AddConcertView: View {
     }
 }
 
-extension AddConcertView {
+extension StubEditor {
     // Section for user input of concert details
     private var addConcertDetails: some View {
         Section("Details") {
@@ -101,7 +101,7 @@ extension AddConcertView {
 }
 
 #Preview {
-    AddConcertView()
+    StubEditor()
         .modelContainer(for: Concert.self, inMemory: true)
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-// MARK: StubCollection - SwiftUI View
+// MARK: StubCollection 
 // A View for displaying and searching for saved concerts
 // Performs query from SwiftData store
 // Groups concerts by decade
@@ -59,7 +59,7 @@ struct StubCollection: View {
             }
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
-                AddConcertView()
+                StubEditor()
             }
             .toolbar {
                 ToolbarItem {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddConcertDetails: View {
+struct StubDetailsForm: View {
     @Binding var concert: Concert
     
     var body: some View {
@@ -54,5 +54,5 @@ struct AddConcertDetails: View {
 }
 
 #Preview {
-    AddConcertDetails(concert: .constant(SampleData.concerts[0]))
+    StubDetailsForm(concert: .constant(SampleData.concerts[0]))
 }

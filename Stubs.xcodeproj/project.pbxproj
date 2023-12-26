@@ -12,6 +12,8 @@
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA5615F82B27AB5B00A35D4A /* AlbumSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */; };
+		AA59EF9E2B3B152900EC82EB /* StubEditorPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59EF9D2B3B152900EC82EB /* StubEditorPreview.swift */; };
+		AA59EFA02B3B1AEE00EC82EB /* StubsByYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */; };
 		AA62228E2B2A58F5004899A9 /* AlbumsByArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */; };
 		AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228F2B2B367C004899A9 /* NoStubsView.swift */; };
 		AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6ED6DF2A57142400174574 /* LookAroundView.swift */; };
@@ -21,7 +23,7 @@
 		AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */; };
 		AA8A74732A32BDF4003E9B41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A74722A32BDF4003E9B41 /* Preview Assets.xcassets */; };
 		AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
-		AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */; };
+		AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A747E2A32BF79003E9B41 /* StubEditor.swift */; };
 		AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA8A74862A32D5B1003E9B41 /* ConcertRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */; };
 		AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* SampleData.swift */; };
@@ -31,8 +33,7 @@
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
-		AAC4D4D02B2E77F80098D28D /* AddConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */; };
-		AAC4D4D82B2F4EA90098D28D /* StubPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D72B2F4EA90098D28D /* StubPreview.swift */; };
+		AAC4D4D02B2E77F80098D28D /* StubDetailsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* StubDetailsForm.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
 		AAC4D4DC2B2FC9900098D28D /* ConcertButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */; };
 		AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
@@ -49,6 +50,8 @@
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
 		AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchService.swift; sourceTree = "<group>"; };
+		AA59EF9D2B3B152900EC82EB /* StubEditorPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorPreview.swift; sourceTree = "<group>"; };
+		AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsByYear.swift; sourceTree = "<group>"; };
 		AA62228D2B2A58F5004899A9 /* AlbumsByArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsByArtist.swift; sourceTree = "<group>"; };
 		AA62228F2B2B367C004899A9 /* NoStubsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoStubsView.swift; sourceTree = "<group>"; };
 		AA6ED6DF2A57142400174574 /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
@@ -59,7 +62,7 @@
 		AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA8A74722A32BDF4003E9B41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA8A74742A32BDF4003E9B41 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
-		AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertView.swift; sourceTree = "<group>"; };
+		AA8A747E2A32BF79003E9B41 /* StubEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditor.swift; sourceTree = "<group>"; };
 		AA8A74812A32C912003E9B41 /* Extension-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-Color.swift"; sourceTree = "<group>"; };
 		AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertRowLabel.swift; sourceTree = "<group>"; };
 		AA8A74882A32D65E003E9B41 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -69,8 +72,7 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertDetails.swift; sourceTree = "<group>"; };
-		AAC4D4D72B2F4EA90098D28D /* StubPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPreview.swift; sourceTree = "<group>"; };
+		AAC4D4CF2B2E77F80098D28D /* StubDetailsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDetailsForm.swift; sourceTree = "<group>"; };
 		AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLineBoundary.swift; sourceTree = "<group>"; };
 		AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertButtonRow.swift; sourceTree = "<group>"; };
 		AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIcon.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				AA62228F2B2B367C004899A9 /* NoStubsView.swift */,
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
+				AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
 				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
 				AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */,
@@ -191,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
-				AAC4D4D12B2E79CB0098D28D /* AddConcert */,
+				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
 				AA62228C2B2A58DA004899A9 /* ArtistData */,
 				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA48FED42A64E63E005BA775 /* Components */,
@@ -211,16 +214,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		AAC4D4D12B2E79CB0098D28D /* AddConcert */ = {
+		AAC4D4D12B2E79CB0098D28D /* StubEditor */ = {
 			isa = PBXGroup;
 			children = (
-				AA8A747E2A32BF79003E9B41 /* AddConcertView.swift */,
-				AAC4D4CF2B2E77F80098D28D /* AddConcertDetails.swift */,
+				AA8A747E2A32BF79003E9B41 /* StubEditor.swift */,
+				AAC4D4CF2B2E77F80098D28D /* StubDetailsForm.swift */,
+				AA59EF9D2B3B152900EC82EB /* StubEditorPreview.swift */,
 				AA4202F12A38E749002EA5CD /* IconSelector.swift */,
 				AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */,
-				AAC4D4D72B2F4EA90098D28D /* StubPreview.swift */,
 			);
-			path = AddConcert;
+			path = StubEditor;
 			sourceTree = "<group>";
 		};
 		AAC4D4D62B2F4AC10098D28D /* Stubs */ = {
@@ -325,7 +328,9 @@
 				AAC4D4DC2B2FC9900098D28D /* ConcertButtonRow.swift in Sources */,
 				AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
-				AA8A747F2A32BF79003E9B41 /* AddConcertView.swift in Sources */,
+				AA59EFA02B3B1AEE00EC82EB /* StubsByYear.swift in Sources */,
+				AA59EF9E2B3B152900EC82EB /* StubEditorPreview.swift in Sources */,
+				AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
 				AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
@@ -339,9 +344,8 @@
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
-				AAC4D4D82B2F4EA90098D28D /* StubPreview.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */,
-				AAC4D4D02B2E77F80098D28D /* AddConcertDetails.swift in Sources */,
+				AAC4D4D02B2E77F80098D28D /* StubDetailsForm.swift in Sources */,
 				AA8A74912A33EE53003E9B41 /* StubStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,12 +20,11 @@ struct ConcertDetailView: View {
     
     @State private var showingMap = false
     @State private var showingDeleteAlert = false
+    @State private var isEditingNotes = false
     
     private var concertsByArtist: [Concert] {
         return concerts.filter({ $0.artist == concert.artist })
     }
-    
-    
     
     var body: some View {
         
@@ -33,11 +32,15 @@ struct ConcertDetailView: View {
             
             StubView(concert: concert, isAddingConcert: false)
             
-            concertButtonRow
+            if !isEditingNotes {
+                concertButtonRow
+                    .transition(.scale(scale: 0.0))
+                    
+            }
             
             ScrollView {
                 
-                ConcertNotesView(concert: concert)
+                ConcertNotesTextEditor(concert: $concert, isEditing: $isEditingNotes)
                 
                 StubThumbnailScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 
@@ -49,15 +52,17 @@ struct ConcertDetailView: View {
         .navigationTitle("\(concert.artist) | \(concert.venue)" )
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
+        
+        // Present a Map of the concert venue
         .sheet(isPresented: $showingMap) {
-            
             VenueMapView(concert: concert)
-            
         }
+        
+        // Present an Alert to confirm deletion
         .alert(isPresented: $showingDeleteAlert) {
                     Alert(
                         title: Text("Delete Stub"),
-                        message: Text("Permanently delete this stub?"),
+                        message: Text("Are you sure you want to delete this stub?"),
                         primaryButton: .destructive(Text("Delete")) {
                             modelContext.delete(concert)
                         },
@@ -97,6 +102,8 @@ extension ConcertDetailView {
                 showingDeleteAlert = true
             }
         }
+        .padding(.vertical, -10)
+        .offset(y: -7)
     }
     
     
