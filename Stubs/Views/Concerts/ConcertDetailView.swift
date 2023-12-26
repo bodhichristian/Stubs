@@ -35,7 +35,7 @@ struct ConcertDetailView: View {
             if !isEditingNotes {
                 concertButtonRow
                     .transition(.scale(scale: 0.0))
-                    
+                
             }
             
             ScrollView {
@@ -60,15 +60,15 @@ struct ConcertDetailView: View {
         
         // Present an Alert to confirm deletion
         .alert(isPresented: $showingDeleteAlert) {
-                    Alert(
-                        title: Text("Delete Stub"),
-                        message: Text("Are you sure you want to delete this stub?"),
-                        primaryButton: .destructive(Text("Delete")) {
-                            modelContext.delete(concert)
-                        },
-                        secondaryButton: .cancel()
-                    )
-                }
+            Alert(
+                title: Text("Delete Stub"),
+                message: Text("Are you sure you want to delete this stub?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    modelContext.delete(concert)
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }
 

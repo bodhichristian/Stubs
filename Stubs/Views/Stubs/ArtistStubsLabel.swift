@@ -26,6 +26,7 @@ struct ArtistStubsLabel: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
+        .frame(maxWidth: 90)
     }
 }
 

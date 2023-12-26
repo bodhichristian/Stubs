@@ -36,7 +36,7 @@ struct ConcertNotesTextEditor: View {
                 
                 Button {
                     
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    withAnimation(.easeInOut(duration: 0.4)) {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
