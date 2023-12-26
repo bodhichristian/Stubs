@@ -13,17 +13,19 @@ import SwiftUI
 // A View for displaying the ticket stub and relevant data
 struct ConcertDetailView: View {
     
+    @Query var concerts: [Concert]
     @Environment(\.modelContext) var modelContext
     
     @State var concert: Concert
     
     @State private var showingMap = false
-
-    @Query var concerts: [Concert]
+    @State private var showingDeleteAlert = false
     
     private var concertsByArtist: [Concert] {
         return concerts.filter({ $0.artist == concert.artist })
     }
+    
+    
     
     var body: some View {
         
@@ -32,15 +34,15 @@ struct ConcertDetailView: View {
             StubView(concert: concert, isAddingConcert: false)
             
             concertButtonRow
-                
+            
             ScrollView {
                 
                 ConcertNotesView(concert: concert)
                 
                 StubThumbnailScrollView(selectedConcert: $concert, concerts: concertsByArtist)
-                                
+                
                 AlbumsByArtist(concert: concert)
-
+                
             }
         }
         
@@ -52,6 +54,16 @@ struct ConcertDetailView: View {
             VenueMapView(concert: concert)
             
         }
+        .alert(isPresented: $showingDeleteAlert) {
+                    Alert(
+                        title: Text("Delete Stub"),
+                        message: Text("Permanently delete this stub?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            modelContext.delete(concert)
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
     }
 }
 
@@ -82,8 +94,10 @@ extension ConcertDetailView {
                          systemImage: "trash",
                          accentColor: .red,
                          concert: $concert) {
-                modelContext.delete(concert)
+                showingDeleteAlert = true
             }
         }
     }
+    
+    
 }
