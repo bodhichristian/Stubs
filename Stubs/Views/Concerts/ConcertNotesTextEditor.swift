@@ -18,21 +18,24 @@ struct ConcertNotesTextEditor: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            HStack {
+            HStack(alignment: .bottom) {
                 
                 Text("Notes")
                     .font(.title2.bold())
-
-                Spacer()
                 
                 if isEditing {
                     
                     Text("EDITING")
                         .font(.callout.bold())
-                        .foregroundStyle(.secondary)
-                        .transition(.push(from: .top))
-
+                        .foregroundStyle(Color(colorName: concert.accentColor)!)
+                        .transition(.asymmetric(
+                            insertion: .push(from: .top),
+                            removal: .push(from: .top))
+                        )
+                    
                 }
+                
+                Spacer()
                 
                 Button {
                     
@@ -44,8 +47,8 @@ struct ConcertNotesTextEditor: View {
                 } label: {
                     
                     Image(systemName: isEditing
-                            ? "square.and.pencil.circle.fill"
-                            : "square.and.pencil.circle"
+                          ? "square.and.pencil.circle.fill"
+                          : "square.and.pencil.circle"
                     )
                     .resizable()
                     .scaledToFit()
@@ -54,9 +57,9 @@ struct ConcertNotesTextEditor: View {
                     
                 }
                 .buttonStyle(PlainButtonStyle())
-
+                
             }
-
+            
             TextEditor(text: $concert.notes)
                 .foregroundStyle(isEditing
                                  ? Color(colorName: concert.accentColor)!
@@ -65,7 +68,7 @@ struct ConcertNotesTextEditor: View {
                 .frame(minHeight: 100)
                 .disabled(!isEditing)
                 .focused($editingFocus)
-                
+            
         }
         .padding(.top)
         

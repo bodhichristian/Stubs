@@ -38,17 +38,6 @@ struct SampleData {
         
         Concert(
             artist: "Adele",
-            venue: "The O2 Arena",
-            city: "London",
-            date: calendar.date(from: DateComponents(year: 2023, month: 3, day: 5))!,
-            iconName: StubStyle.icons.randomElement()!,
-            accentColor: StubStyle.colors.randomElement()!,
-            notes: "Adele's performance was breathtakingly beautiful, filled with emotional depth and vocal prowess. The intimacy of her interaction with the audience was heartwarming.",
-            isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Adele",
             venue: "The SSE Hydro",
             city: "Glasgow",
             date: calendar.date(from: DateComponents(year: 2016, month: 3, day: 25))!,
@@ -337,17 +326,6 @@ struct SampleData {
             accentColor: StubStyle.colors.randomElement()!,
             notes: "The crowd at AccorHotels Arena was electrified by Billie Eilish's emotional and powerful performance.",
             isFavorite: true
-        ),
-        
-        Concert(
-            artist: "Rihanna",
-            venue: "Coachella",
-            city: "Indio",
-            date: calendar.date(from: DateComponents(year: 2023, month: 4, day: 15))!,
-            iconName: StubStyle.icons.randomElement()!,
-            accentColor: StubStyle.colors.randomElement()!,
-            notes: "Rihanna's headlining at Coachella was historic. Her setlist was a perfect mix of her hits and new songs, and the stage presence was simply mesmerizing.",
-            isFavorite: false
         ),
         
         Concert(
