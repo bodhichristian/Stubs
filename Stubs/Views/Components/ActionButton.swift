@@ -56,8 +56,7 @@ struct ActionButton: View {
             }
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
             .buttonStyle(.borderedProminent)
-            .tint(.secondary.opacity(0.1))
-            
+            .tint(.secondary.opacity(0.2))
         }
         .frame(maxHeight: 80)
         

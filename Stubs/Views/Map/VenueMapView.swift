@@ -29,7 +29,7 @@ struct VenueMapView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack(alignment: .topLeading) {
                 // Apple Maps base
                 Map(position: $position, selection: $location) {
                     // Default Map Marker

@@ -31,15 +31,19 @@ struct ConcertDetailView: View {
         VStack(spacing: 0){
             
             StubView(concert: concert, isAddingConcert: false)
+                .onChange(of: concert) { _, _ in
+                    isEditingNotes = false
+                }
             
+            ScrollView {
             if !isEditingNotes {
                 concertButtonRow
-                    .transition(.scale(scale: 0.0))
+                    .transition(.asymmetric(insertion: .scale(scale: 0.0), removal: .push(from: .top)))
                     //.transition(.push(from: .top))
                 
             }
             
-            ScrollView {
+            
                 
                 ConcertNotesTextEditor(concert: $concert, isEditing: $isEditingNotes)
                 
@@ -86,6 +90,7 @@ extension ConcertDetailView {
                          concert: $concert) {
                 showingMap = true
             }
+                         .transition(.push(from: .leading))
 
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
@@ -103,8 +108,10 @@ extension ConcertDetailView {
                 showingDeleteAlert = true
             }
         }
+        .frame(minHeight: 88)
         .padding(.vertical, -10)
         .offset(y: -7)
+        
     }
     
     

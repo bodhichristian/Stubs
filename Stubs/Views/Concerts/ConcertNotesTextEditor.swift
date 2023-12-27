@@ -20,7 +20,7 @@ struct ConcertNotesTextEditor: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             
             HStack(spacing: 0) {
                 if isEditing {
@@ -45,8 +45,7 @@ struct ConcertNotesTextEditor: View {
                 Spacer()
                 
                 Button {
-                    withAnimation(.bouncy.speed(1.5)) {
-//                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
@@ -74,15 +73,15 @@ struct ConcertNotesTextEditor: View {
                         .padding(.trailing)
                     }
                     .background {
-                        Capsule()
-                           
-                            .frame(width: isEditing ? 100 : 0, height: isEditing ? 30 : 0 )
-                            .foregroundStyle(accentColor)
-                            //.shadow(color: accentColor.opacity(0.8), radius: 5, y: 7)
-                            .padding(.trailing)
-                        
+                        if isEditing {
+                            Capsule()
+                               
+                                .frame(width: isEditing ? 100 : 0, height: isEditing ? 30 : 0 )
+                                .foregroundStyle(accentColor.opacity(0.8))
+                                .padding(.trailing)
+                                .transition(.push(from: .bottom))
+                        }
                     }
-                    //.offset(y: isEditing ? 4 : 0)
                 }
                 .buttonStyle(PlainButtonStyle())
                 
@@ -96,7 +95,7 @@ struct ConcertNotesTextEditor: View {
                 .frame(minHeight: 100)
                 .disabled(!isEditing)
                 .focused($editingFocus)
-            
+                .offset(x: -5)
             
             Divider()
                 .padding(.bottom)
