@@ -38,14 +38,11 @@ struct StubDetailView: View {
             ScrollView {
             if !isEditingNotes {
                 concertButtonRow
-                    .transition(.asymmetric(insertion: .scale(scale: 0.0), removal: .push(from: .top)))
-                    //.transition(.push(from: .top))
-                
+                    .transition(.scale)
+//                    .transition(.scale(0.0).combined(with: .move(edge: .bottom)))
             }
             
-            
-                
-                StubNotesTextEditor(concert: $concert, isEditing: $isEditingNotes)
+                StubNotesView(concert: $concert, isEditing: $isEditingNotes)
                 
                 RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 
@@ -90,7 +87,6 @@ extension StubDetailView {
                          concert: $concert) {
                 showingMap = true
             }
-                         .transition(.push(from: .leading))
 
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
