@@ -46,7 +46,7 @@ struct StubCollection: View {
                                         StubDetailView(concert: concert)
                                         
                                     } label: {
-                                        ConcertRowLabel(concert: concert)
+                                        StubCollectionRowLabel(concert: concert)
                                     }
                                 }
                             }

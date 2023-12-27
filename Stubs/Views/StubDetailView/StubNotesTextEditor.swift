@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConcertNotesTextEditor: View {
+struct StubNotesTextEditor: View {
     
     @Binding var concert: Concert
     
@@ -107,5 +107,5 @@ struct ConcertNotesTextEditor: View {
 }
 
 #Preview {
-    ConcertNotesTextEditor(concert: .constant(SampleData.concerts[0]), isEditing: .constant(false))
+    StubNotesTextEditor(concert: .constant(SampleData.concerts[0]), isEditing: .constant(false))
 }

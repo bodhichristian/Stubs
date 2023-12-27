@@ -45,11 +45,11 @@ struct StubDetailView: View {
             
             
                 
-                ConcertNotesTextEditor(concert: $concert, isEditing: $isEditingNotes)
+                StubNotesTextEditor(concert: $concert, isEditing: $isEditingNotes)
                 
-                StubThumbnailScrollView(selectedConcert: $concert, concerts: concertsByArtist)
+                RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 
-                AlbumsByArtist(concert: concert)
+                AlbumsScrollView(concert: concert)
                 
             }
         }

@@ -13,27 +13,24 @@ import SwiftUI
 struct StubView: View {
     let concert: Concert
     let isAddingConcert: Bool
-    
-    let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.2)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
+
+    var stubColor: Color {
+        return Color(colorName: concert.accentColor)!
+    }
     
     @State private var iconTapped = false // For icon animation
 
-    
     var body: some View {
         GeometryReader { geo in
             
             ZStack{
                 // MARK: Stub base
                 StubShape()
-                    .foregroundStyle(Color(colorName: concert.accentColor)!)
+                    .foregroundStyle(stubColor)
                     .shadow(radius: 6, y: 10)
                 
                 StubShape()
-                    .foregroundStyle(gradient)
+                    .foregroundStyle(StubStyle.gradientOverlay)
                 
                 // MARK: Ticket Stub Elements
                 HStack(alignment: .bottom) {
@@ -133,4 +130,21 @@ struct StubView: View {
 
 #Preview {
     StubView(concert: SampleData.concerts[0], isAddingConcert: false)
+}
+
+
+// MARK: StubStyle
+// A struct for storing styles related to Stub
+
+struct StubStyle {
+    
+    static let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "purple", "cyan", "mint", "teal", "brown", "gray"]
+    
+    static let icons = ["guitars", "music.mic", "music.quarternote.3", "waveform", "hifispeaker.2", "music.note.list", "airpodsmax", "music.mic.circle", "speaker.wave.3", "music.note", "wave.3.forward"]
+    
+    static let gradientOverlay = LinearGradient( // For stub base
+        colors: [.clear, .black.opacity(0.2)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 import Combine
 
-struct AlbumsByArtist: View {
+struct AlbumsScrollView: View {
     let concert: Concert
     
-    @StateObject var viewModel = AlbumsByArtist.ViewModel()
+    @StateObject var viewModel = AlbumsScrollView.ViewModel()
 
     var body: some View {
         
@@ -71,10 +71,10 @@ struct AlbumsByArtist: View {
 }
 
 #Preview {
-    AlbumsByArtist(concert: SampleData.concerts[0])
+    AlbumsScrollView(concert: SampleData.concerts[0])
 }
 
-extension AlbumsByArtist {
+extension AlbumsScrollView {
     class ViewModel: ObservableObject {
         private let albumService = AlbumSearchService()
         private var cancellables = Set<AnyCancellable>()

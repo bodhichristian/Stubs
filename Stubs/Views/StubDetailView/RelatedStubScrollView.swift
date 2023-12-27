@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StubThumbnailScrollView: View {
+struct RelatedStubScrollView: View {
     @Binding var selectedConcert: Concert
     
     let concerts: [Concert]
@@ -42,5 +42,5 @@ struct StubThumbnailScrollView: View {
 }
 
 #Preview {
-    StubThumbnailScrollView(selectedConcert: .constant(SampleData.concerts[0]), concerts: [SampleData.concerts[0]])
+    RelatedStubScrollView(selectedConcert: .constant(SampleData.concerts[0]), concerts: [SampleData.concerts[0]])
 }
