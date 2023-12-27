@@ -39,11 +39,11 @@ struct StubCollection: View {
                             // Create a section for each decade
                             Section(header: decadeHeader(year)) {
                                 
-                                // Create a NavLink to ConcertDetailView for each concert
+                                // Create a NavLink to StubDetailView for each concert
                                 ForEach(concertsByYear[year]!, id: \.id) { concert in
                                     
                                     NavigationLink {
-                                        ConcertDetailView(concert: concert)
+                                        StubDetailView(concert: concert)
                                         
                                     } label: {
                                         ConcertRowLabel(concert: concert)

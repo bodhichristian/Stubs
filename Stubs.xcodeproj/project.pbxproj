@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA2FA8C82B38EA5E008EA1AA /* ConcertNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */; };
 		AA4202F02A38C8F1002EA5CD /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* IconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* IconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -27,7 +26,7 @@
 		AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA8A74862A32D5B1003E9B41 /* ConcertRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */; };
 		AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74882A32D65E003E9B41 /* SampleData.swift */; };
-		AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */; };
+		AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */; };
 		AA8A74912A33EE53003E9B41 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74902A33EE53003E9B41 /* StubStyle.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
@@ -45,7 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertNotesView.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* IconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -66,7 +64,7 @@
 		AA8A74812A32C912003E9B41 /* Extension-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-Color.swift"; sourceTree = "<group>"; };
 		AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertRowLabel.swift; sourceTree = "<group>"; };
 		AA8A74882A32D65E003E9B41 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
-		AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailView.swift; sourceTree = "<group>"; };
+		AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDetailView.swift; sourceTree = "<group>"; };
 		AA8A74902A33EE53003E9B41 /* StubStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStyle.swift; sourceTree = "<group>"; };
 		AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView.swift; sourceTree = "<group>"; };
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
@@ -101,9 +99,6 @@
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
 				AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */,
 				AA8A74852A32D5B1003E9B41 /* ConcertRowLabel.swift */,
-				AA8A748B2A33A43E003E9B41 /* ConcertDetailView.swift */,
-				AA2FA8C72B38EA5E008EA1AA /* ConcertNotesView.swift */,
-				AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */,
 				AAC4D4DB2B2FC9900098D28D /* ConcertButtonRow.swift */,
 			);
 			path = Concerts;
@@ -134,6 +129,15 @@
 				AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AA59EFA12B3C6CAB00EC82EB /* StubDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */,
+				AAC4D4E52B31B7470098D28D /* ConcertNotesTextEditor.swift */,
+			);
+			path = StubDetailView;
 			sourceTree = "<group>";
 		};
 		AA62228C2B2A58DA004899A9 /* ArtistData */ = {
@@ -194,11 +198,12 @@
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
-				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
 				AA62228C2B2A58DA004899A9 /* ArtistData */,
-				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA48FED42A64E63E005BA775 /* Components */,
+				AA48FED32A64E51C005BA775 /* Concerts */,
 				AA4B4E2D2A677CC100197B28 /* Map */,
+				AA59EFA12B3C6CAB00EC82EB /* StubDetailView */,
+				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
 				AAC4D4D62B2F4AC10098D28D /* Stubs */,
 			);
 			path = Views;
@@ -317,7 +322,6 @@
 				AAC4D4E22B2FF5A40098D28D /* StubThumbnailScrollView.swift in Sources */,
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
-				AA2FA8C82B38EA5E008EA1AA /* ConcertNotesView.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
@@ -331,7 +335,7 @@
 				AA59EFA02B3B1AEE00EC82EB /* StubsByYear.swift in Sources */,
 				AA59EF9E2B3B152900EC82EB /* StubEditorPreview.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */,
-				AA8A748C2A33A43E003E9B41 /* ConcertDetailView.swift in Sources */,
+				AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */,
 				AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
 				AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */,

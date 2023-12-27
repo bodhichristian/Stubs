@@ -9,9 +9,9 @@ import Combine
 import SwiftData
 import SwiftUI
 
-// MARK: ConcertDetailView
+// MARK: StubDetailView
 // A View for displaying the ticket stub and relevant data
-struct ConcertDetailView: View {
+struct StubDetailView: View {
     
     @Query var concerts: [Concert]
     @Environment(\.modelContext) var modelContext
@@ -77,7 +77,7 @@ struct ConcertDetailView: View {
     }
 }
 
-extension ConcertDetailView {
+extension StubDetailView {
     
     // MARK: actionButtons
     // Map, Favorite, and Delete selections
