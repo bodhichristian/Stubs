@@ -35,6 +35,7 @@ struct ConcertDetailView: View {
             if !isEditingNotes {
                 concertButtonRow
                     .transition(.scale(scale: 0.0))
+                    //.transition(.push(from: .top))
                 
             }
             
@@ -85,7 +86,7 @@ extension ConcertDetailView {
                          concert: $concert) {
                 showingMap = true
             }
-            
+
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
                          systemImage: concert.isFavorite ? "checkmark.seal.fill" : "checkmark.seal",

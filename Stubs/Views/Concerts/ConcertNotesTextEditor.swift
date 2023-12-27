@@ -15,46 +15,74 @@ struct ConcertNotesTextEditor: View {
     
     @FocusState private var editingFocus: Bool
     
+    var accentColor: Color {
+        Color(colorName: concert.accentColor)!
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             
-            HStack(alignment: .bottom) {
+            HStack(spacing: 0) {
+                if isEditing {
+                    
+                    Text("Editing ")
+                        .font(.title2.bold())
+                        .foregroundStyle(accentColor)
+                        .transition(.asymmetric(
+                            insertion:
+                                    .push(from: .top),
+                            removal: .push(from: .trailing)))
+                    
+                    
+                }
+                
                 
                 Text("Notes")
                     .font(.title2.bold())
                 
-                if isEditing {
-                    
-                    Text("EDITING")
-                        .font(.callout.bold())
-                        .foregroundStyle(Color(colorName: concert.accentColor)!)
-                        .transition(.asymmetric(
-                            insertion: .push(from: .top),
-                            removal: .push(from: .top))
-                        )
-                    
-                }
+ 
                 
                 Spacer()
                 
                 Button {
-                    
-                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.bouncy.speed(1.5)) {
+//                    withAnimation(.easeInOut(duration: 0.4)) {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
                     
                 } label: {
                     
-                    Image(systemName: isEditing
-                          ? "square.and.pencil.circle.fill"
-                          : "square.and.pencil.circle"
-                    )
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
-                    .foregroundStyle(isEditing ? .blue: .secondary)
                     
+                    HStack {
+                        
+                        if isEditing {
+                            Text("DONE")
+                                .font(.callout.bold())
+                                .foregroundStyle(.white)
+                        }
+                        
+                        
+                        Image(systemName: isEditing
+                              ? "square.and.pencil.circle.fill"
+                              : "square.and.pencil.circle"
+                        )
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: isEditing ? 20 : 25, height: isEditing ? 20 : 25)
+                        .foregroundStyle(isEditing ? .white : .secondary)
+                        .padding(.trailing)
+                    }
+                    .background {
+                        Capsule()
+                           
+                            .frame(width: isEditing ? 100 : 0, height: isEditing ? 30 : 0 )
+                            .foregroundStyle(accentColor)
+                            //.shadow(color: accentColor.opacity(0.8), radius: 5, y: 7)
+                            .padding(.trailing)
+                        
+                    }
+                    //.offset(y: isEditing ? 4 : 0)
                 }
                 .buttonStyle(PlainButtonStyle())
                 
@@ -62,18 +90,20 @@ struct ConcertNotesTextEditor: View {
             
             TextEditor(text: $concert.notes)
                 .foregroundStyle(isEditing
-                                 ? Color(colorName: concert.accentColor)!
+                                 ? accentColor
                                  : .primary)
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 100)
                 .disabled(!isEditing)
                 .focused($editingFocus)
             
+            
+            Divider()
+                .padding(.bottom)
         }
-        .padding(.top)
+        .padding(.top, 20)
         
-        Divider()
-            .padding(.bottom)
+        
     }
 }
 
