@@ -192,7 +192,7 @@
 				AA48FED32A64E51C005BA775 /* StubCollection */,
 				AA59EFA12B3C6CAB00EC82EB /* StubDetailView */,
 				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
-				AAC4D4D62B2F4AC10098D28D /* Stubs */,
+				AAC4D4D62B2F4AC10098D28D /* Stub */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 			path = StubEditor;
 			sourceTree = "<group>";
 		};
-		AAC4D4D62B2F4AC10098D28D /* Stubs */ = {
+		AAC4D4D62B2F4AC10098D28D /* Stub */ = {
 			isa = PBXGroup;
 			children = (
 				AAB050182A59D88600EB88BD /* StubView.swift */,
@@ -228,7 +228,7 @@
 				AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */,
 				AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */,
 			);
-			path = Stubs;
+			path = Stub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

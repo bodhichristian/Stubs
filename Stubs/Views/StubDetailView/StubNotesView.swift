@@ -23,35 +23,33 @@ struct StubNotesView: View {
         VStack(alignment: .leading, spacing: 10) {
             
             HStack(spacing: 0) {
+                
                 if isEditing {
                     
                     Text("Editing ")
                         .font(.title2.bold())
                         .foregroundStyle(accentColor)
-                        .transition(.asymmetric(
-                            insertion:
-                                    .push(from: .leading),
-                            removal: .push(from: .trailing)))
-                    
+                        .transition(
+                            .asymmetric(
+                                insertion: .push(from: .leading),
+                                removal: .push(from: .trailing)
+                            )
+                        )
                     
                 }
-                
                 
                 Text("Notes")
                     .font(.title2.bold())
                 
-                
-                
                 Spacer()
                 
                 Button {
-                    withAnimation(.easeInOut(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
                     
                 } label: {
-                    
                     
                     HStack {
                         
