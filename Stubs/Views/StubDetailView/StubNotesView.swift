@@ -90,8 +90,9 @@ struct StubNotesView: View {
                 .foregroundStyle(isEditing
                                  ? accentColor
                                  : .primary)
-                .frame(maxWidth: .infinity)
                 .frame(minHeight: 100)
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                
                 .disabled(!isEditing)
                 .focused($editingFocus)
                 .offset(x: -5)

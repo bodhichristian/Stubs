@@ -189,10 +189,10 @@
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
 				AA48FED42A64E63E005BA775 /* Components */,
 				AA4B4E2D2A677CC100197B28 /* Map */,
+				AAC4D4D62B2F4AC10098D28D /* Stub */,
 				AA48FED32A64E51C005BA775 /* StubCollection */,
 				AA59EFA12B3C6CAB00EC82EB /* StubDetailView */,
 				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
-				AAC4D4D62B2F4AC10098D28D /* Stub */,
 			);
 			path = Views;
 			sourceTree = "<group>";
