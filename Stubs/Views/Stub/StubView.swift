@@ -74,17 +74,28 @@ struct StubView: View {
                                     )
                                     .foregroundStyle(.white)
                                 
+                                
+                                
                                 Spacer()
                                 
-                                // MARK: Concert Date
-                                // Format: `Jun 9, 2023`
-                                Text(concert.date.formatted(date: .abbreviated, time: .omitted))
-                                    .fontDesign(.monospaced)
-                                    .font(isAddingConcert
-                                          ? .title3
-                                          : .title2
-                                    )
-                                    .foregroundStyle(.black)
+                                HStack(alignment: .bottom){
+                                    
+                                    // MARK: Concert Date
+                                    // Format: `Jun 9, 2023`
+                                    Text(concert.date.formatted(date: .abbreviated, time: .omitted))
+                                        .fontDesign(.monospaced)
+                                        .font(isAddingConcert
+                                              ? .title3
+                                              : .title2
+                                        )
+                                        .foregroundStyle(.black)
+                                    
+                                    if concert.isFavorite {
+                                        
+                                        FavoriteIcon()
+                                        
+                                    }
+                                }
                                 
                             }
                             

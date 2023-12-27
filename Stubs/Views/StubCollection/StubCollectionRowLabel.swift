@@ -16,14 +16,16 @@ struct StubCollectionRowLabel: View {
     var body: some View {
         HStack {
             
-            StubThumbnail(concert: concert)
-                .overlay {
-                    if concert.isFavorite {
-                        FavoriteIcon()
-                            .offset(y: 12)
-                        
-                    }
+            ZStack(alignment: .bottomTrailing){
+            
+                StubThumbnail(concert: concert)
+                    
+                if concert.isFavorite {
+                    FavoriteIcon()
+                        .offset(y: 12)
+                        .font(.headline)
                 }
+            }
             
             VStack(alignment: .leading) {
                 

@@ -13,17 +13,17 @@ struct FavoriteIcon: View {
             .font(.title3)
             .foregroundStyle(
                 LinearGradient(
-                    colors: [.orange, .yellow, .white],
+                    colors: [.orange, .yellow, .yellow, .yellow, .orange],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing)
             )
             .padding(2)
             .background {
                 Circle()
-                    .foregroundStyle(.thickMaterial)
+                    .foregroundStyle(.white)
+                    .shadow(radius: 4, y: 2)
+
             }
-            .frame(width: 66, height: 40, alignment: .bottomTrailing)
-            .shadow(radius: 2, y: 2)
         
     }
 }
