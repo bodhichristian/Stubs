@@ -12,7 +12,6 @@ import SwiftUI
 
 struct StubView: View {
     let concert: Concert
-    let isAddingConcert: Bool
 
     var stubColor: Color {
         return Color(colorName: concert.accentColor)!
@@ -42,20 +41,13 @@ struct StubView: View {
                         
                         // Artist Name
                         Text(concert.artist)
-                            .font(isAddingConcert
-                                  ? .title2
-                                  : .title
-                            )
-                            .bold()
+                            .font(.title.bold())
                             .foregroundStyle(.white)
                             .shadow(radius: 2)
                         
                         // Venue Details
                         Text(concert.venue)
-                            .font(isAddingConcert
-                                  ? .title3
-                                  : .title2
-                            )
+                            .font(.title2)
                             .fontWeight(.semibold)
                             .foregroundStyle(.black)
                         
@@ -64,30 +56,20 @@ struct StubView: View {
                             // MARK: Location
                             VStack(alignment: .leading) {
                                 
-                                
-                                
                                 // City
                                 Text(concert.city)
-                                    .font(isAddingConcert
-                                          ? .title3
-                                          : .title2
-                                    )
+                                    .font(.title2)
                                     .foregroundStyle(.white)
-                                
-                                
-                                
+                                                                
                                 Spacer()
                                 
                                 HStack(alignment: .bottom){
                                     
                                     // MARK: Concert Date
                                     // Format: `Jun 9, 2023`
-                                    Text(concert.date.formatted(date: .abbreviated, time: .omitted))
+                                    Text(concert.date.formatted(date: .numeric, time: .omitted))
                                         .fontDesign(.monospaced)
-                                        .font(isAddingConcert
-                                              ? .title3
-                                              : .title2
-                                        )
+                                        .font(.title2)
                                         .foregroundStyle(.black)
                                     
                                     if concert.isFavorite {
@@ -95,6 +77,7 @@ struct StubView: View {
                                         FavoriteIcon()
                                         
                                     }
+                                    
                                 }
                                 
                             }
@@ -140,7 +123,7 @@ struct StubView: View {
 }
 
 #Preview {
-    StubView(concert: SampleData.concerts[0], isAddingConcert: false)
+    StubView(concert: SampleData.concerts[0])
 }
 
 

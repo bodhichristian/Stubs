@@ -19,7 +19,6 @@ struct VenueMapView: View {
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
-    @State private var route: MKRoute?
 
     @Environment(\.dismiss) var dismiss
     
@@ -34,9 +33,27 @@ struct VenueMapView: View {
                 Map(position: $position, selection: $location) {
                     // Default Map Marker
                     Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
-
+                    
+                    
                 }
-                .mapStyle(.hybrid(elevation: .realistic, pointsOfInterest: .all))
+                .mapStyle(
+                    .standard(
+                        elevation: .realistic,
+                        pointsOfInterest: .excludingAll
+                    )
+                )
+                
+                // MARK: mapControls
+                // Content will be placed in default positions
+                .mapControls {
+                    // Appears when map has been rotated by user
+                    MapCompass()
+                    // Appears while user is zooming in or out
+                    MapScaleView()
+                    
+                }
+                
+
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StubEditorPreview: View {
+struct StubEditorStubPreview: View {
     let concert: Concert
     
     let gradient = LinearGradient( // For stub base
@@ -109,5 +109,5 @@ struct StubEditorPreview: View {
     }
 }
 #Preview {
-    StubEditorPreview(concert: SampleData.concerts[0])
+    StubEditorStubPreview(concert: SampleData.concerts[0])
 }

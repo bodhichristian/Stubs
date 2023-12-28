@@ -38,7 +38,7 @@ struct StubEditor: View {
     var body: some View {
         NavigationStack{
             Form {
-                StubEditorPreview(concert: concert)
+                StubEditorStubPreview(concert: concert)
                 
                 StubDetailsForm(concert: $concert)
                 
