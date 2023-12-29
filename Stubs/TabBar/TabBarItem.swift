@@ -16,7 +16,7 @@ enum TabBarItem: Hashable {
         case .stubs: return "ticket"
         case .favorites: return "heart"
         case .profile: return "person"
-        case .artists: return "message"
+        case .artists: return "music.mic"
         }
     }
     

@@ -11,7 +11,7 @@ struct MaterialTabBar: View {
     let tabs: [TabBarItem]
     let contentShape = RoundedRectangle(cornerRadius: 5)
     @Binding var selection: TabBarItem
-
+    
     // For matchedGeometryEffect
     @State var localSelection: TabBarItem
     @Namespace private var namespace
@@ -23,7 +23,7 @@ struct MaterialTabBar: View {
             HStack {
                 ForEach(tabs, id: \.self) { tab in
                     tabView(tab: tab)
-
+                    
                 }
             }
             
@@ -52,19 +52,11 @@ extension MaterialTabBar {
     private func tabView(tab: TabBarItem) -> some View {
         VStack {
             
-            if tab == selection {
-                Image(systemName: "\(tab.iconName).fill")
-                    .font(.subheadline).bold()
-                    .symbolEffect(.bounce, value: localSelection)
-                    .foregroundStyle(localSelection == tab ? tab.color : .secondary)
-                    .frame(height: 15)
-                    .shadow(radius: 0.5, y: 1)
-            } else {
-                Image(systemName: tab.iconName)
-                    .font(.subheadline)
-                    .foregroundStyle(localSelection == tab ? tab.color : .secondary)
-                    .frame(height: 15)
-            }
+            Image(systemName: tab.iconName)
+                .font(.subheadline)
+                .foregroundStyle(localSelection == tab ? tab.color : .secondary)
+                .frame(height: 15)
+            
             
             Text(tab.title)
                 .font(.system(size: 10, weight: tab == selection ? .bold : .semibold, design: .rounded))

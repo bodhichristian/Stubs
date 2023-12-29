@@ -14,7 +14,7 @@ struct ArtistDetailView: View {
     
     let artist: String
     
-    let artistImageWidth: CGFloat = 250
+    let artistImageWidth: CGFloat = 200
     
     @Environment(\.dismiss) var dismiss
     
@@ -32,154 +32,157 @@ struct ArtistDetailView: View {
     @State private var imageOpacity = 0.0
     
     var body: some View {
-        ZStack {
+        GeometryReader { geo in
+            ZStack {
 
-            VStack {
-                
-                ZStack {
+                VStack {
                     
-                    Rectangle()
-                    
-                    if let artist = viewModel.artists.first {
-                        AsyncImage(url: URL(string: artist.strArtistFanart ?? "")) { backgroundImage in
-                            backgroundImage
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Rectangle())
-                                .opacity(imageOpacity)
-                                .overlay {
-                                    LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-                                        .opacity(0.6)
-                                }
-
-                        } placeholder: {
-                            
-                            Rectangle()
-
-                        }
-
-                    }
-                    
-                    
-                }
-                    .frame(maxWidth: .infinity, maxHeight: 300)
-                
-                Spacer()
-            }
-            .ignoresSafeArea()
-            
-            
-
-            
-            VStack {
-                
-                ZStack {
-                    
-                    Circle()
-                        .foregroundStyle(.gray)
-                        .frame(width: artistImageWidth)
-                        .padding()
+                    ZStack {
                         
-                    if let artist = viewModel.artists.first {
-                        AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: artistImageWidth)
-                                .clipShape(Circle())
-                                .opacity(imageOpacity)
-                                .shadow(radius: 7,  y: 7)
-                                .padding()
-                                .onAppear {
-                                    withAnimation(.easeInOut(duration: 0.7)){
-                                        imageOpacity = 1.0
+                        Rectangle()
+                        
+                        if let artist = viewModel.artists.first {
+                            AsyncImage(url: URL(string: artist.strArtistFanart ?? "")) { backgroundImage in
+                                backgroundImage
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: geo.size.width, height: geo.size.width / 2)
+                                    .clipShape(Rectangle())
+                                    .opacity(imageOpacity)
+                                    .overlay {
+                                        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
+                                            .opacity(0.6)
                                     }
-                                }
+
+                            } placeholder: {
                                 
-                        } placeholder: {
-                            
-                            Circle()
-                                .foregroundStyle(.gray)
-                                .frame(width: artistImageWidth)
-                                .padding()
+                                Rectangle()
 
-                        }
-                        
-                        
-                        
-                    }
-
-                }
-                .padding(.top, 80)
-                
-                
-                
-                Text(artist)
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                
-                
-                
-                ScrollView {
-
-                
-                    
-                    VStack(alignment: .leading) {
-                        
-                        HStack{
-                            
-                            Image(systemName: "ticket")
-                                .foregroundStyle(.purple)
-                            
-                            Text("\(filteredConcerts.count) Stubs " )
-                                
-                        }
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(filteredConcerts, id: \.uuid) { concert in
-                                    
-                                    ArtistStubsLabel(concert: concert)
-                                        
-                                }
                             }
-                        }
-                    }
-                    .padding()
-                    
-                    ArtistDetailVenuesMap(concerts: filteredConcerts)
-                    
-                   // Spacer()
-                }
-            }
-            
-            HStack(spacing: 4) {
-                Image(systemName: "chevron.left")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Text("Back")
-//                    .font(.title3)
-            }
-            .onTapGesture {
-                dismiss()
-            }
-            .offset(x: -4, y: -12)
 
-            .foregroundStyle(.blue)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding()
+                        }
+                        
+                        
+                    }
+                    .frame(maxWidth: geo.size.width, maxHeight: geo.size.width / 2)
+                    
+                    Spacer()
+                }
+                .ignoresSafeArea()
+                
+                
+
+                
+                VStack(spacing: 0) {
+                    
+                    ZStack {
+                        
+                        Circle()
+                            .foregroundStyle(.gray)
+                            .frame(width: artistImageWidth)
+                            .padding()
+                            
+                        if let artist = viewModel.artists.first {
+                            AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: artistImageWidth)
+                                    .clipShape(Circle())
+                                    .opacity(imageOpacity)
+                                    .shadow(radius: 7,  y: 7)
+                                    .padding()
+                                    .onAppear {
+                                        withAnimation(.easeInOut(duration: 0.7)){
+                                            imageOpacity = 1.0
+                                        }
+                                    }
+                                    
+                            } placeholder: {
+                                
+                                Circle()
+                                    .foregroundStyle(.gray)
+                                    .frame(width: artistImageWidth)
+                                    .padding()
+
+                            }
+                            
+                            
+                            
+                        }
+
+                    }
+                    .padding(.top, 40)
+                    
+                    
+                    
+                    Text(artist)
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                    
+                    if let artist = viewModel.artists.first {
+                        HStack(spacing: 0) {
+                            Text(artist.strGenre ?? "")
+                            Text(" | ")
+                            Text(artist.strCountry ?? "")
+                                .bold()
+                        }
+                    } else {
+                        
+                        Text( " " )
+                    }
+                    
+                    
+                    Divider()
+                        .padding(.horizontal, 80)
+                        .padding(.vertical, 15)
+                    
+                    
+                    ScrollView {
+
+                    
+                        
+                        VStack(alignment: .leading) {
+                            
+                            
+                            
+                            
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
+                        
+                        ArtistDetailVenuesMap(concerts: filteredConcerts)
+                        
+                       // Spacer()
+                    }
+                }
+                
+                HStack(spacing: 4) {
+                    Image(systemName: "chevron.left")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Text("Back")
+    //                    .font(.title3)
+                }
+                .onTapGesture {
+                    dismiss()
+                }
+                .offset(x: -4, y: -12)
+
+                .foregroundStyle(.blue)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding()
+                
+            }
+            .toolbar(.hidden, for: .navigationBar)
             
-        }
-        .toolbar(.hidden, for: .navigationBar)
-        
-        
-        //.navigationBarTitleDisplayMode(.inline)
-        //.navigationTitle(concert.artist)
-        .onAppear {
-            withAnimation(.bouncy){
-                viewModel.search(artist)
+            
+            //.navigationBarTitleDisplayMode(.inline)
+            //.navigationTitle(concert.artist)
+            .onAppear {
+                withAnimation(.bouncy){
+                    viewModel.search(artist)
+                }
             }
         }
     }

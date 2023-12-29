@@ -14,6 +14,7 @@ struct ArtistDetailVenuesMap: View {
     // Pass in filteredConcerts from ArtistDetailView
     let concerts: [Concert]
     
+    let cameraDistance: Double = 400000
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
@@ -23,8 +24,40 @@ struct ArtistDetailVenuesMap: View {
         return Set(concerts.map {$0.venue}).count
     }
     
+    private var displayStub: Concert {
+        return concerts[0]
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
+            
+            HStack{
+                
+                Image(systemName: "ticket")
+                    .foregroundStyle(.purple)
+                
+                Text("\(concerts.count) Stubs " )
+                    
+                Spacer()
+            }
+            .font(.title2)
+            .fontWeight(.bold)
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(concerts, id: \.uuid) { concert in
+                        
+                        ArtistStubsLabel(concert: concert)
+                            .onTapGesture {
+                                withAnimation(.easeInOut){
+                                    updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+                                }
+                            }
+                    }
+                }
+            }
+            
+            
             
             HStack{
                 Spacer()
@@ -51,11 +84,23 @@ struct ArtistDetailVenuesMap: View {
             .frame(height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .onAppear {
-                position = .camera(MapCamera(centerCoordinate: CLLocationCoordinate2D(latitude: concerts[0].venueLatitude, longitude: concerts[0].venueLongitude), distance: 400000))
+                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
             }
         }
         .padding(.horizontal)
         
+    }
+    
+    private func updateMapPosition(latitude: Double, longitude: Double) {
+        position = .camera(
+            MapCamera(
+                centerCoordinate: CLLocationCoordinate2D(
+                    latitude: latitude,
+                    longitude: longitude
+                ),
+                distance: cameraDistance
+            )
+        )
     }
 }
 
