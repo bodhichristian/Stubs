@@ -45,7 +45,7 @@ struct MaterialTabBar: View {
 }
 
 #Preview {
-    MaterialTabBar(tabs: [.home, .favorites, .messages, .profile], selection: .constant(.home), localSelection: .home)
+    MaterialTabBar(tabs: [.stubs, .favorites, .artists, .profile], selection: .constant(.stubs), localSelection: .stubs)
 }
 
 extension MaterialTabBar {

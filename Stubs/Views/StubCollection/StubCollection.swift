@@ -34,13 +34,13 @@ struct StubCollection: View {
                     
                     List {
                         
-                        Section("TESTING") {
-                            NavigationLink {
-                                ArtistDetailView(concert: SampleData.concerts[30])
-                            } label: {
-                                Text("Artist Search Proto")
-                            }
-                        }
+//                        Section("TESTING") {
+//                            NavigationLink {
+//                                ArtistDetailView(concert: SampleData.concerts[30])
+//                            } label: {
+//                                Text("Artist Search Proto")
+//                            }
+//                        }
                         
                         
                         

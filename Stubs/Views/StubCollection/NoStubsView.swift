@@ -35,7 +35,6 @@ struct NoStubsView: View {
             
             Text("Tap the + Button to Add a Concert")
             
-            Spacer()
 #if DEBUG
             Button { // Generate Sample Data
                 SampleData().addSampleData(to: modelContext)
@@ -44,6 +43,8 @@ struct NoStubsView: View {
                 Text("Add Sample Data")
             }
 #endif
+            
+            Spacer()
         }
     }
 }

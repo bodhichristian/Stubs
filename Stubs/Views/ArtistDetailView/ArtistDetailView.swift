@@ -12,7 +12,7 @@ import MapKit
 
 struct ArtistDetailView: View {
     
-    let concert: Concert
+    let artist: String
     
     let artistImageWidth: CGFloat = 250
     
@@ -24,7 +24,7 @@ struct ArtistDetailView: View {
 
     
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artist == concert.artist })
+        return concerts.filter({$0.artist == artist })
     }
     
     
@@ -114,7 +114,7 @@ struct ArtistDetailView: View {
                 
                 
                 
-                Text(concert.artist)
+                Text(artist)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                 
@@ -179,7 +179,7 @@ struct ArtistDetailView: View {
         //.navigationTitle(concert.artist)
         .onAppear {
             withAnimation(.bouncy){
-                viewModel.search(concert.artist)
+                viewModel.search(artist)
             }
         }
     }
@@ -205,5 +205,5 @@ extension ArtistDetailView {
 }
 
 #Preview {
-    ArtistDetailView(concert: SampleData.concerts[0])
+    ArtistDetailView(artist: SampleData.concerts[0].artist)
 }

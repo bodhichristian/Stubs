@@ -10,9 +10,10 @@ import SwiftData
 import MapKit
 
 struct ArtistDetailVenuesMap: View {
+    
+    // Pass in filteredConcerts from ArtistDetailView
     let concerts: [Concert]
     
-//    @StateObject var viewModel = ArtistDetailVenuesMap.ViewModel()
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
@@ -38,10 +39,11 @@ struct ArtistDetailVenuesMap: View {
             .fontWeight(.bold)
 
             
-            Map {
+            Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
                     Annotation("", coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)) {
                         StubThumbnail(concert: concert)
+                            .offset(x: Double.random(in: 0.0...6.0))
                     }
                 }
             }
@@ -49,48 +51,14 @@ struct ArtistDetailVenuesMap: View {
             .frame(height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .onAppear {
-                //viewModel.getVenueCoordinates(for: concerts)
-                
-                position = .camera(
-                    MapCamera(
-                        centerCoordinate: CLLocationCoordinate2D(
-                            latitude: concerts[0].venueLatitude,
-                            longitude: concerts[0].venueLongitude
-                        ),
-                        
-                        distance: 2000,
-                        heading: 100)
-
-                )
+                position = .camera(MapCamera(centerCoordinate: CLLocationCoordinate2D(latitude: concerts[0].venueLatitude, longitude: concerts[0].venueLongitude), distance: 400000))
             }
-
         }
         .padding(.horizontal)
         
     }
 }
 
-//extension ArtistDetailVenuesMap {
-//    
-//    class ViewModel: ObservableObject {
-//        
-//        @Published var venueCoordinates: [CLLocationCoordinate2D] = []
-//
-//        let mapService = ConcertVenueLocationService()
-//        
-//        func getVenueCoordinates(for concerts: [Concert]) {
-//            for concert in concerts {
-//                mapService.getCoordinates(for: concert)
-//                
-//                let coordinates = CLLocationCoordinate2D(latitude: mapService.latitude, longitude: mapService.longitude)
-//                print(coordinates)
-//                venueCoordinates.append(coordinates)
-//                print(venueCoordinates)
-//            }
-//            
-//        }
-//    }
-//}
 
 #Preview {
     ArtistDetailVenuesMap(concerts: SampleData.concerts)
