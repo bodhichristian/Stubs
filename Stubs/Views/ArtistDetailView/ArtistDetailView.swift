@@ -42,7 +42,7 @@ struct ArtistDetailView: View {
                         Rectangle()
                         
                         if let artist = viewModel.artists.first {
-                            AsyncImage(url: URL(string: artist.strArtistFanart ?? "")) { backgroundImage in
+                            AsyncImage(url: URL(string: artist.strArtistFanart2 ?? "")) { backgroundImage in
                                 backgroundImage
                                     .resizable()
                                     .scaledToFill()

@@ -15,8 +15,8 @@ struct ArtistsView: View {
     private var artists: [String] {
         // Map concert artist names to an array
         // Convert to a Set to create a collection of unique artists
-        // Convert to an array to use in ForEach
-         return Array(Set(concerts.map({ $0.artist })))
+        // Convert to an alphabetically sorted array to use in ForEach
+        return Array(Set(concerts.map({ $0.artist }))).sorted()
     }
     
     var body: some View {
@@ -33,6 +33,7 @@ struct ArtistsView: View {
                 }
             }
             .navigationTitle("Artists")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
