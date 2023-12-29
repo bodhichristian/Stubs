@@ -117,7 +117,7 @@ struct ArtistDetailView: View {
                 
                 
                 Text(concert.artist)
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.heavy)
                 
                 
@@ -128,8 +128,16 @@ struct ArtistDetailView: View {
                     
                     VStack(alignment: .leading) {
                         
-                        Text("\(filteredConcerts.count) \(concert.artist) Stubs " )
-                            .font(.title2.bold())
+                        HStack{
+                            
+                            Image(systemName: "ticket")
+                                .foregroundStyle(.purple)
+                            
+                            Text("\(filteredConcerts.count) Stubs " )
+                                
+                        }
+                        .font(.title2)
+                        .fontWeight(.bold)
                         
                         ScrollView(.horizontal) {
                             HStack {

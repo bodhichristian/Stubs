@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import MapKit
 
 
 // MARK: Concert Type
@@ -25,15 +26,23 @@ final class Concert {
     var notes: String
     var isFavorite: Bool
     
-    init(uuid: UUID = UUID(),
-         artist: String,
-         venue: String,
-         city: String,
-         date: Date,
-         iconName: String,
-         accentColor: String,
-         notes: String,
-         isFavorite: Bool = false) {
+    var venueLatitude: Double
+    var venueLongitude: Double
+    
+    init(
+        uuid: UUID = UUID(),
+        artist: String,
+        venue: String,
+        city: String,
+        date: Date,
+        iconName: String,
+        accentColor: String,
+        notes: String,
+        isFavorite: Bool = false,
+        venueLatitude: Double,
+        venueLongitude: Double
+    ) {
+        
         self.uuid = uuid
         self.artist = artist
         self.venue = venue
@@ -43,8 +52,11 @@ final class Concert {
         self.accentColor = accentColor
         self.notes = notes
         self.isFavorite = isFavorite
+        self.venueLatitude = venueLatitude
+        self.venueLongitude = venueLongitude
         
     }
+    
 }
 
 

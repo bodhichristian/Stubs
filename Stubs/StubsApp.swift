@@ -15,5 +15,6 @@ struct StubsApp: App {
             ContentView()
         }
         .modelContainer(for: Concert.self)
+
     }
 }

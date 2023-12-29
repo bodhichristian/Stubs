@@ -13,7 +13,6 @@ struct IconSelector: View {
     @State private var iconTapped = false // For animating icons
 
     @Binding var iconName: String
-    @Binding var accentColor: String
         
     var body: some View {
         Section("Icon") {
@@ -43,7 +42,7 @@ struct IconSelector: View {
 }
 
 #Preview {
-    IconSelector(iconName: .constant("guitars"), accentColor: .constant("blue"))
+    IconSelector(iconName: .constant("guitars"))
 }
 
 

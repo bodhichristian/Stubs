@@ -19,8 +19,19 @@ struct ArtistDetailVenuesMap: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(venues.count) Venues" )
-                .font(.title2.bold())
+            
+            HStack{
+                Spacer()
+                Text("\(venues.count) Venues" )
+                
+                Image(systemName: "mappin.and.ellipse")
+                    .foregroundStyle(.green)
+                
+               
+            }
+            .font(.title2)
+            .fontWeight(.bold)
+
             
             Map {
                 

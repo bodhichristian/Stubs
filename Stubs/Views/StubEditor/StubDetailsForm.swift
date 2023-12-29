@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct StubDetailsForm: View {
     @Binding var concert: Concert
@@ -23,7 +24,7 @@ struct StubDetailsForm: View {
             
             HStack {
                 TextField("Venue", text: $concert.venue)
-                
+                    
                 Image(
                     systemName: concert.venue.isEmpty
                       ? "mappin.circle"
@@ -50,7 +51,16 @@ struct StubDetailsForm: View {
             }
             DatePicker("Date", selection: $concert.date, displayedComponents: .date)
         }
+        
+//        .onChange(of: concert.city) { oldValue, newValue in
+//            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                getCoordinates(for: concert.venue)
+//            }
+//        }
     }
+    
+
 }
 
 #Preview {

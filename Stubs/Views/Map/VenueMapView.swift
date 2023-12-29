@@ -26,13 +26,18 @@ struct VenueMapView: View {
         return concert.venue + " venue " + concert.city
     }
     
+    var venueCoordinates: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+    }
+
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topLeading) {
                 // Apple Maps base
                 Map(position: $position, selection: $location) {
                     // Default Map Marker
-                    Marker(concert.venue, coordinate: location?.placemark.coordinate ?? defaultCoordinates)
+                    Marker(concert.venue, coordinate: venueCoordinates)
                     
                     
                 }
@@ -64,27 +69,19 @@ struct VenueMapView: View {
                 }
             }
             .onAppear {
-                search(for: query)
+                location = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)))
+                
+                position = .camera(
+                    MapCamera(
+                        centerCoordinate: CLLocationCoordinate2D(
+                            latitude: concert.venueLatitude,
+                            longitude: concert.venueLongitude
+                        ),
+                        distance: 1500,
+                        heading: 242,
+                        pitch: 60)
+                )
             }
-        }
-    }
-    
-    func search(for query: String) {
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = query
-        request.resultTypes = .pointOfInterest
-        
-        Task {
-            let search = MKLocalSearch(request: request)
-            let response = try? await search.start()
-            location = response?.mapItems[0] ?? [][0]
-            position = .camera(
-                MapCamera(
-                    centerCoordinate: location?.placemark.coordinate ?? defaultCoordinates,
-                    distance: 1500,
-                    heading: 242,
-                    pitch: 60)
-            )
         }
     }
 }
