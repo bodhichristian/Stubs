@@ -182,21 +182,7 @@ struct SampleData {
             venueLongitude: -73.9934
             
         ),
-        
-        
-        Concert(
-            artist: "Bring Me The Horizon",
-            venue: "Budapest Park",
-            city: "Budapest",
-            date: calendar.date(from: DateComponents(year: 2023, month: 7, day: 9))!,
-            iconName: StubStyle.icons.randomElement()!,
-            accentColor: StubStyle.colors.randomElement()!,
-            notes: "An intense night of music as Bring Me The Horizon dominated Budapest Park with their powerful sound.",
-            isFavorite: true,
-            venueLatitude: 47.4724,
-            venueLongitude: 19.0656
-            
-        ),
+
         
         Concert(
             artist: "Bring Me The Horizon",

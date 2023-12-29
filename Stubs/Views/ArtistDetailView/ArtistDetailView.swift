@@ -16,20 +16,18 @@ struct ArtistDetailView: View {
     
     let artistImageWidth: CGFloat = 250
     
-    @StateObject var viewModel = ArtistDetailView.ViewModel()
-    @Environment(\.modelContext) private var modelContext
-    
     @Environment(\.dismiss) var dismiss
-
+    
     @Query var concerts: [Concert]
+
+    @StateObject var viewModel = ArtistDetailView.ViewModel()
+
     
     private var filteredConcerts: [Concert] {
         return concerts.filter({$0.artist == concert.artist })
     }
     
-    private var venues: Set<String> {
-        Set(filteredConcerts.map { $0.venue })
-    }
+    
     
     @State private var imageOpacity = 0.0
     
@@ -151,7 +149,7 @@ struct ArtistDetailView: View {
                     }
                     .padding()
                     
-                    ArtistDetailVenuesMap(venues: venues)
+                    ArtistDetailVenuesMap(concerts: filteredConcerts)
                     
                    // Spacer()
                 }

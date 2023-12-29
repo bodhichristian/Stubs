@@ -77,9 +77,11 @@ struct VenueMapView: View {
                             latitude: concert.venueLatitude,
                             longitude: concert.venueLongitude
                         ),
-                        distance: 1500,
-                        heading: 242,
+                        
+                        distance: 1200,
+                        heading: 100,
                         pitch: 60)
+
                 )
             }
         }

@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabSelection: TabBarItem = .home
+    
     var body: some View {
-        StubCollection()
+        TabBarContainer(selection: $tabSelection){
+            StubCollection()
+        }
     }
 }
 

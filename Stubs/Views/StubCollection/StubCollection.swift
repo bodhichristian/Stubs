@@ -36,7 +36,7 @@ struct StubCollection: View {
                         
                         Section("TESTING") {
                             NavigationLink {
-                                ArtistDetailView(concert: SampleData.concerts[20])
+                                ArtistDetailView(concert: SampleData.concerts[30])
                             } label: {
                                 Text("Artist Search Proto")
                             }

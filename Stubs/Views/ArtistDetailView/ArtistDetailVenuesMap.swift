@@ -6,23 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 import MapKit
 
 struct ArtistDetailVenuesMap: View {
-    let venues: Set<String>
-    let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    let concerts: [Concert]
     
+//    @StateObject var viewModel = ArtistDetailVenuesMap.ViewModel()
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     
+    //
+    private var uniqueVenueCount: Int {
+        return Set(concerts.map {$0.venue}).count
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             
             HStack{
                 Spacer()
-                Text("\(venues.count) Venues" )
+                Text("\(uniqueVenueCount) Venues" )
                 
                 Image(systemName: "mappin.and.ellipse")
                     .foregroundStyle(.green)
@@ -34,12 +39,30 @@ struct ArtistDetailVenuesMap: View {
 
             
             Map {
-                
+                ForEach(concerts, id: \.uuid) { concert in
+                    Annotation("", coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)) {
+                        StubThumbnail(concert: concert)
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
             .frame(height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            
+            .onAppear {
+                //viewModel.getVenueCoordinates(for: concerts)
+                
+                position = .camera(
+                    MapCamera(
+                        centerCoordinate: CLLocationCoordinate2D(
+                            latitude: concerts[0].venueLatitude,
+                            longitude: concerts[0].venueLongitude
+                        ),
+                        
+                        distance: 2000,
+                        heading: 100)
+
+                )
+            }
 
         }
         .padding(.horizontal)
@@ -47,7 +70,28 @@ struct ArtistDetailVenuesMap: View {
     }
 }
 
+//extension ArtistDetailVenuesMap {
+//    
+//    class ViewModel: ObservableObject {
+//        
+//        @Published var venueCoordinates: [CLLocationCoordinate2D] = []
+//
+//        let mapService = ConcertVenueLocationService()
+//        
+//        func getVenueCoordinates(for concerts: [Concert]) {
+//            for concert in concerts {
+//                mapService.getCoordinates(for: concert)
+//                
+//                let coordinates = CLLocationCoordinate2D(latitude: mapService.latitude, longitude: mapService.longitude)
+//                print(coordinates)
+//                venueCoordinates.append(coordinates)
+//                print(venueCoordinates)
+//            }
+//            
+//        }
+//    }
+//}
 
 #Preview {
-    ArtistDetailVenuesMap(venues: Set<String>())
+    ArtistDetailVenuesMap(concerts: SampleData.concerts)
 }
