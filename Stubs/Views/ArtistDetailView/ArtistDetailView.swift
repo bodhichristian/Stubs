@@ -14,7 +14,7 @@ struct ArtistDetailView: View {
     
     let artist: String
     
-    let artistImageWidth: CGFloat = 200
+    let artistImageWidth: CGFloat = 180
     
     @Environment(\.dismiss) var dismiss
     
@@ -132,27 +132,18 @@ struct ArtistDetailView: View {
                         Text( " " )
                     }
                     
-                    
-                    Divider()
-                        .padding(.horizontal, 80)
+                    Rectangle()
+                        .foregroundStyle(.secondary)
+                        .frame(width: geo.size.width * 0.4, height: 1)
                         .padding(.vertical, 15)
                     
                     
                     ScrollView {
 
-                    
-                        
-                        VStack(alignment: .leading) {
-                            
-                            
-                            
-                            
-                        }
-                        .padding(.horizontal)
-                        .padding(.bottom, 10)
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
+                        AlbumsScrollView(artist: artist)
                        // Spacer()
                     }
                 }

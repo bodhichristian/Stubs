@@ -14,7 +14,7 @@ struct ArtistDetailVenuesMap: View {
     // Pass in filteredConcerts from ArtistDetailView
     let concerts: [Concert]
     
-    let cameraDistance: Double = 400000
+    let cameraDistance: Double = 500
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
@@ -31,17 +31,45 @@ struct ArtistDetailVenuesMap: View {
     var body: some View {
         VStack(alignment: .leading) {
             
+            
             HStack{
+                
                 
                 Image(systemName: "ticket")
                     .foregroundStyle(.purple)
-                
-                Text("\(concerts.count) Stubs " )
-                    
+                Text("\(concerts.count) Stubs" )
+
                 Spacer()
+
+                    
+                
             }
             .font(.title2)
             .fontWeight(.bold)
+
+            
+            Map(position: $position) {
+                ForEach(concerts, id: \.uuid) { concert in
+                        
+                        Marker(concert.venue, coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude))
+
+                    
+                }
+            }
+            .mapStyle(
+                .standard(
+                    elevation: .realistic,
+                    pointsOfInterest: .excludingAll
+                )
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .onAppear {
+                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
+            }
+            
+            
             
             ScrollView(.horizontal) {
                 HStack {
@@ -56,36 +84,9 @@ struct ArtistDetailVenuesMap: View {
                     }
                 }
             }
+            .padding(.top)
             
-            
-            
-            HStack{
-                Spacer()
-                Text("\(uniqueVenueCount) Venues" )
-                
-                Image(systemName: "mappin.and.ellipse")
-                    .foregroundStyle(.green)
-                
-               
-            }
-            .font(.title2)
-            .fontWeight(.bold)
 
-            
-            Map(position: $position) {
-                ForEach(concerts, id: \.uuid) { concert in
-                    Annotation("", coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)) {
-                        StubThumbnail(concert: concert)
-                            .offset(x: Double.random(in: 0.0...6.0))
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 200)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .onAppear {
-                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
-            }
         }
         .padding(.horizontal)
         
@@ -98,7 +99,9 @@ struct ArtistDetailVenuesMap: View {
                     latitude: latitude,
                     longitude: longitude
                 ),
-                distance: cameraDistance
+                distance: cameraDistance,
+                heading: 100,
+                pitch: 80
             )
         )
     }

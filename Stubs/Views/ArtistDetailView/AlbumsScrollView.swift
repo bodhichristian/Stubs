@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct AlbumsScrollView: View {
-    let concert: Concert
+    let artist: String
     
     @StateObject var viewModel = AlbumsScrollView.ViewModel()
 
@@ -63,15 +63,15 @@ struct AlbumsScrollView: View {
             }
             Spacer()
         }
-        .padding(.vertical)
+        .padding()
         .onAppear {
-            viewModel.searchAlbums(for: concert.artist)
+            viewModel.searchAlbums(for: artist)
         }
     }
 }
 
 #Preview {
-    AlbumsScrollView(concert: SampleData.concerts[0])
+    AlbumsScrollView(artist: SampleData.concerts[0].artist)
 }
 
 extension AlbumsScrollView {

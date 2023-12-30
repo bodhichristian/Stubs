@@ -54,13 +54,13 @@ extension MaterialTabBar {
             
             Image(systemName: tab.iconName)
                 .font(.subheadline)
-                .foregroundStyle(localSelection == tab ? tab.color : .secondary)
+                .foregroundStyle(localSelection == tab ? .primary : .secondary)
                 .frame(height: 15)
             
             
             Text(tab.title)
-                .font(.system(size: 10, weight: tab == selection ? .bold : .semibold, design: .rounded))
-                .foregroundStyle(localSelection == tab ? .white : .secondary)
+                .font(.system(size: 10, weight: .semibold, design: .rounded))
+                .foregroundStyle(localSelection == tab ? .primary : .secondary)
         }
         
         .padding(.vertical, 8)

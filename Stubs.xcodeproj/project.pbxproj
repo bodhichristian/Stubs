@@ -152,7 +152,6 @@
 				AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */,
 				AAC4D4E52B31B7470098D28D /* StubNotesView.swift */,
 				AAC4D4E12B2FF5A40098D28D /* RelatedStubScrollView.swift */,
-				AA62228D2B2A58F5004899A9 /* AlbumsScrollView.swift */,
 			);
 			path = StubDetailView;
 			sourceTree = "<group>";
@@ -162,6 +161,7 @@
 			children = (
 				AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */,
 				AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */,
+				AA62228D2B2A58F5004899A9 /* AlbumsScrollView.swift */,
 			);
 			path = ArtistDetailView;
 			sourceTree = "<group>";

@@ -46,7 +46,7 @@ struct StubDetailView: View {
                 
                 RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 
-                AlbumsScrollView(concert: concert)
+                
                 
             }
         }
