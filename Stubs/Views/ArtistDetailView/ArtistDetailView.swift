@@ -68,10 +68,6 @@ struct ArtistDetailView: View {
                     
                     Spacer()
                 }
-                .ignoresSafeArea()
-                
-                
-
                 
                 VStack(spacing: 0) {
                     
@@ -106,19 +102,13 @@ struct ArtistDetailView: View {
                                     .padding()
 
                             }
-                            
-                            
-                            
+                                                        
                         }
 
                     }
-                    .padding(.top, 40)
+                    .padding(.top, geo.size.width / 5)
                     
-                    
-                    
-                    Text(artist)
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
+
                     
                     if let artist = viewModel.artists.first {
                         HStack(spacing: 0) {
@@ -131,45 +121,17 @@ struct ArtistDetailView: View {
                         
                         Text( " " )
                     }
-                    
-                    Rectangle()
-                        .foregroundStyle(.secondary)
-                        .frame(width: geo.size.width * 0.4, height: 1)
-                        .padding(.vertical, 15)
-                    
-                    
+ 
                     ScrollView {
 
-                        
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
                         AlbumsScrollView(artist: artist)
-                       // Spacer()
                     }
                 }
-                
-                HStack(spacing: 4) {
-                    Image(systemName: "chevron.left")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text("Back")
-    //                    .font(.title3)
-                }
-                .onTapGesture {
-                    dismiss()
-                }
-                .offset(x: -4, y: -12)
-
-                .foregroundStyle(.blue)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .padding()
-                
+                   
             }
-            .toolbar(.hidden, for: .navigationBar)
-            
-            
-            //.navigationBarTitleDisplayMode(.inline)
-            //.navigationTitle(concert.artist)
+            .navigationTitle(artist)
             .onAppear {
                 withAnimation(.bouncy){
                     viewModel.search(artist)

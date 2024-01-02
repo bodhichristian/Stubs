@@ -34,14 +34,11 @@ struct ArtistDetailVenuesMap: View {
             
             HStack{
                 
-                
                 Image(systemName: "ticket")
                     .foregroundStyle(.purple)
                 Text("\(concerts.count) Stubs" )
 
                 Spacer()
-
-                    
                 
             }
             .font(.title2)
