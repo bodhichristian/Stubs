@@ -82,14 +82,13 @@ struct ArtistDetailView: View {
                                 Text(artist.strCountry ?? "")
                                 
                             }
+                            
                             .foregroundStyle(.white)
                             .padding()
                         }
-                        
-                        
-                        
-                        
+   
                     }
+                    // banner image frame
                     .frame(width: geo.size.width, height: geo.size.width * 0.4 )
                     
                     Spacer()
@@ -116,7 +115,7 @@ struct ArtistDetailView: View {
                                         .shadow(radius: 7,  y: 7)
                                         .padding()
                                         .onAppear {
-                                            withAnimation(.easeInOut(duration: 0.7)){
+                                            withAnimation(.easeInOut(duration: 1.5)){
                                                 imageOpacity = 1.0
                                             }
                                         }
@@ -218,6 +217,8 @@ extension ArtistDetailView {
         private var cancellables = Set<AnyCancellable>()
         
         @Published var artists: [Artist] = []
+        
+        @Published var artist: Artist?
         
         func search(_ artist: String) {
             artistService.$artists
