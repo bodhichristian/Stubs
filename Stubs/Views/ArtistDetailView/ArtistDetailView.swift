@@ -14,7 +14,7 @@ struct ArtistDetailView: View {
     
     let artist: String
     
-    let artistImageWidth: CGFloat = 180
+    let artistImageWidth: CGFloat = 100
     
     @Environment(\.dismiss) var dismiss
     
@@ -54,12 +54,16 @@ struct ArtistDetailView: View {
                                 bannerImage
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: geo.size.width, height: geo.size.width / 2)
+                                    .frame(width: geo.size.width, height: geo.size.width * 0.4)
                                     .clipShape(Rectangle())
                                     .opacity(imageOpacity)
                                     .overlay {
-                                        LinearGradient(colors: [.clear, .black], startPoint: .top, endPoint: .bottom)
-                                            .opacity(0.6)
+                                        LinearGradient(
+                                            colors: [.clear, .black],
+                                            startPoint: .top,
+                                            endPoint: .bottom
+                                        )
+                                        .opacity(0.6)
                                     }
                                 
                             } placeholder: {
@@ -68,8 +72,8 @@ struct ArtistDetailView: View {
                                 
                             }
                             
-                            
-                            VStack(alignment: .trailing) { // Genre & Location
+                            // Genre & Location
+                            VStack(alignment: .trailing) {
                                 
                                 Text(artist.strGenre ?? "")
                                     .font(.title3)
@@ -83,9 +87,9 @@ struct ArtistDetailView: View {
                         
                         
                         
-                         
+                        
                     }
-                    .frame(maxWidth: geo.size.width, maxHeight: geo.size.width / 2)
+                    .frame(width: geo.size.width, height: geo.size.width * 0.4 )
                     
                     Spacer()
                 }
@@ -93,7 +97,7 @@ struct ArtistDetailView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     HStack {
-                        ZStack {
+                        ZStack { // artist image
                             
                             Circle()
                                 .foregroundStyle(.gray)
@@ -133,16 +137,25 @@ struct ArtistDetailView: View {
                         
                     }
                     
-                    .padding(.top, geo.size.width / 5)
+                    .padding(.top, geo.size.width / 4)
                     
                     
                     
                     
                     ScrollView {
                         
-                        if let artist = viewModel.artists.first {
-                            Text(artist.strBiographyEN ?? "")
-                        }
+                        Text(SampleData.sampleBio)
+                            .lineLimit(3)
+                            .padding([.horizontal, .bottom])
+                        
+                        // MARK: The below code is Alpha.
+                        // Use when making API calls
+//                        if let artist = viewModel.artists.first {
+//                            
+//                            Text(artist.strBiographyEN ?? "")
+//                                .lineLimit(3)
+//                                .padding(.horizontal)
+//                        }
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
@@ -150,7 +163,7 @@ struct ArtistDetailView: View {
                     }
                 }
                 
-
+                
             }
             .navigationTitle(artist)
             .onAppear {
