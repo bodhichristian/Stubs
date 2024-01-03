@@ -28,8 +28,9 @@ struct ArtistDetailView: View {
     }
     
     
-    
+    // MARK: State - formatting
     @State private var imageOpacity = 0.0
+    @State private var showingFullBio = false
     
     var body: some View {
         
@@ -96,7 +97,7 @@ struct ArtistDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    HStack {
+                    HStack(alignment: .bottom) {
                         ZStack { // artist image
                             
                             Circle()
@@ -133,7 +134,43 @@ struct ArtistDetailView: View {
                             
                         }
                         
+                        Spacer()
                         
+                        VStack(alignment: .trailing, spacing: 0){
+                            Text("Bio")
+                                .font(.title2.bold())
+                                .padding(.trailing)
+                            
+                            // MARK: More/Less Button
+                            // Toggle `lineLimit` to display a brief or full bio
+                            
+                            Button {
+                                
+                                showingFullBio.toggle()
+                                
+                            } label: {
+                                
+                                HStack {
+                                    Text(
+                                        showingFullBio
+                                        ? "Less"
+                                        : "More"
+                                    )
+                                    
+                                    Image(
+                                        systemName: showingFullBio
+                                        ? "chevron.up"
+                                        : "chevron.down"
+                                    )
+                                    
+                                }
+                                .font(.caption)
+                                .padding(.horizontal)
+                            }
+                            .foregroundStyle(.gray)
+                            
+                        }
+                        .offset(y: -16)
                         
                     }
                     
@@ -144,18 +181,18 @@ struct ArtistDetailView: View {
                     
                     ScrollView {
                         
-                        Text(SampleData.sampleBio)
-                            .lineLimit(3)
-                            .padding([.horizontal, .bottom])
+                        // MARK: Offline Bio
+//                        Text(SampleData.sampleBio)
+//                            .lineLimit(showingFullBio ? .none : 3 )
+//                            .padding([.horizontal, .bottom])
                         
-                        // MARK: The below code is Alpha.
-                        // Use when making API calls
-//                        if let artist = viewModel.artists.first {
-//                            
-//                            Text(artist.strBiographyEN ?? "")
-//                                .lineLimit(3)
-//                                .padding(.horizontal)
-//                        }
+                        
+                        if let artist = viewModel.artists.first {
+                            
+                            Text(artist.strBiographyEN ?? "")
+                                .lineLimit(showingFullBio ? .none : 3)
+                                .padding([.horizontal, .bottom])
+                        }
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
