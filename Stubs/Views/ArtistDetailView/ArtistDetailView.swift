@@ -20,8 +20,7 @@ struct ArtistDetailView: View {
     
     @Query var concerts: [Concert]
     
-    @StateObject var viewModel = ArtistDetailView.ViewModel()
-    
+    @State private var model = ArtistService()
     
     private var filteredConcerts: [Concert] {
         return concerts.filter({$0.artist == artist })
@@ -46,7 +45,7 @@ struct ArtistDetailView: View {
                         
                         // if the artist search has received a response
                         // create `artist` object using the first item in the array
-                        if let artist = viewModel.artists.first {
+                        if let artist = model.artists.first {
                             AsyncImage(
                                 url: URL(
                                     string: artist.strArtistFanart2 ?? ""
@@ -104,7 +103,7 @@ struct ArtistDetailView: View {
                                 .frame(width: artistImageWidth)
                                 .padding()
                             
-                            if let artist = viewModel.artists.first {
+                            if let artist = model.artists.first {
                                 AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
                                     image
                                         .resizable()
@@ -186,7 +185,7 @@ struct ArtistDetailView: View {
 //                            .padding([.horizontal, .bottom])
                         
                         
-                        if let artist = viewModel.artists.first {
+                        if let artist = model.artists.first {
                             
                             Text(artist.strBiographyEN ?? "")
                                 .lineLimit(showingFullBio ? .none : 3)
@@ -204,33 +203,33 @@ struct ArtistDetailView: View {
             .navigationTitle(artist)
             .onAppear {
                 withAnimation(.bouncy){
-                    viewModel.search(artist)
+                    model.search(for: artist)
                 }
             }
         }
     }
 }
 
-extension ArtistDetailView {
-    class ViewModel: ObservableObject {
-        private let artistService = ArtistSearchService()
-        private var cancellables = Set<AnyCancellable>()
-        
-        @Published var artists: [Artist] = []
-        
-        @Published var artist: Artist?
-        
-        func search(_ artist: String) {
-            artistService.$artists
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] in self?.artists = $0 }
-                .store(in: &cancellables)
-            
-            artistService.search(for: artist)
-            
-        }
-    }
-}
+//extension ArtistDetailView {
+//    class ViewModel: ObservableObject {
+//        private let artistService = ArtistService()
+//        private var cancellables = Set<AnyCancellable>()
+//        
+//        @Published var artists: [Artist] = []
+//        
+//        @Published var artist: Artist?
+//        
+//        func search(_ artist: String) {
+//            artistService.$artists
+//                .receive(on: DispatchQueue.main)
+//                .sink { [weak self] in self?.artists = $0 }
+//                .store(in: &cancellables)
+//            
+//            artistService.search(for: artist)
+//            
+//        }
+//    }
+//}
 
 #Preview {
     ArtistDetailView(artist: SampleData.concerts[0].artist)
