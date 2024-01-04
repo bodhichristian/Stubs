@@ -66,7 +66,7 @@ extension StubEditor {
 
     
     // Returns true if any field is empty
-    var saveReady: Bool {
+    private var saveReady: Bool {
         !newConcert.artist.isEmpty
         && !newConcert.venue.isEmpty
         && !newConcert.city.isEmpty
