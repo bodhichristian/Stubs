@@ -11,8 +11,8 @@ import Combine
 struct AlbumsScrollView: View {
     let artist: String
     
-    @StateObject var viewModel = AlbumsScrollView.ViewModel()
-
+    @State private var model = AlbumSearchService()
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -23,40 +23,51 @@ struct AlbumsScrollView: View {
             ScrollView(.horizontal) {
                 
                 HStack {
-                    if viewModel.albums.isEmpty {
+                    if model.albums.isEmpty {
                         ForEach(0..<5) { _ in
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(.secondary.opacity(0.1))
                                 .frame(width: 100, height: 100)
                                 .shadow(radius: 3, x: 5, y: 5)
                                 .padding(.trailing, 10)
-  
+                            
                         }
                     } else {
-                        ForEach(viewModel.albums.sorted { $0.intYearReleased ?? "" > $1.intYearReleased ?? ""}, id: \.idAlbum) { album in
-                            
-                            VStack(alignment: .leading) {
-                                AsyncImage(url: URL(string: album.strAlbumThumb ?? "")) { image in image.resizable().scaledToFit()
-                                } placeholder: {
-                                    Color.secondary.opacity(0.1)
+                        ForEach(
+                            model.albums.sorted {
+                                
+                                $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
+                                
+                            }, id: \.idAlbum) { album in
+                                
+                                VStack(alignment: .leading) {
+                                    
+                                    AsyncImage(
+                                        url: URL(
+                                            string: album.strAlbumThumb ?? ""
+                                        )
+                                    ) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                    } placeholder: {
+                                        Color.secondary.opacity(0.1)
+                                    }
+                                    .frame(width: 86, height: 86)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .shadow(radius: 3, x: 5, y: 5)
+                                    .padding(.trailing, 10)
+                                    
+                                    Text(album.strAlbum ?? "")
+                                        .font(.headline)
+                                        .frame(maxWidth: 100, alignment: .leading)
+                                        .lineLimit(1)
+                                    
+                                    Text(album.intYearReleased ?? "")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
                                 }
-                                .frame(width: 86, height: 86)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .shadow(radius: 3, x: 5, y: 5)
-                                .padding(.trailing, 10)
-
-                                
-                                
-                                Text(album.strAlbum ?? "")
-                                    .font(.headline)
-                                    .frame(maxWidth: 100, alignment: .leading)
-                                    .lineLimit(1)
-                                
-                                Text(album.intYearReleased ?? "")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
                             }
-                        }
                     }
                 }
                 .padding(.vertical)
@@ -65,7 +76,7 @@ struct AlbumsScrollView: View {
         }
         .padding()
         .onAppear {
-            viewModel.searchAlbums(for: artist)
+            model.searchAlbums(for: artist)
         }
     }
 }
@@ -74,21 +85,3 @@ struct AlbumsScrollView: View {
     AlbumsScrollView(artist: SampleData.concerts[0].artist)
 }
 
-extension AlbumsScrollView {
-    class ViewModel: ObservableObject {
-        private let albumService = AlbumSearchService()
-        private var cancellables = Set<AnyCancellable>()
-        
-        @Published var albums: [Album] = []
-        
-        func searchAlbums(for artist: String) {
-            albumService.$albums
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] in self?.albums = $0 }
-                .store(in: &cancellables)
-            
-            albumService.searchAlbums(for: artist)
-            
-        }
-    }
-}

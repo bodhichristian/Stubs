@@ -7,9 +7,9 @@
 
 import Foundation
 
-class AlbumSearchService: ObservableObject {
+@Observable class AlbumSearchService {
     
-    @Published var albums: [Album] = []
+    var albums: [Album] = []
     
     func searchAlbums(for artist: String) {
         let headers = [

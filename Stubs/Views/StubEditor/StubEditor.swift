@@ -35,10 +35,14 @@ struct StubEditor: View {
         NavigationStack{
             Form {
                 StubEditorStubPreview(concert: newConcert)
-                StubDetailsForm(concert: $newConcert)
-                IconSelector(iconName: $newConcert.iconName)
-                ColorSelector(accentColor: $newConcert.accentColor)
-                StubEditorNotesView(concertNotes: $newConcert.notes)
+                
+                StubEditorDetails(concert: $newConcert)
+                
+                StubEditorIconSelector(iconName: $newConcert.iconName)
+                
+                StubEditorColorSelector(accentColor: $newConcert.accentColor)
+                
+                StubEditorNotes(concertNotes: $newConcert.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -58,11 +62,9 @@ struct StubEditor: View {
             }
         }
         .alert(isPresented: $addConcertFailed) {
-
+            
             addConcertFailedAlert ?? Alert(title: Text("Error"))
-        }
-        .onDisappear {
-            newConcert = Concert.template
+            
         }
     }
 }
