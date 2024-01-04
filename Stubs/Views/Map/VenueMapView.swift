@@ -27,7 +27,10 @@ struct VenueMapView: View {
     }
     
     var venueCoordinates: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+        return CLLocationCoordinate2D(
+            latitude: concert.venueLatitude,
+            longitude: concert.venueLongitude
+        )
     }
 
     

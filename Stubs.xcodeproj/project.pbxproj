@@ -16,7 +16,6 @@
 		AA5E74E32B3DA67F005DBD87 /* ArtistSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E22B3DA67F005DBD87 /* ArtistSearchService.swift */; };
 		AA5E74E62B3DAA52005DBD87 /* ArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */; };
 		AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */; };
-		AA5E74EC2B3E4281005DBD87 /* ConcertVenueLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74EB2B3E4281005DBD87 /* ConcertVenueLocationService.swift */; };
 		AA5E74F32B3EFD81005DBD87 /* TabBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F02B3EFD81005DBD87 /* TabBarContainer.swift */; };
 		AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F12B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift */; };
 		AA5E74F52B3EFD81005DBD87 /* MaterialTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F22B3EFD81005DBD87 /* MaterialTabBar.swift */; };
@@ -60,7 +59,6 @@
 		AA5E74E22B3DA67F005DBD87 /* ArtistSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchService.swift; sourceTree = "<group>"; };
 		AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailView.swift; sourceTree = "<group>"; };
 		AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailVenuesMap.swift; sourceTree = "<group>"; };
-		AA5E74EB2B3E4281005DBD87 /* ConcertVenueLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertVenueLocationService.swift; sourceTree = "<group>"; };
 		AA5E74F02B3EFD81005DBD87 /* TabBarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarContainer.swift; sourceTree = "<group>"; };
 		AA5E74F12B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemPreferenceKey.swift; sourceTree = "<group>"; };
 		AA5E74F22B3EFD81005DBD87 /* MaterialTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTabBar.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			children = (
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AA5615F72B27AB5B00A35D4A /* AlbumSearchService.swift */,
-				AA5E74EB2B3E4281005DBD87 /* ConcertVenueLocationService.swift */,
 				AA5E74E22B3DA67F005DBD87 /* ArtistSearchService.swift */,
 			);
 			path = Services;
@@ -205,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
-				AA8A747B2A32BE0A003E9B41 /* Model */,
+				AA8A747B2A32BE0A003E9B41 /* Models */,
 				AA5615F52B27AB3500A35D4A /* Services */,
 				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A74802A32C8FE003E9B41 /* Support */,
@@ -224,12 +221,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AA8A747B2A32BE0A003E9B41 /* Model */ = {
+		AA8A747B2A32BE0A003E9B41 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AA8A747C2A32BE12003E9B41 /* Views */ = {
@@ -371,7 +368,6 @@
 				AA5E74FA2B3EFF9B005DBD87 /* ArtistsView.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,
 				AA62228E2B2A58F5004899A9 /* AlbumsScrollView.swift in Sources */,
-				AA5E74EC2B3E4281005DBD87 /* ConcertVenueLocationService.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* StubCollectionRowLabel.swift in Sources */,
 				AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */,
 				AA6ED6E02A57142400174574 /* LookAroundView.swift in Sources */,
