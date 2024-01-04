@@ -19,8 +19,8 @@ struct StubEditor: View {
     @State private var newConcert = Concert.template
     @State private var concertNotes = "" // Local note
     
-    @State private var isShowingAlert = false
-
+    @State private var addConcertFailed = false
+    @State private var addConcertFailedAlert: Alert?
     
     var body: some View {
         NavigationStack{
@@ -50,13 +50,15 @@ struct StubEditor: View {
                     Button("Save") {
                         
                         addConcert()
-                        dismiss()
                     }
                     .disabled(!saveReady)
                 }
             }
         }
-        .alert
+        .alert(isPresented: $addConcertFailed) {
+
+            addConcertFailedAlert ?? Alert(title: Text("Error"))
+        }
     }
 }
 
@@ -92,17 +94,27 @@ extension StubEditor {
                 // Update concert details with retrieved coordinates
                 newConcert.venueLatitude = coordinates.latitude
                 newConcert.venueLongitude = coordinates.longitude
+                
+                // Insert updated concert details into model context
+                modelContext.insert(newConcert)
+                dismiss()
+
             } catch let error {
                 // Print error if unable to get coordinates
                 print(error.localizedDescription)
                 
-                isShowingAlert = true
+                // Create an alert object
+                addConcertFailedAlert = Alert(
+                    title: Text("Save Error"),
+                    message: Text(error.localizedDescription),
+                    dismissButton: .default(Text("OK"))
+                )
+                
+                // Trigger alert
+                addConcertFailed = true
+                
             }
         }
-        
-        // Insert updated concert details into model context
-        modelContext.insert(newConcert)
-        
     }
     
     // MARK: getCoordinates(for:)
