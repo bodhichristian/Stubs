@@ -173,18 +173,9 @@ struct ArtistDetailView: View {
                     }
                     
                     .padding(.top, geo.size.width / 4)
-                    
-                    
-                    
-                    
+                
                     ScrollView {
-                        
-                        // MARK: Offline Bio
-//                        Text(SampleData.sampleBio)
-//                            .lineLimit(showingFullBio ? .none : 3 )
-//                            .padding([.horizontal, .bottom])
-                        
-                        
+     
                         if let artist = model.artists.first {
                             
                             Text(artist.strBiographyEN ?? "")
@@ -209,27 +200,6 @@ struct ArtistDetailView: View {
         }
     }
 }
-
-//extension ArtistDetailView {
-//    class ViewModel: ObservableObject {
-//        private let artistService = ArtistService()
-//        private var cancellables = Set<AnyCancellable>()
-//        
-//        @Published var artists: [Artist] = []
-//        
-//        @Published var artist: Artist?
-//        
-//        func search(_ artist: String) {
-//            artistService.$artists
-//                .receive(on: DispatchQueue.main)
-//                .sink { [weak self] in self?.artists = $0 }
-//                .store(in: &cancellables)
-//            
-//            artistService.search(for: artist)
-//            
-//        }
-//    }
-//}
 
 #Preview {
     ArtistDetailView(artist: SampleData.concerts[0].artist)
