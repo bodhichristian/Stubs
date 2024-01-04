@@ -26,7 +26,6 @@ struct ArtistDetailView: View {
         return concerts.filter({$0.artist == artist })
     }
     
-    
     // MARK: State - formatting
     @State private var imageOpacity = 0.0
     @State private var showingFullBio = false

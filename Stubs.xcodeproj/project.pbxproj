@@ -196,8 +196,7 @@
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
 				AA8A747B2A32BE0A003E9B41 /* Models */,
 				AA8A747C2A32BE12003E9B41 /* Views */,
-				AA8A74802A32C8FE003E9B41 /* Support */,
-				AA5E74EF2B3EFD00005DBD87 /* TabBar */,
+				AA8A74802A32C8FE003E9B41 /* Extensions */,
 				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
 				AA8A74712A32BDF4003E9B41 /* Preview Content */,
 			);
@@ -218,6 +217,8 @@
 				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
 				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
+				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
+				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +226,7 @@
 		AA8A747C2A32BE12003E9B41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA5E74EF2B3EFD00005DBD87 /* TabBar */,
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
 				AA5E74F82B3EFF8A005DBD87 /* Artists */,
 				AA5E74E42B3DAA43005DBD87 /* ArtistDetailView */,
@@ -238,15 +240,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AA8A74802A32C8FE003E9B41 /* Support */ = {
+		AA8A74802A32C8FE003E9B41 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
-				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
 				AA8A74812A32C912003E9B41 /* Extension-Color.swift */,
 				AA48FECF2A60DE3E005BA775 /* Extension-String.swift */,
 			);
-			path = Support;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AAC4D4D12B2E79CB0098D28D /* StubEditor */ = {
