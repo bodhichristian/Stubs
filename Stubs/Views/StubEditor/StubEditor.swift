@@ -20,8 +20,7 @@ struct StubEditor: View {
     @State private var concertNotes = "" // Local note
     
     @State private var isShowingAlert = false
-    private let alertTitle = "Unable to save."
-    private let alertMessage = "There was an error saving your concert. Please try again."
+
     
     var body: some View {
         NavigationStack{
@@ -57,7 +56,7 @@ struct StubEditor: View {
                 }
             }
         }
-
+        .alert
     }
 }
 
@@ -96,6 +95,8 @@ extension StubEditor {
             } catch let error {
                 // Print error if unable to get coordinates
                 print(error.localizedDescription)
+                
+                isShowingAlert = true
             }
         }
         
