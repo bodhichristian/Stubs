@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct StubDetailsForm: View {
+struct StubEditorDetails: View {
     @Binding var concert: Concert
     
     var body: some View {
@@ -51,18 +51,9 @@ struct StubDetailsForm: View {
             }
             DatePicker("Date", selection: $concert.date, displayedComponents: .date)
         }
-        
-//        .onChange(of: concert.city) { oldValue, newValue in
-//            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//                getCoordinates(for: concert.venue)
-//            }
-//        }
     }
-    
-
 }
 
 #Preview {
-    StubDetailsForm(concert: .constant(SampleData.concerts[0]))
+    StubEditorDetails(concert: .constant(SampleData.concerts[0]))
 }

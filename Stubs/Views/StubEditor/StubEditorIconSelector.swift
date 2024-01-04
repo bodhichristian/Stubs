@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IconSelector: View {
+struct StubEditorIconSelector: View {
     let iconOptions = StubStyle.icons
     
     @State private var iconTapped = false // For animating icons
@@ -42,7 +42,7 @@ struct IconSelector: View {
 }
 
 #Preview {
-    IconSelector(iconName: .constant("guitars"))
+    StubEditorIconSelector(iconName: .constant("guitars"))
 }
 
 

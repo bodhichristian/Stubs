@@ -56,19 +56,6 @@ final class Concert {
         self.venueLongitude = venueLongitude
         
     }
-    
-    
-    static let template = Concert(
-        artist: "",
-        venue: "",
-        city: "",
-        date: Date.now,
-        iconName: StubStyle.icons.randomElement()!,
-        accentColor: StubStyle.colors.randomElement()!,
-        notes: "",
-        venueLatitude: 0.0,
-        venueLongitude: 0.0
-    )
 }
 
 

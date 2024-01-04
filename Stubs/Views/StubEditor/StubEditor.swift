@@ -13,11 +13,20 @@ import MapKit
 // A View that provides a form to add a new concert
 
 struct StubEditor: View {
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var modelContext
 
-    @State private var newConcert = Concert.template
-    @State private var concertNotes = "" // Local note
+    @State private var newConcert = Concert(
+        artist: "",
+        venue: "",
+        city: "",
+        date: Date.now,
+        iconName: StubStyle.icons.randomElement()!,
+        accentColor: StubStyle.colors.randomElement()!,
+        notes: "",
+        venueLatitude: 0.0,
+        venueLongitude: 0.0
+    )
     
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
@@ -26,17 +35,10 @@ struct StubEditor: View {
         NavigationStack{
             Form {
                 StubEditorStubPreview(concert: newConcert)
-                
                 StubDetailsForm(concert: $newConcert)
-                
                 IconSelector(iconName: $newConcert.iconName)
-                
                 ColorSelector(accentColor: $newConcert.accentColor)
-                
-                Section("Notes"){
-                    TextEditor(text: $concertNotes)
-                        .frame(minHeight: 100)
-                }
+                StubEditorNotesView(concertNotes: $newConcert.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -59,11 +61,15 @@ struct StubEditor: View {
 
             addConcertFailedAlert ?? Alert(title: Text("Error"))
         }
+        .onDisappear {
+            newConcert = Concert.template
+        }
     }
 }
 
 extension StubEditor {
 
+    // MARK: - Computed Properties
     
     // Returns true if any field is empty
     private var saveReady: Bool {
@@ -72,6 +78,8 @@ extension StubEditor {
         && !newConcert.city.isEmpty
     }
     
+    // MARK: - Methods
+
     // MARK: addConcert()
     /**
      Adds a concert after retrieving and storing its coordinates.
@@ -117,12 +125,12 @@ extension StubEditor {
         }
     }
     
-    // MARK: getCoordinates(for:)
+    // MARK: - getCoordinates(for:)
     /**
      Retrieves coordinates for given concert details.
 
      - Parameters:
-         - concert: `Concert` object containing details like venue and city.
+         - concert: `Concert`
      - Returns: Tuple containing latitude and longitude of the concert venue.
 
      Uses MKLocalSearch to query based on concert venue and city. Converts query response to geographic coordinates.

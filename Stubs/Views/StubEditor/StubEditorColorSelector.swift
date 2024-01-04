@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ColorSelector: View {
+struct StubEditorColorSelector: View {
     @Binding var accentColor: String
 
     let colorOptions = StubStyle.colors
@@ -35,5 +35,5 @@ struct ColorSelector: View {
 }
 
 #Preview {
-    ColorSelector(accentColor: .constant("blue"))
+    StubEditorColorSelector(accentColor: .constant("blue"))
 }
