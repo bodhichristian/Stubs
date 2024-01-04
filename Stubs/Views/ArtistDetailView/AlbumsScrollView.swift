@@ -11,7 +11,7 @@ import Combine
 struct AlbumsScrollView: View {
     let artist: String
     
-    @State private var model = AlbumSearchService()
+    @State private var model = AlbumService()
     
     var body: some View {
         
