@@ -19,11 +19,10 @@ struct ArtistDetailView: View {
     // MARK: Formatting
     @State private var imageOpacity = 0.0
     @State private var showingFullBio = false
-    private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
-            return concerts.filter({$0.artist == artist })
-        }
+        return concerts.filter({$0.artist == artist })
+    }
     
     var body: some View {
         
@@ -37,49 +36,13 @@ struct ArtistDetailView: View {
                         
                         Rectangle() // base layer
                         
-                        // if the artist search has received a response
-                        // create `artist` object using the first item in the array
-                        if let artist = model.artists.first {
-                            AsyncImage(
-                                url: URL(
-                                    string: artist.strArtistFanart2 ?? ""
-                                )
-                            ) { bannerImage in
-                                bannerImage
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: geo.size.width, height: geo.size.width * 0.4)
-                                    .clipShape(Rectangle())
-                                    .opacity(imageOpacity)
-                                    .overlay {
-                                        LinearGradient(
-                                            colors: [.clear, .black],
-                                            startPoint: .top,
-                                            endPoint: .bottom
-                                        )
-                                        .opacity(0.6)
-                                    }
-                                
-                            } placeholder: {
-                                
-                                Rectangle()
-                                
-                            }
-                            
-                            // Genre & Location
-                            VStack(alignment: .trailing) {
-                                
-                                Text(artist.strGenre ?? "")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                Text(artist.strCountry ?? "")
-                                
-                            }
-                            
-                            .foregroundStyle(.white)
-                            .padding()
+                        // If the search response has been received,
+                        // and a valid URL is found
+                        if let artist = model.artists.first,
+                           let url = URL(string: artist.strArtistFanart2 ?? "") {
+                            ArtistDetailBannerView(artist: artist)
                         }
-   
+                        
                     }
                     // banner image frame
                     .frame(width: geo.size.width, height: geo.size.width * 0.4 )
@@ -94,34 +57,12 @@ struct ArtistDetailView: View {
                             
                             Circle()
                                 .foregroundStyle(.gray)
-                                .frame(width: artistImageWidth)
+                                .frame(width: 100)
                                 .padding()
                             
                             if let artist = model.artists.first {
-                                AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: artistImageWidth)
-                                        .clipShape(Circle())
-                                        .opacity(imageOpacity)
-                                        .shadow(radius: 7,  y: 7)
-                                        .padding()
-                                        .onAppear {
-                                            withAnimation(.easeInOut(duration: 1.5)){
-                                                imageOpacity = 1.0
-                                            }
-                                        }
-                                    
-                                } placeholder: {
-                                    
-                                    Circle()
-                                        .foregroundStyle(.gray)
-                                        .frame(width: artistImageWidth)
-                                        .padding()
-                                    
-                                }
                                 
+                                ArtistDetailProfileImage(artist: artist)
                             }
                             
                         }
@@ -167,9 +108,9 @@ struct ArtistDetailView: View {
                     }
                     
                     .padding(.top, geo.size.width / 4)
-                
+                    
                     ScrollView {
-     
+                        
                         if let artist = model.artists.first {
                             
                             Text(artist.strBiographyEN ?? "")
