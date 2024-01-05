@@ -7,54 +7,31 @@
 
 import SwiftUI
 
+// TODO: After extracting ArtistDetailBanner View, banner images are not loading on screen
+
 struct ArtistDetailBannerView: View {
-    let artist: ArtistService.Artist
+    let image: Image
     
     @State private var imageOpacity = 0.0
 
     var body: some View {
         GeometryReader { geo in
-            ZStack(alignment: .bottomTrailing) {
-                AsyncImage(
-                    url: URL(
-                        string: artist.strArtistFanart2 ?? ""
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: geo.size.width, height: geo.size.width * 0.4)
+                .clipShape(Rectangle())
+                .opacity(imageOpacity)
+                .overlay {
+                    LinearGradient(
+                        colors: [.clear, .black],
+                        startPoint: .top,
+                        endPoint: .bottom
                     )
-                ) { bannerImage in
-                    bannerImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.width * 0.4)
-                        .clipShape(Rectangle())
-                        .opacity(imageOpacity)
-                        .overlay {
-                            LinearGradient(
-                                colors: [.clear, .black],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
-                            .opacity(0.6)
-                        }
-                    
-                } placeholder: {
-                    
-                    Rectangle()
-                    
+                    .opacity(0.6)
                 }
-                
-                // Genre & Location
-                VStack(alignment: .trailing) {
-                    
-                    Text(artist.strGenre ?? "")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                    Text(artist.strCountry ?? "")
-                    
-                }
-                
-                .foregroundStyle(.white)
-                .padding()
-            }
+            
         }
-    }
+        }
 }
 
