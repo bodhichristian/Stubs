@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 import MapKit
 
-
 // MARK: Concert Type
 // An object that represents a single concert
 
@@ -42,7 +41,6 @@ final class Concert {
         venueLatitude: Double,
         venueLongitude: Double
     ) {
-        
         self.uuid = uuid
         self.artist = artist
         self.venue = venue
@@ -54,7 +52,6 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
-        
     }
 }
 

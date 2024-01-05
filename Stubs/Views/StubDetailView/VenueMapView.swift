@@ -8,10 +8,8 @@
 import SwiftUI
 import MapKit
 
-// MARK: VenueMapView - SwiftUI View
+// MARK: VenueMapView
 // A View for displaying a concert's venue on a map
-// Custom StubView annotation
-// Look Around Preview
 
 struct VenueMapView: View {
     let concert: Concert
@@ -22,27 +20,26 @@ struct VenueMapView: View {
 
     @Environment(\.dismiss) var dismiss
     
-    var query: String { // Creates the location query
+    private var query: String { // Creates the location query
         return concert.venue + " venue " + concert.city
     }
     
-    var venueCoordinates: CLLocationCoordinate2D {
+    private var venueCoordinates: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(
             latitude: concert.venueLatitude,
             longitude: concert.venueLongitude
         )
     }
 
-    
     var body: some View {
+        
         NavigationStack {
+            
             ZStack(alignment: .topLeading) {
                 // Apple Maps base
                 Map(position: $position, selection: $location) {
                     // Default Map Marker
                     Marker(concert.venue, coordinate: venueCoordinates)
-                    
-                    
                 }
                 .mapStyle(
                     .standard(
@@ -57,11 +54,10 @@ struct VenueMapView: View {
                     // Appears when map has been rotated by user
                     MapCompass()
                     // Appears while user is zooming in or out
-                    MapScaleView()
+                    MapScaleView(anchorEdge: .trailing)
                     
                 }
                 
-
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

@@ -5,8 +5,10 @@
 //  Created by christian on 6/8/23.
 //
 
+import Observation
 import SwiftUI
 import SwiftData
+
 
 @main
 struct StubsApp: App {

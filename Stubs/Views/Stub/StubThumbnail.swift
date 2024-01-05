@@ -41,7 +41,3 @@ struct StubThumbnail: View {
         .padding(.trailing)
     }
 }
-
-#Preview {
-    StubThumbnail(concert: SampleData.concerts[0])
-}

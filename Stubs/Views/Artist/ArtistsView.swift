@@ -12,7 +12,6 @@ struct ArtistsView: View {
     
     @Query var concerts: [Concert]
     
-    
     private var artists: [String] {
         // Map concert artist names to an array
         // Convert to a Set to create a collection of unique artists
@@ -37,8 +36,4 @@ struct ArtistsView: View {
 
         }
     }
-}
-
-#Preview {
-    ArtistsView()
 }
