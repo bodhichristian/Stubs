@@ -124,7 +124,6 @@ struct ArtistDetailView: View {
                     }
                 }
                 
-                
             }
             .navigationTitle(artist)
             .onAppear {
