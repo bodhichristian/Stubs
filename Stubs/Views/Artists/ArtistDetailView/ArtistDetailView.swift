@@ -5,30 +5,25 @@
 //  Created by christian on 12/28/23.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
-import Combine
-import MapKit
 
 struct ArtistDetailView: View {
-    
     let artist: String
     
-    let artistImageWidth: CGFloat = 100
-    
     @Environment(\.dismiss) var dismiss
-    
     @Query var concerts: [Concert]
-    
     @State private var model = ArtistService()
     
-    private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artist == artist })
-    }
-    
-    // MARK: State - formatting
+    // MARK: Formatting
     @State private var imageOpacity = 0.0
     @State private var showingFullBio = false
+    private let artistImageWidth: CGFloat = 100
+    
+    private var filteredConcerts: [Concert] {
+            return concerts.filter({$0.artist == artist })
+        }
     
     var body: some View {
         
@@ -184,7 +179,7 @@ struct ArtistDetailView: View {
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
-                        AlbumsScrollView(artist: artist)
+                        AlbumScrollView(artist: artist)
                     }
                 }
                 
