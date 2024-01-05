@@ -30,6 +30,11 @@ struct ArtistDetailBannerView: View {
                     )
                     .opacity(0.6)
                 }
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 0.5)){
+                        imageOpacity = 1.0
+                    }
+                }
             
         }
         }
