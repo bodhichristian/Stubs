@@ -32,11 +32,7 @@ struct ArtistDetailView: View {
             ZStack {
                 
                 VStack { // banner layer
-                    
-                    ZStack(alignment: .bottomTrailing) { // banner image
-                        
-                        Rectangle() // base layer
-                        
+ 
                         // if the artist search has received a response
                         // create `artist` object using the first item in the array
                         if let artist = model.artists.first {
@@ -46,30 +42,21 @@ struct ArtistDetailView: View {
                                 )
                             ) { bannerImage in
                                 
-                               ArtistDetailBannerView(image: bannerImage)
+                                ArtistDetailBannerView(
+                                    image: bannerImage,
+                                    genre: artist.strGenre ?? "",
+                                    country: artist.strCountry ?? ""
+                                )
                                 
                             } placeholder: {
                                 
                                 Rectangle()
+                                    .foregroundStyle(.secondary)
                             }
-                            
-                            // Genre & Location
-                            VStack(alignment: .trailing) {
-                                
-                                Text(artist.strGenre ?? "")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                Text(artist.strCountry ?? "")
-                                
-                            }
-                            
-                            .foregroundStyle(.white)
-                            .padding()
+                            .frame(width: geo.size.width, height: geo.size.width * 0.4 )
+
                         }
-                        
-                    }
-                    // banner image frame
-                    .frame(width: geo.size.width, height: geo.size.width * 0.4 )
+                    
                     
                     Spacer()
                 }

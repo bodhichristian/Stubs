@@ -11,32 +11,47 @@ import SwiftUI
 
 struct ArtistDetailBannerView: View {
     let image: Image
+    let genre: String
+    let country: String
     
     @State private var imageOpacity = 0.0
-
+    
     var body: some View {
         GeometryReader { geo in
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(width: geo.size.width, height: geo.size.width * 0.4)
-                .clipShape(Rectangle())
-                .opacity(imageOpacity)
-                .overlay {
-                    LinearGradient(
-                        colors: [.clear, .black],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .opacity(0.6)
-                }
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 0.5)){
-                        imageOpacity = 1.0
+            ZStack(alignment: .bottomTrailing){
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.width * 0.4)
+                    .clipShape(Rectangle())
+                    .opacity(imageOpacity)
+                    .overlay {
+                        LinearGradient(
+                            colors: [.clear, .black],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .opacity(0.6)
                     }
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 0.5)){
+                            imageOpacity = 1.0
+                        }
+                    }
+                
+                // Genre & Location
+                VStack(alignment: .trailing) {
+                    
+                    Text(genre)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    Text(country)
+                    
                 }
-            
+                .foregroundStyle(.white)
+                .padding()
+            }
         }
-        }
+    }
 }
 
