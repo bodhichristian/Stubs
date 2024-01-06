@@ -12,6 +12,8 @@ struct ArtistsView: View {
     
     @Query var concerts: [Concert]
     
+    @State private var model = ArtistService()
+    
     private var artists: [String] {
         // Map concert artist names to an array
         // Convert to a Set to create a collection of unique artists
@@ -22,18 +24,25 @@ struct ArtistsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List {
-                    ForEach(artists, id: \.self){ artist in
-                        NavigationLink {
-                            ArtistDetailView(artist: artist)
-                        } label: {
-                            Text(artist)
+                    List {
+                        ForEach(model.artists, id: \.idArtist){ artist in
+                            NavigationLink {
+                                ArtistDetailView(artist: artist)
+                            } label: {
+                                Text(artist.strArtist ?? "")
+                            }
                         }
                     }
-                }
+                
+                
             }
             .navigationTitle("Artists")
-
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+                    model.search(for: artists)
+                }
+            }
         }
+       
     }
 }

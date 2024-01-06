@@ -10,20 +10,18 @@ import SwiftData
 import SwiftUI
 
 struct ArtistDetailView: View {
-    let artist: String
+    let artist: ArtistService.Artist
     
     @Environment(\.dismiss) var dismiss
     @Query var concerts: [Concert]
-    @State private var model = ArtistService()
-        
-    // MARK: Formatting
     
+    // MARK: Formatting
     @State private var imageOpacity = 0.0
     @State private var showingFullBio = false
     private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artist == artist })
+        return concerts.filter({$0.artist == artist.strArtist })
     }
     
     
@@ -34,13 +32,9 @@ struct ArtistDetailView: View {
             
             ZStack {
                 
-                // if the artist search has received a response
-                // create `artist` object using the first item in the array
-                if let artist = model.artists.first {
-
-                    ArtistDetailHeaderView(artist: artist)
-
-                }
+                ArtistDetailHeaderView(artist: artist)
+                
+                
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
@@ -52,32 +46,32 @@ struct ArtistDetailView: View {
                                 .frame(width: artistImageWidth)
                                 .padding()
                             
-                            if let artist = model.artists.first {
-                                AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: artistImageWidth)
-                                        .clipShape(Circle())
-                                        .opacity(imageOpacity)
-                                        .shadow(radius: 7,  y: 7)
-                                        .padding()
-                                        .onAppear {
-                                            withAnimation(.easeInOut(duration: 1.5)){
-                                                imageOpacity = 1.0
-                                            }
+                            
+                            AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: artistImageWidth)
+                                    .clipShape(Circle())
+                                    .opacity(imageOpacity)
+                                    .shadow(radius: 7,  y: 7)
+                                    .padding()
+                                    .onAppear {
+                                        withAnimation(.easeInOut(duration: 1.5)){
+                                            imageOpacity = 1.0
                                         }
-                                    
-                                } placeholder: {
-                                    
-                                    Circle()
-                                        .foregroundStyle(.gray)
-                                        .frame(width: artistImageWidth)
-                                        .padding()
-                                    
-                                }
+                                    }
+                                
+                            } placeholder: {
+                                
+                                Circle()
+                                    .foregroundStyle(.gray)
+                                    .frame(width: artistImageWidth)
+                                    .padding()
                                 
                             }
+                            
+                            
                             
                         }
                         
@@ -125,31 +119,18 @@ struct ArtistDetailView: View {
                     
                     ScrollView {
                         
-                        if let artist = model.artists.first {
-                            
-                            Text(artist.strBiographyEN ?? "")
-                                .lineLimit(showingFullBio ? .none : 3)
-                                .padding([.horizontal, .bottom])
-                        }
+                        Text(artist.strBiographyEN ?? "")
+                            .lineLimit(showingFullBio ? .none : 3)
+                            .padding([.horizontal, .bottom])
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
-                        AlbumScrollView(artist: artist)
+                        AlbumScrollView(artist: artist.strArtist ?? "")
                     }
                 }
-                
-                
             }
-            .navigationTitle(artist)
-            .onAppear {
-                withAnimation(.bouncy){
-                    model.search(for: artist)
-                }
-            }
+            .navigationTitle(artist.strArtist ?? "Artist Name Missing")
+            
         }
     }
-}
-
-#Preview {
-    ArtistDetailView(artist: SampleData.concerts[0].artist)
 }
