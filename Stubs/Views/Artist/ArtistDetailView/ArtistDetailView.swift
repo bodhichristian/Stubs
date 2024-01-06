@@ -15,8 +15,9 @@ struct ArtistDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Query var concerts: [Concert]
     @State private var model = ArtistService()
-    
+        
     // MARK: Formatting
+    
     @State private var imageOpacity = 0.0
     @State private var showingFullBio = false
     private let artistImageWidth: CGFloat = 100
@@ -25,40 +26,20 @@ struct ArtistDetailView: View {
         return concerts.filter({$0.artist == artist })
     }
     
+    
+    
     var body: some View {
         
         GeometryReader { geo in
             
             ZStack {
                 
-                VStack { // banner layer
- 
-                        // if the artist search has received a response
-                        // create `artist` object using the first item in the array
-                        if let artist = model.artists.first {
-                            AsyncImage(
-                                url: URL(
-                                    string: artist.strArtistFanart2 ?? ""
-                                )
-                            ) { bannerImage in
-                                
-                                ArtistDetailBannerView(
-                                    image: bannerImage,
-                                    genre: artist.strGenre ?? "",
-                                    country: artist.strCountry ?? ""
-                                )
-                                
-                            } placeholder: {
-                                
-                                Rectangle()
-                                    .foregroundStyle(.secondary)
-                            }
-                            .frame(width: geo.size.width, height: geo.size.width * 0.4 )
+                // if the artist search has received a response
+                // create `artist` object using the first item in the array
+                if let artist = model.artists.first {
 
-                        }
-                    
-                    
-                    Spacer()
+                    ArtistDetailHeaderView(artist: artist)
+
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {

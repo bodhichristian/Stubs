@@ -9,7 +9,7 @@ import SwiftUI
 
 // TODO: After extracting ArtistDetailBanner View, banner images are not loading on screen
 
-struct ArtistDetailBannerView: View {
+struct ArtistDetailHeaderImage: View {
     let image: Image
     let genre: String
     let country: String
