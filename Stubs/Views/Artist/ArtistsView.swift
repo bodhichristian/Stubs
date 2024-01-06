@@ -34,7 +34,7 @@ struct ArtistsView: View {
                                 ArtistDetailView(artistName: artist)
                             } label: {
                                 
-                                    Text(artist)
+                                    Text(artist )
                                 
                             }
                         }

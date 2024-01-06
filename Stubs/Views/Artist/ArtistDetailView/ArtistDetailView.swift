@@ -132,7 +132,7 @@ struct ArtistDetailView: View {
                     }
                 }
             }
-            .navigationTitle(model.searchResponse.first?.strArtist ?? "Artist Name Missing")
+            .navigationTitle(artistName)
             .onAppear {
                 model.search(for: artistName)
             }
