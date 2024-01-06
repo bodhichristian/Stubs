@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ArtistDetailHeaderView: View {
-    let artist: ArtistService.Artist
+    let imageURL: String
+    
+    let genre: String
+    let country: String
     
     var body: some View {
         GeometryReader { geo in
@@ -17,14 +20,14 @@ struct ArtistDetailHeaderView: View {
                 
                 AsyncImage(
                     url: URL(
-                        string: artist.strArtistFanart2 ?? ""
+                        string: imageURL
                     )
                 ) { bannerImage in
                     
                     ArtistDetailHeaderImage(
                         image: bannerImage,
-                        genre: artist.strGenre ?? "",
-                        country: artist.strCountry ?? ""
+                        genre: genre,
+                        country: country 
                     )
                     
                 } placeholder: {

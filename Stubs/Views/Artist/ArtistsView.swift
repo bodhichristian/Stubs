@@ -5,6 +5,10 @@
 //  Created by christian on 12/29/23.
 //
 
+// TODO: Find a way to load images in this view and pass to detail views. Currently artist images load here.
+
+
+
 import SwiftUI
 import SwiftData
 
@@ -14,7 +18,7 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
-    private var artists: [String] {
+    private var artistNames: [String] {
         // Map concert artist names to an array
         // Convert to a Set to create a collection of unique artists
         // Convert to an alphabetically sorted array to use in ForEach
@@ -25,11 +29,13 @@ struct ArtistsView: View {
         NavigationStack {
             VStack {
                     List {
-                        ForEach(model.artists, id: \.idArtist){ artist in
+                        ForEach(artistNames, id: \.self){ artist in
                             NavigationLink {
-                                ArtistDetailView(artist: artist)
+                                ArtistDetailView(artistName: artist)
                             } label: {
-                                Text(artist.strArtist ?? "")
+                                
+                                    Text(artist)
+                                
                             }
                         }
                     }
@@ -37,11 +43,7 @@ struct ArtistsView: View {
                 
             }
             .navigationTitle("Artists")
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
-                    model.search(for: artists)
-                }
-            }
+            
         }
        
     }
