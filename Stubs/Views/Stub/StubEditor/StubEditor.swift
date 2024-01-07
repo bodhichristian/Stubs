@@ -15,6 +15,8 @@ import MapKit
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
+    
+    @State private var artist: Artist?
 
     @State private var newConcert = Concert(
         artistName: "",
@@ -27,6 +29,7 @@ struct StubEditor: View {
         venueLatitude: 0.0,
         venueLongitude: 0.0
     )
+    
     
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?

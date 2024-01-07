@@ -18,29 +18,39 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
-    private var artistNames: [String] {
-        // Map concert artist names to an array
-        // Convert to a Set to create a collection of unique artists
-        // Convert to an alphabetically sorted array to use in ForEach
-        return Array(Set(concerts.map({ $0.artistName }))).sorted()
+    private var artists: [Artist] {
+        var artists = [Artist]()
+        for concert in concerts {
+            if let artist = concert.artist {
+                artists.append(artist)
+            }
+        }
+        let uniqueArtists = Set(artists)
+        let sortedArists = Array(uniqueArtists).sorted { $0.strArtist ?? "" < $1.strArtist ?? "" }
+        return sortedArists
     }
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(artistNames, id: \.self){ artist in
+                    ForEach(artists, id: \.strArtist){ artist in
                         NavigationLink {
-                            ArtistDetailView(artistName: artist)
+                            ArtistDetailView(artist: artist)
                         } label: {
                             
                             
                             
+                            HStack {
+                                
+                                ArtistDetailProfileImage(artist: artist, width: 40)
                             
-                            Text(artist )
-                            
-                            
-                            
+                                Text(artist.strArtist ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                
+                                
+                            }
                             
                             
                         }

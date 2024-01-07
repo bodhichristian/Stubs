@@ -10,7 +10,7 @@ import SwiftUI
 struct ArtistDetailProfileImage: View {
     let artist: Artist
     
-    private let artistImageWidth: CGFloat = 100
+    let width: CGFloat
     @State private var imageOpacity = 0.0
     
     var body: some View {
@@ -18,11 +18,11 @@ struct ArtistDetailProfileImage: View {
             image
                 .resizable()
                 .scaledToFit()
-                .frame(width: artistImageWidth)
+                .frame(width: width)
                 .clipShape(Circle())
                 .opacity(imageOpacity)
-                .shadow(radius: 7,  y: 7)
-                .padding()
+                .shadow(radius: 5,  y: width * 0.07)
+                .padding(.horizontal, 10)
                 .onAppear {
                     withAnimation(.easeInOut(duration: 1.5)){
                         imageOpacity = 1.0
@@ -33,7 +33,7 @@ struct ArtistDetailProfileImage: View {
             
             Circle()
                 .foregroundStyle(.gray)
-                .frame(width: artistImageWidth)
+                .frame(width: width)
                 .padding()
             
         }

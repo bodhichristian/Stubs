@@ -11,6 +11,10 @@ import MapKit
 struct StubEditorDetails: View {
     @Binding var concert: Concert
     
+    @State private var artistService = ArtistService()
+    
+    @State private var debounceTimer: Timer?
+    
     var body: some View {
         Section("Details") {
             HStack {
@@ -51,9 +55,17 @@ struct StubEditorDetails: View {
             }
             DatePicker("Date", selection: $concert.date, displayedComponents: .date)
         }
+        .onChange(of: concert.artistName) { oldValue, newValue in
+            // Invalidate existing timer
+            debounceTimer?.invalidate()
+            
+            // Start a new timer
+            debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                artistService.search(for: concert.artistName)
+            })
+        }
+        .onChange(of: artistService.singleArtistSearchResponse) { oldValue, newValue in
+            concert.artist = newValue.first
+        }
     }
-}
-
-#Preview {
-    StubEditorDetails(concert: .constant(SampleData.concerts[0]))
 }

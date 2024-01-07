@@ -10,13 +10,11 @@ import SwiftData
 import SwiftUI
 
 struct ArtistDetailView: View {
-    let artistName: String
-    
+    let artist: Artist
     
     @Environment(\.dismiss) var dismiss
     @Query var concerts: [Concert]
     
-    @State private var model = ArtistService()
     
     // MARK: Formatting
     @State private var imageOpacity = 0.0
@@ -24,7 +22,7 @@ struct ArtistDetailView: View {
     private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artistName == artistName })
+        return concerts.filter({$0.artistName == artist.strArtist })
     }
     
     
@@ -35,7 +33,7 @@ struct ArtistDetailView: View {
             
             ZStack {
                 
-                ArtistDetailHeaderView(imageURL: model.singleArtistSearchResponse.first?.strArtistFanart2 ?? "", genre: model.singleArtistSearchResponse.first?.strGenre ?? "", country: model.singleArtistSearchResponse.first?.strCountry ?? "")
+                ArtistDetailHeaderView(imageURL: artist.strArtistFanart2 ?? "", genre: artist.strGenre ?? "", country: artist.strCountry ?? "")
                 
                 
                 
@@ -50,7 +48,7 @@ struct ArtistDetailView: View {
                                 .padding()
                             
                             
-                            AsyncImage(url: URL(string: model.singleArtistSearchResponse.first?.strArtistThumb ?? "")) { image in
+                            AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
                                     image
                                         .resizable()
                                         .scaledToFit()
@@ -87,7 +85,6 @@ struct ArtistDetailView: View {
                             
                             // MARK: More/Less Button
                             // Toggle `lineLimit` to display a brief or full bio
-                            
                             Button {
                                 
                                 showingFullBio.toggle()
@@ -122,20 +119,19 @@ struct ArtistDetailView: View {
                     
                     ScrollView {
                         
-                        Text(model.singleArtistSearchResponse.first?.strBiographyEN ?? "")
+                        Text(artist.strBiographyEN ?? "")
                             .lineLimit(showingFullBio ? .none : 3)
                             .padding([.horizontal, .bottom])
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
-                        AlbumScrollView(artist: model.singleArtistSearchResponse.first?.strArtist ?? "")
+                        AlbumScrollView(artist: artist.strArtist ?? "")
                     }
                 }
             }
-            .navigationTitle(artistName)
-            .onAppear {
-                model.search(for: artistName)
-            }
+            .navigationTitle(artist.strArtist ?? "")
+            
+
         }
     }
 }
