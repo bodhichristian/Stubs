@@ -35,7 +35,7 @@ struct ArtistDetailView: View {
             
             ZStack {
                 
-                ArtistDetailHeaderView(imageURL: model.searchResponse.first?.strArtistFanart2 ?? "", genre: model.searchResponse.first?.strGenre ?? "", country: model.searchResponse.first?.strCountry ?? "")
+                ArtistDetailHeaderView(imageURL: model.singleArtistSearchResponse.first?.strArtistFanart2 ?? "", genre: model.singleArtistSearchResponse.first?.strGenre ?? "", country: model.singleArtistSearchResponse.first?.strCountry ?? "")
                 
                 
                 
@@ -50,7 +50,7 @@ struct ArtistDetailView: View {
                                 .padding()
                             
                             
-                            AsyncImage(url: URL(string: model.searchResponse.first?.strArtistThumb ?? "")) { image in
+                            AsyncImage(url: URL(string: model.singleArtistSearchResponse.first?.strArtistThumb ?? "")) { image in
                                     image
                                         .resizable()
                                         .scaledToFit()
@@ -122,13 +122,13 @@ struct ArtistDetailView: View {
                     
                     ScrollView {
                         
-                        Text(model.searchResponse.first?.strBiographyEN ?? "")
+                        Text(model.singleArtistSearchResponse.first?.strBiographyEN ?? "")
                             .lineLimit(showingFullBio ? .none : 3)
                             .padding([.horizontal, .bottom])
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
-                        AlbumScrollView(artist: model.searchResponse.first?.strArtist ?? "")
+                        AlbumScrollView(artist: model.singleArtistSearchResponse.first?.strArtist ?? "")
                     }
                 }
             }

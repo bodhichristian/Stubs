@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtistDetailProfileImage: View {
-    let artist: ArtistService.Artist
+    let artist: Artist
     
     private let artistImageWidth: CGFloat = 100
     @State private var imageOpacity = 0.0

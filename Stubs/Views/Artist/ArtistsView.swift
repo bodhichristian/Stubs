@@ -28,23 +28,30 @@ struct ArtistsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                    List {
-                        ForEach(artistNames, id: \.self){ artist in
-                            NavigationLink {
-                                ArtistDetailView(artistName: artist)
-                            } label: {
-                                
-                                    Text(artist )
-                                
-                            }
+                List {
+                    ForEach(artistNames, id: \.self){ artist in
+                        NavigationLink {
+                            ArtistDetailView(artistName: artist)
+                        } label: {
+                            
+                            
+                            
+                            
+                            Text(artist )
+                            
+                            
+                            
+                            
+                            
                         }
                     }
+                }
                 
                 
             }
             .navigationTitle("Artists")
             
         }
-       
+        
     }
 }
