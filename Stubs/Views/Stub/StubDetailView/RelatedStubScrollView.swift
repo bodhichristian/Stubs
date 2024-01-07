@@ -34,9 +34,7 @@ struct RelatedStubScrollView: View {
                 }
                 .padding(.vertical)
             }
-            
-            Divider()
-            
+                    
         }
     }
 }
