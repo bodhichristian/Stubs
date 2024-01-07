@@ -39,7 +39,7 @@ struct StubEditorStubPreview: View {
                     VStack(alignment: .leading) {
                         
                         // Artist Name
-                        Text(concert.artist)
+                        Text(concert.artistName)
                             .font(.title2)
                             .bold()
                             .foregroundStyle(.white)

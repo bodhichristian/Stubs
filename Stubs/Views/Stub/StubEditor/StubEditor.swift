@@ -17,7 +17,7 @@ struct StubEditor: View {
     @Environment(\.modelContext) private var modelContext
 
     @State private var newConcert = Concert(
-        artist: "",
+        artistName: "",
         venue: "",
         city: "",
         date: Date.now,
@@ -69,13 +69,16 @@ struct StubEditor: View {
     }
 }
 
+
+
+
 extension StubEditor {
 
     // MARK: - Computed Properties
     
     // Returns true if any field is empty
     private var saveReady: Bool {
-        !newConcert.artist.isEmpty
+        !newConcert.artistName.isEmpty
         && !newConcert.venue.isEmpty
         && !newConcert.city.isEmpty
     }

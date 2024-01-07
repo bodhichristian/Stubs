@@ -13,7 +13,7 @@ struct RelatedStubScrollView: View {
     let concerts: [Concert]
     
     var artist: String {
-        concerts.first?.artist ?? ""
+        concerts.first?.artistName ?? ""
     }
     
     var body: some View {

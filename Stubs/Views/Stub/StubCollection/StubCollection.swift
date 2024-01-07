@@ -98,7 +98,7 @@ extension StubCollection {
             return concerts
         } else {
             return concerts.filter { concert in
-                return concert.artist.lowercased().contains(searchText.lowercased()) ||
+                return concert.artistName.lowercased().contains(searchText.lowercased()) ||
                 concert.venue.lowercased().contains(searchText.lowercased()) ||
                 concert.city.lowercased().contains(searchText.lowercased()) ||
                 concert.date.formatted().contains(searchText)

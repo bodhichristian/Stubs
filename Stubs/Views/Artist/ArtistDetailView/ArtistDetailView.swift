@@ -24,7 +24,7 @@ struct ArtistDetailView: View {
     private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artist == artistName })
+        return concerts.filter({$0.artistName == artistName })
     }
     
     

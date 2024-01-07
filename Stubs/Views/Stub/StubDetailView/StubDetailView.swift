@@ -23,7 +23,7 @@ struct StubDetailView: View {
     @State private var isEditingNotes = false
     
     private var concertsByArtist: [Concert] {
-        return concerts.filter({ $0.artist == concert.artist })
+        return concerts.filter({ $0.artistName == concert.artistName })
     }
     
     var body: some View {
@@ -51,7 +51,7 @@ struct StubDetailView: View {
             }
         }
         
-        .navigationTitle("\(concert.artist) | \(concert.venue)" )
+        .navigationTitle("\(concert.artistName) | \(concert.venue)" )
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
         

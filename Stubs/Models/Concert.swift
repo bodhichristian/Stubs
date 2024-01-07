@@ -16,7 +16,7 @@ import MapKit
 final class Concert {
     
     let uuid: UUID
-    var artist: String
+    var artistName: String
     var venue: String
     var city: String
     var date: Date
@@ -30,7 +30,7 @@ final class Concert {
     
     init(
         uuid: UUID = UUID(),
-        artist: String,
+        artistName: String,
         venue: String,
         city: String,
         date: Date,
@@ -42,7 +42,7 @@ final class Concert {
         venueLongitude: Double
     ) {
         self.uuid = uuid
-        self.artist = artist
+        self.artistName = artistName
         self.venue = venue
         self.city = city
         self.date = date

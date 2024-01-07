@@ -13,15 +13,6 @@ import Foundation
 
     var multiArtistSearchResponse: [Artist] = []
     
-
-    
-    func search(for artistNames: [String]){
-        for artistName in artistNames {
-            search(for: artistName)
-           // multiArtistSearchResponse.append(self.singleArtistSearchResponse.first ?? Artist)
-        }
-    }
-    
     func search(for artistName: String) {
             
         let headers = [

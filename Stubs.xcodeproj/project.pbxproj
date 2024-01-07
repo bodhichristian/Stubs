@@ -232,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
-				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
 				AA87B0DC2B4A24D20071DB44 /* Artist.swift */,
+				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AA8A74882A32D65E003E9B41 /* SampleData.swift */,

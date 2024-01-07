@@ -22,7 +22,7 @@ struct ArtistsView: View {
         // Map concert artist names to an array
         // Convert to a Set to create a collection of unique artists
         // Convert to an alphabetically sorted array to use in ForEach
-        return Array(Set(concerts.map({ $0.artist }))).sorted()
+        return Array(Set(concerts.map({ $0.artistName }))).sorted()
     }
     
     var body: some View {

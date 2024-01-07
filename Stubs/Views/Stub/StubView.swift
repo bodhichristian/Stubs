@@ -40,7 +40,7 @@ struct StubView: View {
                     VStack(alignment: .leading) {
                         
                         // Artist Name
-                        Text(concert.artist)
+                        Text(concert.artistName)
                             .font(.title.bold())
                             .foregroundStyle(.white)
                             .shadow(radius: 2)

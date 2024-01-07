@@ -14,10 +14,10 @@ struct StubEditorDetails: View {
     var body: some View {
         Section("Details") {
             HStack {
-                TextField("Artist", text: $concert.artist)
+                TextField("Artist", text: $concert.artistName)
                 
-                Image(systemName: concert.artist.isEmpty ? "person.circle": "person.circle.fill")
-                    .foregroundStyle(concert.artist.isEmpty
+                Image(systemName: concert.artistName.isEmpty ? "person.circle": "person.circle.fill")
+                    .foregroundStyle(concert.artistName.isEmpty
                                      ? .gray
                                      : .green)
             }

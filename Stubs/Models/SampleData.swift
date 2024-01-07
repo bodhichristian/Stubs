@@ -10,7 +10,11 @@ import SwiftData
 
 let calendar = Calendar.current
 
+
 struct SampleData {
+    
+    // Create an empty artist object for use when nil coalescing
+    static let emptyArtist = Artist(idArtist: "", idLabel: "", intBornYear: "", intCharted: "", intDiedYear: "", intFormedYear: "", intMembers: "", strArtist: "", strArtistAlternate: "", strArtistBanner: "", strArtistClearart: "", strArtistFanart: "", strArtistFanart2: "", strArtistFanart3: "", strArtistLogo: "", strArtistStripped: "", strArtistThumb: "", strArtistWideThumb: "", strBiographyCN: "", strBiographyDE: "", strBiographyEN: "", strBiographyES: "", strBiographyFR: "", strBiographyHU: "", strBiographyIL: "", strBiographyIT: "", strBiographyJP: "", strBiographyNL: "", strBiographyNO: "", strBiographyPL: "", strBiographyPT: "", strBiographyRU: "", strBiographySE: "", strCountry: "", strCountryCode: "", strDisbanded: "", strFacebook: "", strGender: "", strGenre: "", strLabel: "", strLastFMChart: "", strLocked: "", strMood: "", strMusicBrainzID: "", strStyle: "", strTwitter: "", strWebsite: "")
     
     // Create a sample bio for testing ArtistDetailView without API calls
     static let sampleBio = "Sir Elton Hercules John, CBE (born Reginald Kenneth Dwight on 25 March 1947 in Pinner, Middlesex, England) is an English rock singer-songwriter, composer, pianist and occasional actor. He has worked with lyricist Bernie Taupin as his songwriter partner since 1967; they have collaborated on more than 30 albums to date.\nIn his four-decade career John has sold more than 250 million records, making him one of the most successful artists of all time. His single \"Candle in the Wind 1997\" has sold over 33 million copies worldwide, and is the best selling single in Billboard history. He has more than 50 Top 40 hits, including seven consecutive No. 1 US albums, 56 Top 40 singles, 16 Top 10, four No. 2 hits, and nine No. 1 hits. He has won six Grammy Awards, four Brit Awards, an Academy Award, a Golden Globe Award and a Tony Award. In 2004, Rolling Stone ranked him Number 49 on its list of the 100 greatest artists of all time.\nJohn was inducted into the Rock and Roll Hall of Fame in 1994. Having been named a Commander of the Order of the British Empire in 1996, John received a knighthood from Queen Elizabeth II for \"services to music and charitable services\" in 1998. John has performed at a number of royal events, such as the funeral of Princess Diana at Westminster Abbey in 1997, and the Queen\'s Diamond Jubilee Concert outside Buckingham Palace in 2012.\nHe has been heavily involved in the fight against AIDS since the late 1980s. In 1992, he established the Elton John AIDS Foundation and a year later began hosting the annual Academy Award Party, which has since become one of the most high-profile Oscar parties in the Hollywood film industry. Since its inception, the foundation has raised over $200 million.\nJohn entered into a civil partnership with David Furnish on 21 December 2005 and continues to be a champion for LGBT social movements. In 2008, Billboard magazine ranked him as the most successful male solo artist on \"The Billboard Hot 100 Top All-Time Artists\" (third overall, behind only The Beatles and Madonna)."
@@ -18,7 +22,7 @@ struct SampleData {
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
         Concert(
-            artist: "Adele",
+            artistName: "Adele",
             venue: "Barclays Center",
             city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2016, month: 11, day: 4))!,
@@ -31,7 +35,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Adele",
+            artistName: "Adele",
             venue: "Royal Albert Hall",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2015, month: 9, day: 22))!,
@@ -45,7 +49,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Adele",
+            artistName: "Adele",
             venue: "The SSE Hydro",
             city: "Glasgow",
             date: calendar.date(from: DateComponents(year: 2016, month: 3, day: 25))!,
@@ -59,7 +63,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Ariana Grande",
+            artistName: "Ariana Grande",
             venue: "Staples Center",
             city: "Los Angeles",
             date: calendar.date(from: DateComponents(year: 2019, month: 5, day: 7))!,
@@ -73,7 +77,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Ariana Grande",
+            artistName: "Ariana Grande",
             venue: "AccorHotels Arena",
             city: "Paris",
             date: calendar.date(from: DateComponents(year: 2017, month: 8, day: 25))!,
@@ -87,7 +91,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Ariana Grande",
+            artistName: "Ariana Grande",
             venue: "The O2 Arena",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2019, month: 8, day: 17))!,
@@ -101,7 +105,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Beyoncé",
+            artistName: "Beyoncé",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2019, month: 9, day: 22))!,
@@ -115,7 +119,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Beyoncé",
+            artistName: "Beyoncé",
             venue: "The O2 Arena",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2016, month: 7, day: 14))!,
@@ -129,7 +133,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Beyoncé",
+            artistName: "Beyoncé",
             venue: "SoFi Stadium",
             city: "Los Angeles",
             date: calendar.date(from: DateComponents(year: 2023, month: 6, day: 14))!,
@@ -143,7 +147,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Beyoncé",
+            artistName: "Beyoncé",
             venue: "Rose Bowl",
             city: "Pasadena",
             date: calendar.date(from: DateComponents(year: 2015, month: 6, day: 28))!,
@@ -160,7 +164,7 @@ struct SampleData {
         
         
         Concert(
-            artist: "Billy Joel",
+            artistName: "Billy Joel",
             venue: "Barclays Center",
             city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2016, month: 12, day: 17))!,
@@ -174,7 +178,7 @@ struct SampleData {
         ),
 
         Concert(
-            artist: "Billy Joel",
+            artistName: "Billy Joel",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2021,month: 12,day: 20))!,
@@ -188,7 +192,7 @@ struct SampleData {
 
         
         Concert(
-            artist: "Bring Me The Horizon",
+            artistName: "Bring Me The Horizon",
             venue: "Barclays Center",
             city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2022, month: 9 ,day: 22))!,
@@ -201,7 +205,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Bring Me The Horizon",
+            artistName: "Bring Me The Horizon",
             venue: "Zepp DiverCity",
             city: "Tokyo",
             date: calendar.date(from: DateComponents(year: 2020, month: 11, day: 21))!,
@@ -215,7 +219,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Bruno Mars",
+            artistName: "Bruno Mars",
             venue: "The Forum",
             city: "Los Angeles",
             date: calendar.date(from: DateComponents(year: 2021, month: 6, day: 21))!,
@@ -229,7 +233,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Bruno Mars",
+            artistName: "Bruno Mars",
             venue: "Tokyo Dome",
             city: "Tokyo",
             date: calendar.date(from: DateComponents(year: 2023, month: 5, day: 15))!,
@@ -245,7 +249,7 @@ struct SampleData {
 
 
         Concert(
-            artist: "Bring Me The Horizon",
+            artistName: "Bring Me The Horizon",
             venue: "Aragon Ballroom",
             city: "Chicago",
             date: calendar.date(from: DateComponents(year: 2022, month: 1, day: 30))!,
@@ -261,7 +265,7 @@ struct SampleData {
         
         
         Concert(
-            artist: "Bring Me The Horizon",
+            artistName: "Bring Me The Horizon",
             venue: "Alexandra Palace",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2021, month: 5, day: 17))!,
@@ -275,7 +279,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Slane Castle",
             city: "Meath",
             date: calendar.date(from: DateComponents(year: 2021, month: 8, day: 28))!,
@@ -289,7 +293,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Estadio San Marcos",
             city: "Lima",
             date: calendar.date(from: DateComponents(year: 2023, month: 4, day: 9))!,
@@ -303,7 +307,7 @@ struct SampleData {
         ),
 
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Wembley Stadium",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2019, month: 6, day: 11))!,
@@ -317,7 +321,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Billie Eilish",
+            artistName: "Billie Eilish",
             venue: "O2 Arena",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2022, month: 6, day: 10))!,
@@ -331,7 +335,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Rihanna",
+            artistName: "Rihanna",
             venue: "The O2 Arena",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2017, month: 11, day: 19))!,
@@ -345,7 +349,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Rihanna",
+            artistName: "Rihanna",
             venue: "Barclays Center",
             city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2022, month: 3, day: 12))!,
@@ -359,7 +363,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Foo Fighters",
+            artistName: "Foo Fighters",
             venue: "Wembley Stadium",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2018, month: 6, day: 6))!,
@@ -373,7 +377,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Foo Fighters",
+            artistName: "Foo Fighters",
             venue: "Wembley Stadium",
             city: "London",
             date: calendar.date(from: DateComponents(year: 2018, month: 6, day: 22))!,
@@ -387,7 +391,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Billie Eilish",
+            artistName: "Billie Eilish",
             venue: "AccorHotels Arena",
             city: "Paris",
             date: calendar.date(from: DateComponents(year: 2022, month: 3, day: 21))!,
@@ -401,7 +405,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Foo Fighters",
+            artistName: "Foo Fighters",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2017, month: 7, day: 13))!,
@@ -417,7 +421,7 @@ struct SampleData {
 
         
         Concert(
-            artist: "Elton John",
+            artistName: "Elton John",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2014, month: 12, day: 4))!,
@@ -431,7 +435,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "The Rolling Stones",
+            artistName: "The Rolling Stones",
             venue: "Maracanã Stadium",
             city: "Rio de Janeiro",
             date: calendar.date(from: DateComponents(year: 2016, month: 2, day: 20))!,
@@ -445,7 +449,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Billie Eilish",
+            artistName: "Billie Eilish",
             venue: "Coachella Valley Music and Arts Festival",
             city: "Indio",
             date: calendar.date(from: DateComponents(year: 2019, month: 4, day: 20))!,
@@ -459,7 +463,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Bruno Mars",
+            artistName: "Bruno Mars",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2018, month: 9, day: 22))!,
@@ -475,7 +479,7 @@ struct SampleData {
 
         
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Tokyo Dome",
             city: "Tokyo",
             date: calendar.date(from: DateComponents(year: 2022, month: 1, day: 15))!,
@@ -489,7 +493,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Foo Fighters",
+            artistName: "Foo Fighters",
             venue: "Sydney Opera House",
             city: "Sydney",
             date: calendar.date(from: DateComponents(year: 2019, month: 11, day: 30))!,
@@ -504,7 +508,7 @@ struct SampleData {
         
         
         Concert(
-            artist: "Foo Fighters",
+            artistName: "Foo Fighters",
             venue: "Berlin Olympiastadion",
             city: "Berlin",
             date: calendar.date(from: DateComponents(year: 2021, month: 7, day: 8))!,
@@ -518,7 +522,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Rihanna",
+            artistName: "Rihanna",
             venue: "Rod Laver Arena",
             city: "Melbourne",
             date: calendar.date(from: DateComponents(year: 2021, month: 11, day: 20))!,
@@ -531,7 +535,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Rihanna",
+            artistName: "Rihanna",
             venue: "Barclays Center",
             city: "Brooklyn",
             date: calendar.date(from: DateComponents(year: 2016, month: 3, day: 27))!,
@@ -544,7 +548,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Hozier",
+            artistName: "Hozier",
             venue: "Red Rocks Amphitheatre",
             city: "Morrison",
             date: calendar.date(from: DateComponents(year: 2015, month: 8, day: 2))!,
@@ -557,7 +561,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Billie Eilish",
+            artistName: "Billie Eilish",
             venue: "Hollywood Bowl",
             city: "Los Angeles",
             date: calendar.date(from: DateComponents(year: 2021, month: 9, day: 18))!,
@@ -571,7 +575,7 @@ struct SampleData {
         
         
         Concert(
-            artist: "Hozier",
+            artistName: "Hozier",
             venue: "The Greek Theatre",
             city: "Berkeley",
             date: calendar.date(from: DateComponents(year: 2015, month: 5, day: 22))!,
@@ -584,7 +588,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Hozier",
+            artistName: "Hozier",
             venue: "Sydney Opera House",
             city: "Sydney",
             date: calendar.date(from: DateComponents(year: 2017, month: 11, day: 23))!,
@@ -597,7 +601,7 @@ struct SampleData {
         ),
         
         Concert(
-            artist: "Hozier",
+            artistName: "Hozier",
             venue: "Hollywood Bowl",
             city: "Los Angeles",
             date: calendar.date(from: DateComponents(year: 2015, month: 10, day: 17))!,
@@ -612,7 +616,7 @@ struct SampleData {
 
 
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Madison Square Garden",
             city: "New York",
             date: calendar.date(from: DateComponents(year: 2020, month: 7, day: 21))!,
@@ -627,7 +631,7 @@ struct SampleData {
 
         
         Concert(
-            artist: "Green Day",
+            artistName: "Green Day",
             venue: "Maracanã Stadium",
             city: "Rio de Janeiro",
             date: calendar.date(from: DateComponents(year: 2022, month: 11, day: 5))!,

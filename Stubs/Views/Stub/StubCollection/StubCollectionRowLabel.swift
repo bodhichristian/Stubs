@@ -29,7 +29,7 @@ struct StubCollectionRowLabel: View {
             
             VStack(alignment: .leading) {
                 
-                Text(concert.artist)
+                Text(concert.artistName)
                     .font(.title2)
                     .fontWeight(.bold)
                 
