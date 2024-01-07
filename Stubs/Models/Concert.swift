@@ -28,6 +28,8 @@ final class Concert {
     var venueLatitude: Double
     var venueLongitude: Double
     
+    var artist: Artist?
+    
     init(
         uuid: UUID = UUID(),
         artistName: String,
@@ -39,7 +41,8 @@ final class Concert {
         notes: String,
         isFavorite: Bool = false,
         venueLatitude: Double,
-        venueLongitude: Double
+        venueLongitude: Double,
+        artist: Artist? = nil
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -52,6 +55,7 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
+        self.artist = artist
     }
 }
 
