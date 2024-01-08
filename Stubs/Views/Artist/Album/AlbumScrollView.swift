@@ -8,8 +8,12 @@
 import SwiftUI
 import Combine
 
+
+// TODO: Update data flow to fix AlbumScrollView Image fetching
+
+
 struct AlbumScrollView: View {
-    let artist: String
+    let artistID: String
     
     @State private var model = AlbumService()
     
@@ -40,8 +44,9 @@ struct AlbumScrollView: View {
         }
         .padding()
         .onAppear {
-            model.searchAlbums(for: artist)
+            model.searchAlbums(for: artistID)
         }
     }
 }
+
 

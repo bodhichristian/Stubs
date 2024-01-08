@@ -76,13 +76,13 @@ import Foundation
         let strWikipediaID: String?
     }
 
-    func searchAlbums(for artist: String) {
+    func searchAlbums(for artistID: String) {
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
 
-        let urlString = "https://theaudiodb.p.rapidapi.com/searchalbum.php?s=\(artist.replacingOccurrences(of: " ", with: "_"))"
+        let urlString = "https://theaudiodb.p.rapidapi.com/album.php?i=\(artistID)"
         guard let url = URL(string: urlString) else { return }
 
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
