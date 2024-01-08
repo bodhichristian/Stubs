@@ -47,6 +47,33 @@ struct SampleData {
         strGenre: "R&B"
     )
     
+    static let billyJoel = Artist(
+        strArtist: "Billy Joel",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/r57eq71632532127.jpg",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/ttsxwr1425765041.jpg",
+        strBiographyEN: "William Martin \"Billy\" Joel (born May 9, 1949, New York, USA) is an American pianist, singer-songwriter, and composer. Since releasing his first hit song, \"Piano Man\", in 1973, Joel has become the sixth-best-selling recording artist and the third-best-selling solo artist in the United States, according to the RIAA. His compilation album Greatest Hits Vol. 1 & 2 is the third-best-selling album in the United States by discs shipped. Joel had Top 40 hits in the 1970s, 1980s, and 1990s, achieving 33 Top 40 hits in the United States, all of which he wrote himself. He is also a six-time Grammy Award winner, a 23-time Grammy nominee and one of the world's best-selling artists of all time, having sold over 150 million records worldwide. He was inducted into the Songwriter's Hall of Fame (1992), the Rock and Roll Hall of Fame (1999), and the Long Island Music Hall of Fame (2006). In 2008, Billboard magazine released a list of the Hot 100 All-Time Top Artists to celebrate the US singles chart's 50th anniversary, with Billy Joel positioned at No. 23. With the exception of the 2007 songs \"All My Life\" and \"Christmas in Fallujah\", Joel stopped writing and recording popular music after 1993's River of Dreams, but he continued to tour extensively until 2010. Joel was born in the Bronx, May 9, 1949 and raised in Hicksville, New York in a Levitt home. His father, Howard (born Helmuth), was born in Germany, the son of German merchant and manufacturer Karl Amson Joel, who, after the advent of the Nazi regime, emigrated to Switzerland and later to the United States. Billy Joel's mother, Rosalind Nyman, was born in England to Philip and Rebecca Nyman. Both of Joel's parents were Jewish. They divorced in 1960, and his father moved to Vienna, Austria. Billy has a sister, Judith Joel, and a half-brother, Alexander Joel, who is an acclaimed classical conductor in Europe and currently chief musical director of the Staatstheater Braunschweig. Joel's father was an accomplished classical pianist. Billy reluctantly began piano lessons at an early age, at his mother's insistence; his teachers included the noted American pianist Morton Estrin and musician/songwriter Timothy Ford. His interest in music, rather than sports, was a source of teasing and bullying in his early years. (He has said in interviews that his piano instructor also taught ballet. Her name was Frances Neiman, and she was a Juilliard trained musician. She gave both classical piano and ballet lessons in the studio attached to the rear of her house, leading neighborhood bullies to mistakenly assume that he was learning to dance.) As a teenager, Joel took up boxing so that he would be able to defend himself. He boxed successfully on the amateur Golden Gloves circuit for a short time, winning twenty-two bouts, but abandoned the sport shortly after breaking his nose in his twenty-fourth boxing match. Joel attended Hicksville High School in 1967, but he did not graduate with his class. He had been helping his single mother make ends meet by playing at a piano bar, which interfered with his school attendance. At the end of his senior year, Joel did not have enough credits to graduate. Rather than attend summer school to earn his diploma, however, Joel decided to immediately begin a career in music. Joel recounted, \"I told them, 'To hell with it. If I'm not going to Columbia University, I'm going to Columbia Records, and you don't need a high school diploma over there'.\" Columbia did, in fact, become the label that eventually signed him. In 1992, he submitted essays to the school board and was awarded his diploma at Hicksville High's annual graduation ceremony, 25 years after he had left.",
+        strCountry: "New York, USA",
+        strGenre: "Pop"
+    )
+    
+    static let bmth = Artist(
+        strArtist: "Bring Me the Horizon",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/rvtrtu1374201891.jpg",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/rwrsrp1341346134.jpg",
+        strBiographyEN: "Bring Me the Horizon are a British metalcore band from Sheffield, Yorkshire. Formed in 2004, the group consists of lead vocalist Oliver Sykes, lead guitarist Lee Malia, rhythm guitarist Jona Weinhofen, bassist Matt Kean and drummer Matt Nicholls. They are currently signed to RCA Records globally and Epitaph Records exclusively in the US. Their music has been said to be influenced diversely by grindcore, death metal and emo. While their earlier work is noted for its strong influence from American metalcore bands, they started to adopt a more eclectic style of metalcore in future releases. They have released three studio albums and one extended play. The band's name is derived from the final line of the film Pirates of the Caribbean: The Curse of the Black Pearl, in which Captain Jack Sparrow says \"Now, bring me that horizon.\" The band released their debut album Count Your Blessings on 30 October 2006 in the UK. Their second album, Suicide Season was released 29 September 2008, while a remix of the album titled Suicide Season: Cut Up! was released a year later in November. Prior to the release of the special edition of Suicide Season: Cut Up!, founding rhythm guitarist Curtis Ward left the band due to commitment issues. He was later replaced with Jona Weinhofen, also of I Killed the Prom Queen. Bring Me the Horizon's third studio album There Is a Hell, Believe Me I've Seen It. There Is a Heaven, Let's Keep It a Secret. was released 4 October 2010. The band will release their fourth album, Sempiternal, early in 2013- their first for their new label, RCA Records.",
+        strCountry: "Sheffield, England",
+        strGenre: "Metalcore"
+    )
+    
+    static let brunoMars = Artist(
+        strArtist: "Bruno Mars",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/ttrsxx1347284576.jpg",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/tuwvsr1359652285.jpg",
+        strBiographyEN: "Peter Gene Hernandez (born October 8, 1985), professionally known by his stage name Bruno Mars, is an American singer, songwriter, record producer, and choreographer. Born and raised in Honolulu, Hawaii, by a family of musicians, Mars began making music at a young age and performed in various musical venues in his hometown throughout his childhood. He graduated from high school and moved to Los Angeles to pursue a musical career. Mars produced songs for other artists, co-founding the production team The Smeezingtons. Mars had an unsuccessful stint with Motown Records, but then signed with Atlantic in 2009. He became recognized as a solo artist after lending his vocals to the songs \"Nothin' on You\" by B.o.B and \"Billionaire\" by Travie McCoy, which were international successes, and for which he co-wrote the hooks. His debut studio album, Doo-Wops & Hooligans (2010), was anchored by the U.S. Billboard Hot 100 chart-topping singles \"Just the Way You Are\" and \"Grenade\", as well as the number-five single \"The Lazy Song\". His second album, Unorthodox Jukebox, released in 2012, peaked at number one in the United States. The album spawned the international singles \"Locked Out of Heaven\", \"When I Was Your Man\" and \"Treasure\". Mars has received many awards and nominations, including four Grammy Awards and was named one of Time's 100 most influential people in the world in 2011. In December 2013, he was named \"Artist of the Year\" by Billboard and ranked number one on the Forbes 30 under 30 list. Throughout his singing career, he has sold over 100 million singles and albums worldwide, making him one of the best-selling artists of all time. However, as a performer, writer and producer his total sales surpass 130 million singles. Five of his singles are counted among the best-selling singles of all time. Mars has landed five number-one singles on the Billboard Hot 100 since his career launched in 2010, faster than any male singer since Elvis Presley. In total, he has had six number-one singles on the Hot 100 chart. Mars is known for his stage performances and retro showmanship. He is accompanied by his band, The Hooligans, which besides playing a variety of instruments such as electric guitar, bass, piano, keyboards, drums and horns, also serves as dancers and background singers. On stage, Mars is able to sing, dance and play a wide range of musical styles, including R&B, reggae and funk.",
+        strCountry: "Honolulu, Hawaii, USA",
+        strGenre: "Pop"
+    )
+    
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
         Concert(
@@ -211,7 +238,8 @@ struct SampleData {
             notes: "Billy Joel's timeless music resonated through the Barclays Center. 'Piano Man' created a unifying and nostalgic moment for all. A legendary performance.",
             isFavorite: true,
             venueLatitude: 40.6829,
-            venueLongitude: -73.9752
+            venueLongitude: -73.9752,
+            artist: SampleData.billyJoel
             
         ),
         
@@ -224,7 +252,8 @@ struct SampleData {
             accentColor: StubStyle.colors.randomElement()!,
             notes: "Took a road trip to see this concert - totally worth it. The band played a rare B-side track. Made unforgettable memories with friends.",
             venueLatitude: 40.7505,
-            venueLongitude: -73.9934
+            venueLongitude: -73.9934,
+            artist: SampleData.billyJoel
             
         ),
         
@@ -238,7 +267,8 @@ struct SampleData {
             accentColor: StubStyle.colors.randomElement()!,
             notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious.",
             venueLatitude: 40.6829,
-            venueLongitude: -73.9752
+            venueLongitude: -73.9752,
+            artist: SampleData.bmth
             
         ),
         
@@ -252,7 +282,8 @@ struct SampleData {
             notes: "The audience was entranced as Bring Me The Horizon delivered a mind-blowing performance at Zepp DiverCity.",
             isFavorite: true,
             venueLatitude: 35.6251,
-            venueLongitude: 139.7752
+            venueLongitude: 139.7752,
+            artist: SampleData.bmth
             
         ),
         
@@ -266,7 +297,8 @@ struct SampleData {
             notes: "Bruno Mars turned The Forum into a funk-filled party. His charismatic performance of '24K Magic' had everyone dancing. A night of pure joy and entertainment.",
             isFavorite: true,
             venueLatitude: Double.random(in: -60.0...60.0),
-            venueLongitude: Double.random(in: -60.0...60.0)
+            venueLongitude: Double.random(in: -60.0...60.0),
+            artist: SampleData.brunoMars
             
         ),
         
@@ -280,7 +312,8 @@ struct SampleData {
             notes: "Bruno Mars brought the funk and soul to Tokyo. His dance moves and vocal range were incredible. The energy during 'Uptown Funk' was off the charts.",
             isFavorite: true,
             venueLatitude: 35.7055,
-            venueLongitude: 139.7519
+            venueLongitude: 139.7519,
+            artist: SampleData.brunoMars
             
         ),
         
@@ -296,7 +329,8 @@ struct SampleData {
             notes: "The energy was palpable as Bring Me The Horizon took over the Aragon Ballroom with their electrifying performance.",
             isFavorite: true,
             venueLatitude: 41.9694,
-            venueLongitude: -87.658
+            venueLongitude: -87.658,
+            artist: SampleData.bmth
             
         ),
         
@@ -312,7 +346,8 @@ struct SampleData {
             notes: "Bring Me The Horizon unleashed a fierce set at Alexandra Palace, with fans echoing every lyric.",
             isFavorite: true,
             venueLatitude: 51.5942,
-            venueLongitude: -0.1308
+            venueLongitude: -0.1308,
+            artist: SampleData.bmth
             
         ),
         
@@ -510,7 +545,8 @@ struct SampleData {
             notes: "Bruno Mars turned MSG into a funk and soul party. His energy was infectious, and the band was on fire. A concert that felt like a celebration.",
             isFavorite: false,
             venueLatitude: 40.7505,
-            venueLongitude: -73.9934
+            venueLongitude: -73.9934,
+            artist: SampleData.brunoMars
             
         ),
         
