@@ -16,10 +16,7 @@ struct SampleData {
     // Create an empty artist object for use when nil coalescing
     static let emptyArtist = Artist(idArtist: "", strArtist: "", strArtistStripped: "", strArtistAlternate: "", strLabel: "", idLabel: "", intFormedYear: "", intBornYear: "", intDiedYear: "", strDisbanded: "", strStyle: "", strGenre: "", strMood: "", strWebsite: "", strFacebook: "", strTwitter: "", strBiographyEN: "", strBiographyDE: "", strBiographyFR: "", strBiographyCN: "", strBiographyIT: "", strBiographyJP: "", strBiographyRU: "", strBiographyES: "", strBiographyPT: "", strBiographySE: "", strBiographyNO: "", strBiographyIL: "", strBiographyPL: "", strGender: "", intMembers: "", strCountry: "", strCountryCode: "", strArtistThumb: "", strArtistLogo: "", strArtistCutout: "", strArtistClearart: "", strArtistWideThumb: "", strArtistFanart: "", strArtistFanart2: "", strArtistFanart3: "", strArtistFanart4: "", strArtistBanner: "", strMusicBrainzID: "", strISNIcode: "", strLastFMChart: "", intCharted: "", strLocked: "")
     
-    // Create a sample bio for testing ArtistDetailView without API calls
-    static let sampleBio = "Sir Elton Hercules John, CBE (born Reginald Kenneth Dwight on 25 March 1947 in Pinner, Middlesex, England) is an English rock singer-songwriter, composer, pianist and occasional actor. He has worked with lyricist Bernie Taupin as his songwriter partner since 1967; they have collaborated on more than 30 albums to date.\nIn his four-decade career John has sold more than 250 million records, making him one of the most successful artists of all time. His single \"Candle in the Wind 1997\" has sold over 33 million copies worldwide, and is the best selling single in Billboard history. He has more than 50 Top 40 hits, including seven consecutive No. 1 US albums, 56 Top 40 singles, 16 Top 10, four No. 2 hits, and nine No. 1 hits. He has won six Grammy Awards, four Brit Awards, an Academy Award, a Golden Globe Award and a Tony Award. In 2004, Rolling Stone ranked him Number 49 on its list of the 100 greatest artists of all time.\nJohn was inducted into the Rock and Roll Hall of Fame in 1994. Having been named a Commander of the Order of the British Empire in 1996, John received a knighthood from Queen Elizabeth II for \"services to music and charitable services\" in 1998. John has performed at a number of royal events, such as the funeral of Princess Diana at Westminster Abbey in 1997, and the Queen\'s Diamond Jubilee Concert outside Buckingham Palace in 2012.\nHe has been heavily involved in the fight against AIDS since the late 1980s. In 1992, he established the Elton John AIDS Foundation and a year later began hosting the annual Academy Award Party, which has since become one of the most high-profile Oscar parties in the Hollywood film industry. Since its inception, the foundation has raised over $200 million.\nJohn entered into a civil partnership with David Furnish on 21 December 2005 and continues to be a champion for LGBT social movements. In 2008, Billboard magazine ranked him as the most successful male solo artist on \"The Billboard Hot 100 Top All-Time Artists\" (third overall, behind only The Beatles and Madonna)."
-    
-    
+
     static let adele = Artist(
                               idArtist:"111493",
                               strArtist:"Adele",
@@ -59,49 +56,122 @@ struct SampleData {
         )
     
     static let arianaGrande = Artist(
+        idArtist: "122405",
         strArtist: "Ariana Grande",
-        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/grande-ariana-50a121f6de7c0.jpg",
-        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/yy8zqo1636559141.jpg",
-        strBiographyEN: "Ariana Grande-Butera (born June 26, 1993), known professionally as Ariana Grande (/ˌɑriːˈɑːnə ˈɡrɑːndeɪ/), is an American singer and actress. She began her career in the Broadway musical 13, before landing the role of Cat Valentine on the Nickelodeon television series Victorious in 2009. After four seasons, the show ended, and Grande starred on the spinoff, Sam & Cat, which ended in 2014. She has also appeared in other theatre, television and film roles and lent her voice to animated television and films. Grande's music career began with the soundtrack Music from Victorious (2011). She signed a recording contract with Republic Records and released her debut studio album Yours Truly in 2013, which debuted at number one on the US Billboard 200. The album's lead single,\"The Way\", reached the top-ten of the Billboard Hot 100, with critics comparing her wide vocal range to Mariah Carey's. Grande's second studio album, My Everything (2014), also reached number one in the United States. With the singles \"Problem\", \"Break Free\", \"Bang Bang\" and \"Love Me Harder\" from that album, she spent 34 continuous weeks in the top 10 of the Billboard Hot 100 and had the most top 10 singles of any artist in 2014. In 2015, she promoted My Everything with her first world tour titled The Honeymoon Tour and guest-starred in Fox comedy-horror TV series Scream Queens. In 2015, Grande released the lead single \"Focus\" from her upcoming third album Moonlight, released a holiday EP album, Christmas & Chill, and she was heard on several collaborative projects. Grande's accolades include two American Music Awards, Music Business Association's Breakthrough Artist of the Year, an MTV Video Music Award, an MTV Europe Music Award and two Grammy Award nominations. Ariana Grande-Butera was born in Boca Raton, Florida, to Joan Grande, chief executive officer of telephone and alarm system company Hose-McCann Communications, and Edward Butera, who owns a graphic design firm in Boca Raton. Her name was originally inspired by Princess Oriana from Felix the Cat (1959). Grande is of Italian descent, half Sicilian and half Abruzzese. She has experienced hypoglycemia. She has an older half-brother, Frankie Grande, who is an actor, dancer, and producer. Grande's mother moved with her father from New York to Florida when she was pregnant with her. She has stated that her parents separated when she was around 8 or 9 years old. As a child, Grande performed with the Fort Lauderdale Children's Theater, playing her first role as Annie, as well as performing in the musicals The Wizard of Oz and Beauty and the Beast. At the age of 8, she performed at a karaoke lounge on a cruise ship, in various orchestras such as South Florida's Philharmonic, Florida Sunshine Pops and Symphonic Orchestras, and made her national television debut singing \"The Star-Spangled Banner\" for the Florida Panthers. She attended Pine Crest School and North Broward Preparatory School. By age 13, she became serious about pursuing a music career, though she still concentrated on theater. When she first arrived in Los Angeles to meet with her managers, she expressed a desire to record an R&B album when she was 14: \"I was like, 'I want to make an R&B album,' They were like 'Um, that's a helluva goal! Who is going to buy a 14-year-old's R&B album?!'\" In 2008, Grande was cast in the supporting role of cheerleader Charlotte in the musical 13 on Broadway, for which she won a National Youth Theatre Association Award. When she joined the musical, Grande left her high school, North Broward Preparatory School, but continued to be enrolled. The school sent materials to her so she could study with tutors. She also sang various times at the New York City Jazz club Birdland.",
+        strArtistStripped: nil,
+        strArtistAlternate: "",
+        strLabel: "Republic Records",
+        idLabel: "47129",
+        intFormedYear: "2008",
+        intBornYear: "1993",
+        intDiedYear: nil,
+        strDisbanded: nil,
+        strStyle: "Urban/R&B",
+        strGenre: "Pop",
+        strMood: "Happy",
+        strWebsite: "https://www.facebook.com/arianagrande",
+        strFacebook: "www.facebook.com/arianagrande",
+        strTwitter: "1",
+        strBiographyEN: "Ariana Grande-Butera (born June 26, 1993), known professionally as Ariana Grande (/ˌɑriːˈɑːnə ˈɡrɑːndeɪ/), is an American singer and actress. She began her career in the Broadway musical 13, before landing the role of Cat Valentine on the Nickelodeon television series Victorious in 2009. After four seasons, the show ended, and Grande starred on the spinoff, Sam & Cat, which ended in 2014. She has also appeared in other theatre, television and film roles and lent her voice to animated television and films. Grande's music career began with the soundtrack Music from Victorious (2011). She signed a recording contract with Republic Records and released her debut studio album Yours Truly in 2013, which debuted at number one on the US Billboard 200. The album's lead single, \"The Way\", reached the top-ten of the Billboard Hot 100, with critics comparing her wide vocal range to Mariah Carey's. Grande's second studio album, My Everything (2014), also reached number one in the United States. With the singles \"Problem\", \"Break Free\", \"Bang Bang\" and \"Love Me Harder\" from that album, she spent 34 continuous weeks in the top 10 of the Billboard Hot 100 and had the most top 10 singles of any artist in 2014. In 2015, she promoted My Everything with her first world tour titled The Honeymoon Tour and guest-starred in Fox comedy-horror TV series Scream Queens. In 2015, Grande released the lead single \"Focus\" from her upcoming third album Moonlight, released a holiday EP album, Christmas & Chill, and she was heard on several collaborative projects. Grande's accolades include two American Music Awards, Music Business Association's Breakthrough Artist of the Year, an MTV Video Music Award, an MTV Europe Music Award and two Grammy Award nominations. Ariana Grande-Butera was born in Boca Raton, Florida, to Joan Grande, chief executive officer of telephone and alarm system company Hose-McCann Communications, and Edward Butera, who owns a graphic design firm in Boca Raton. Her name was originally inspired by Princess Oriana from Felix the Cat (1959). Grande is of Italian descent, half Sicilian and half Abruzzese. She has experienced hypoglycemia. She has an older half-brother, Frankie Grande, who is an actor, dancer, and producer. Grande's mother moved with her father from New York to Florida when she was pregnant with her. She has stated that her parents separated when she was around 8 or 9 years old. As a child, Grande performed with the Fort Lauderdale Children's Theater, playing her first role as Annie, as well as performing in the musicals The Wizard of Oz and Beauty and the Beast. At the age of 8, she performed at a karaoke lounge on a cruise ship, in various orchestras such as South Florida's Philharmonic, Florida Sunshine Pops and Symphonic Orchestras, and made her national television debut singing \"The Star-Spangled Banner\" for the Florida Panthers. She attended Pine Crest School and North Broward Preparatory School. By age 13, she became serious about pursuing a music career, though she still concentrated on theater. When she first arrived in Los Angeles to meet with her managers, she expressed a desire to record an R&B album when she was 14: \"I was like, 'I want to make an R&B album,' They were like 'Um, that's a helluva goal! Who is going to buy a 14-year-old's R&B album?!'\" In 2008, Grande was cast in the supporting role of cheerleader Charlotte in the musical 13 on Broadway, for which she won a National Youth Theatre Association Award. When she joined the musical, Grande left her high school, North Broward Preparatory School, but continued to be enrolled. The school sent materials to her so she could study with tutors. She also sang various times at the New York City Jazz club Birdland.",
+        strGender: "Female",
+        intMembers: "1",
         strCountry: "Boca Raton, Florida",
-        strGenre: "Pop"
+        strCountryCode: "US",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/yy8zqo1636559141.jpg",
+        strArtistLogo: "https://www.theaudiodb.com/images/media/artist/logo/zrkid81636505362.png",
+        strArtistCutout: "https://www.theaudiodb.com/images/media/artist/cutout/sb42y71643001858.png",
+        strArtistClearart: "https://www.theaudiodb.com/images/media/artist/clearart/uxysxu1512743328.png",
+        strArtistWideThumb: "https://www.theaudiodb.com/images/media/artist/widethumb/wrrstx1516969279.jpg",
+        strArtistFanart: "https://www.theaudiodb.com/images/media/artist/fanart/cky8ni1598838546.jpg",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/grande-ariana-50a121f6de7c0.jpg",
+        strArtistFanart3: "https://www.theaudiodb.com/images/media/artist/fanart/wpxrsp1532191011.jpg",
+        strArtistFanart4: "https://www.theaudiodb.com/images/media/artist/fanart/5mwzio1613565464.jpg",
+        strArtistBanner: "https://www.theaudiodb.com/images/media/artist/banner/ypywtw1532191033.jpg",
+        strMusicBrainzID: "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+        strISNIcode: nil,
+        strLastFMChart: nil,
+        intCharted: "3",
+        strLocked: "unlocked"
     )
-    
+
     static let beyonce = Artist(
+        idArtist: "114364",
         strArtist: "Beyoncé",
-        strGenre: "R&B", strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/knowles-beyonc-508490b420589.jpg",
-        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/wouav91634257602.jpg",
+        strArtistStripped: nil,
+        strArtistAlternate: "Beyonce Knowles",
+        strLabel: "Columbia",
+        idLabel: "43473",
+        intFormedYear: "1997",
+        intBornYear: "1981",
+        intDiedYear: nil,
+        strDisbanded: nil,
+        strStyle: "Urban/R&B",
+        strGenre: "R&B",
+        strMood: "Carefree",
+        strWebsite: "www.beyonce.com",
+        strFacebook: "www.facebook.com/beyonce",
+        strTwitter: "1",
         strBiographyEN: "Beyoncé Giselle Knowles-Carter (born September 4, 1981) is an American singer, songwriter, record producer and actress. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child, and rose to fame in the late 1990s as lead singer of R&B girl-group Destiny's Child. Managed by her father, Mathew Knowles, the group became one of the world's best-selling girl groups of all time. Their hiatus saw the release of Beyoncé's debut album, Dangerously in Love (2003), which established her as a solo artist worldwide, earned five Grammy Awards and featured the Billboard Hot 100 number-one singles \"Crazy in Love\" and \"Baby Boy\". Following the disbandment of Destiny's Child in June 2005, she released her second solo album, B'Day (2006), which contained hits \"Déjà Vu\", \"Irreplaceable\", and \"Beautiful Liar\". Beyoncé also ventured into acting, with a Golden Globe-nominated performance in Dreamgirls (2006), and starring roles in The Pink Panther (2006) and Obsessed (2009). Her marriage to rapper Jay Z and portrayal of Etta James in Cadillac Records (2008) influenced her third album, I Am... Sasha Fierce (2008), which saw the birth of her alter-ego Sasha Fierce and earned a record-setting six Grammy Awards in 2010, including Song of the Year for \"Single Ladies (Put a Ring on It)\". Beyoncé took a hiatus from music in 2010 and took over management of her career; her fourth album 4 (2011) was subsequently mellower in tone, exploring 1970s funk, 1980s pop, and 1990s soul. Her critically acclaimed fifth studio album, Beyoncé (2013), was distinguished from previous releases by its experimental production and exploration of darker themes. With the release of Lemonade (2016), Beyoncé became the first artist to have their first six studio albums debut at number one on the Billboard 200 chart. A self-described \"modern-day feminist\", Beyoncé creates songs that are often characterized by themes of love, relationships, and monogamy, as well as female sexuality and empowerment. On stage, her dynamic, highly choreographed performances have led to critics hailing her as one of the best entertainers in contemporary popular music. Throughout a career spanning 19 years, she has sold over 118 million records as a solo artist, and a further 60 million with Destiny's Child, making her one of the best-selling music artists of all time. She has won 20 Grammy Awards and is the most nominated woman in the award's history. The Recording Industry Association of America recognized her as the Top Certified Artist in America during the 2000s decade. In 2009, Billboard named her the Top Radio Songs Artist of the Decade, the Top Female Artist of the 2000s and their Artist of the Millennium in 2011. Time listed her among the 100 most influential people in the world in 2013 and 2014. Forbes magazine also listed her as the most powerful female musician of 2015.",
-        strCountry: "Houston, Texas"
-    )
-    
-    static let billyJoel = Artist(
-        strArtist: "Billy Joel",
-        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/r57eq71632532127.jpg",
-        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/ttsxwr1425765041.jpg",
-        strBiographyEN: "William Martin \"Billy\" Joel (born May 9, 1949, New York, USA) is an American pianist, singer-songwriter, and composer. Since releasing his first hit song, \"Piano Man\", in 1973, Joel has become the sixth-best-selling recording artist and the third-best-selling solo artist in the United States, according to the RIAA. His compilation album Greatest Hits Vol. 1 & 2 is the third-best-selling album in the United States by discs shipped. Joel had Top 40 hits in the 1970s, 1980s, and 1990s, achieving 33 Top 40 hits in the United States, all of which he wrote himself. He is also a six-time Grammy Award winner, a 23-time Grammy nominee and one of the world's best-selling artists of all time, having sold over 150 million records worldwide. He was inducted into the Songwriter's Hall of Fame (1992), the Rock and Roll Hall of Fame (1999), and the Long Island Music Hall of Fame (2006). In 2008, Billboard magazine released a list of the Hot 100 All-Time Top Artists to celebrate the US singles chart's 50th anniversary, with Billy Joel positioned at No. 23. With the exception of the 2007 songs \"All My Life\" and \"Christmas in Fallujah\", Joel stopped writing and recording popular music after 1993's River of Dreams, but he continued to tour extensively until 2010. Joel was born in the Bronx, May 9, 1949 and raised in Hicksville, New York in a Levitt home. His father, Howard (born Helmuth), was born in Germany, the son of German merchant and manufacturer Karl Amson Joel, who, after the advent of the Nazi regime, emigrated to Switzerland and later to the United States. Billy Joel's mother, Rosalind Nyman, was born in England to Philip and Rebecca Nyman. Both of Joel's parents were Jewish. They divorced in 1960, and his father moved to Vienna, Austria. Billy has a sister, Judith Joel, and a half-brother, Alexander Joel, who is an acclaimed classical conductor in Europe and currently chief musical director of the Staatstheater Braunschweig. Joel's father was an accomplished classical pianist. Billy reluctantly began piano lessons at an early age, at his mother's insistence; his teachers included the noted American pianist Morton Estrin and musician/songwriter Timothy Ford. His interest in music, rather than sports, was a source of teasing and bullying in his early years. (He has said in interviews that his piano instructor also taught ballet. Her name was Frances Neiman, and she was a Juilliard trained musician. She gave both classical piano and ballet lessons in the studio attached to the rear of her house, leading neighborhood bullies to mistakenly assume that he was learning to dance.) As a teenager, Joel took up boxing so that he would be able to defend himself. He boxed successfully on the amateur Golden Gloves circuit for a short time, winning twenty-two bouts, but abandoned the sport shortly after breaking his nose in his twenty-fourth boxing match. Joel attended Hicksville High School in 1967, but he did not graduate with his class. He had been helping his single mother make ends meet by playing at a piano bar, which interfered with his school attendance. At the end of his senior year, Joel did not have enough credits to graduate. Rather than attend summer school to earn his diploma, however, Joel decided to immediately begin a career in music. Joel recounted, \"I told them, 'To hell with it. If I'm not going to Columbia University, I'm going to Columbia Records, and you don't need a high school diploma over there'.\" Columbia did, in fact, become the label that eventually signed him. In 1992, he submitted essays to the school board and was awarded his diploma at Hicksville High's annual graduation ceremony, 25 years after he had left.",
-        strCountry: "New York, USA",
-        strGenre: "Pop"
-    )
-    
-    static let bmth = Artist(
-        strArtist: "Bring Me the Horizon",
-        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/rvtrtu1374201891.jpg",
-        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/rwrsrp1341346134.jpg",
-        strBiographyEN: "Bring Me the Horizon are a British metalcore band from Sheffield, Yorkshire. Formed in 2004, the group consists of lead vocalist Oliver Sykes, lead guitarist Lee Malia, rhythm guitarist Jona Weinhofen, bassist Matt Kean and drummer Matt Nicholls. They are currently signed to RCA Records globally and Epitaph Records exclusively in the US. Their music has been said to be influenced diversely by grindcore, death metal and emo. While their earlier work is noted for its strong influence from American metalcore bands, they started to adopt a more eclectic style of metalcore in future releases. They have released three studio albums and one extended play. The band's name is derived from the final line of the film Pirates of the Caribbean: The Curse of the Black Pearl, in which Captain Jack Sparrow says \"Now, bring me that horizon.\" The band released their debut album Count Your Blessings on 30 October 2006 in the UK. Their second album, Suicide Season was released 29 September 2008, while a remix of the album titled Suicide Season: Cut Up! was released a year later in November. Prior to the release of the special edition of Suicide Season: Cut Up!, founding rhythm guitarist Curtis Ward left the band due to commitment issues. He was later replaced with Jona Weinhofen, also of I Killed the Prom Queen. Bring Me the Horizon's third studio album There Is a Hell, Believe Me I've Seen It. There Is a Heaven, Let's Keep It a Secret. was released 4 October 2010. The band will release their fourth album, Sempiternal, early in 2013- their first for their new label, RCA Records.",
-        strCountry: "Sheffield, England",
-        strGenre: "Metalcore"
+        strGender: "Female",
+        intMembers: "1",
+        strCountry: "",
+        strCountryCode: "",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/wouav91634257602.jpg",
+        strArtistLogo: "https://www.theaudiodb.com/images/media/artist/logo/53wcxy1634257247.png",
+        strArtistCutout: "https://www.theaudiodb.com/images/media/artist/cutout/m0timd1659346576.png",
+        strArtistClearart: "https://www.theaudiodb.com/images/media/artist/clearart/wuvpwv1511279679.png",
+        strArtistWideThumb: "https://www.theaudiodb.com/images/media/artist/widethumb/ypruuq1519404182.jpg",
+        strArtistFanart: "https://www.theaudiodb.com/images/media/artist/fanart/knowles-beyonc-508490b41bf26.jpg",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/knowles-beyonc-508490b420589.jpg",
+        strArtistFanart3: "https://www.theaudiodb.com/images/media/artist/fanart/qrkqsc1613565689.jpg",
+        strArtistFanart4: "https://www.theaudiodb.com/images/media/artist/fanart/hj0dgm1613565658.jpg",
+        strArtistBanner: "https://www.theaudiodb.com/images/media/artist/banner/srwqvy1359206111.jpg",
+        strMusicBrainzID: "859d0860-d480-4efd-970c-c05d5f1776b8",
+        strISNIcode: nil,
+        strLastFMChart: nil,
+        intCharted: "4",
+        strLocked: "unlocked"
     )
     
     static let brunoMars = Artist(
+        idArtist: "111674",
         strArtist: "Bruno Mars",
-        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/ttrsxx1347284576.jpg",
-        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/tuwvsr1359652285.jpg",
+        strArtistStripped: nil,
+        strArtistAlternate: "Peter Gene Hernandez",
+        strLabel: "Atlantic",
+        idLabel: "46413",
+        intFormedYear: "2005",
+        intBornYear: "1985",
+        intDiedYear: nil,
+        strDisbanded: nil,
+        strStyle: "Rock/Pop",
+        strGenre: "Pop",
+        strMood: "Philosophical",
+        strWebsite: "www.brunomars.com",
+        strFacebook: "www.facebook.com/thatbrunomars",
+        strTwitter: "1",
         strBiographyEN: "Peter Gene Hernandez (born October 8, 1985), professionally known by his stage name Bruno Mars, is an American singer, songwriter, record producer, and choreographer. Born and raised in Honolulu, Hawaii, by a family of musicians, Mars began making music at a young age and performed in various musical venues in his hometown throughout his childhood. He graduated from high school and moved to Los Angeles to pursue a musical career. Mars produced songs for other artists, co-founding the production team The Smeezingtons. Mars had an unsuccessful stint with Motown Records, but then signed with Atlantic in 2009. He became recognized as a solo artist after lending his vocals to the songs \"Nothin' on You\" by B.o.B and \"Billionaire\" by Travie McCoy, which were international successes, and for which he co-wrote the hooks. His debut studio album, Doo-Wops & Hooligans (2010), was anchored by the U.S. Billboard Hot 100 chart-topping singles \"Just the Way You Are\" and \"Grenade\", as well as the number-five single \"The Lazy Song\". His second album, Unorthodox Jukebox, released in 2012, peaked at number one in the United States. The album spawned the international singles \"Locked Out of Heaven\", \"When I Was Your Man\" and \"Treasure\". Mars has received many awards and nominations, including four Grammy Awards and was named one of Time's 100 most influential people in the world in 2011. In December 2013, he was named \"Artist of the Year\" by Billboard and ranked number one on the Forbes 30 under 30 list. Throughout his singing career, he has sold over 100 million singles and albums worldwide, making him one of the best-selling artists of all time. However, as a performer, writer and producer his total sales surpass 130 million singles. Five of his singles are counted among the best-selling singles of all time. Mars has landed five number-one singles on the Billboard Hot 100 since his career launched in 2010, faster than any male singer since Elvis Presley. In total, he has had six number-one singles on the Hot 100 chart. Mars is known for his stage performances and retro showmanship. He is accompanied by his band, The Hooligans, which besides playing a variety of instruments such as electric guitar, bass, piano, keyboards, drums and horns, also serves as dancers and background singers. On stage, Mars is able to sing, dance and play a wide range of musical styles, including R&B, reggae and funk.",
         strCountry: "Honolulu, Hawaii, USA",
-        strGenre: "Pop"
+        strCountryCode: "US",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/tuwvsr1359652285.jpg",
+        strArtistLogo: "https://www.theaudiodb.com/images/media/artist/logo/xsryxp1530816806.png",
+        strArtistCutout: "https://www.theaudiodb.com/images/media/artist/cutout/om8kba1641554731.png",
+        strArtistClearart: "https://www.theaudiodb.com/images/media/artist/clearart/uuqyup1515331001.png",
+        strArtistWideThumb: "https://www.theaudiodb.com/images/media/artist/widethumb/uurttt1530816876.jpg",
+        strArtistFanart: "https://www.theaudiodb.com/images/media/artist/fanart/xpqtww1347284568.jpg",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/ttrsxx1347284576.jpg",
+        strArtistFanart3: "https://www.theaudiodb.com/images/media/artist/fanart/svxtrs1347284582.jpg",
+        strArtistFanart4: "https://www.theaudiodb.com/images/media/artist/fanart/qoh8pt1612948926.jpg",
+        strArtistBanner: "https://www.theaudiodb.com/images/media/artist/banner/vytrrs1347284597.jpg",
+        strMusicBrainzID: "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+        strISNIcode: nil,
+        strLastFMChart: "http://www.last.fm/music/Bruno Mars/+charts?rangetype=6month",
+        intCharted: "3",
+        strLocked: "unlocked"
     )
-    
+
+
+
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
         Concert(
