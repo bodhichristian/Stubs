@@ -1,5 +1,5 @@
 # Stubs
-A SwiftUI app for storing digital representations of concert ticket stubs. This is a demonstration app that incorporates iOS 17 features announced at WWDC23.
+A SwiftUI app for storing digital representations of concert ticket stubs. The ticket stub data is used to search for venues on a map, and query related artist details, like images, biography, and discography. 
 
 <b>Stubs</b> benefits from:
 * SwiftData for persistence
