@@ -18,6 +18,8 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
+    @State private var gridView = false
+    
     private var artists: [Artist] {
         var artists = [Artist]()
         for concert in concerts {
@@ -32,7 +34,6 @@ struct ArtistsView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
                 List {
                     ForEach(artists, id: \.strArtist){ artist in
                         NavigationLink {
@@ -55,12 +56,24 @@ struct ArtistsView: View {
                             
                         }
                     }
-                }
                 
                 
             }
             .navigationTitle("Artists")
-            
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        gridView.toggle()
+                    } label: {
+                        Label(
+                            "Toggle List View",
+                            systemImage: gridView
+                            ? "list.bullet"
+                            : "square.grid.2x2"
+                        )
+                    }
+                }
+            }
         }
         
     }

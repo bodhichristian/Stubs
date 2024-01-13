@@ -34,16 +34,6 @@ struct StubCollection: View {
                     
                     List {
                         
-//                        Section("TESTING") {
-//                            NavigationLink {
-//                                ArtistDetailView(concert: SampleData.concerts[30])
-//                            } label: {
-//                                Text("Artist Search Proto")
-//                            }
-//                        }
-                        
-                        
-                        
                         // Sort concerts in reverse chronological order
                         ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
                             
