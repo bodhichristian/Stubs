@@ -133,6 +133,43 @@ struct SampleData {
         strLocked: "unlocked"
     )
     
+    static let billyJoel = Artist(
+        idArtist: "119230",
+        strArtist: "Billy Joel",
+        strArtistStripped: nil,
+        strArtistAlternate: "",
+        strLabel: nil,
+        idLabel: nil,
+        intFormedYear: "1964",
+        intBornYear: "1949",
+        intDiedYear: nil,
+        strDisbanded: nil,
+        strStyle: "Rock/Pop",
+        strGenre: "Pop",
+        strMood: "Happy",
+        strWebsite: "www.billyjoel.com",
+        strFacebook: "",
+        strTwitter: "1",
+        strBiographyEN: "William Martin \"Billy\" Joel (born May 9, 1949, New York, USA) is an American pianist, singer-songwriter, and composer. Since releasing his first hit song, \"Piano Man\", in 1973, Joel has become the sixth-best-selling recording artist and the third-best-selling solo artist in the United States, according to the RIAA. His compilation album Greatest Hits Vol. 1 & 2 is the third-best-selling album in the United States by discs shipped. Joel had Top 40 hits in the 1970s, 1980s, and 1990s, achieving 33 Top 40 hits in the United States, all of which he wrote himself. He is also a six-time Grammy Award winner, a 23-time Grammy nominee and one of the world's best-selling artists of all time, having sold over 150 million records worldwide. He was inducted into the Songwriter's Hall of Fame (1992), the Rock and Roll Hall of Fame (1999), and the Long Island Music Hall of Fame (2006). In 2008, Billboard magazine released a list of the Hot 100 All-Time Top Artists to celebrate the US singles chart's 50th anniversary, with Billy Joel positioned at No. 23. With the exception of the 2007 songs \"All My Life\" and \"Christmas in Fallujah\", Joel stopped writing and recording popular music after 1993's River of Dreams, but he continued to tour extensively until 2010. Joel was born in the Bronx, May 9, 1949 and raised in Hicksville, New York in a Levitt home. His father, Howard (born Helmuth), was born in Germany, the son of German merchant and manufacturer Karl Amson Joel, who, after the advent of the Nazi regime, emigrated to Switzerland and later to the United States. Billy Joel's mother, Rosalind Nyman, was born in England to Philip and Rebecca Nyman. Both of Joel's parents were Jewish. They divorced in 1960, and his father moved to Vienna, Austria. Billy has a sister, Judith Joel, and a half-brother, Alexander Joel, who is an acclaimed classical conductor in Europe and currently chief musical director of the Staatstheater Braunschweig. Joel's father was an accomplished classical pianist. Billy reluctantly began piano lessons at an early age, at his mother's insistence; his teachers included the noted American pianist Morton Estrin and musician/songwriter Timothy Ford. His interest in music, rather than sports, was a source of teasing and bullying in his early years. (He has said in interviews that his piano instructor also taught ballet. Her name was Frances Neiman, and she was a Juilliard trained musician. She gave both classical piano and ballet lessons in the studio attached to the rear of her house, leading neighborhood bullies to mistakenly assume that he was learning to dance.) As a teenager, Joel took up boxing so that he would be able to defend himself. He boxed successfully on the amateur Golden Gloves circuit for a short time, winning twenty-two bouts, but abandoned the sport shortly after breaking his nose in his twenty-fourth boxing match. Joel attended Hicksville High School in 1967, but he did not graduate with his class. He had been helping his single mother make ends meet by playing at a piano bar, which interfered with his school attendance. At the end of his senior year, Joel did not have enough credits to graduate. Rather than attend summer school to earn his diploma, however, Joel decided to immediately begin a career in music. Joel recounted, \"I told them, 'To hell with it. If I'm not going to Columbia University, I'm going to Columbia Records, and you don't need a high school diploma over there'.\" Columbia did, in fact, become the label that eventually signed him. In 1992, he submitted essays to the school board and was awarded his diploma at Hicksville High's annual graduation ceremony, 25 years after he had left.",
+        strCountry: "New York, USA",
+        strCountryCode: "US",
+        strArtistThumb: "https://www.theaudiodb.com/images/media/artist/thumb/ttsxwr1425765041.jpg",
+        strArtistLogo: "https://www.theaudiodb.com/images/media/artist/logo/lsvc2b1668294822.png",
+        strArtistCutout: nil,
+        strArtistClearart: "https://www.theaudiodb.com/images/media/artist/clearart/yqpsuq1523892204.png",
+        strArtistWideThumb: "https://www.theaudiodb.com/images/media/artist/widethumb/tywpqx1530815867.jpg",
+        strArtistFanart: "https://www.theaudiodb.com/images/media/artist/fanart/ys0l7m1632531986.jpg",
+        strArtistFanart2: "https://www.theaudiodb.com/images/media/artist/fanart/r57eq71632532127.jpg",
+        strArtistFanart3: "https://www.theaudiodb.com/images/media/artist/fanart/syysww1367246354.jpg",
+        strArtistFanart4: "https://www.theaudiodb.com/images/media/artist/fanart/fxit4g1632532182.jpg",
+        strArtistBanner: "https://www.theaudiodb.com/images/media/artist/banner/yrxupv1385482876.jpg",
+        strMusicBrainzID: "64b94289-9474-4d43-8c93-918ccc1920d1",
+        strISNIcode: nil,
+        strLastFMChart: nil,
+        intCharted: "3",
+        strLocked: "unlocked"
+    )
+
     static let brunoMars = Artist(
         idArtist: "111674",
         strArtist: "Bruno Mars",
@@ -169,8 +206,6 @@ struct SampleData {
         intCharted: "3",
         strLocked: "unlocked"
     )
-
-
 
     // Create a static array of Sample Concerts
     static let concerts: [Concert] = [
@@ -365,8 +400,8 @@ struct SampleData {
             accentColor: StubStyle.colors.randomElement()!,
             notes: "A mix of old hits and new tracks - great balance. The crowd sang along to every word. The band's energy was contagious.",
             venueLatitude: 40.6829,
-            venueLongitude: -73.9752,
-            artist: SampleData.bmth
+            venueLongitude: -73.9752
+            //artist: SampleData.bmth
             
         ),
         
@@ -380,8 +415,8 @@ struct SampleData {
             notes: "The audience was entranced as Bring Me The Horizon delivered a mind-blowing performance at Zepp DiverCity.",
             isFavorite: true,
             venueLatitude: 35.6251,
-            venueLongitude: 139.7752,
-            artist: SampleData.bmth
+            venueLongitude: 139.7752
+            //artist: SampleData.bmth
             
         ),
         
@@ -427,8 +462,8 @@ struct SampleData {
             notes: "The energy was palpable as Bring Me The Horizon took over the Aragon Ballroom with their electrifying performance.",
             isFavorite: true,
             venueLatitude: 41.9694,
-            venueLongitude: -87.658,
-            artist: SampleData.bmth
+            venueLongitude: -87.658
+            //artist: SampleData.bmth
             
         ),
         
@@ -444,8 +479,8 @@ struct SampleData {
             notes: "Bring Me The Horizon unleashed a fierce set at Alexandra Palace, with fans echoing every lyric.",
             isFavorite: true,
             venueLatitude: 51.5942,
-            venueLongitude: -0.1308,
-            artist: SampleData.bmth
+            venueLongitude: -0.1308
+            //artist: SampleData.bmth
             
         ),
         
