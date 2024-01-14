@@ -18,7 +18,11 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
-    @State private var gridView = false
+    @State private var listView = true
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     private var artists: [Artist] {
         var artists = [Artist]()
@@ -34,42 +38,71 @@ struct ArtistsView: View {
     
     var body: some View {
         NavigationStack {
-                List {
-                    ForEach(artists, id: \.strArtist){ artist in
-                        NavigationLink {
-                            ArtistDetailView(artist: artist)
-                        } label: {
+            Group {
+                
+                if listView {
+                    List {
+                        ForEach(artists, id: \.strArtist){ artist in
                             
                             
-                            
-                            HStack {
+                            NavigationLink {
+                                ArtistDetailView(artist: artist)
+                            } label: {
                                 
-                                ArtistDetailProfileImage(artist: artist, width: 40)
-                            
-                                Text(artist.strArtist ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.semibold)
+                                
+                                
+                                HStack {
+                                    
+                                    ArtistDetailProfileImage(artist: artist, width: 40)
+                                    
+                                    Text(artist.strArtist ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.semibold)
+                                    
+                                    
+                                }
                                 
                                 
                             }
-                            
-                            
                         }
+                        
+                        
                     }
-                
-                
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(artists, id: \.strArtist){ artist in
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundStyle(.ultraThinMaterial)
+                                    
+                                    VStack {
+                                        ArtistDetailProfileImage(artist: artist, width: 50)
+                                        Text(artist.strArtist ?? "")
+                                            .font(.headline)
+                                            .fontWeight(.semibold)
+                                            .lineLimit(1)
+                                    }
+                                    .padding()
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                }
             }
             .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {
                     Button {
-                        gridView.toggle()
+                        listView.toggle()
                     } label: {
                         Label(
                             "Toggle List View",
-                            systemImage: gridView
-                            ? "list.bullet"
-                            : "square.grid.2x2"
+                            systemImage: listView
+                            ? "square.grid.2x2"
+                            : "list.bullet"
                         )
                     }
                 }
