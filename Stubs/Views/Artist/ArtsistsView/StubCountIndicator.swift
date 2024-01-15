@@ -23,7 +23,7 @@ struct StubCountIndicator: View {
         var count = 0
         
         for concert in concerts {
-            if concert.artistName == artist.strArtist {
+            if concert.artistName.lowercased() == artist.strArtist?.lowercased() {
                 count += 1
             }
         }
