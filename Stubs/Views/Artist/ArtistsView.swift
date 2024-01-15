@@ -18,10 +18,10 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
-    @State private var listView = true
+    @State private var listView = false
     
     let columns = [
-        GridItem(.adaptive(minimum: 150))
+        GridItem(.adaptive(minimum: 120))
     ]
     
     private var artists: [Artist] {
@@ -73,19 +73,33 @@ struct ArtistsView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(artists, id: \.strArtist){ artist in
                                 
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundStyle(.ultraThinMaterial)
-                                    
-                                    VStack {
-                                        ArtistDetailProfileImage(artist: artist, width: 50)
-                                        Text(artist.strArtist ?? "")
-                                            .font(.headline)
-                                            .fontWeight(.semibold)
-                                            .lineLimit(1)
+                                
+                                NavigationLink {
+                                    ArtistDetailView(artist: artist)
+                                } label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 20)
+                
+                                            .foregroundStyle(.ultraThinMaterial)
+                                        
+                                        
+                                        VStack {
+                                            ArtistDetailProfileImage(artist: artist, width: 70)
+
+                                            Text(artist.strArtist ?? "")
+                                                .font(.headline)
+                                                .fontWeight(.semibold)
+                                                .multilineTextAlignment(.center)
+                                                .lineLimit(3)
+                                                    
+                                            Spacer()
+                                        }
+                                        .padding([.top, .horizontal])
                                     }
-                                    .padding()
                                 }
+                                .frame(minHeight: 150)
+
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.horizontal)
@@ -96,7 +110,8 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        listView.toggle()
+                            listView.toggle()
+                        
                     } label: {
                         Label(
                             "Toggle List View",
