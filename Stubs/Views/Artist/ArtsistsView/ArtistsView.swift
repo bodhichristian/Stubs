@@ -84,8 +84,9 @@ struct ArtistsView: View {
                                         
                                         
                                         VStack {
-                                            ArtistDetailProfileImage(artist: artist, width: 70)
-
+                                            ArtistDetailProfileImage(artist: artist, width: 75)
+                                                
+                                            Spacer()
                                             Text(artist.strArtist ?? "")
                                                 .font(.headline)
                                                 .fontWeight(.semibold)

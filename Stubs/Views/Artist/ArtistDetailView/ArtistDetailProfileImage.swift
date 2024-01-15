@@ -21,7 +21,7 @@ struct ArtistDetailProfileImage: View {
                 .frame(width: width)
                 .clipShape(Circle())
                 .opacity(imageOpacity)
-                .shadow(radius: 5,  y: width * 0.07)
+                //.shadow(radius: 5,  y: width * 0.07)
                 .padding(.horizontal, 10)
                 .onAppear {
                     withAnimation(.easeInOut(duration: 1.5)){

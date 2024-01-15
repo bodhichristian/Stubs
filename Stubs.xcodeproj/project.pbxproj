@@ -116,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA2A038F2B555A69002C1071 /* ArtsistsView */ = {
+			isa = PBXGroup;
+			children = (
+				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
+			);
+			path = ArtsistsView;
+			sourceTree = "<group>";
+		};
 		AA48FED32A64E51C005BA775 /* StubCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +182,7 @@
 		AA5E74F82B3EFF8A005DBD87 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
-				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
+				AA2A038F2B555A69002C1071 /* ArtsistsView */,
 				AA87B0D52B47AEF60071DB44 /* Album */,
 				AA5E74E42B3DAA43005DBD87 /* ArtistDetailView */,
 			);
