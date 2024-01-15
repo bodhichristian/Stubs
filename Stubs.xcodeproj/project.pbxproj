@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
+		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
+		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
+				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 			);
 			path = ArtsistsView;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */,
 				AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */,
 				AA8A74892A32D65E003E9B41 /* SampleData.swift in Sources */,
+				AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */,
 				AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */,
 				AAC4D4E02B2FF4E00098D28D /* StubThumbnail.swift in Sources */,
 				AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */,

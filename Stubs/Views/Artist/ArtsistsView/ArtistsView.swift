@@ -84,8 +84,10 @@ struct ArtistsView: View {
                                         
                                         
                                         VStack {
-                                            ArtistDetailProfileImage(artist: artist, width: 75)
-                                                
+                                            ZStack(alignment: .bottomTrailing) {
+                                                ArtistDetailProfileImage(artist: artist, width: 75)
+                                                StubCountIndicator()
+                                            }
                                             Spacer()
                                             Text(artist.strArtist ?? "")
                                                 .font(.headline)
