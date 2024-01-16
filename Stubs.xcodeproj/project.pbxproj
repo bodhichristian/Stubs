@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
+		AA2A03952B56E063002C1071 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03942B56E063002C1071 /* ImageLoader.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
+		AA2A03942B56E063002C1071 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
+				AA2A03942B56E063002C1071 /* ImageLoader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				AA5615F82B27AB5B00A35D4A /* AlbumService.swift in Sources */,
 				AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
+				AA2A03952B56E063002C1071 /* ImageLoader.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,

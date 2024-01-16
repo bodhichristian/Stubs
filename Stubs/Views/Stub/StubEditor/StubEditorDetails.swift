@@ -66,6 +66,29 @@ struct StubEditorDetails: View {
         }
         .onChange(of: artistService.singleArtistSearchResponse) { oldValue, newValue in
             concert.artist = newValue.first
+            
+            fetchImageData(from: newValue.first?.strArtistThumb ?? "") { data in
+                concert.imageData = data
+            }
         }
+    }
+}
+
+
+extension StubEditorDetails {
+    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(data)
+        }
+        task.resume()
     }
 }

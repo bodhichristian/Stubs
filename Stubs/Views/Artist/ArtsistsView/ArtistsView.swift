@@ -27,6 +27,7 @@ struct ArtistsView: View {
         GridItem(.adaptive(minimum: 120))
     ]
     
+    
     private var artists: [Artist] {
         var artists = [Artist]()
         for concert in concerts {
@@ -56,8 +57,44 @@ struct ArtistsView: View {
                                 
                                 HStack {
                                     
-                                    ArtistDetailProfileImage(artist: artist, width: 40)
-                                        .matchedGeometryEffect(id: "artistImage", in: namespace)
+                                    
+//                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { phase in
+//                                        switch phase {
+//                                            case .empty:
+//                                                ProgressView()
+//                                            case .success(let image):
+//                                                image.resizable()
+//                                            case .failure:
+//                                                Text("Image not available")
+//                                            default:
+//                                                EmptyView()
+//                                        }
+//                                    }
+//                                    
+//                                    
+                                    
+                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+                                        image
+                                            .resizable()
+                                            .matchedGeometryEffect(id: artist.strArtist, in: namespace)
+                                            .scaledToFit()
+                                            .frame(width: 40)
+                                            .clipShape(Circle())
+                                            //.opacity(imageOpacity)
+//                                                        .onAppear {
+//                                                            withAnimation(.easeInOut(duration: 1.5)){
+//                                                                imageOpacity = 1.0
+//                                                            }
+//                                                        }
+                                        
+                                    } placeholder: {
+                                        
+                                        Circle()
+                                            .foregroundStyle(.gray)
+                                            .frame(width: 75)
+                                            .padding()
+                                        
+                                    }
                                     Text(artist.strArtist ?? "")
                                         .font(.headline)
                                         .fontWeight(.semibold)
@@ -88,8 +125,38 @@ struct ArtistsView: View {
                                         
                                         VStack {
                                             ZStack(alignment: .bottomTrailing) {
-                                                ArtistDetailProfileImage(artist: artist, width: 75)
-                                                    .matchedGeometryEffect(id: "artistImage", in: namespace)
+
+                                                
+                                                
+                                                
+                                                AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+                                                    image
+                                                        .resizable()
+                                                        .matchedGeometryEffect(id: artist.strArtist, in: namespace)
+                                                        .scaledToFit()
+                                                        .frame(width: 75)
+                                                        .clipShape(Circle())
+                                                        //.opacity(imageOpacity)
+//                                                        .onAppear {
+//                                                            withAnimation(.easeInOut(duration: 1.5)){
+//                                                                imageOpacity = 1.0
+//                                                            }
+//                                                        }
+                                                    
+                                                } placeholder: {
+                                                    
+                                                    Circle()
+                                                        .foregroundStyle(.gray)
+                                                        .frame(width: 75)
+                                                        .padding()
+                                                    
+                                                }
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
                                                 StubCountIndicator(artist: artist)
                                             }
                                             Spacer()

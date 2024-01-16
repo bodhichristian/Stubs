@@ -30,6 +30,9 @@ final class Concert {
     
     var artist: Artist?
     
+    @Attribute(.externalStorage)
+    var imageData: Data?
+    
     init(
         uuid: UUID = UUID(),
         artistName: String,
