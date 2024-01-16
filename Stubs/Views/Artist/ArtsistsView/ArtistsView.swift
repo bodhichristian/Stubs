@@ -16,9 +16,12 @@ struct ArtistsView: View {
     
     @Query var concerts: [Concert]
     
+    @Namespace var namespace
+    
     @State private var model = ArtistService()
     
     @State private var listView = false
+    
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -54,7 +57,7 @@ struct ArtistsView: View {
                                 HStack {
                                     
                                     ArtistDetailProfileImage(artist: artist, width: 40)
-                                    
+                                        .matchedGeometryEffect(id: "artistImage", in: namespace)
                                     Text(artist.strArtist ?? "")
                                         .font(.headline)
                                         .fontWeight(.semibold)
@@ -86,6 +89,7 @@ struct ArtistsView: View {
                                         VStack {
                                             ZStack(alignment: .bottomTrailing) {
                                                 ArtistDetailProfileImage(artist: artist, width: 75)
+                                                    .matchedGeometryEffect(id: "artistImage", in: namespace)
                                                 StubCountIndicator(artist: artist)
                                             }
                                             Spacer()
