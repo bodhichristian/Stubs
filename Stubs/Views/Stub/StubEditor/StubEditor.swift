@@ -16,8 +16,10 @@ struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
     
+    @Query var artists: [Artist]
+    
     @State private var artist = Artist()
-
+    
     @State private var newConcert = Concert(
         artistName: "",
         venue: "",
@@ -76,7 +78,7 @@ struct StubEditor: View {
 
 
 extension StubEditor {
-
+    
     // MARK: - Computed Properties
     
     // Returns true if any field is empty
@@ -87,18 +89,18 @@ extension StubEditor {
     }
     
     // MARK: - Methods
-
+    
     // MARK: addConcert()
     /**
      Adds a concert after retrieving and storing its coordinates.
-
+     
      Retrieves coordinates asynchronously for a new concert and updates concert details.
      Handles errors by printing them to the console.
      Inserts updated concert details into the model context.
-
+     
      No parameters or return value.
      Uses `Task` for concurrency and error handling within async context.
-    */
+     */
     private func addConcert() {
         
         // Start asynchronous task to fetch coordinates
@@ -113,12 +115,19 @@ extension StubEditor {
                 
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
-                if artist.artistName != nil {
+                
+                // If artist has been updated with a name value
+                if artist.artistName != nil
+                    // AND the artist does not already appear in the Query
+                    && !artists.contains(
+                        // Assess by name
+                        where: {$0.artistName == artist.artistName}
+                    ) {
                     modelContext.insert(artist)
                 }
                 dismiss()
-                    
-
+                
+                
             } catch let error {
                 // Print error if unable to get coordinates
                 print(error.localizedDescription)
@@ -140,14 +149,14 @@ extension StubEditor {
     // MARK: - getCoordinates(for:)
     /**
      Retrieves coordinates for given concert details.
-
+     
      - Parameters:
-         - concert: `Concert`
+     - concert: `Concert`
      - Returns: Tuple containing latitude and longitude of the concert venue.
-
+     
      Uses MKLocalSearch to query based on concert venue and city. Converts query response to geographic coordinates.
      Throws error if unable to find location or extract coordinates from response.
-    */
+     */
     private func getCoordinates(
         for concert: Concert
     ) async throws -> (latitude: Double, longitude: Double) {
