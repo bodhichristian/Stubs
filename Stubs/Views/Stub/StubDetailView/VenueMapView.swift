@@ -86,7 +86,3 @@ struct VenueMapView: View {
         }
     }
 }
-
-#Preview {
-    VenueMapView(concert: SampleData.concerts[0])
-}

@@ -15,7 +15,7 @@ import SwiftData
 struct ArtistsView: View {
     
     @Query var concerts: [Concert]
-    
+    @Query var artists: [Artist]
     @Namespace var namespace
     
     @State private var model = ArtistService()
@@ -28,90 +28,90 @@ struct ArtistsView: View {
     ]
     
     
-    private var artists: [Artist] {
-        var artists = [Artist]()
-        for concert in concerts {
-            if let artist = concert.artist {
-                artists.append(artist)
-            }
-        }
-        let uniqueArtists = Set(artists)
-        let sortedArists = Array(uniqueArtists).sorted { $0.strArtist ?? "" < $1.strArtist ?? "" }
-        return sortedArists
-    }
+//    private var artists: [Artist] {
+//        var artists = [Artist]()
+//        for concert in concerts {
+//            if let artist = concert.artist {
+//                artists.append(artist)
+//            }
+//        }
+//        let uniqueArtists = Set(artists)
+//        let sortedArists = Array(uniqueArtists).sorted { $0.artistName ?? "" < $1.artistName ?? "" }
+//        return sortedArists
+//    }
     
     var body: some View {
         NavigationStack {
-            Group {
                 
-                if listView {
-                    List {
-                        ForEach(artists, id: \.strArtist){ artist in
-                            
-                            
-                            NavigationLink {
-                                ArtistDetailView(artist: artist)
-                            } label: {
-                                
-                                
-                                
-                                HStack {
-                                    
-                                    
-//                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { phase in
-//                                        switch phase {
-//                                            case .empty:
-//                                                ProgressView()
-//                                            case .success(let image):
-//                                                image.resizable()
-//                                            case .failure:
-//                                                Text("Image not available")
-//                                            default:
-//                                                EmptyView()
-//                                        }
+//                if listView {
+//                    Text("hi")
+//                    List {
+//                        ForEach(artists, id: \.artistID){ artist in
+//                            
+//                            
+//                            NavigationLink {
+//                                ArtistDetailView(artist: artist)
+//                            } label: {
+//                                
+//                                
+//                                
+//                                HStack {
+//                                    
+//                                    
+////                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { phase in
+////                                        switch phase {
+////                                            case .empty:
+////                                                ProgressView()
+////                                            case .success(let image):
+////                                                image.resizable()
+////                                            case .failure:
+////                                                Text("Image not available")
+////                                            default:
+////                                                EmptyView()
+////                                        }
+////                                    }
+////                                    
+////                                    
+//                                    
+//                                    AsyncImage(url: URL(string: artist.artistImageURL ?? "")) { image in
+//                                        image
+//                                            .resizable()
+//                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
+//                                            .scaledToFit()
+//                                            .frame(width: 40)
+//                                            .clipShape(Circle())
+//                                            //.opacity(imageOpacity)
+////                                                        .onAppear {
+////                                                            withAnimation(.easeInOut(duration: 1.5)){
+////                                                                imageOpacity = 1.0
+////                                                            }
+////                                                        }
+//                                        
+//                                    } placeholder: {
+//                                        
+//                                        Circle()
+//                                            .foregroundStyle(.gray)
+//                                            .frame(width: 75)
+//                                            .padding()
+//                                        
 //                                    }
+//                                    Text(artist.artistName ?? "")
+//                                        .font(.headline)
+//                                        .fontWeight(.semibold)
 //                                    
 //                                    
-                                    
-                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
-                                        image
-                                            .resizable()
-                                            .matchedGeometryEffect(id: artist.strArtist, in: namespace)
-                                            .scaledToFit()
-                                            .frame(width: 40)
-                                            .clipShape(Circle())
-                                            //.opacity(imageOpacity)
-//                                                        .onAppear {
-//                                                            withAnimation(.easeInOut(duration: 1.5)){
-//                                                                imageOpacity = 1.0
-//                                                            }
-//                                                        }
-                                        
-                                    } placeholder: {
-                                        
-                                        Circle()
-                                            .foregroundStyle(.gray)
-                                            .frame(width: 75)
-                                            .padding()
-                                        
-                                    }
-                                    Text(artist.strArtist ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.semibold)
-                                    
-                                    
-                                }
-                                
-                                
-                            }
-                        }
-                        
-                        
-                    }
-                } else {
+//                                }
+//                                
+//                                
+//                            }
+//                        }
+//                        
+//                        
+//                    }
+//                } else {
                     ScrollView {
                         LazyVGrid(columns: columns) {
-                            ForEach(artists, id: \.strArtist){ artist in
+                            ForEach(artists, id: \.artistID){ artist in
                                 
                                 
                                 NavigationLink {
@@ -129,10 +129,10 @@ struct ArtistsView: View {
                                                 
                                                 
                                                 
-                                                AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+                                                AsyncImage(url: URL(string: artist.artistImageURL ?? "")) { image in
                                                     image
                                                         .resizable()
-                                                        .matchedGeometryEffect(id: artist.strArtist, in: namespace)
+                                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                                         .scaledToFit()
                                                         .frame(width: 75)
                                                         .clipShape(Circle())
@@ -160,7 +160,7 @@ struct ArtistsView: View {
                                                 StubCountIndicator(artist: artist)
                                             }
                                             Spacer()
-                                            Text(artist.strArtist ?? "")
+                                            Text(artist.artistName ?? "")
                                                 .font(.headline)
                                                 .fontWeight(.semibold)
                                                 .multilineTextAlignment(.center)
@@ -178,8 +178,8 @@ struct ArtistsView: View {
                         }
                         .padding(.horizontal)
                     }
-                }
-            }
+                
+            
             .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {

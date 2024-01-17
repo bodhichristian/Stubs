@@ -38,7 +38,3 @@ struct RelatedStubScrollView: View {
         }
     }
 }
-
-#Preview {
-    RelatedStubScrollView(selectedConcert: .constant(SampleData.concerts[0]), concerts: [SampleData.concerts[0]])
-}

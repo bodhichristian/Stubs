@@ -20,9 +20,7 @@ import Foundation
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
         
-        let urlStringPrefix = "https://theaudiodb.p.rapidapi.com/search.php?s="
-        print("here")
-        
+        let urlStringPrefix = "https://theaudiodb.p.rapidapi.com/search.php?s="        
         
         let artistSnakeCase = artistName.replacingOccurrences(of: " ", with: "_")
         
@@ -48,7 +46,7 @@ import Foundation
                 let artistSearchResponse = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
                 self?.singleArtistSearchResponse = artistSearchResponse.artists
                 
-                print("Artist is \(artistSearchResponse.artists.first?.strArtistThumb ?? "")")
+                print("Artist is \(artistSearchResponse.artists.first?.artistImageURL ?? "")")
                 
                 
             } catch {

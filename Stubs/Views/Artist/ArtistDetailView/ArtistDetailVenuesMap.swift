@@ -103,8 +103,3 @@ struct ArtistDetailVenuesMap: View {
         )
     }
 }
-
-
-#Preview {
-    ArtistDetailVenuesMap(concerts: SampleData.concerts)
-}

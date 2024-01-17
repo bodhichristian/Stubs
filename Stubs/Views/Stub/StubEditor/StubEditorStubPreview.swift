@@ -108,6 +108,3 @@ struct StubEditorStubPreview: View {
         .frame(maxHeight: 320)
     }
 }
-#Preview {
-    StubEditorStubPreview(concert: SampleData.concerts[0])
-}

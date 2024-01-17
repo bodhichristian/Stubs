@@ -29,7 +29,3 @@ struct ArtistStubsLabel: View {
         .frame(maxWidth: 90)
     }
 }
-
-#Preview {
-    ArtistStubsLabel(concert: SampleData.concerts[0])
-}

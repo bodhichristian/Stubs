@@ -106,6 +106,3 @@ struct StubNotesView: View {
     }
 }
 
-#Preview {
-    StubNotesView(concert: .constant(SampleData.concerts[0]), isEditing: .constant(false))
-}

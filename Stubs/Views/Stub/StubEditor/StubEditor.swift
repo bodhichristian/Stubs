@@ -16,7 +16,7 @@ struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
     
-    @State private var artist: Artist?
+    @State private var artist = Artist()
 
     @State private var newConcert = Concert(
         artistName: "",
@@ -39,7 +39,7 @@ struct StubEditor: View {
             Form {
                 StubEditorStubPreview(concert: newConcert)
                 
-                StubEditorDetails(concert: $newConcert)
+                StubEditorDetails(concert: $newConcert, artist: $artist)
                 
                 StubEditorIconSelector(iconName: $newConcert.iconName)
                 
@@ -113,7 +113,11 @@ extension StubEditor {
                 
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
+                if artist.artistName != nil {
+                    modelContext.insert(artist)
+                }
                 dismiss()
+                    
 
             } catch let error {
                 // Print error if unable to get coordinates

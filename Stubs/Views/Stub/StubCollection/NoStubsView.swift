@@ -37,7 +37,7 @@ struct NoStubsView: View {
             
 #if DEBUG
             Button { // Generate Sample Data
-                SampleData().addSampleData(to: modelContext)
+                //SampleData().addSampleData(to: modelContext)
                 
             } label: {
                 Text("Add Sample Data")

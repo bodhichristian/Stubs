@@ -62,12 +62,3 @@ struct ActionButton: View {
         
     }
 }
-
-#Preview {
-    ActionButton(titleKey: "Favorite",
-                 systemImage: "checkmark",
-                 accentColor: .yellow,
-                 concert: .constant(SampleData.concerts[0]),
-                 action: {}
-    )
-}

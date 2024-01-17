@@ -28,10 +28,12 @@ final class Concert {
     var venueLatitude: Double
     var venueLongitude: Double
     
-    var artist: Artist?
+    var artists = [Artist]()
     
     @Attribute(.externalStorage)
-    var imageData: Data?
+    var artistImageData: Data?
+    @Attribute(.externalStorage)
+    var bannerImageData: Data?
     
     init(
         uuid: UUID = UUID(),
@@ -44,8 +46,7 @@ final class Concert {
         notes: String,
         isFavorite: Bool = false,
         venueLatitude: Double,
-        venueLongitude: Double,
-        artist: Artist? = nil
+        venueLongitude: Double
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -58,7 +59,6 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
-        self.artist = artist
     }
 }
 

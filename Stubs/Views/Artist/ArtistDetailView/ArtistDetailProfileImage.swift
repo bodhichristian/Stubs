@@ -14,7 +14,7 @@ struct ArtistDetailProfileImage: View {
     @State private var imageOpacity = 0.0
     
     var body: some View {
-        AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
+        AsyncImage(url: URL(string: artist.artistImageURL ?? "")) { image in
             image
                 .resizable()
                 .scaledToFit()

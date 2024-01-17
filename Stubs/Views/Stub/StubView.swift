@@ -122,11 +122,6 @@ struct StubView: View {
     }
 }
 
-#Preview {
-    StubView(concert: SampleData.concerts[0])
-}
-
-
 // MARK: StubStyle
 // A struct for storing styles related to Stub
 

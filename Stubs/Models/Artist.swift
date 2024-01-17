@@ -6,56 +6,89 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Artist: Codable, Hashable {
-    var idArtist: String? = nil
-    var strArtist: String? = nil
-    var strArtistStripped: String? = nil
-    var strArtistAlternate: String? = nil
-    var strLabel: String? = nil
-    var idLabel: String? = nil
-    var intFormedYear: String? = nil
-    var intBornYear: String? = nil
-    var intDiedYear: String? = nil
-    var strDisbanded: String? = nil
-    var strStyle: String? = nil
-    var strGenre: String? = nil
-    var strMood: String? = nil
-    var strWebsite: String? = nil
-    var strFacebook: String? = nil
-    var strTwitter: String? = nil
-    var strBiographyEN: String? = nil
-    var strBiographyDE: String? = nil
-    var strBiographyFR: String? = nil
-    var strBiographyCN: String? = nil
-    var strBiographyIT: String? = nil
-    var strBiographyJP: String? = nil
-    var strBiographyRU: String? = nil
-    var strBiographyES: String? = nil
-    var strBiographyPT: String? = nil
-    var strBiographySE: String? = nil
-    var strBiographyNO: String? = nil
-    var strBiographyIL: String? = nil
-    var strBiographyPL: String? = nil
-    var strGender: String? = nil
-    var intMembers: String? = nil
-    var strCountry: String? = nil
-    var strCountryCode: String? = nil
-    var strArtistThumb: String? = nil
-    var strArtistLogo: String? = nil
-    var strArtistCutout: String? = nil
-    var strArtistClearart: String? = nil
-    var strArtistWideThumb: String? = nil
-    var strArtistFanart: String? = nil
-    var strArtistFanart2: String? = nil
-    var strArtistFanart3: String? = nil
-    var strArtistFanart4: String? = nil
-    var strArtistBanner: String? = nil
-    var strMusicBrainzID: String? = nil
-    var strISNIcode: String? = nil
-    var strLastFMChart: String? = nil
-    var intCharted: String? = nil
-    var strLocked: String? = nil
+@Model
+final class Artist: Codable, Hashable {
+    enum CodingKeys: String, CodingKey {
+        case artistID = "idArtist"
+        case artistName = "strArtist"
+        case style = "strStyle"
+        case genre = "strGenre"
+        case mood = "strMood"
+        case bio = "strBiographyEN"
+        case geo = "strCountry"
+        case artistImageURL = "strArtistThumb"
+        case bannerImageURL = "strArtistFanart2"
+        
+    }
+    
+    var artistID: String? = nil
+    var artistName: String? = nil
+    var style: String? = nil
+    var genre: String? = nil
+    var mood: String? = nil
+    var bio: String? = nil
+    var geo: String? = nil
+    var artistImageURL: String? = nil
+    var bannerImageURL: String? = nil
+    
+    init(artistID: String? = nil,
+         artistName: String? = nil,
+         style: String? = nil,
+         genre: String? = nil,
+         mood: String? = nil,
+         bio: String? = nil,
+         geo: String? = nil,
+         artistImageURL: String? = nil,
+         bannerImageURL: String? = nil) {
+        self.artistID = artistID
+        self.artistName = artistName
+        self.style = style
+        self.genre = genre
+        self.mood = mood
+        self.bio = bio
+        self.geo = geo
+        self.artistImageURL = artistImageURL
+        self.bannerImageURL = bannerImageURL
+    }
+    
+    // MARK: - Codable Conformance
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        artistID = try container.decode(String.self, forKey: .artistID)
+        artistName = try container.decode(String.self, forKey: .artistName)
+        style = try container.decode(String.self, forKey: .style)
+        genre = try container.decode(String.self, forKey: .genre)
+        mood = try container.decode(String.self, forKey: .mood)
+        bio = try container.decode(String.self, forKey: .bio)
+        geo = try container.decode(String.self, forKey: .geo)
+        artistImageURL = try container.decode(String.self, forKey: .artistImageURL)
+        bannerImageURL = try container.decode(String.self, forKey: .bannerImageURL)
+
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(artistID, forKey: .artistID)
+        try container.encode(artistName, forKey: .artistName)
+        try container.encode(style, forKey: .style)
+        try container.encode(genre, forKey: .genre)
+        try container.encode(mood, forKey: .mood)
+        try container.encode(bio, forKey: .bio)
+        try container.encode(geo, forKey: .geo)
+        try container.encode(artistImageURL, forKey: .artistImageURL)
+        try container.encode(bannerImageURL, forKey: .bannerImageURL)
+    }
+    
+    // MARK: - Hashable Conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(artistID)
+    }
+    
+    static func ==(lhs: Artist, rhs: Artist) -> Bool {
+        return lhs.artistID == rhs.artistID
+    }
 }
 
 struct ArtistSearchResponse: Codable {

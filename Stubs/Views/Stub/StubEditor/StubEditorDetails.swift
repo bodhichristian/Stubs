@@ -9,7 +9,9 @@ import SwiftUI
 import MapKit
 
 struct StubEditorDetails: View {
+    @Environment(\.modelContext) private var modelContext
     @Binding var concert: Concert
+    @Binding var artist: Artist
     
     @State private var artistService = ArtistService()
     
@@ -64,11 +66,18 @@ struct StubEditorDetails: View {
                 artistService.search(for: concert.artistName)
             })
         }
-        .onChange(of: artistService.singleArtistSearchResponse) { oldValue, newValue in
-            concert.artist = newValue.first
+        .onChange(of: artistService.singleArtistSearchResponse) { _, searchResponse in
+            if let response = searchResponse.first {
+                artist = response
+                print("we did it")
+            }
+            print("we didn't")
+            fetchImageData(from: searchResponse.first?.artistImageURL ?? "") { data in
+                concert.artistImageData = data
+            }
             
-            fetchImageData(from: newValue.first?.strArtistThumb ?? "") { data in
-                concert.imageData = data
+            fetchImageData(from: searchResponse.first?.bannerImageURL ?? "") { data in
+                concert.bannerImageData = data
             }
         }
     }

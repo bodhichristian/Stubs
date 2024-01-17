@@ -22,7 +22,7 @@ struct ArtistDetailView: View {
     private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artistName == artist.strArtist })
+        return concerts.filter({$0.artistName == artist.artistName })
     }
     
     
@@ -33,7 +33,7 @@ struct ArtistDetailView: View {
             
             ZStack {
                 
-                ArtistDetailHeaderView(imageURL: artist.strArtistFanart2 ?? "", genre: artist.strGenre ?? "", country: artist.strCountry ?? "")
+                ArtistDetailHeaderView(imageURL: artist.bannerImageURL ?? "", genre: artist.genre ?? "", country: artist.geo ?? "")
                 
                 
                 
@@ -48,29 +48,31 @@ struct ArtistDetailView: View {
                                 .padding()
                             
                             
-                            AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: artistImageWidth)
-                                        .clipShape(Circle())
-                                        .opacity(imageOpacity)
-                                        .shadow(radius: 7,  y: 7)
-                                        .padding()
-                                        .onAppear {
-                                            withAnimation(.easeInOut(duration: 1.5)){
-                                                imageOpacity = 1.0
-                                            }
-                                        }
+                            if let artistImageData = filteredConcerts.first?.artistImageData,
+                               let uiImage = UIImage(data: artistImageData) {
+                                Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: artistImageWidth)
+                                .clipShape(Circle())
+                                .opacity(imageOpacity)
+                                .shadow(radius: 7,  y: 7)
+                                .padding()
+                            }
+//                                        .onAppear {
+//                                            withAnimation(.easeInOut(duration: 1.5)){
+//                                                imageOpacity = 1.0
+//                                            }
+//                                        }
                                     
-                                } placeholder: {
-                                    
-                                    Circle()
-                                        .foregroundStyle(.gray)
-                                        .frame(width: artistImageWidth)
-                                        .padding()
-                                    
-                                }
+//                                } placeholder: {
+//                                    
+//                                    Circle()
+//                                        .foregroundStyle(.gray)
+//                                        .frame(width: artistImageWidth)
+//                                        .padding()
+//                                    
+//                                }
                                 
                             
                             
@@ -119,17 +121,17 @@ struct ArtistDetailView: View {
                     
                     ScrollView {
                         
-                        Text(artist.strBiographyEN ?? "")
+                        Text(artist.bio ?? "")
                             .lineLimit(showingFullBio ? .none : 3)
                             .padding([.horizontal, .bottom])
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
-                        AlbumScrollView(artistID: artist.idArtist ?? "")
+                        AlbumScrollView(artistID: artist.artistID ?? "")
                     }
                 }
             }
-            .navigationTitle(artist.strArtist ?? "")
+            .navigationTitle(artist.artistName ?? "")
             
 
         }
