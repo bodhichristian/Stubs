@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Artist: Codable, Hashable {
+class Artist: Codable, Hashable {
     enum CodingKeys: String, CodingKey {
         case artistID = "idArtist"
         case artistName = "strArtist"
@@ -51,6 +51,7 @@ final class Artist: Codable, Hashable {
         self.geo = geo
         self.artistImageURL = artistImageURL
         self.bannerImageURL = bannerImageURL
+        print("a new artist has been born")
     }
     
     // MARK: - Codable Conformance
@@ -94,7 +95,7 @@ final class Artist: Codable, Hashable {
 struct ArtistSearchResponse: Codable {
     let artists: [Artist]
 }
-
+ 
 
 // MARK: - Sample JSON Response
 /*

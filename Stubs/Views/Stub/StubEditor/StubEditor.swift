@@ -15,12 +15,8 @@ import MapKit
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
-    
-    @Query var artists: [Artist]
-    
-    @State private var artist = Artist()
-    
-    @State private var newConcert = Concert(
+                
+    @State private var concertTemplate = Concert(
         artistName: "",
         venue: "",
         city: "",
@@ -29,25 +25,31 @@ struct StubEditor: View {
         accentColor: StubStyle.colors.randomElement()!,
         notes: "",
         venueLatitude: 0.0,
-        venueLongitude: 0.0
+        venueLongitude: 0.0,
+        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     )
     
+    @State private var fetchedArtist: Artist?
+    
+    @State private var artistService = ArtistService()
+    @State private var debounceTimer: Timer?
+
     
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             Form {
-                StubEditorStubPreview(concert: newConcert)
+                StubEditorStubPreview(concert: concertTemplate)
                 
-                StubEditorDetails(concert: $newConcert, artist: $artist)
+                StubEditorDetails(concert: concertTemplate)
                 
-                StubEditorIconSelector(iconName: $newConcert.iconName)
+                StubEditorIconSelector(iconName: $concertTemplate.iconName)
                 
-                StubEditorColorSelector(accentColor: $newConcert.accentColor)
+                StubEditorColorSelector(accentColor: $concertTemplate.accentColor)
                 
-                StubEditorNotes(concertNotes: $newConcert.notes)
+                StubEditorNotes(concertNotes: $concertTemplate.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -59,17 +61,48 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        
                         addConcert()
                     }
                     .disabled(!saveReady)
                 }
             }
+            
+            .onChange(of: concertTemplate.artistName) {
+                // Invalidate existing timer
+                debounceTimer?.invalidate()
+                
+                
+                // Start a new timer
+                debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                    print("StubEditorDetails: concert.artistName has changed")
+                    print("StubEditorDetails: now searching for \(concertTemplate.artistName)")
+                    artistService.search(for: concertTemplate.artistName)
+                })
+            }
+            
+            
+            .onChange(of: artistService.searchResponse) { _, searchResponse in
+                if let artist = searchResponse.first {
+                    print("StubEditorDetails: artist search response received.")
+                    
+                    fetchedArtist = artist
+                    print("StubEditorDetails: artist binding value has been updated.")
+                    
+                } else {
+                    print()
+                }
+                fetchImageData(from: searchResponse.first?.artistImageURL ?? "") { data in
+                    concertTemplate.artistImageData = data
+                }
+                
+                fetchImageData(from: searchResponse.first?.bannerImageURL ?? "") { data in
+                    concertTemplate.bannerImageData = data
+                }
+            }
+            
         }
         .alert(isPresented: $addConcertFailed) {
-            
             addConcertFailedAlert ?? Alert(title: Text("Error"))
-            
         }
     }
 }
@@ -83,12 +116,30 @@ extension StubEditor {
     
     // Returns true if any field is empty
     private var saveReady: Bool {
-        !newConcert.artistName.isEmpty
-        && !newConcert.venue.isEmpty
-        && !newConcert.city.isEmpty
+        !concertTemplate.artistName.isEmpty
+        && !concertTemplate.venue.isEmpty
+        && !concertTemplate.city.isEmpty
     }
     
     // MARK: - Methods
+    
+    // MARK: fetchImageData(from urlString:)
+    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(data)
+        }
+        task.resume()
+    }
+    
     
     // MARK: addConcert()
     /**
@@ -102,32 +153,27 @@ extension StubEditor {
      Uses `Task` for concurrency and error handling within async context.
      */
     private func addConcert() {
+//        if let newArtist = newConcert.artists.first {
+//            print("artist value exists")
+//            newConcert.artist = newArtist
+//            print("artist value has been assigned to newConcert.artist")
+//        }
         
         // Start asynchronous task to fetch coordinates
         Task {
             do {
                 // Attempt to get coordinates for the new concert
-                let coordinates = try await getCoordinates(for: newConcert)
+                let coordinates = try await getCoordinates(for: concertTemplate)
                 
                 // Update concert details with retrieved coordinates
-                newConcert.venueLatitude = coordinates.latitude
-                newConcert.venueLongitude = coordinates.longitude
+                concertTemplate.venueLatitude = coordinates.latitude
+                concertTemplate.venueLongitude = coordinates.longitude
                 
                 // Insert updated concert details into model context
-                modelContext.insert(newConcert)
-                
-                // If artist has been updated with a name value
-                if artist.artistName != nil
-                    // AND the artist does not already appear in the Query
-                    && !artists.contains(
-                        // Assess by name
-                        where: {$0.artistName == artist.artistName}
-                    ) {
-                    modelContext.insert(artist)
-                }
+                modelContext.insert(concertTemplate)
+
                 dismiss()
-                
-                
+                            
             } catch let error {
                 // Print error if unable to get coordinates
                 print(error.localizedDescription)

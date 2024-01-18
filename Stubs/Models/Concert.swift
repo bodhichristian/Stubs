@@ -14,7 +14,6 @@ import MapKit
 
 @Model
 final class Concert {
-    
     let uuid: UUID
     var artistName: String
     var venue: String
@@ -28,7 +27,7 @@ final class Concert {
     var venueLatitude: Double
     var venueLongitude: Double
     
-    var artists = [Artist]()
+    var artist: Artist  
     
     @Attribute(.externalStorage)
     var artistImageData: Data?
@@ -46,7 +45,8 @@ final class Concert {
         notes: String,
         isFavorite: Bool = false,
         venueLatitude: Double,
-        venueLongitude: Double
+        venueLongitude: Double,
+        artist: Artist
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -59,7 +59,10 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
+        self.artist = artist
     }
+    
+   
 }
 
 

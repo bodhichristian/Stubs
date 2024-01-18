@@ -66,7 +66,14 @@ struct StubDetailView: View {
                 title: Text("Delete Stub"),
                 message: Text("Are you sure you want to delete this stub?"),
                 primaryButton: .destructive(Text("Delete")) {
+                    
+                    
+                    // TODO: Write logic for checking if this is the only stub for a particular artist. If so, delete the artist from the model context as to prevent unnecessary storage of irrelevant data.
+                    
+                    
                     modelContext.delete(concert)
+                    
+                    
                 },
                 secondaryButton: .cancel()
             )

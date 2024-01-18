@@ -9,9 +9,7 @@ import Foundation
 
 @Observable class ArtistService {
     
-    var singleArtistSearchResponse: [Artist] = []
-
-    var multiArtistSearchResponse: [Artist] = []
+    var searchResponse: [Artist] = []
     
     func search(for artistName: String) {
             
@@ -43,10 +41,10 @@ import Foundation
             
             do {
                 
-                let artistSearchResponse = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
-                self?.singleArtistSearchResponse = artistSearchResponse.artists
+                let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
+                self?.searchResponse = response.artists
                 
-                print("Artist is \(artistSearchResponse.artists.first?.artistImageURL ?? "")")
+                print("Artist is \(response.artists.first?.artistName ?? "")")
                 
                 
             } catch {

@@ -9,13 +9,11 @@ import SwiftUI
 import MapKit
 
 struct StubEditorDetails: View {
-    @Environment(\.modelContext) private var modelContext
-    @Binding var concert: Concert
-    @Binding var artist: Artist
+    @Bindable var concert: Concert
     
-    @State private var artistService = ArtistService()
-    
-    @State private var debounceTimer: Timer?
+//    @State private var artistService = ArtistService()
+//    
+//    @State private var debounceTimer: Timer?
     
     var body: some View {
         Section("Details") {
@@ -57,47 +55,54 @@ struct StubEditorDetails: View {
             }
             DatePicker("Date", selection: $concert.date, displayedComponents: .date)
         }
-        .onChange(of: concert.artistName) { oldValue, newValue in
-            // Invalidate existing timer
-            debounceTimer?.invalidate()
-            
-            // Start a new timer
-            debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
-                artistService.search(for: concert.artistName)
-            })
-        }
-        .onChange(of: artistService.singleArtistSearchResponse) { _, searchResponse in
-            if let response = searchResponse.first {
-                artist = response
-                print("we did it")
-            }
-            print("we didn't")
-            fetchImageData(from: searchResponse.first?.artistImageURL ?? "") { data in
-                concert.artistImageData = data
-            }
-            
-            fetchImageData(from: searchResponse.first?.bannerImageURL ?? "") { data in
-                concert.bannerImageData = data
-            }
-        }
+//        .onChange(of: concert.artistName) { oldValue, newValue in
+//            // Invalidate existing timer
+//            debounceTimer?.invalidate()
+//            
+//            
+//            // Start a new timer
+//            debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+//                print("StubEditorDetails: concert.artistName has changed")
+//                print("StubEditorDetails: now searching for \(concert.artistName)")
+//                artistService.search(for: concert.artistName)
+//            })
+//        }
+//        .onChange(of: artistService.searchResponse) { _, searchResponse in
+//            if let response = searchResponse.first {
+//                print("StubEditorDetails: artist search response received.")
+//                
+//                concert.artist.artistID = response.artistID
+//                print("StubEditorDetails: artist binding value has been updated.")
+//                
+//            } else {
+//                print()
+//            }
+//            fetchImageData(from: searchResponse.first?.artistImageURL ?? "") { data in
+//                concert.artistImageData = data
+//            }
+//            
+//            fetchImageData(from: searchResponse.first?.bannerImageURL ?? "") { data in
+//                concert.bannerImageData = data
+//            }
+//        }
     }
 }
 
 
-extension StubEditorDetails {
-    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(nil)
-                return
-            }
-            completion(data)
-        }
-        task.resume()
-    }
-}
+//extension StubEditorDetails {
+//    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
+//        guard let url = URL(string: urlString) else {
+//            completion(nil)
+//            return
+//        }
+//
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard let data = data, error == nil else {
+//                completion(nil)
+//                return
+//            }
+//            completion(data)
+//        }
+//        task.resume()
+//    }
+//}
