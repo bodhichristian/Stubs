@@ -118,27 +118,27 @@ extension StubCollection {
             }
         }
     }
-    // Header for decade sections in list
-    private func decadeHeader(_ decade: Int) -> some View {
-        
-        
-        Text(("\(decade)")
-            .replacingOccurrences(of: ",", with: ""))
-        .textCase(nil)
-        
-        .font(.title2)
-        .bold()
-        
-    }
-    // Delete concert
-    private func delete(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(concerts[index])
-            }
+    
+    // MARK: - Methods
+    
+    // MARK: fetchImageData(from urlString:)
+    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
         }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(data)
+        }
+        task.resume()
     }
     
+    // MARK: addSampleConcert()
     private func addSampleConcert() {
         let service = ArtistService()
         
@@ -159,9 +159,17 @@ extension StubCollection {
         
         Task {
             if let artist = await service.debugSearch(for: artistName) {
-                // Use the fetched artist here
                 
+                fetchImageData(from: artist.artistImageURL ?? "") { data in
+                    artist.artistImageData = data
+                    print("StubEditor: imageData fetched")
+                    print("StubEditor: Data: \(String(describing: data))")
+                }
                 
+                fetchImageData(from: artist.bannerImageURL ?? "") { data in
+                    artist.bannerImageData = data
+                }
+
                 let newConcert = Concert(
                     artistName: artistName,
                     venue: venue.name,
@@ -185,4 +193,28 @@ extension StubCollection {
         
         
     }
+    
+    
+    // Header for decade sections in list
+    private func decadeHeader(_ decade: Int) -> some View {
+        
+        
+        Text(("\(decade)")
+            .replacingOccurrences(of: ",", with: ""))
+        .textCase(nil)
+        
+        .font(.title2)
+        .bold()
+        
+    }
+    // Delete concert
+    private func delete(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(concerts[index])
+            }
+        }
+    }
+    
+
 }

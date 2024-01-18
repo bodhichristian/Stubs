@@ -89,13 +89,13 @@ struct StubEditor: View {
                     fetchedArtist = artist
                     print("StubEditor: artist binding value has been updated.")
                     
-                    fetchImageData(from: response.first?.artistImageURL ?? "") { data in
+                    fetchImageData(from: artist.artistImageURL ?? "") { data in
                         fetchedArtist?.artistImageData = data
                         print("StubEditor: imageData fetched")
                         print("StubEditor: Data: \(String(describing: data))")
                     }
                     
-                    fetchImageData(from: response.first?.bannerImageURL ?? "") { data in
+                    fetchImageData(from: artist.bannerImageURL ?? "") { data in
                         fetchedArtist?.bannerImageData = data
                     }
                     
