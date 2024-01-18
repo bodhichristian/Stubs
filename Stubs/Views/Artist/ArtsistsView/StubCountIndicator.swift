@@ -12,12 +12,7 @@ struct StubCountIndicator: View {
     let artist: Artist
     
     @Query var concerts: [Concert]
-    
-    private let gradient = LinearGradient(
-        colors: [.white, .green, .green, .gray],
-        startPoint: .topLeading,
-        endPoint:  .bottomTrailing
-    )
+
     
     private var stubCount: Int {
         var count = 0
@@ -31,15 +26,33 @@ struct StubCountIndicator: View {
         return count
     }
     
+    private var gradientColors: [Color] {
+            switch stubCount {
+            case 1: // 1 Stub
+                return [.white, .green, .green, .gray]
+            case 2: // 2 Stubs
+                return [.white, .yellow, .yellow, .gray]
+            default: // 3+ Stubs
+                return [.white, .blue, .blue, .gray]
+            }
+        }
+    
     var body: some View {
         ZStack {
             Circle()
                 .frame(width: 25)
-                .foregroundStyle(gradient)
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: gradientColors,
+                        startPoint: .topLeading,
+                        endPoint:  .bottomTrailing
+                    )
+                
+                )
             Text(String(stubCount))
                 .foregroundStyle(.white)
         }
-        .offset(x: 4, y: 4)
+        //.offset(x: 4, y: 4)
     }
 }
 

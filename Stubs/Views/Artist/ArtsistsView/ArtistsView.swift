@@ -84,8 +84,14 @@ struct ArtistsView: View {
                                             .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
-                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
+                                            .padding(.trailing)
+                                            .opacity(listView ? 1 : 0)
+
                                         
+                                        StubCountIndicator(artist: artist)
+                                            .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                        Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
+                                            .foregroundStyle(.secondary)
                                         Spacer()
                                     }
                                     .padding()
@@ -128,6 +134,7 @@ struct ArtistsView: View {
                                             }
                                             
                                             StubCountIndicator(artist: artist)
+                                                .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
                                         }
                                         .matchedGeometryEffect(id: artist.artistID, in: namespace)
 
@@ -138,7 +145,8 @@ struct ArtistsView: View {
                                             .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
-                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
+                                            .opacity(listView ? 0 : 1)
+                                        
                                         Spacer()
                                     }
                                     .padding([.top, .horizontal])
@@ -160,7 +168,7 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                       withAnimation {
+                        withAnimation(.bouncy) {
                            listView.toggle()
                        }
                     } label: {
@@ -175,5 +183,17 @@ struct ArtistsView: View {
             }
         }
         
+    }
+    
+    private func stubCount(for artist: Artist) -> Int {
+        var count = 0
+        
+        for concert in concerts {
+            if concert.artistName.lowercased() == artist.artistName?.lowercased() {
+                count += 1
+            }
+        }
+        
+        return count
     }
 }
