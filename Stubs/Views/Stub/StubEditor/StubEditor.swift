@@ -66,12 +66,6 @@ struct StubEditor: View {
                     }
                     .disabled(!saveReady)
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Demo") {
-                        addDebugData()
-                    }
-                }
             }
             
             .onChange(of: concertTemplate.artistName) {
@@ -256,55 +250,5 @@ extension StubEditor {
             longitude: coordinates.longitude
         )
     }
-    
-    private func addDebugData() {
-        for _ in 0..<60 {
-            let artistName = DebugData.artists.randomElement()!
-            artistService.search(for: artistName)
-
-            
-            let venue = DebugData.venues.randomElement()!
-            let notes = DebugData.notes.randomElement()!
-            let icon = StubStyle.icons.randomElement()!
-            let color = StubStyle.colors.randomElement()!
-            let isFavorite = Bool.random()
-            let date = calendar.date(
-                from: DateComponents(
-                    year: Int.random(
-                        in: 2015...2023), 
-                    month: Int.random(in: 1...12),
-                    day: Int.random(in: 1...28)
-                )
-            )!
-
-            guard let artist = artistService.searchResponse.first else { return }
-            
-            fetchImageData(from: artist.artistImageURL ?? "") { imageData in
-                artist.artistImageData = imageData
-            }
-            
-            fetchImageData(from: artist.bannerImageURL ?? "") { imageData in
-                artist.artistImageData = imageData
-            }
-            
-            let newConcert = Concert(
-                artistName: artistName,
-                venue: venue.name,
-                city: venue.city,
-                date: date,
-                iconName: icon,
-                accentColor: color,
-                notes: notes,
-                isFavorite: isFavorite,
-                venueLatitude: venue.latitude,
-                venueLongitude: venue.longitude,
-                artist: artist
-            )
-            
-            modelContext.insert(newConcert)
-        }
-    }
-    
-    
     
 }

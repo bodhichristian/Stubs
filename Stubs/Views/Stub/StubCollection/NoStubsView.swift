@@ -35,22 +35,20 @@ struct NoStubsView: View {
             
             Text("Tap the + Button to Add a Concert")
             
-#if DEBUG
-            Button { // Generate Sample Data
-                //SampleData().addSampleData(to: modelContext)
-                
-            } label: {
-                Text("Add Sample Data")
-            }
-#endif
+
             
             Spacer()
         }
+//#if DEBUG
+//
+//#endif
     }
 }
 
 extension NoStubsView {
-    
+    private func addSampleConcert() {
+        
+    }
 }
 
 

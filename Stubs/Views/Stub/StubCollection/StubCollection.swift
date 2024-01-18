@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-// MARK: StubCollection 
+// MARK: StubCollection
 // A View for displaying and searching for saved concerts
 // Performs query from SwiftData store
 // Groups concerts by decade
@@ -56,13 +56,19 @@ struct StubCollection: View {
                     .searchable(text: $searchText, prompt: searchPrompt) // Search bar
                     
                 }
-                    
+                
             }
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor()
             }
             .toolbar {
+                ToolbarItem {
+                    Button("Demo") {
+                        addSampleConcert()
+                    }
+                }
+                
                 ToolbarItem {
                     Button {
                         isAddingConcert = true
@@ -115,14 +121,14 @@ extension StubCollection {
     // Header for decade sections in list
     private func decadeHeader(_ decade: Int) -> some View {
         
-
-            Text(("\(decade)")
-                .replacingOccurrences(of: ",", with: ""))
-            .textCase(nil)
+        
+        Text(("\(decade)")
+            .replacingOccurrences(of: ",", with: ""))
+        .textCase(nil)
         
         .font(.title2)
         .bold()
-
+        
     }
     // Delete concert
     private func delete(offsets: IndexSet) {
@@ -133,5 +139,50 @@ extension StubCollection {
         }
     }
     
-    
+    private func addSampleConcert() {
+        let service = ArtistService()
+        
+        let artistName = DebugData.artists.randomElement()!
+        let venue = DebugData.venues.randomElement()!
+        let notes = DebugData.notes.randomElement()!
+        let icon = StubStyle.icons.randomElement()!
+        let color = StubStyle.colors.randomElement()!
+        let isFavorite = Bool.random()
+        let date = calendar.date(
+            from: DateComponents(
+                year: Int.random(
+                    in: 2015...2023),
+                month: Int.random(in: 1...12),
+                day: Int.random(in: 1...28)
+            )
+        )!
+        
+        Task {
+            if let artist = await service.debugSearch(for: artistName) {
+                // Use the fetched artist here
+                
+                
+                let newConcert = Concert(
+                    artistName: artistName,
+                    venue: venue.name,
+                    city: venue.city,
+                    date: date,
+                    iconName: icon,
+                    accentColor: color,
+                    notes: notes,
+                    isFavorite: isFavorite,
+                    venueLatitude: venue.latitude,
+                    venueLongitude: venue.longitude,
+                    artist: artist
+                )
+                
+                modelContext.insert(newConcert)
+            } else {
+                print("there was an error adding the sample artist.")
+            }
+        }
+        
+        
+        
+    }
 }
