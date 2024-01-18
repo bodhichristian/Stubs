@@ -53,6 +53,7 @@
 		AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */; };
 		AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
+		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistStubsLabel.swift; sourceTree = "<group>"; };
 		AAC4D4E52B31B7470098D28D /* StubNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNotesView.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AA8A74882A32D65E003E9B41 /* SampleData.swift */,
+				AAEDF07E2B596BC50059F8B6 /* DebugData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */,
 				AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */,
 				AA5E74F52B3EFD81005DBD87 /* MaterialTabBar.swift in Sources */,
+				AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */,
 				AAC4D4DE2B2FD6420098D28D /* FavoriteIcon.swift in Sources */,
 				AA5E74FA2B3EFF9B005DBD87 /* ArtistsView.swift in Sources */,
 				AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */,

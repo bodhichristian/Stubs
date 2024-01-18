@@ -8,13 +8,12 @@
 import Foundation
 import SwiftData
 
-let calendar = Calendar.current
-
+//let calendar = Calendar.current
 
 struct SampleData {
     
     // Create an empty artist object for use when nil coalescing
-    static let emptyArtist = Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
+   // static let emptyArtist = Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     
 //
 //    static let adele = Artist(

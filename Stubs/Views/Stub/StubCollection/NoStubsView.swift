@@ -49,6 +49,12 @@ struct NoStubsView: View {
     }
 }
 
+extension NoStubsView {
+    
+}
+
+
+
 #Preview {
     NoStubsView(isAddingConcert: .constant(false))
 }

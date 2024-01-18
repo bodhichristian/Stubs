@@ -40,21 +40,15 @@ import Foundation
             guard let data = data else { return }
             
             do {
-                
                 let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
                 self?.searchResponse = response.artists
                 
                 print("Artist is \(response.artists.first?.artistName ?? "")")
-                
-                
             } catch {
                 print(error)
             }
         }
         
         dataTask.resume()
-        
     }
-    
-    
 }
