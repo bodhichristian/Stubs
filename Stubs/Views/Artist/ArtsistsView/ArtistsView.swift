@@ -31,12 +31,7 @@ struct ArtistsView: View {
         var artists = [Artist]()
         
         for concert in concerts {
-            
-            
-                artists.append(concert.artist)
-                
-            
-            
+            artists.append(concert.artist)
         }
         
         let uniqueArtists = Set(artists)
@@ -47,140 +42,117 @@ struct ArtistsView: View {
     var body: some View {
         NavigationStack {
             
-            //                if listView {
-            //                    Text("hi")
-            //                    List {
-            //                        ForEach(artists, id: \.artistID){ artist in
-            //
-            //
-            //                            NavigationLink {
-            //                                ArtistDetailView(artist: artist)
-            //                            } label: {
-            //
-            //
-            //
-            //                                HStack {
-            //
-            //
-            ////                                    AsyncImage(url: URL(string: artist.strArtistThumb ?? "")) { phase in
-            ////                                        switch phase {
-            ////                                            case .empty:
-            ////                                                ProgressView()
-            ////                                            case .success(let image):
-            ////                                                image.resizable()
-            ////                                            case .failure:
-            ////                                                Text("Image not available")
-            ////                                            default:
-            ////                                                EmptyView()
-            ////                                        }
-            ////                                    }
-            ////
-            ////
-            //
-            //                                    AsyncImage(url: URL(string: artist.artistImageURL ?? "")) { image in
-            //                                        image
-            //                                            .resizable()
-            //                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
-            //                                            .scaledToFit()
-            //                                            .frame(width: 40)
-            //                                            .clipShape(Circle())
-            //                                            //.opacity(imageOpacity)
-            ////                                                        .onAppear {
-            ////                                                            withAnimation(.easeInOut(duration: 1.5)){
-            ////                                                                imageOpacity = 1.0
-            ////                                                            }
-            ////                                                        }
-            //
-            //                                    } placeholder: {
-            //
-            //                                        Circle()
-            //                                            .foregroundStyle(.gray)
-            //                                            .frame(width: 75)
-            //                                            .padding()
-            //
-            //                                    }
-            //                                    Text(artist.artistName ?? "")
-            //                                        .font(.headline)
-            //                                        .fontWeight(.semibold)
-            //
-            //
-            //                                }
-            //
-            //
-            //                            }
-            //                        }
-            //
-            //
-            //                    }
-            //                } else {
             ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(artists, id: \.artistID){ artist in
-                        
-                        
-                        NavigationLink {
-                            ArtistDetailView(artist: artist)
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                
-                                    .foregroundStyle(.ultraThinMaterial)
-                                
-                                
-                                VStack {
-                                    ZStack(alignment: .bottomTrailing) {
-                                        
-                                        
-                                        
-                                        
-                                        AsyncImage(url: URL(string: artist.artistImageURL ?? "")) { image in
-                                            image
-                                                .resizable()
-                                                .matchedGeometryEffect(id: artist.artistID, in: namespace)
-                                                .scaledToFit()
-                                                .frame(width: 75)
-                                                .clipShape(Circle())
-                                            //.opacity(imageOpacity)
-                                            //                                                        .onAppear {
-                                            //                                                            withAnimation(.easeInOut(duration: 1.5)){
-                                            //                                                                imageOpacity = 1.0
-                                            //                                                            }
-                                            //                                                        }
+                
+                
+                
+                if listView {
+                    
+                    VStack {
+                        ForEach(artists, id: \.artistID){ artist in
+                            NavigationLink {
+                                ArtistDetailView(artist: artist)
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundStyle(.ultraThinMaterial)
+                                        // use smallest, unused piece of unique data as reference
+                                        .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                                    
+                                    HStack {
+                                        ZStack {
+                                            Circle()
+                                                .foregroundStyle(.gray)
+                                                .frame(width: 40)
                                             
-                                        } placeholder: {
+                                            if let data = artist.artistImageData {
+                                                Image(uiImage: UIImage(data: data) ?? UIImage())
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 40)
+                                                    .clipShape(Circle())
+
+                                            }
                                             
+                                        }
+                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
+
+                                        .padding(.trailing)
+                                        
+                                        Text(artist.artistName ?? "")
+                                            .font(.headline)
+                                            .fontWeight(.semibold)
+                                            .multilineTextAlignment(.center)
+                                            .lineLimit(3)
+                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
+                                        
+                                        Spacer()
+                                    }
+                                    .padding()
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 100)
+                    
+                } else {
+                    LazyVGrid(columns: columns) {
+                        ForEach(artists, id: \.artistID){ artist in
+
+                            NavigationLink {
+                                ArtistDetailView(artist: artist)
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundStyle(.ultraThinMaterial)
+                                    // use smallest, unused piece of unique data as reference
+                                    .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                                    
+                                    
+                                    VStack {
+                                        ZStack(alignment: .bottomTrailing) {
                                             Circle()
                                                 .foregroundStyle(.gray)
                                                 .frame(width: 75)
-                                                .padding()
                                             
+                                            if let data = artist.artistImageData {
+                                                Image(uiImage: UIImage(data: data) ?? UIImage())
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 75)
+                                                    .clipShape(Circle())
+
+                                            }
+                                            
+                                            StubCountIndicator(artist: artist)
                                         }
+                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
+
+                                        Spacer()
                                         
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        StubCountIndicator(artist: artist)
+                                        Text(artist.artistName ?? "")
+                                            .font(.headline)
+                                            .fontWeight(.semibold)
+                                            .multilineTextAlignment(.center)
+                                            .lineLimit(3)
+                                            .matchedGeometryEffect(id: artist.artistName, in: namespace)
+                                        Spacer()
                                     }
-                                    Spacer()
-                                    Text(artist.artistName ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.semibold)
-                                        .multilineTextAlignment(.center)
-                                        .lineLimit(3)
-                                    
-                                    Spacer()
+                                    .padding([.top, .horizontal])
                                 }
-                                .padding([.top, .horizontal])
                             }
+                            .frame(minHeight: 150)
+                            
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        .frame(minHeight: 150)
-                        
-                        .buttonStyle(PlainButtonStyle())
                     }
+                    .padding(.horizontal)
+                    .padding(.bottom, 100)
+
                 }
-                .padding(.horizontal)
             }
             
             
@@ -188,8 +160,9 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        listView.toggle()
-                        
+                       withAnimation {
+                           listView.toggle()
+                       }
                     } label: {
                         Label(
                             "Toggle List View",

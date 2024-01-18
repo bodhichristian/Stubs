@@ -71,7 +71,6 @@ import Foundation
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        let session = URLSession.shared
       
             do {
                 let (data, _) = try await URLSession.shared.data(for: request)
