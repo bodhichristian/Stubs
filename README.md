@@ -8,4 +8,6 @@ A SwiftUI app for storing digital representations of concert ticket stubs. The t
 * New ScrollView APIs
 * Data from [TheAudioDB](https://www.theaudiodb.com) via [RapidAPI](https://rapidapi.com/hub)
 
+<b>Notice:</b> An API key from RapidAPI is required to run the app with a complete experience. 
+
 ![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/ece6acdd-54a8-47a5-97cc-c1aee0b11baf)
