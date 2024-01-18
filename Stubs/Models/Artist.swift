@@ -33,6 +33,12 @@ class Artist: Codable, Hashable {
     var artistImageURL: String? = nil
     var bannerImageURL: String? = nil
     
+    // Image data is fetched after initialization
+    @Attribute(.externalStorage)
+    var artistImageData: Data?
+    @Attribute(.externalStorage)
+    var bannerImageData: Data?
+    
     init(artistID: String? = nil,
          artistName: String? = nil,
          style: String? = nil,

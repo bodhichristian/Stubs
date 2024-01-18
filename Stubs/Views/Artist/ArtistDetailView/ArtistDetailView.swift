@@ -17,12 +17,19 @@ struct ArtistDetailView: View {
     
     
     // MARK: Formatting
-    @State private var imageOpacity = 0.0
     @State private var showingFullBio = false
     private let artistImageWidth: CGFloat = 100
     
     private var filteredConcerts: [Concert] {
         return concerts.filter({$0.artistName == artist.artistName })
+    }
+    
+    private var artistImage: UIImage {
+        if let data = artist.artistImageData {
+            return UIImage(data: data) ?? UIImage()
+        } else {
+            return UIImage()
+        }
     }
     
     
@@ -47,34 +54,16 @@ struct ArtistDetailView: View {
                                 .frame(width: artistImageWidth)
                                 .padding()
                             
-                            
-                            if let artistImageData = filteredConcerts.first?.artistImageData,
-                               let uiImage = UIImage(data: artistImageData) {
-                                Image(uiImage: uiImage)
+
+                                Image(uiImage: artistImage)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: artistImageWidth)
                                 .clipShape(Circle())
-                                .opacity(imageOpacity)
                                 .shadow(radius: 7,  y: 7)
                                 .padding()
-                            }
-//                                        .onAppear {
-//                                            withAnimation(.easeInOut(duration: 1.5)){
-//                                                imageOpacity = 1.0
-//                                            }
-//                                        }
-                                    
-//                                } placeholder: {
-//                                    
-//                                    Circle()
-//                                        .foregroundStyle(.gray)
-//                                        .frame(width: artistImageWidth)
-//                                        .padding()
-//                                    
-//                                }
-                                
                             
+
                             
                         }
                         

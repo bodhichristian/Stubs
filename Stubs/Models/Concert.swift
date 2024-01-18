@@ -27,12 +27,7 @@ final class Concert {
     var venueLatitude: Double
     var venueLongitude: Double
     
-    var artist: Artist  
-    
-    @Attribute(.externalStorage)
-    var artistImageData: Data?
-    @Attribute(.externalStorage)
-    var bannerImageData: Data?
+    var artist: Artist
     
     init(
         uuid: UUID = UUID(),

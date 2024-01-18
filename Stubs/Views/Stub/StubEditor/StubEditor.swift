@@ -74,8 +74,8 @@ struct StubEditor: View {
                 
                 // Start a new timer
                 debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
-                    print("StubEditorDetails: concert.artistName has changed")
-                    print("StubEditorDetails: now searching for \(concertTemplate.artistName)")
+                    print("StubEditor: concert.artistName has changed")
+                    print("StubEditor: now searching for \(concertTemplate.artistName)")
                     artistService.search(for: concertTemplate.artistName)
                 })
             }
@@ -83,17 +83,19 @@ struct StubEditor: View {
             
             .onChange(of: artistService.searchResponse) { _, response in
                 if let artist = response.first {
-                    print("StubEditorDetails: artist search response received.")
+                    print("StubEditor: artist search response received.")
                     
                     fetchedArtist = artist
-                    print("StubEditorDetails: artist binding value has been updated.")
+                    print("StubEditor: artist binding value has been updated.")
                     
                     fetchImageData(from: response.first?.artistImageURL ?? "") { data in
-                        concertTemplate.artistImageData = data
+                        fetchedArtist?.artistImageData = data
+                        print("StubEditor: imageData fetched")
+                        print("StubEditor: Data: \(String(describing: data))")
                     }
                     
                     fetchImageData(from: response.first?.bannerImageURL ?? "") { data in
-                        concertTemplate.bannerImageData = data
+                        fetchedArtist?.bannerImageData = data
                     }
                     
                 } else {
@@ -169,7 +171,8 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
-                
+                // Create a new Concert object.
+                // Use fetchedArtist object if available.
                 let newConcert = Concert(
                     artistName: concertTemplate.artistName,
                     venue: concertTemplate.venue,
