@@ -29,6 +29,7 @@ struct ArtistsView: View {
     
     private var artists: [Artist] {
         var artists = [Artist]()
+        
         for concert in concerts {
             
             

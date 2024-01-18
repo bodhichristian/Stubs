@@ -81,23 +81,25 @@ struct StubEditor: View {
             }
             
             
-            .onChange(of: artistService.searchResponse) { _, searchResponse in
-                if let artist = searchResponse.first {
+            .onChange(of: artistService.searchResponse) { _, response in
+                if let artist = response.first {
                     print("StubEditorDetails: artist search response received.")
                     
                     fetchedArtist = artist
                     print("StubEditorDetails: artist binding value has been updated.")
                     
+                    fetchImageData(from: response.first?.artistImageURL ?? "") { data in
+                        concertTemplate.artistImageData = data
+                    }
+                    
+                    fetchImageData(from: response.first?.bannerImageURL ?? "") { data in
+                        concertTemplate.bannerImageData = data
+                    }
+                    
                 } else {
-                    print()
-                }
-                fetchImageData(from: searchResponse.first?.artistImageURL ?? "") { data in
-                    concertTemplate.artistImageData = data
+                    print("StubEditorDetails: artist search failed.")
                 }
                 
-                fetchImageData(from: searchResponse.first?.bannerImageURL ?? "") { data in
-                    concertTemplate.bannerImageData = data
-                }
             }
             
         }
@@ -153,11 +155,9 @@ extension StubEditor {
      Uses `Task` for concurrency and error handling within async context.
      */
     private func addConcert() {
-//        if let newArtist = newConcert.artists.first {
-//            print("artist value exists")
-//            newConcert.artist = newArtist
-//            print("artist value has been assigned to newConcert.artist")
-//        }
+        
+        
+        
         
         // Start asynchronous task to fetch coordinates
         Task {
@@ -169,8 +169,22 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
+                
+                let newConcert = Concert(
+                    artistName: concertTemplate.artistName,
+                    venue: concertTemplate.venue,
+                    city: concertTemplate.city,
+                    date: concertTemplate.date,
+                    iconName: concertTemplate.iconName,
+                    accentColor: concertTemplate.accentColor,
+                    notes: concertTemplate.notes,
+                    venueLatitude: concertTemplate.venueLatitude,
+                    venueLongitude: concertTemplate.venueLongitude,
+                    artist: fetchedArtist ?? concertTemplate.artist
+                )
+                
                 // Insert updated concert details into model context
-                modelContext.insert(concertTemplate)
+                modelContext.insert(newConcert)
 
                 dismiss()
                             
@@ -233,11 +247,3 @@ extension StubEditor {
         )
     }
 }
-
-
-#Preview {
-    StubEditor()
-        .modelContainer(for: Concert.self, inMemory: true)
-}
-
-
