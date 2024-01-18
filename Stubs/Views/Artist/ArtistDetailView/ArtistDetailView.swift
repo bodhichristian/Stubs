@@ -17,15 +17,27 @@ struct ArtistDetailView: View {
     
     
     // MARK: Formatting
+    // Toggle to disbale lineLimit
     @State private var showingFullBio = false
+    
+    // Provide sizing for artistImage and placeholder
     private let artistImageWidth: CGFloat = 100
     
+    // MARK: Computed props
     private var filteredConcerts: [Concert] {
         return concerts.filter({$0.artistName == artist.artistName })
     }
     
     private var artistImage: UIImage {
         if let data = artist.artistImageData {
+            return UIImage(data: data) ?? UIImage()
+        } else {
+            return UIImage()
+        }
+    }
+    
+    private var bannerImage: UIImage {
+        if let data = artist.bannerImageData {
             return UIImage(data: data) ?? UIImage()
         } else {
             return UIImage()

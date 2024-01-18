@@ -15,7 +15,8 @@ import MapKit
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
-                
+    
+    // MARK: Local concert for editing
     @State private var concertTemplate = Concert(
         artistName: "",
         venue: "",
@@ -29,12 +30,12 @@ struct StubEditor: View {
         artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     )
     
-    @State private var fetchedArtist: Artist?
-    
+    // MARK: ArtistService related props
     @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
+    @State private var fetchedArtist: Artist?
 
-    
+    // MARK: Alert props
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
     
