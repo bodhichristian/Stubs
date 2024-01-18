@@ -62,26 +62,3 @@ struct ArtistDetailHeaderView: View {
     }
 }
 
-
-
-
-
-
-//                AsyncImage(
-//                    url: URL(
-//                        string: imageURL
-//                    )
-//                ) { bannerImage in
-//
-//                    ArtistDetailHeaderImage(
-//                        image: bannerImage,
-//                        genre: genre,
-//                        country: country
-//                    )
-//
-//                } placeholder: {
-//
-//                    Rectangle()
-//                        .foregroundStyle(.secondary)
-//                }
-//                .frame(width: geo.size.width, height: geo.size.width * 0.4 )
