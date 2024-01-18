@@ -36,14 +36,7 @@ struct ArtistDetailView: View {
         }
     }
     
-    private var bannerImage: UIImage {
-        if let data = artist.bannerImageData {
-            return UIImage(data: data) ?? UIImage()
-        } else {
-            return UIImage()
-        }
-    }
-    
+
     
     
     var body: some View {
@@ -52,7 +45,7 @@ struct ArtistDetailView: View {
             
             ZStack {
                 
-                ArtistDetailHeaderView(imageURL: artist.bannerImageURL ?? "", genre: artist.genre ?? "", country: artist.geo ?? "")
+                ArtistDetailHeaderView(artist: artist)
                 
                 
                 

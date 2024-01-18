@@ -8,37 +8,80 @@
 import SwiftUI
 
 struct ArtistDetailHeaderView: View {
-    let imageURL: String
+    let artist: Artist
     
-    let genre: String
-    let country: String
+    private var bannerImage: UIImage {
+        if let data = artist.bannerImageData {
+            return UIImage(data: data) ?? UIImage()
+        } else {
+            return UIImage()
+        }
+    }
+    
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
+            VStack { // Outer Stack
                 
-                
-                AsyncImage(
-                    url: URL(
-                        string: imageURL
-                    )
-                ) { bannerImage in
+                ZStack(alignment: .bottomTrailing){
+                    Image(uiImage: bannerImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.width * 0.4)
+                        .clipShape(Rectangle())
+                        .overlay {
+                            LinearGradient(
+                                colors: [.clear, .black],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .opacity(0.6)
+                        }
+
                     
-                    ArtistDetailHeaderImage(
-                        image: bannerImage,
-                        genre: genre,
-                        country: country 
-                    )
-                    
-                } placeholder: {
-                    
-                    Rectangle()
-                        .foregroundStyle(.secondary)
+                    // Genre & Location
+                    VStack(alignment: .trailing) {
+                        
+                        Text(artist.genre ?? "")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        Text(artist.geo ?? "")
+                        
+                    }
+                    .foregroundStyle(.white)
+                    .padding()
                 }
-                .frame(width: geo.size.width, height: geo.size.width * 0.4 )
                 
-                Spacer()
+                
+                
+
+                
+                Spacer() // Push bannerImage to top
             }
         }
     }
 }
+
+
+
+
+
+
+//                AsyncImage(
+//                    url: URL(
+//                        string: imageURL
+//                    )
+//                ) { bannerImage in
+//
+//                    ArtistDetailHeaderImage(
+//                        image: bannerImage,
+//                        genre: genre,
+//                        country: country
+//                    )
+//
+//                } placeholder: {
+//
+//                    Rectangle()
+//                        .foregroundStyle(.secondary)
+//                }
+//                .frame(width: geo.size.width, height: geo.size.width * 0.4 )
