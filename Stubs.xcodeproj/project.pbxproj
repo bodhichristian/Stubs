@@ -51,6 +51,7 @@
 		AAC4D4E22B2FF5A40098D28D /* RelatedStubScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E12B2FF5A40098D28D /* RelatedStubScrollView.swift */; };
 		AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */; };
 		AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
+		AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACBD17D2B5B09710093EAB7 /* ProfileView.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		AAC4D4E12B2FF5A40098D28D /* RelatedStubScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedStubScrollView.swift; sourceTree = "<group>"; };
 		AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistStubsLabel.swift; sourceTree = "<group>"; };
 		AAC4D4E52B31B7470098D28D /* StubNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNotesView.swift; sourceTree = "<group>"; };
+		AACBD17D2B5B09710093EAB7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,14 +181,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		AA5E74F82B3EFF8A005DBD87 /* Artist */ = {
+		AA5E74F82B3EFF8A005DBD87 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
 				AA2A038F2B555A69002C1071 /* ArtsistsView */,
 				AA87B0D52B47AEF60071DB44 /* Album */,
 				AA5E74E42B3DAA43005DBD87 /* ArtistDetailView */,
 			);
-			path = Artist;
+			path = Artists;
 			sourceTree = "<group>";
 		};
 		AA87B0D52B47AEF60071DB44 /* Album */ = {
@@ -253,9 +255,10 @@
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
-				AA5E74F82B3EFF8A005DBD87 /* Artist */,
+				AA5E74F82B3EFF8A005DBD87 /* Artists */,
 				AA48FED42A64E63E005BA775 /* Components */,
-				AAC4D4D62B2F4AC10098D28D /* Stub */,
+				AACBD17C2B5B095E0093EAB7 /* Profile */,
+				AAC4D4D62B2F4AC10098D28D /* Stubs */,
 				AA5E74EF2B3EFD00005DBD87 /* TabBar */,
 			);
 			path = Views;
@@ -283,7 +286,7 @@
 			path = StubEditor;
 			sourceTree = "<group>";
 		};
-		AAC4D4D62B2F4AC10098D28D /* Stub */ = {
+		AAC4D4D62B2F4AC10098D28D /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
 				AAB050182A59D88600EB88BD /* StubView.swift */,
@@ -294,7 +297,15 @@
 				AA59EFA12B3C6CAB00EC82EB /* StubDetailView */,
 				AAC4D4D12B2E79CB0098D28D /* StubEditor */,
 			);
-			path = Stub;
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		AACBD17C2B5B095E0093EAB7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AACBD17D2B5B09710093EAB7 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +419,7 @@
 				AA5615F82B27AB5B00A35D4A /* AlbumService.swift in Sources */,
 				AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
+				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,

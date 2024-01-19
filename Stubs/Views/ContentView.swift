@@ -25,7 +25,7 @@ struct ContentView: View {
                     selection: $tabSelection
                 )
             
-            Text("Coming Soon")
+            ProfileView()
                 .tabBarItem(tab: .profile, selection: $tabSelection)
             
         }
