@@ -31,9 +31,9 @@ struct StubCountIndicator: View {
             case 1: // 1 Stub
                 return [.white, .green, .green, .gray]
             case 2: // 2 Stubs
-                return [.white, .yellow, .yellow, .gray]
-            default: // 3+ Stubs
                 return [.white, .blue, .blue, .gray]
+            default: // 3+ Stubs
+                return [.white, .orange, .orange, .gray]
             }
         }
     
@@ -52,7 +52,7 @@ struct StubCountIndicator: View {
             Text(String(stubCount))
                 .foregroundStyle(.white)
         }
-        //.offset(x: 4, y: 4)
+        .shadow(radius: 2)
     }
 }
 

@@ -63,13 +63,13 @@ struct ArtistsView: View {
                                         ZStack {
                                             Circle()
                                                 .foregroundStyle(.gray)
-                                                .frame(width: 40)
+                                                .frame(width: 44)
                                             
                                             if let data = artist.artistImageData {
                                                 Image(uiImage: UIImage(data: data) ?? UIImage())
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 40)
+                                                    .frame(width: 44)
                                                     .clipShape(Circle())
 
                                             }
@@ -86,6 +86,7 @@ struct ArtistsView: View {
                                             .lineLimit(3)
                                             .padding(.trailing)
                                             .opacity(listView ? 1 : 0)
+
 
                                         
                                         StubCountIndicator(artist: artist)
@@ -134,6 +135,7 @@ struct ArtistsView: View {
                                             }
                                             
                                             StubCountIndicator(artist: artist)
+                                                .offset(x: 4, y: 4)
                                                 .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
                                         }
                                         .matchedGeometryEffect(id: artist.artistID, in: namespace)
@@ -146,6 +148,7 @@ struct ArtistsView: View {
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
                                             .opacity(listView ? 0 : 1)
+
                                         
                                         Spacer()
                                     }
