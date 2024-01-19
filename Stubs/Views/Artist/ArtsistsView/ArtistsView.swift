@@ -21,7 +21,7 @@ struct ArtistsView: View {
     
     @State private var listView = false
     
-    @State private var artistImageWidth = 75
+    @State private var artistImageWidth: CGFloat = 75
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -66,13 +66,13 @@ struct ArtistsView: View {
                                         ZStack {
                                             Circle()
                                                 .foregroundStyle(.gray)
-                                                .frame(width: 44)
+                                                .frame(width: artistImageWidth)
                                             
                                             if let data = artist.artistImageData {
                                                 Image(uiImage: UIImage(data: data) ?? UIImage())
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 44)
+                                                    .frame(width: artistImageWidth)
                                                     .clipShape(Circle())
                                                     .shadow(color: .primary.opacity(0.5), radius: 3)
                                             }
@@ -126,13 +126,13 @@ struct ArtistsView: View {
                                             ZStack {
                                                 Circle()
                                                     .foregroundStyle(.gray)
-                                                    .frame(width: 75)
+                                                    .frame(width: artistImageWidth)
                                                 
                                                 if let data = artist.artistImageData {
                                                     Image(uiImage: UIImage(data: data) ?? UIImage())
                                                         .resizable()
                                                         .scaledToFit()
-                                                        .frame(width: 75)
+                                                        .frame(width: artistImageWidth)
                                                         .clipShape(Circle())
                                                         .shadow(color: .primary.opacity(0.5), radius: 3)
                                                 }
@@ -174,7 +174,7 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        withAnimation(.bouncy(extraBounce: 0.2)) {
+                        withAnimation(.smooth(extraBounce: 0.2)) {
                             setImageWidth()
                             listView.toggle()
                         }

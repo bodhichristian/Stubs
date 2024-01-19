@@ -12,7 +12,7 @@ let calendar = Calendar.current
 
 
 struct DebugData {
-    static let artists = ["Adele", "Beyoncé", "Drake", "Green Day", "Metallica", "Kendrick Lamar", "Fall Out Boy", "Rihanna", "John Mayer" ,"Thrice", "Bruno Mars" ,"The Weeknd", "Ariana Grande","Billie Eilish","Post Malone", "A Day to Remember", "AC/DC", "Dua Lipa" ,"Travis Scott", "Taking Back Sunday", "Deftones","Bad Bunny","Halsey", "Harry Styles", "Lana Del Rey" ,"Sia", "Khalid", "Rosalía", "Sam Smith", "Tame Impala"]
+    static let artists = ["Adele", "Beyoncé", "Drake", "Green Day", "Metallica", "Kendrick Lamar", "Fall Out Boy", "Rihanna", "John Mayer" , "My Chemical Romance", "Coheed & Cambria", "Thrice", "Eminem", "Madonna", "Bruno Mars" ,"The Weeknd", "Ariana Grande","Billie Eilish","Post Malone", "A Day to Remember", "AC/DC", "Dua Lipa" ,"Travis Scott", "Taking Back Sunday", "Deftones","Bad Bunny","Halsey", "Harry Styles", "Lana Del Rey" ,"Sia", "Khalid", "Rosalía", "Sam Smith", "Tame Impala", "Avenged Sevenfold", "Incubus", "Linkin Park", "Manchester Orchestra"]
     
     static let venues: [(name: String, city: String, latitude: Double, longitude: Double)] = [
         ("Madison Square Garden", "New York", 40.7505, -73.9934),
