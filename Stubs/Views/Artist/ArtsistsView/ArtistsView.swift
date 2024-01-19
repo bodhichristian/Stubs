@@ -21,6 +21,7 @@ struct ArtistsView: View {
     
     @State private var listView = false
     
+    @State private var artistImageWidth = 75
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -56,7 +57,9 @@ struct ArtistsView: View {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundStyle(.ultraThinMaterial)
-                                        // use smallest, unused piece of unique data as reference
+                                        .shadow(color: .primary.opacity(0.5), radius: 2)
+                                    
+                                    // use smallest, unused piece of unique data as reference
                                         .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                     
                                     HStack {
@@ -71,23 +74,21 @@ struct ArtistsView: View {
                                                     .scaledToFit()
                                                     .frame(width: 44)
                                                     .clipShape(Circle())
-
+                                                    .shadow(color: .primary.opacity(0.5), radius: 3)
                                             }
                                             
                                         }
                                         .matchedGeometryEffect(id: artist.artistID, in: namespace)
-
-                                        .padding(.trailing)
+                                        
+                                        .padding(.trailing, 8)
                                         
                                         Text(artist.artistName ?? "")
                                             .font(.headline)
                                             .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
-                                            .padding(.trailing)
-                                            .opacity(listView ? 1 : 0)
-
-
+                                        
+                                        
                                         
                                         StubCountIndicator(artist: artist)
                                             .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
@@ -99,7 +100,7 @@ struct ArtistsView: View {
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())
-
+                            
                         }
                     }
                     .padding(.horizontal)
@@ -108,38 +109,42 @@ struct ArtistsView: View {
                 } else {
                     LazyVGrid(columns: columns) {
                         ForEach(artists, id: \.artistID){ artist in
-
+                            
                             NavigationLink {
                                 ArtistDetailView(artist: artist)
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .foregroundStyle(.ultraThinMaterial)
+                                        .shadow(color: .primary.opacity(0.5), radius: 2)
                                     // use smallest, unused piece of unique data as reference
-                                    .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                                        .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                     
                                     
                                     VStack {
                                         ZStack(alignment: .bottomTrailing) {
-                                            Circle()
-                                                .foregroundStyle(.gray)
-                                                .frame(width: 75)
-                                            
-                                            if let data = artist.artistImageData {
-                                                Image(uiImage: UIImage(data: data) ?? UIImage())
-                                                    .resizable()
-                                                    .scaledToFit()
+                                            ZStack {
+                                                Circle()
+                                                    .foregroundStyle(.gray)
                                                     .frame(width: 75)
-                                                    .clipShape(Circle())
-
+                                                
+                                                if let data = artist.artistImageData {
+                                                    Image(uiImage: UIImage(data: data) ?? UIImage())
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 75)
+                                                        .clipShape(Circle())
+                                                        .shadow(color: .primary.opacity(0.5), radius: 3)
+                                                }
                                             }
+                                            .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                             
                                             StubCountIndicator(artist: artist)
                                                 .offset(x: 4, y: 4)
                                                 .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
                                         }
-                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
-
+                                        
+                                        
                                         Spacer()
                                         
                                         Text(artist.artistName ?? "")
@@ -147,8 +152,6 @@ struct ArtistsView: View {
                                             .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
-                                            .opacity(listView ? 0 : 1)
-
                                         
                                         Spacer()
                                     }
@@ -162,7 +165,7 @@ struct ArtistsView: View {
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 100)
-
+                    
                 }
             }
             
@@ -171,9 +174,10 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        withAnimation(.bouncy) {
-                           listView.toggle()
-                       }
+                        withAnimation(.bouncy(extraBounce: 0.2)) {
+                            setImageWidth()
+                            listView.toggle()
+                        }
                     } label: {
                         Label(
                             "Toggle List View",
@@ -198,5 +202,13 @@ struct ArtistsView: View {
         }
         
         return count
+    }
+    
+    private func setImageWidth() {
+        if artistImageWidth == 75 {
+            artistImageWidth = 44
+        } else {
+            artistImageWidth = 75
+        }
     }
 }

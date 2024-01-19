@@ -32,7 +32,11 @@ struct StubCountIndicator: View {
                 return [.white, .green, .green, .gray]
             case 2: // 2 Stubs
                 return [.white, .blue, .blue, .gray]
-            default: // 3+ Stubs
+            case 3: //3 Stubs
+                return [.white, .indigo, .indigo, .gray]
+            case 4: // 4 Stubs
+                return [.white, .purple, .purple, .gray]
+            default: // 5+ Stubs
                 return [.white, .orange, .orange, .gray]
             }
         }
