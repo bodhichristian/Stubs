@@ -32,7 +32,7 @@ struct ArtistsView: View {
         if colorScheme == .dark {
             return Color(white: 0.2)
         } else {
-            return Color(white: 0.9)
+            return Color(white: 0.95)
         }
     }
     

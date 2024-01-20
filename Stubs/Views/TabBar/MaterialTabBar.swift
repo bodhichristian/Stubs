@@ -34,7 +34,7 @@ struct MaterialTabBar: View {
             }
             .ignoresSafeArea(edges: .bottom)
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(color: .secondary.opacity(0.3), radius: 6)
+            .shadow(color: .secondary, radius: 5)
             .padding(.horizontal)
             .onChange(of: selection) { _, newValue in
                 withAnimation(.bouncy(duration: 0.3)) {
@@ -54,7 +54,7 @@ extension MaterialTabBar {
                     .font(.subheadline)
                     .foregroundStyle(localSelection == tab ? .primary : .secondary)
                     .frame(height: 15)
-                    .symbolEffect(.bounce, value: localSelection)
+                    .symbolEffect(.bounce , value: localSelection)
 
                     
             } else {
