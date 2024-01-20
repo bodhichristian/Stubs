@@ -13,6 +13,7 @@ import SwiftUI
 import SwiftData
 
 struct ArtistsView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     @Query var concerts: [Concert]
     @Namespace var namespace
@@ -27,6 +28,21 @@ struct ArtistsView: View {
         GridItem(.adaptive(minimum: 120))
     ]
     
+    private var tileBackgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.2)
+        } else {
+            return Color(white: 0.9)
+        }
+    }
+    
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
+        }
+    }
     
     private var artists: [Artist] {
         var artists = [Artist]()
@@ -55,9 +71,9 @@ struct ArtistsView: View {
                                 ArtistDetailView(artist: artist)
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundStyle(.ultraThinMaterial)
-                                        .shadow(color: .primary.opacity(0.5), radius: 2)
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(tileBackgroundColor)
+                                        .shadow(color: shadowColor, radius: 2)
                                     
                                     // use smallest, unused piece of unique data as reference
                                         .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
@@ -84,7 +100,7 @@ struct ArtistsView: View {
                                         
                                         Text(artist.artistName ?? "")
                                             .font(.headline)
-                                            .fontWeight(.semibold)
+                                            //.fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
                                         
@@ -96,7 +112,8 @@ struct ArtistsView: View {
                                             .foregroundStyle(.secondary)
                                         Spacer()
                                     }
-                                    .padding()
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 10)
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())
@@ -114,9 +131,9 @@ struct ArtistsView: View {
                                 ArtistDetailView(artist: artist)
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundStyle(.ultraThinMaterial)
-                                        .shadow(color: .primary.opacity(0.5), radius: 2)
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundStyle(tileBackgroundColor)
+                                        .shadow(color: shadowColor, radius: 2)
                                     // use smallest, unused piece of unique data as reference
                                         .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                     
@@ -149,7 +166,6 @@ struct ArtistsView: View {
                                         
                                         Text(artist.artistName ?? "")
                                             .font(.headline)
-                                            .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
                                         
