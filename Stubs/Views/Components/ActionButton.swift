@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ActionButton: View {
+    @Environment(\.colorScheme) var colorScheme
     
     let titleKey: String
     let systemImage: String
@@ -15,7 +16,7 @@ struct ActionButton: View {
     
     @Binding var concert: Concert
     
-    let action: () -> ()
+    let action: () -> () // Provide as trialing closure
     
     init(titleKey: String,
          systemImage: String,
@@ -29,6 +30,22 @@ struct ActionButton: View {
         self.action = action
     }
     
+    private var tileBackgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.2)
+        } else {
+            return Color(white: 0.95)
+        }
+    }
+    
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
+        }
+    }
+    
     var body: some View {
         
         GeometryReader { geo in
@@ -39,26 +56,35 @@ struct ActionButton: View {
                 
             } label: {
                 
-                HStack {
                     
-                    Image(systemName: systemImage)
-                        .renderingMode(.template)
-                        .foregroundColor(accentColor)
+                    HStack {
                         
-                    Text(titleKey)
-                        .foregroundColor(.primary)
-                    
-                }
-                .font(.callout)
-                .fontWeight(.semibold)
-                .frame(width: geo.size.width * 0.8, height: geo.size.width * 0.3)
+                        Image(systemName: systemImage)
+                            .renderingMode(.template)
+                            .foregroundColor(accentColor)
+                            
+                        Text(titleKey)
+                            .foregroundColor(.primary)
+                        
+                    }
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .frame(height: geo.size.width * 0.4)
+                    .frame(maxWidth: .infinity)
+                    .background {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(tileBackgroundColor)
+                            .shadow(color: shadowColor, radius: 2)
+                            .frame(maxHeight: 60)
+                    }
                 
             }
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
-            .buttonStyle(.borderedProminent)
-            .tint(.secondary.opacity(0.2))
+            //.buttonStyle(.borderedProminent)
+            //.tint(.secondary.opacity(0.2))
+            
         }
-        .frame(maxHeight: 80)
+        .frame(maxHeight: 60)
         
     }
 }

@@ -39,7 +39,6 @@ struct StubDetailView: View {
             if !isEditingNotes {
                 concertButtonRow
                     .transition(.scale)
-//                    .transition(.scale(0.0).combined(with: .move(edge: .bottom)))
             }
             
                 StubNotesView(concert: $concert, isEditing: $isEditingNotes)
@@ -111,8 +110,8 @@ extension StubDetailView {
                 showingDeleteAlert = true
             }
         }
-        .frame(minHeight: 88)
-        .padding(.vertical, -10)
+        .frame(minHeight: 70)
+        .padding(.horizontal, 5)
         .offset(y: -7)
         
     }
