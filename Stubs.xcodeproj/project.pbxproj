@@ -14,7 +14,6 @@
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
 		AA5615F82B27AB5B00A35D4A /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumService.swift */; };
 		AA59EF9E2B3B152900EC82EB /* StubEditorStubPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59EF9D2B3B152900EC82EB /* StubEditorStubPreview.swift */; };
-		AA59EFA02B3B1AEE00EC82EB /* StubsByYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */; };
 		AA5E74E32B3DA67F005DBD87 /* ArtistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */; };
 		AA5E74E62B3DAA52005DBD87 /* ArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */; };
 		AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */; };
@@ -64,7 +63,6 @@
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
 		AA5615F72B27AB5B00A35D4A /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		AA59EF9D2B3B152900EC82EB /* StubEditorStubPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorStubPreview.swift; sourceTree = "<group>"; };
-		AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsByYear.swift; sourceTree = "<group>"; };
 		AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
 		AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailView.swift; sourceTree = "<group>"; };
 		AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailVenuesMap.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				AA62228F2B2B367C004899A9 /* NoStubsView.swift */,
-				AA59EF9F2B3B1AEE00EC82EB /* StubsByYear.swift */,
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
 				AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */,
 			);
@@ -406,7 +403,6 @@
 				AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */,
 				AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */,
 				AA87B0DB2B48F6530071DB44 /* ArtistDetailHeaderView.swift in Sources */,
-				AA59EFA02B3B1AEE00EC82EB /* StubsByYear.swift in Sources */,
 				AA59EF9E2B3B152900EC82EB /* StubEditorStubPreview.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */,

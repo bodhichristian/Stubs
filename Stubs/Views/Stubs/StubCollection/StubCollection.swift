@@ -14,14 +14,32 @@ import SwiftData
 // Groups concerts by decade
 
 struct StubCollection: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) private var modelContext
     
     @Query(sort: \Concert.date) private var concerts: [Concert]
+    @Namespace var namespace
     
     @State private var isAddingConcert = false
     @State private var searchText = ""
     
-    let searchPrompt = "Artist, Venue, City, or Date"
+    private let searchPrompt = "Artist, Venue, City, or Date"
+    
+    private var tileBackgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.2)
+        } else {
+            return Color(white: 0.95)
+        }
+    }
+    
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -32,29 +50,54 @@ struct StubCollection: View {
                     
                 } else  {
                     
-                    List {
-                        
-                        // Sort concerts in reverse chronological order
-                        ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
+                    ScrollView{
+                        VStack(alignment: .leading)  {
                             
-                            // Create a section for each decade
-                            Section(header: decadeHeader(year)) {
+                            // Sort concerts in reverse chronological order
+                            ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
                                 
-                                // Create a NavLink to StubDetailView for each concert
-                                ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
+                                // Create a section for each decade
+                                Section(header: decadeHeader(year)) {
                                     
-                                    NavigationLink {
-                                        StubDetailView(concert: concert)
+                                    // Create a NavLink to StubDetailView for each concert
+                                    ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
                                         
-                                    } label: {
-                                        StubCollectionRowLabel(concert: concert)
+                                        NavigationLink {
+                                            
+                                            
+                                            
+                                            
+                                            StubDetailView(concert: concert)
+                                                .matchedGeometryEffect(id: concert.uuid, in: namespace)
+                                            
+                                            
+                                        } label: {
+                                            
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .foregroundStyle(tileBackgroundColor)
+                                                    .shadow(color: shadowColor, radius: 2)
+                                                
+                                                HStack{
+                                                    StubCollectionRowLabel(concert: concert)
+                                                    Spacer()
+                                                }
+                                                .padding(.vertical, 10)
+                                                .padding(.leading, 20)
+                                            }
+                                            
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+
                                     }
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal)
+                        .searchable(text: $searchText, prompt: searchPrompt) // Search bar
+                        
                     }
-                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-                    
                 }
                 
             }
@@ -169,7 +212,7 @@ extension StubCollection {
                 fetchImageData(from: artist.bannerImageURL ?? "") { data in
                     artist.bannerImageData = data
                 }
-
+                
                 let newConcert = Concert(
                     artistName: artistName,
                     venue: venue.name,
@@ -216,5 +259,5 @@ extension StubCollection {
         }
     }
     
-
+    
 }
