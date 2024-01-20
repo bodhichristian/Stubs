@@ -55,7 +55,7 @@ struct StubCountIndicator: View {
                 )
             Text(String(stubCount))
                 .foregroundStyle(.white)
-                .shadow(radius: 2)
+                .shadow(radius: 3)
         }
         .shadow(radius: 2)
     }

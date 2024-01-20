@@ -23,7 +23,7 @@ struct StubCollection: View {
     @State private var isAddingConcert = false
     @State private var searchText = ""
     
-    private let searchPrompt = "Artist, Venue, City, or Date"
+    private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     private var tileBackgroundColor: Color {
         if colorScheme == .dark {
@@ -68,7 +68,7 @@ struct StubCollection: View {
                                             
                                             
                                             StubDetailView(concert: concert)
-                                                .matchedGeometryEffect(id: concert.uuid, in: namespace)
+                                                
                                             
                                             
                                         } label: {
@@ -81,6 +81,10 @@ struct StubCollection: View {
                                                 HStack{
                                                     StubCollectionRowLabel(concert: concert)
                                                     Spacer()
+                                                    Image(systemName: "chevron.right")
+                                                        .foregroundStyle(.secondary.opacity(0.5))
+                                                        .frame(width: 10)
+                                                        .padding(.trailing, 10)
                                                 }
                                                 .padding(.vertical, 10)
                                                 .padding(.leading, 20)
@@ -91,6 +95,7 @@ struct StubCollection: View {
 
                                     }
                                 }
+                                
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -242,12 +247,20 @@ extension StubCollection {
     private func decadeHeader(_ decade: Int) -> some View {
         
         
-        Text(("\(decade)")
-            .replacingOccurrences(of: ",", with: ""))
-        .textCase(nil)
-        
-        .font(.title2)
-        .bold()
+        HStack {
+
+            Text(("\(decade)")
+                .replacingOccurrences(of: ",", with: ""))
+            .textCase(nil)
+            
+            .font(.title)
+            .bold()
+            
+            VStack {
+                Divider()
+            }
+        }
+        .padding(.vertical, 15)
         
     }
     // Delete concert

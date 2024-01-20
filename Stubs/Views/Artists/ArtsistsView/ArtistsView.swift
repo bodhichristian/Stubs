@@ -24,7 +24,10 @@ struct ArtistsView: View {
     
     @State private var artistImageWidth: CGFloat = 75
     
-    let columns = [
+    @State private var searchPrompt = "Search Artists"
+    @State private var searchText = ""
+    
+    private let columns = [
         GridItem(.adaptive(minimum: 120))
     ]
     
@@ -56,6 +59,21 @@ struct ArtistsView: View {
         return sortedArists
     }
     
+    private var filteredArtists: [Artist] {
+        if searchText.isEmpty {
+            return artists
+        } else {
+            return artists.filter { artist in
+                if let artistName = artist.artistName {
+                    return artistName.lowercased().contains(searchText.lowercased())
+                } else {
+                    return false
+                }
+            }
+        }
+    }
+    
+    
     var body: some View {
         NavigationStack {
             
@@ -66,7 +84,7 @@ struct ArtistsView: View {
                 if listView {
                     
                     VStack {
-                        ForEach(artists, id: \.artistID){ artist in
+                        ForEach(filteredArtists, id: \.artistID){ artist in
                             NavigationLink {
                                 ArtistDetailView(artist: artist)
                             } label: {
@@ -100,7 +118,6 @@ struct ArtistsView: View {
                                         
                                         Text(artist.artistName ?? "")
                                             .font(.headline)
-                                            //.fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .lineLimit(3)
                                         
@@ -111,6 +128,10 @@ struct ArtistsView: View {
                                         Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
                                             .foregroundStyle(.secondary)
                                         Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .foregroundStyle(.secondary.opacity(0.5))
+                                            .frame(width: 10)
+                                            
                                     }
                                     .padding(.horizontal)
                                     .padding(.vertical, 10)
@@ -120,12 +141,14 @@ struct ArtistsView: View {
                             
                         }
                     }
+                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
+
                     .padding(.horizontal)
                     .padding(.bottom, 100)
                     
                 } else {
                     LazyVGrid(columns: columns) {
-                        ForEach(artists, id: \.artistID){ artist in
+                        ForEach(filteredArtists, id: \.artistID){ artist in
                             
                             NavigationLink {
                                 ArtistDetailView(artist: artist)
@@ -181,7 +204,8 @@ struct ArtistsView: View {
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 100)
-                    
+                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
+
                 }
             }
             

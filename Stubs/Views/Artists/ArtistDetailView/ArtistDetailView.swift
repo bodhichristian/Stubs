@@ -122,6 +122,7 @@ struct ArtistDetailView: View {
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
                         AlbumScrollView(artistID: artist.artistID ?? "")
+                            .padding(.bottom, 50)
                     }
                 }
             }
