@@ -252,9 +252,9 @@ extension StubCollection {
             Text(("\(decade)")
                 .replacingOccurrences(of: ",", with: ""))
             .textCase(nil)
-            
-            .font(.title)
+            .font(.title2)
             .bold()
+            .foregroundStyle(.secondary)
             
             VStack {
                 Divider()

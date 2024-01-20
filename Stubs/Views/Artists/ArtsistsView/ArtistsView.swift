@@ -74,6 +74,37 @@ struct ArtistsView: View {
     }
     
     
+    // Computed property to group artists
+    private var groupedArtists: [String: [Artist]] {
+        Dictionary(grouping: filteredArtists) { $0.artistName?.first?.uppercased() ?? "#" }
+    }
+    
+    // Computed property to get sorted keys
+    private var sortedKeys: [String] {
+        groupedArtists.keys.sorted()
+    }
+    
+    private func alphabetHeader(_ letter: String) -> some View {
+        
+        
+        HStack {
+            VStack {
+                Divider()
+            }
+            Text(("\(letter)")
+                .replacingOccurrences(of: ",", with: ""))
+            .textCase(nil)
+            .font(.title2)
+            .bold()
+            .foregroundStyle(.secondary)
+            
+        }
+        .padding(.vertical, 15)
+    }
+    
+    
+    
+    
     var body: some View {
         NavigationStack {
             
@@ -84,128 +115,142 @@ struct ArtistsView: View {
                 if listView {
                     
                     VStack {
-                        ForEach(filteredArtists, id: \.artistID){ artist in
-                            NavigationLink {
-                                ArtistDetailView(artist: artist)
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .foregroundStyle(tileBackgroundColor)
-                                        .shadow(color: shadowColor, radius: 2)
-                                    
-                                    // use smallest, unused piece of unique data as reference
-                                        .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
-                                    
-                                    HStack {
+                        ForEach(sortedKeys, id: \.self) { key in
+                            Section {
+                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
+                                    NavigationLink {
+                                        ArtistDetailView(artist: artist)
+                                    } label: {
                                         ZStack {
-                                            Circle()
-                                                .foregroundStyle(.gray)
-                                                .frame(width: artistImageWidth)
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .foregroundStyle(tileBackgroundColor)
+                                                .shadow(color: shadowColor, radius: 2)
                                             
-                                            if let data = artist.artistImageData {
-                                                Image(uiImage: UIImage(data: data) ?? UIImage())
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: artistImageWidth)
-                                                    .clipShape(Circle())
-                                                    .shadow(color: .primary.opacity(0.5), radius: 3)
+                                            // use smallest, unused piece of unique data as reference
+                                                .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                                            
+                                            HStack {
+                                                ZStack {
+                                                    Circle()
+                                                        .foregroundStyle(.gray)
+                                                        .frame(width: artistImageWidth)
+                                                    
+                                                    if let data = artist.artistImageData {
+                                                        Image(uiImage: UIImage(data: data) ?? UIImage())
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: artistImageWidth)
+                                                            .clipShape(Circle())
+                                                            .shadow(color: .primary.opacity(0.5), radius: 3)
+                                                    }
+                                                    
+                                                }
+                                                .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                
+                                                .padding(.trailing, 8)
+                                                
+                                                Text(artist.artistName ?? "")
+                                                    .font(.headline)
+                                                    .multilineTextAlignment(.center)
+                                                    .lineLimit(3)
+                                                
+                                                
+                                                
+                                                StubCountIndicator(artist: artist)
+                                                    .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                                Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
+                                                    .foregroundStyle(.secondary)
+                                                Spacer()
+                                                Image(systemName: "chevron.right")
+                                                    .foregroundStyle(.secondary.opacity(0.5))
+                                                    .frame(width: 10)
+                                                
                                             }
-                                            
+                                            .padding(.horizontal)
+                                            .padding(.vertical, 10)
                                         }
-                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
-                                        
-                                        .padding(.trailing, 8)
-                                        
-                                        Text(artist.artistName ?? "")
-                                            .font(.headline)
-                                            .multilineTextAlignment(.center)
-                                            .lineLimit(3)
-                                        
-                                        
-                                        
-                                        StubCountIndicator(artist: artist)
-                                            .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
-                                        Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
-                                            .foregroundStyle(.secondary)
-                                        Spacer()
-                                        Image(systemName: "chevron.right")
-                                            .foregroundStyle(.secondary.opacity(0.5))
-                                            .frame(width: 10)
-                                            
                                     }
-                                    .padding(.horizontal)
-                                    .padding(.vertical, 10)
+                                    .buttonStyle(PlainButtonStyle())
+                                    
                                 }
+                            } header: {
+                                alphabetHeader(key)
+                                    .matchedGeometryEffect(id: key, in: namespace)
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            
                         }
                     }
                     .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-
+                    
                     .padding(.horizontal)
                     .padding(.bottom, 100)
                     
                 } else {
                     LazyVGrid(columns: columns) {
-                        ForEach(filteredArtists, id: \.artistID){ artist in
-                            
-                            NavigationLink {
-                                ArtistDetailView(artist: artist)
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .foregroundStyle(tileBackgroundColor)
-                                        .shadow(color: shadowColor, radius: 2)
-                                    // use smallest, unused piece of unique data as reference
-                                        .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                        ForEach(sortedKeys, id: \.self) { key in
+                            Section {
+                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
                                     
-                                    
-                                    VStack {
-                                        ZStack(alignment: .bottomTrailing) {
-                                            ZStack {
-                                                Circle()
-                                                    .foregroundStyle(.gray)
-                                                    .frame(width: artistImageWidth)
-                                                
-                                                if let data = artist.artistImageData {
-                                                    Image(uiImage: UIImage(data: data) ?? UIImage())
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: artistImageWidth)
-                                                        .clipShape(Circle())
-                                                        .shadow(color: .primary.opacity(0.5), radius: 3)
-                                                }
-                                            }
-                                            .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                    NavigationLink {
+                                        ArtistDetailView(artist: artist)
+                                    } label: {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .foregroundStyle(tileBackgroundColor)
+                                                .shadow(color: shadowColor, radius: 2)
+                                            // use smallest, unused piece of unique data as reference
+                                                .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                             
-                                            StubCountIndicator(artist: artist)
-                                                .offset(x: 4, y: 4)
-                                                .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                            
+                                            VStack {
+                                                ZStack(alignment: .bottomTrailing) {
+                                                    ZStack {
+                                                        Circle()
+                                                            .foregroundStyle(.gray)
+                                                            .frame(width: artistImageWidth)
+                                                        
+                                                        if let data = artist.artistImageData {
+                                                            Image(uiImage: UIImage(data: data) ?? UIImage())
+                                                                .resizable()
+                                                                .scaledToFit()
+                                                                .frame(width: artistImageWidth)
+                                                                .clipShape(Circle())
+                                                                .shadow(color: .primary.opacity(0.5), radius: 3)
+                                                        }
+                                                    }
+                                                    .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                    
+                                                    StubCountIndicator(artist: artist)
+                                                        .offset(x: 4, y: 4)
+                                                        .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                                }
+                                                
+                                                
+                                                Spacer()
+                                                
+                                                Text(artist.artistName ?? "")
+                                                    .font(.headline)
+                                                    .multilineTextAlignment(.center)
+                                                    .lineLimit(3)
+                                                
+                                                Spacer()
+                                            }
+                                            .padding([.top, .horizontal])
                                         }
-                                        
-                                        
-                                        Spacer()
-                                        
-                                        Text(artist.artistName ?? "")
-                                            .font(.headline)
-                                            .multilineTextAlignment(.center)
-                                            .lineLimit(3)
-                                        
-                                        Spacer()
                                     }
-                                    .padding([.top, .horizontal])
+                                    .frame(minHeight: 150)
+                                    
+                                    .buttonStyle(PlainButtonStyle())
                                 }
+                            } header: {
+                                alphabetHeader(key)
+                                    .matchedGeometryEffect(id: key, in: namespace)
                             }
-                            .frame(minHeight: 150)
-                            
-                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 100)
                     .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-
+                    
                 }
             }
             

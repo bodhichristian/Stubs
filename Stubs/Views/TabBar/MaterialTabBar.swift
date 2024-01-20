@@ -33,7 +33,7 @@ struct MaterialTabBar: View {
                     .foregroundStyle(.ultraThinMaterial)
             }
             .ignoresSafeArea(edges: .bottom)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(color: .secondary, radius: 5)
             .padding(.horizontal)
             .onChange(of: selection) { _, newValue in
