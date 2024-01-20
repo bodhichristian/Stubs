@@ -44,7 +44,7 @@ struct StubCountIndicator: View {
     var body: some View {
         ZStack {
             Circle()
-                .frame(width: 25)
+                .frame(width: 22)
                 .foregroundStyle(
                     LinearGradient(
                         colors: gradientColors,
@@ -55,6 +55,7 @@ struct StubCountIndicator: View {
                 )
             Text(String(stubCount))
                 .foregroundStyle(.white)
+                .shadow(radius: 2)
         }
         .shadow(radius: 2)
     }

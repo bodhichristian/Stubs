@@ -16,6 +16,7 @@ struct MaterialTabBar: View {
     @State var localSelection: TabBarItem
     @Namespace private var namespace
     
+    
     var body: some View {
         VStack {
             Spacer()
@@ -44,19 +45,24 @@ struct MaterialTabBar: View {
     }
 }
 
-#Preview {
-    MaterialTabBar(tabs: [.stubs, .favorites, .artists, .profile], selection: .constant(.stubs), localSelection: .stubs)
-}
-
 extension MaterialTabBar {
     private func tabView(tab: TabBarItem) -> some View {
         VStack {
             
-            Image(systemName: tab.iconName)
-                .font(.subheadline)
-                .foregroundStyle(localSelection == tab ? .primary : .secondary)
-                .frame(height: 15)
-            
+            if tab == selection  {
+                Image(systemName: tab.iconName)
+                    .font(.subheadline)
+                    .foregroundStyle(localSelection == tab ? .primary : .secondary)
+                    .frame(height: 15)
+                    .symbolEffect(.bounce, value: localSelection)
+
+                    
+            } else {
+                Image(systemName: tab.iconName)
+                    .font(.subheadline)
+                    .foregroundStyle(localSelection == tab ? .primary : .secondary)
+                    .frame(height: 15)
+            }
             
             Text(tab.title)
                 .font(.system(size: 10, weight: .semibold, design: .rounded))
