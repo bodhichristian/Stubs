@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoriteIcon: View {
     var body: some View {
         Image(systemName: "checkmark.seal.fill")
-            .font(.title3)
+            .font(.headline)
             .foregroundStyle(
                 LinearGradient(
                     colors: [.orange, .yellow, .yellow, .yellow, .orange],
@@ -26,8 +26,4 @@ struct FavoriteIcon: View {
             }
         
     }
-}
-
-#Preview {
-    FavoriteIcon()
 }

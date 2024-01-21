@@ -22,8 +22,7 @@ struct StubCollectionRowLabel: View {
                     
                 if concert.isFavorite {
                     FavoriteIcon()
-                        .offset(y: 12)
-                        .font(.headline)
+                        .offset(x: -12, y: 12)
                 }
             }
             
