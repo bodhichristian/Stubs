@@ -18,9 +18,9 @@ struct ArtistsView: View {
     
     @State private var model = ArtistService()
     
-    @State private var listView = false
+    @State private var listView = true
     
-    @State private var artistImageWidth: CGFloat = 75
+    @State private var artistImageWidth: CGFloat = 44
     
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
@@ -285,10 +285,10 @@ struct ArtistsView: View {
     }
     
     private func setImageWidth() {
-        if artistImageWidth == 75 {
-            artistImageWidth = 44
-        } else {
+        if artistImageWidth == 44 {
             artistImageWidth = 75
+        } else {
+            artistImageWidth = 44
         }
     }
 }
