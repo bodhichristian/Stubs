@@ -90,16 +90,12 @@ struct ArtistDetailView: View {
                                 .padding(.horizontal)
                             }
                             .foregroundStyle(.gray)
-                            
                         }
                         .offset(y: -16)
-                        
                     }
-                    
                     .padding(.top, geo.size.width / 4)
                     
                     ScrollView {
-                        
                         Text(artist.bio ?? "")
                             .lineLimit(showingFullBio ? .none : 3)
                             .padding([.horizontal, .bottom])
@@ -112,8 +108,6 @@ struct ArtistDetailView: View {
                 }
             }
             .navigationTitle(artist.artistName ?? "")
-            
-
         }
     }
 }
