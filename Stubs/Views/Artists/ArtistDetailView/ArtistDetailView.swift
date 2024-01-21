@@ -40,25 +40,17 @@ struct ArtistDetailView: View {
     
     
     var body: some View {
-        
         GeometryReader { geo in
-            
             ZStack {
-                
                 ArtistDetailHeaderView(artist: artist)
                 
-                
-                
                 VStack(alignment: .leading, spacing: 0) {
-                    
                     HStack(alignment: .bottom) {
                         ZStack { // artist image
-                            
                             Circle()
                                 .foregroundStyle(.gray)
                                 .frame(width: artistImageWidth)
                                 .padding()
-                            
 
                                 Image(uiImage: artistImage)
                                 .resizable()
@@ -67,9 +59,6 @@ struct ArtistDetailView: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 7,  y: 7)
                                 .padding()
-                            
-
-                            
                         }
                         
                         Spacer()
@@ -82,11 +71,8 @@ struct ArtistDetailView: View {
                             // MARK: More/Less Button
                             // Toggle `lineLimit` to display a brief or full bio
                             Button {
-                                
                                 showingFullBio.toggle()
-                                
                             } label: {
-                                
                                 HStack {
                                     Text(
                                         showingFullBio
@@ -99,7 +85,6 @@ struct ArtistDetailView: View {
                                         ? "chevron.up"
                                         : "chevron.down"
                                     )
-                                    
                                 }
                                 .font(.caption)
                                 .padding(.horizontal)

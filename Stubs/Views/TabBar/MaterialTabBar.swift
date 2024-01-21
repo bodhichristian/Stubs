@@ -24,10 +24,8 @@ struct MaterialTabBar: View {
             HStack {
                 ForEach(tabs, id: \.self) { tab in
                     tabView(tab: tab)
-                    
                 }
             }
-            
             .background {
                 contentShape
                     .foregroundStyle(.ultraThinMaterial)

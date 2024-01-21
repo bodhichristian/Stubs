@@ -51,7 +51,6 @@ struct StubCountIndicator: View {
                         startPoint: .topLeading,
                         endPoint:  .bottomTrailing
                     )
-                
                 )
             Text(String(stubCount))
                 .foregroundStyle(.white)

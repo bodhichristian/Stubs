@@ -7,8 +7,6 @@
 
 // TODO: Find a way to load images in this view and pass to detail views. Currently artist images load here.
 
-
-
 import SwiftUI
 import SwiftData
 
@@ -26,6 +24,8 @@ struct ArtistsView: View {
     
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
+    
+    private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     private let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -85,25 +85,20 @@ struct ArtistsView: View {
     }
     
     private func alphabetHeader(_ letter: String) -> some View {
-        
-        
         HStack {
             VStack {
                 Divider()
             }
-            Text(("\(letter)")
-                .replacingOccurrences(of: ",", with: ""))
-            .textCase(nil)
-            .font(.title2)
-            .bold()
-            .foregroundStyle(.secondary)
+            
+            Text(digits.contains(letter) ? "#" : letter)
+                .textCase(nil)
+                .font(.title2)
+                .bold()
+                .foregroundStyle(.secondary)
             
         }
         .padding(.vertical, 15)
     }
-    
-    
-    
     
     var body: some View {
         NavigationStack {
