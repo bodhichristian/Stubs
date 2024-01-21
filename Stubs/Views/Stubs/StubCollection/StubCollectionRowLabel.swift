@@ -30,20 +30,22 @@ struct StubCollectionRowLabel: View {
             VStack(alignment: .leading) {
                 
                 Text(concert.artistName)
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.title3)
+                    .fontWeight(.semibold)
                 
                 Text(concert.venue)
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundStyle(Color(colorName: concert.accentColor)!)
                 
-                Text(concert.city)
-                    .font(.callout)
-                
-                Text(concert.date.formatted(date: .abbreviated, time: .omitted))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text(concert.city)
+                        .font(.callout)
+                    
+                    Text(concert.date.formatted(date: .abbreviated, time: .omitted))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
             .lineLimit(1)
         }
