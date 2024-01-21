@@ -40,12 +40,12 @@ struct StubCollectionRowLabel: View {
                 
                 HStack {
                     Text(concert.city)
-                        .font(.callout)
                     
                     Text(concert.date.formatted(date: .abbreviated, time: .omitted))
-                        .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+                .font(.callout)
+
             }
             .lineLimit(1)
         }
