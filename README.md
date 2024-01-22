@@ -10,4 +10,9 @@ A SwiftUI app for storing digital representations of concert ticket stubs. The t
 
 <b>Notice:</b> An API key from RapidAPI is required to run the app with a complete experience. 
 
-![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/ece6acdd-54a8-47a5-97cc-c1aee0b11baf)
+## StubCollection
+![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/dd11dc51-bd03-45ad-9a9f-1751bcc83da3)
+
+## ArtistsView
+![Uploading Stubs Showcase.002.png…]()
+
