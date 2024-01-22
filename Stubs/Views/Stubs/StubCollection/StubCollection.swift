@@ -100,6 +100,7 @@ struct StubCollection: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
+                        .padding(.bottom, 80)
                         .searchable(text: $searchText, prompt: searchPrompt) // Search bar
                         
                     }
@@ -130,10 +131,6 @@ struct StubCollection: View {
     }
 }
 
-#Preview {
-    StubCollection()
-        .modelContainer(for: Concert.self, inMemory: true)
-}
 
 extension StubCollection {
     // Concerts whose data contains searchText

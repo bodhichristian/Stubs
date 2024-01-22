@@ -149,13 +149,14 @@ struct ArtistsView: View {
                                                     .multilineTextAlignment(.center)
                                                     .lineLimit(3)
                                                 
-                                                
-                                                
                                                 StubCountIndicator(artist: artist)
                                                     .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                                
                                                 Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
                                                     .foregroundStyle(.secondary)
+                                                
                                                 Spacer()
+                                                
                                                 Image(systemName: "chevron.right")
                                                     .foregroundStyle(.secondary.opacity(0.5))
                                                     .frame(width: 10)

@@ -34,10 +34,10 @@ struct StubThumbnail: View {
             .frame(maxWidth: 50)
         }
         .shadow(color: .black.opacity(0.3), radius: 3, y: 2)
-
+        
         .rotationEffect(Angle(degrees: -15))
-
-        .frame(width: 66, height: 40)
+        
+        .frame(maxWidth: 66, maxHeight: 40)
         .padding(.trailing)
     }
 }
