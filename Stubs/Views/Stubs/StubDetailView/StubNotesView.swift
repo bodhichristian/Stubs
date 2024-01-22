@@ -61,7 +61,6 @@ struct StubNotesView: View {
                                 .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
                         }
                         
-                        
                         Image(systemName:"square.and.pencil.circle")
                             .resizable()
                             .scaledToFit()
@@ -91,8 +90,8 @@ struct StubNotesView: View {
                                  ? accentColor
                                  : .primary)
                 .frame(minHeight: 100)
-                .frame(maxWidth: .infinity, maxHeight: 200)
-                
+                .frame(maxWidth: .infinity)
+            
                 .disabled(!isEditing)
                 .focused($editingFocus)
                 .offset(x: -5)
@@ -100,9 +99,7 @@ struct StubNotesView: View {
             Divider()
                 .padding(.bottom)
         }
-        .padding(.top, 20)
-        
-        
+        .padding(.top, 5)
     }
 }
 
