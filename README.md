@@ -14,5 +14,5 @@ A SwiftUI app for storing digital representations of concert ticket stubs. The t
 ![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/dd11dc51-bd03-45ad-9a9f-1751bcc83da3)
 
 ## ArtistsView
-![Uploading Stubs Showcase.002.png…]()
+![Stubs Showcase 002](https://github.com/bodhichristian/Stubs/assets/110639779/657fbce2-67a0-490a-87a5-2c9e9da70659)
 
