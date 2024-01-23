@@ -12,8 +12,11 @@ A SwiftUI app for storing digital representations of concert ticket stubs. The t
 
 ## StubCollection
 ![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/dd11dc51-bd03-45ad-9a9f-1751bcc83da3)
-At the heart of the app is adding a Stub. Users may record details such as artist name, venue, and city, customize their ticket color and icon, and store notes about attended concerts. When a user attemtps to save a stub, MapKit fetches venue coordinate data, and artist details are fetched from TheAudioDB. Stubs, along with related artist info and image data are persisted wjth SwiftData. 
+At the heart of the app is adding a Stub. Users may record details such as artist name, venue, and city, customize their ticket color and icon, and store notes about attended concerts. When a user attemtps to save a stub, MapKit fetches venue coordinate data, and artist details are fetched from TheAudioDB. Stubs, along with related artist info and image data are persisted with SwiftData. 
+* <b>StubCollection </b> is the view that launches with the app. It provides a button to create a new stub, and presents users a list of their saved concerts. This list is searchable by most data available to the concert, and users may filter their favorites for quick reference.
+* <b>StubDetailsView </b> celebrates the concert with large scale stub, ability to view the venue on a map, favorite or delete the concert, or even edit the notes. Users may also access additional stubs by the same artist.
 
+   
 ## ArtistsView
 ![Stubs Showcase 002](https://github.com/bodhichristian/Stubs/assets/110639779/657fbce2-67a0-490a-87a5-2c9e9da70659)
 When a Stub is added, the artist is displayed on a list in ArtistsView. Users may toggle a grid view that transitions in with a .matchedGeometryEffect. ArtistDetailsView presents a rich artist experience with profile and banner images, an expandable bio, intersctive map, additional stubs, and discography. 
