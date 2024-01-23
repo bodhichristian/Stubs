@@ -126,10 +126,6 @@ struct ArtistsView: View {
                                             
                                             HStack {
                                                 ZStack {
-                                                    Circle()
-                                                        .foregroundStyle(.gray)
-                                                        .frame(width: artistImageWidth)
-                                                    
                                                     if let data = artist.artistImageData {
                                                         Image(uiImage: UIImage(data: data) ?? UIImage())
                                                             .resizable()
@@ -137,8 +133,11 @@ struct ArtistsView: View {
                                                             .frame(width: artistImageWidth)
                                                             .clipShape(Circle())
                                                             .shadow(color: .primary.opacity(0.5), radius: 3)
+                                                    } else {
+                                                        Circle()
+                                                            .foregroundStyle(.gray)
+                                                            .frame(width: artistImageWidth)
                                                     }
-                                                    
                                                 }
                                                 .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                                 

@@ -23,6 +23,8 @@ struct StubCollection: View {
     @State private var isAddingConcert = false
     @State private var searchText = ""
     
+    @State private var filteringFavorites = false
+    
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     private var tileBackgroundColor: Color {
@@ -112,9 +114,19 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
+                
+                
                 ToolbarItem {
                     Button("Demo") {
                         addSampleConcert()
+                    }
+                }
+                
+                ToolbarItem {
+                    Button {
+                        
+                    } label: {
+                        Label("Favorites", systemImage: "line.3.horizontal.decrease.circle")
                     }
                 }
                 
@@ -136,8 +148,14 @@ extension StubCollection {
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {
-            return concerts
+            if filteringFavorites {
+                return concerts.filter { $0.isFavorite }
+            } else {
+                return concerts
+            }
+  
         } else {
+            // Search filter
             return concerts.filter { concert in
                 return concert.artistName.lowercased().contains(searchText.lowercased()) ||
                 concert.venue.lowercased().contains(searchText.lowercased()) ||
