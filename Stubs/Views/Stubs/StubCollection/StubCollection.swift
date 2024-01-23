@@ -124,9 +124,15 @@ struct StubCollection: View {
                 
                 ToolbarItem {
                     Button {
-                        
+                        withAnimation(.smooth(extraBounce: 0.2)){
+                            filteringFavorites.toggle()
+                        }
                     } label: {
-                        Label("Favorites", systemImage: "line.3.horizontal.decrease.circle")
+                        Label(
+                            "Favorites",
+                            systemImage: filteringFavorites
+                            ? "line.3.horizontal.decrease.circle.fill"
+                            : "line.3.horizontal.decrease.circle")
                     }
                 }
                 
