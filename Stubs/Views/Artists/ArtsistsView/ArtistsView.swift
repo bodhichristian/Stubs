@@ -275,8 +275,27 @@ struct ArtistsView: View {
             .toolbar {
                 ToolbarItem {
                     Menu {
-                        Button { sortOrder = .byNameAscending } label: { Label("Sort by Name A-Z", systemImage: "a.square")}
-                        Button { sortOrder = .byNameDescending } label: { Label("Sort by Name Z-A", systemImage: "z.square")}
+                        Button {
+                            withAnimation(.smooth(extraBounce: 0.2)){
+                                sortOrder = .byNameAscending
+                            }
+                        } label: {
+                            Label(
+                                "Sort by Name A-Z",
+                                systemImage: "a.square"
+                            )
+                        }
+                        
+                        Button {
+                            withAnimation(.smooth(extraBounce: 0.2)){
+                                sortOrder = .byNameDescending
+                            }
+                        } label: {
+                            Label(
+                                "Sort by Name Z-A",
+                                systemImage: "z.square"
+                            )
+                        }
                         
                         Section {
                             Button {
