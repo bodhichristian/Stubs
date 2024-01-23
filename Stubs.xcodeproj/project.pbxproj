@@ -51,6 +51,7 @@
 		AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */; };
 		AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
 		AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACBD17D2B5B09710093EAB7 /* ProfileView.swift */; };
+		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistStubsLabel.swift; sourceTree = "<group>"; };
 		AAC4D4E52B31B7470098D28D /* StubNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNotesView.swift; sourceTree = "<group>"; };
 		AACBD17D2B5B09710093EAB7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
+				AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */,
 				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 			);
 			path = ArtsistsView;
@@ -419,6 +422,7 @@
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
+				AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */,

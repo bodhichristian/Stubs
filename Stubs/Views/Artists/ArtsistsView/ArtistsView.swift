@@ -25,6 +25,8 @@ struct ArtistsView: View {
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
     
+    @State private var sortOrder: SortOrder = .byNameAscending
+    
     private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     private let columns = [
@@ -73,6 +75,16 @@ struct ArtistsView: View {
         }
     }
     
+    private var sortedArtists: [Artist] {
+        switch sortOrder {
+        case .byNameAscending:
+            return filteredArtists.sorted(by: {$0.artistName ?? ""  < $1.artistName ?? ""})
+        case .byNameDescending:
+            return filteredArtists.sorted(by: {$0.artistName ?? ""  > $1.artistName ?? ""})
+        default:  return filteredArtists
+        }
+    }
+    
     
     // Computed property to group artists
     private var groupedArtists: [String: [Artist]] {
@@ -81,7 +93,16 @@ struct ArtistsView: View {
     
     // Computed property to get sorted keys
     private var sortedKeys: [String] {
-        groupedArtists.keys.sorted()
+        
+        switch sortOrder {
+        case .byNameDescending:
+            groupedArtists.keys.sorted().reversed()
+
+        default:
+            groupedArtists.keys.sorted()
+
+        }
+        
     }
     
     private func alphabetHeader(_ letter: String) -> some View {
@@ -253,20 +274,41 @@ struct ArtistsView: View {
             .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {
-                    Button {
-                        withAnimation(.smooth(extraBounce: 0.2)) {
-                            setImageWidth()
-                            listView.toggle()
+                    Menu {
+                        Button { sortOrder = .byNameAscending } label: { Label("Sort by Name A-Z", systemImage: "a.square")}
+                        Button { sortOrder = .byNameDescending } label: { Label("Sort by Name Z-A", systemImage: "z.square")}
+                        
+                        Section {
+                            Button {
+                                withAnimation(.smooth(extraBounce: 0.2)) {
+                                    setImageWidth()
+                                    listView.toggle()
+                                }
+                            } label: {
+                                Label(
+                                    listView
+                                    ? "Switch to Grid View"
+                                    : "Switch to List View",
+                                    systemImage: listView
+                                    ? "square.grid.2x2"
+                                    : "list.bullet"
+                                )
+                            }
                         }
+                        
                     } label: {
                         Label(
-                            "Toggle List View",
-                            systemImage: listView
-                            ? "square.grid.2x2"
-                            : "list.bullet"
+                            "View Options",
+                            systemImage: "list.bullet"
                         )
                     }
                 }
+                
+                ToolbarItem {
+
+                }
+                
+                
             }
         }
         
