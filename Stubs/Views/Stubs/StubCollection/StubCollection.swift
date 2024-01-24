@@ -115,12 +115,12 @@ struct StubCollection: View {
             }
             .toolbar {
                 
-                
-                ToolbarItem {
-                    Button("Demo") {
-                        addSampleConcert()
-                    }
-                }
+//                
+//                ToolbarItem {
+//                    Button("Demo") {
+//                        addSampleConcert()
+//                    }
+//                }
                 
                 ToolbarItem {
                     Button {
@@ -131,8 +131,8 @@ struct StubCollection: View {
                         Label(
                             "Favorites",
                             systemImage: filteringFavorites
-                            ? "line.3.horizontal.decrease.circle.fill"
-                            : "line.3.horizontal.decrease.circle")
+                            ? "checkmark.seal.fill"
+                            : "checkmark.seal")
                     }
                 }
                 

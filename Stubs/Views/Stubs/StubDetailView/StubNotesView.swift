@@ -84,6 +84,7 @@ struct StubNotesView: View {
                 .buttonStyle(PlainButtonStyle())
                 
             }
+            .padding(.top, 10)
             
             TextEditor(text: $concert.notes)
                 .foregroundStyle(isEditing
