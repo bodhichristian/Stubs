@@ -8,7 +8,49 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
-        Text("Coming soon.")
+        NavigationStack {
+            GeometryReader { geo in
+                VStack {
+                    ZStack{
+                        StubShape()
+                            .foregroundStyle(.ultraThinMaterial)
+                            .shadow(color: .secondary, radius: 5)
+                        
+                        StubShape()
+                            .foregroundStyle(StubStyle.gradientOverlay)
+                        
+                        HStack {
+                            VerticalLineBoundary()
+                            
+                            Spacer()
+                            
+                            VerticalLineBoundary()
+                        }
+                        .frame(width: geo.size.width * 0.75)
+                        .padding(.vertical, 30)
+                        
+                    }
+                    .frame(maxHeight: geo.size.height / 3)
+                    .padding()
+                    
+                    Spacer()
+                    
+                    // LazyVGrid with bento box stats
+                }
+            }
+            .navigationTitle("Profile")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        // open settings
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
+            }
+        }
     }
 }

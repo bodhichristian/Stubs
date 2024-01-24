@@ -116,11 +116,11 @@ struct StubCollection: View {
             .toolbar {
                 
                 
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Demo") {
-                        addSampleConcert()
-                    }
-                }
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Demo") {
+//                        addSampleConcert()
+//                    }
+//                }
                 
                 ToolbarItem {
                     Button {

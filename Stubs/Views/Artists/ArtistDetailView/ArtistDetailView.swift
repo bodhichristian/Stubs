@@ -42,7 +42,7 @@ struct ArtistDetailView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                ArtistDetailHeaderView(artist: artist)
+                ArtistDetailBannerView(artist: artist)
                 
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .bottom) {

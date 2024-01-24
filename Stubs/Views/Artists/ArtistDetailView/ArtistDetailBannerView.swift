@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtistDetailHeaderView: View {
+struct ArtistDetailBannerView: View {
     let artist: Artist
     
     private var bannerImage: UIImage {
@@ -49,7 +49,8 @@ struct ArtistDetailHeaderView: View {
                         
                     }
                     .foregroundStyle(.white)
-                    .padding()
+                    .padding(.trailing)
+                    .padding(.bottom, 10)
                 }
                 
                 
