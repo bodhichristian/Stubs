@@ -14,7 +14,10 @@ struct ProfileView: View {
         NavigationStack {
             GeometryReader { geo in
                 VStack {
+                    
+                    // Profile Ticket Stub
                     ZStack{
+                        // Base Layer
                         StubShape()
                             .foregroundStyle(.ultraThinMaterial)
                             .shadow(color: .secondary, radius: 5)
@@ -22,6 +25,8 @@ struct ProfileView: View {
                         StubShape()
                             .foregroundStyle(StubStyle.gradientOverlay)
                         
+                        
+                        // Veritcal Lines
                         HStack {
                             VerticalLineBoundary()
                             
@@ -31,6 +36,7 @@ struct ProfileView: View {
                         }
                         .frame(width: geo.size.width * 0.75)
                         .padding(.vertical, 30)
+                       
                         
                     }
                     .frame(maxHeight: geo.size.height / 3)
