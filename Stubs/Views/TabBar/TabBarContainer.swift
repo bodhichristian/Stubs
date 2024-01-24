@@ -25,6 +25,7 @@ struct TabBarContainer<Content: View>: View {
             MaterialTabBar(tabs: tabs, 
                            selection: $selection,
                            localSelection: selection)
+            .ignoresSafeArea(.keyboard) 
         }
         .onPreferenceChange(TabBarItemPreferenceKey.self, perform: { value in
             self.tabs = value
