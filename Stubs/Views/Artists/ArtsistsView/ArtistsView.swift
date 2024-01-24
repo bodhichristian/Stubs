@@ -141,7 +141,6 @@ struct ArtistsView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .foregroundStyle(tileBackgroundColor)
                                                 .shadow(color: shadowColor, radius: 2)
-                                            
                                             // use smallest, unused piece of unique data as reference
                                                 .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                             
@@ -276,43 +275,45 @@ struct ArtistsView: View {
                 ToolbarItem {
                     Menu {
                         Button {
-                            withAnimation(.smooth(extraBounce: 0.2)){
-                                sortOrder = .byNameAscending
+                            withAnimation(.smooth(extraBounce: 0.2)) {
+                                setImageWidth()
+                                listView.toggle()
                             }
                         } label: {
                             Label(
-                                "Sort by Name A-Z",
-                                systemImage: "a.square"
-                            )
-                        }
-                        
-                        Button {
-                            withAnimation(.smooth(extraBounce: 0.2)){
-                                sortOrder = .byNameDescending
-                            }
-                        } label: {
-                            Label(
-                                "Sort by Name Z-A",
-                                systemImage: "z.square"
+                                listView
+                                ? "Switch to Grid View"
+                                : "Switch to List View",
+                                systemImage: listView
+                                ? "square.grid.2x2"
+                                : "list.bullet"
                             )
                         }
                         
                         Section {
+                            
                             Button {
-                                withAnimation(.smooth(extraBounce: 0.2)) {
-                                    setImageWidth()
-                                    listView.toggle()
+                                withAnimation(.smooth(extraBounce: 0.2)){
+                                    sortOrder = .byNameAscending
                                 }
                             } label: {
                                 Label(
-                                    listView
-                                    ? "Switch to Grid View"
-                                    : "Switch to List View",
-                                    systemImage: listView
-                                    ? "square.grid.2x2"
-                                    : "list.bullet"
+                                    "Sort by Name A-Z",
+                                    systemImage: "a.square"
                                 )
                             }
+                            
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameDescending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by Name Z-A",
+                                    systemImage: "z.square"
+                                )
+                            }
+                            
                         }
                         
                     } label: {

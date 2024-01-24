@@ -115,16 +115,16 @@ struct StubCollection: View {
             }
             .toolbar {
                 
-//                
-//                ToolbarItem {
-//                    Button("Demo") {
-//                        addSampleConcert()
-//                    }
-//                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Demo") {
+                        addSampleConcert()
+                    }
+                }
                 
                 ToolbarItem {
                     Button {
-                        withAnimation(.smooth(extraBounce: 0.2)){
+                        withAnimation(.snappy){
                             filteringFavorites.toggle()
                         }
                     } label: {
