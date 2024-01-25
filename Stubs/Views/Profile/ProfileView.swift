@@ -37,31 +37,40 @@ struct ProfileView: View {
                                     .font(.largeTitle)
                                     .fontWeight(.semibold)
                                 
-                                Text("User since Jan 2024")
-                                    .foregroundStyle(.secondary)
-                                Text("Favorite Venue")
-                                
-                                Spacer()
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("User since Jan 2024")
+                                            .foregroundStyle(.secondary)
+                                        Text("Favorite Venue")
+                                        Spacer()
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    VStack {
+                                        Spacer()
+                                        
+                                        Circle()
+                                            .frame(width: geo.size.width / 4)
+                                            .overlay(alignment: .bottomTrailing) {
+                                                    PhotosPicker(selection: $imageSelection,
+                                                                 matching: .images,
+                                                                 photoLibrary: .shared()) {
+                                                        Image(systemName: "pencil.circle.fill")
+                                                            .symbolRenderingMode(.multicolor)
+                                                            .font(.system(size: 30))
+                                                            .foregroundColor(.accentColor)
+                                                    }
+                                          
+                                                    .buttonStyle(.borderless)
+                                                }
+                                        
+                                    }
+                                }
                             }
                             Spacer()
                             
-                            VStack {
-                                Spacer()
-                                Circle()
-                                    .frame(width: geo.size.width / 3)
-                                    .overlay(alignment: .bottomTrailing) {
-                                            PhotosPicker(selection: $imageSelection,
-                                                         matching: .images,
-                                                         photoLibrary: .shared()) {
-                                                Image(systemName: "pencil.circle.fill")
-                                                    .symbolRenderingMode(.multicolor)
-                                                    .font(.system(size: 30))
-                                                    .foregroundColor(.accentColor)
-                                            }
-                                            .buttonStyle(.borderless)
-                                        }
-                                
-                            }
+
                             
                             VerticalLineBoundary()
                         }
