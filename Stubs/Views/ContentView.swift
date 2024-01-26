@@ -25,8 +25,17 @@ struct ContentView: View {
                     selection: $tabSelection
                 )
             
+            Venues()
+                .tabBarItem(
+                    tab: .venues,
+                    selection: $tabSelection
+                )
+            
             ProfileView()
-                .tabBarItem(tab: .profile, selection: $tabSelection)
+                .tabBarItem(
+                    tab: .profile,
+                    selection: $tabSelection
+                )
             
         }
     }

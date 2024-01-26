@@ -88,9 +88,10 @@ struct ProfileView: View {
                                                 PhotosPicker(selection: $imageSelection,
                                                              matching: .images,
                                                              photoLibrary: .shared()) {
-                                                    Image(systemName: "pencil.circle.fill")
+                                                    Image(systemName: "camera.circle.fill")
+                                                        .symbolRenderingMode(.multicolor)
                                                         .font(.system(size: 30))
-                                                        .foregroundColor(tileBackgroundColor)
+                                                        .foregroundColor(.purple.opacity(0.8))
                                                 }
                                                              .onChange(of: imageSelection) { _, newItem in
                                                                  // When a new item is selected, load the image

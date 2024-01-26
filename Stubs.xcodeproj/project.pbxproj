@@ -52,6 +52,7 @@
 		AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
 		AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACBD17D2B5B09710093EAB7 /* ProfileView.swift */; };
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
+		AADE4FBE2B63DCFF000C7DF3 /* Venues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBD2B63DCFF000C7DF3 /* Venues.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		AAC4D4E52B31B7470098D28D /* StubNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNotesView.swift; sourceTree = "<group>"; };
 		AACBD17D2B5B09710093EAB7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
+		AADE4FBD2B63DCFF000C7DF3 /* Venues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venues.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +262,7 @@
 				AACBD17C2B5B095E0093EAB7 /* Profile */,
 				AAC4D4D62B2F4AC10098D28D /* Stubs */,
 				AA5E74EF2B3EFD00005DBD87 /* TabBar */,
+				AADE4FBC2B63DCE0000C7DF3 /* Venues */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +309,14 @@
 				AACBD17D2B5B09710093EAB7 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		AADE4FBC2B63DCE0000C7DF3 /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				AADE4FBD2B63DCFF000C7DF3 /* Venues.swift */,
+			);
+			path = Venues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +398,7 @@
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */,
 				AA5E74E32B3DA67F005DBD87 /* ArtistService.swift in Sources */,
+				AADE4FBE2B63DCFF000C7DF3 /* Venues.swift in Sources */,
 				AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AA87B0D92B4833F80071DB44 /* ArtistDetailProfileImage.swift in Sources */,
