@@ -89,9 +89,8 @@ struct ProfileView: View {
                                                              matching: .images,
                                                              photoLibrary: .shared()) {
                                                     Image(systemName: "pencil.circle.fill")
-                                                        .symbolRenderingMode(.multicolor)
                                                         .font(.system(size: 30))
-                                                        .foregroundColor(.accentColor)
+                                                        .foregroundColor(tileBackgroundColor)
                                                 }
                                                              .onChange(of: imageSelection) { _, newItem in
                                                                  // When a new item is selected, load the image
