@@ -15,6 +15,26 @@ struct ProfileView: View {
     @State private var imageData: Data?
     @State private var selectedImage: UIImage?
     
+    private let columns = [
+        GridItem(.adaptive(minimum: 120))
+    ]
+    
+    private var tileBackgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.2)
+        } else {
+            return Color(white: 0.95)
+        }
+    }
+    
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
@@ -89,13 +109,14 @@ struct ProfileView: View {
                                     }
                                 }
                             }
+                            .padding(.horizontal, 10)
                             Spacer()
                             
                             
                             
                             VerticalLineBoundary()
                         }
-                        .frame(width: geo.size.width * 0.75)
+                        .frame(width: geo.size.width * 0.78)
                         .padding(.vertical, 30)
                         
                         
@@ -104,9 +125,22 @@ struct ProfileView: View {
                     .padding()
                     
                     Spacer()
-                    
-                    // LazyVGrid with bento box stats
+                    ScrollView {
+                        
+                        // LazyVGrid with bento box stats
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<9) { _ in
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundStyle(tileBackgroundColor)
+                                    .shadow(color: shadowColor, radius: 2)
+                                    .frame(height: 120)
+                            }
+                        }
+                        .padding()
+
+                    }
                 }
+                
             }
             .navigationTitle("Profile")
             .toolbar {
