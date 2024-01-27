@@ -19,19 +19,12 @@ struct ArtistDetailVenuesMap: View {
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     
-    //
-    private var uniqueVenueCount: Int {
-        return Set(concerts.map {$0.venue}).count
-    }
-    
     private var displayStub: Concert {
         return concerts[0]
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            
-            
             HStack{
                 
                 Image(systemName: "ticket")
