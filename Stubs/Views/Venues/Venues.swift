@@ -21,9 +21,11 @@ struct Venues: View {
                         Marker(concert.venue, coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude))
                     }
                 }
+                .padding(.bottom, 60)
 //
             }
-                
+            .navigationTitle("Venues")
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
 }
