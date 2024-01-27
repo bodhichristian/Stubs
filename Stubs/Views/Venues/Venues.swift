@@ -7,12 +7,22 @@
 
 import SwiftUI
 import MapKit
+import SwiftData
 
 struct Venues: View {
+    @Query var concerts: [Concert]
+    
     var body: some View {
         NavigationStack {
-            Map()
-                .navigationTitle("Venues")
+            GeometryReader { geo in
+                Map {
+                    ForEach(concerts, id: \.uuid) { concert in
+                        
+                        Marker(concert.venue, coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude))
+                    }
+                }
+//
+            }
                 
         }
     }
