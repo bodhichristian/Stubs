@@ -12,6 +12,18 @@ struct VenueGridView: View {
     @Query var concerts: [Concert]
     
     
+    private var venues: [Concert] {
+        var uniqueVenues = Set<String>()
+        
+        return concerts.filter { concert in
+            if !uniqueVenues.contains(concert.venue) {
+                uniqueVenues.insert(concert.venue)
+                return true
+            }
+            return false
+        }
+    }
+    
     
     private let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -20,10 +32,10 @@ struct VenueGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                    ForEach(concerts, id: \.uuid) { concert in
-                        VenueGridItem(concert: concert)
-                    }
+                ForEach(venues, id: \.venue) { concert in
+                    VenueGridItem(concert: concert)
                 }
+            }
         }
         .padding()
         .navigationTitle("Venues")

@@ -39,7 +39,7 @@ struct VenueGridItem: View {
         .frame(height: 150)
         .shadow(color: shadowColor, radius: 2)
         .onAppear {
-            updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+            updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude    )
         }
     }
     

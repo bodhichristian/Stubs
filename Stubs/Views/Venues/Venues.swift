@@ -14,6 +14,7 @@ struct Venues: View {
         NavigationStack {
             VenueGridView()
                 .navigationTitle("Venues")
+                .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
 }
