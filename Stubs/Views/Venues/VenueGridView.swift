@@ -25,6 +25,14 @@ struct VenueGridView: View {
         }
     }
     
+    private var filteredVenues: [Concert] {
+        if searchText.isEmpty {
+            return venues
+        } else {
+            return venues.filter { $0.venue.lowercased().contains(searchText.lowercased())}
+        }
+    }
+    
     
     private let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -33,7 +41,7 @@ struct VenueGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(venues, id: \.venue) { concert in
+                ForEach(filteredVenues, id: \.venue) { concert in
                     VenueGridItem(concert: concert)
                 }
             }
@@ -43,8 +51,4 @@ struct VenueGridView: View {
         .padding(.horizontal)
         .navigationTitle("Venues")
     }
-}
-
-#Preview {
-    VenueGridView()
 }
