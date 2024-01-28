@@ -12,9 +12,17 @@ struct VenueGridItem: View {
     let concert: Concert
     let cameraDistance: Double = 800
 
+
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
+    @State private var interactionModes: MapInteractionModes = []
     @Environment(\.colorScheme) var colorScheme
+    
+    private let gradient = LinearGradient(
+        colors: [.black.opacity(0.8), .clear],
+        startPoint: .top,
+        endPoint: .bottom
+    )
     
     private var shadowColor: Color {
         if colorScheme == .dark {
@@ -25,22 +33,45 @@ struct VenueGridItem: View {
     }
     
     var body: some View {
-        Map(position: $position) {
-            Marker(
-                concert.venue,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: concert.venueLatitude,
-                    longitude: concert.venueLongitude
-                )
-            )
+        ZStack(alignment: .topLeading) {
+            Map(position: $position) {
+                
+                
+                
+                //            Marker(
+                //                concert.venue,
+                //                coordinate: CLLocationCoordinate2D(
+                //                    latitude: concert.venueLatitude,
+                //                    longitude: concert.venueLongitude
+                //                )
+                //            )
+                
+            }
+            .mapStyle(.standard(pointsOfInterest: .excludingAll))
+                
+                .onAppear {
+                    updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude    )
+                }
+            
+            gradient
+                
+            VStack(alignment: .leading) {
+                Text(concert.venue)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                
+                Text(concert.city)
+                    .font(.caption)
+            }
+            .foregroundStyle(.white)
+            .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .frame(maxWidth: .infinity)
-        .frame(height: 150)
         .shadow(color: shadowColor, radius: 2)
-        .onAppear {
-            updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude    )
-        }
+
+//        .frame(maxWidth: .infinity)
+        .frame(height: 150)
+        .padding(2)
     }
     
     private func updateMapPosition(latitude: Double, longitude: Double) {
@@ -51,8 +82,8 @@ struct VenueGridItem: View {
                     longitude: longitude
                 ),
                 distance: cameraDistance,
-                heading: 400,
-                pitch: 80
+                heading: 90,
+                pitch: 85
             )
         )
     }

@@ -11,6 +11,7 @@ import SwiftData
 struct VenueGridView: View {
     @Query var concerts: [Concert]
     
+    @State private var searchText = ""
     
     private var venues: [Concert] {
         var uniqueVenues = Set<String>()
@@ -36,8 +37,10 @@ struct VenueGridView: View {
                     VenueGridItem(concert: concert)
                 }
             }
+            .searchable(text: $searchText, prompt: "Search Venues")
         }
-        .padding()
+        .ignoresSafeArea(edges: .bottom)
+        .padding(.horizontal)
         .navigationTitle("Venues")
     }
 }
