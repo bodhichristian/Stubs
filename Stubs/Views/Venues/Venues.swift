@@ -9,8 +9,9 @@ import SwiftUI
 
 
 struct Venues: View {
-  
+
     var body: some View {
+        
         NavigationStack {
             VenueGridView()
                 .navigationTitle("Venues")

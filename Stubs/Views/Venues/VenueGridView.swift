@@ -12,6 +12,8 @@ struct VenueGridView: View {
     @Query var concerts: [Concert]
     
     @State private var searchText = ""
+    @State private var showingAllVenues = false
+    @Namespace var namespace 
     
     private var venues: [Concert] {
         var uniqueVenues = Set<String>()
@@ -40,7 +42,7 @@ struct VenueGridView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns) {
+            LazyVStack {
                 ForEach(filteredVenues, id: \.venue) { concert in
                     VenueGridItem(concert: concert)
                 }
