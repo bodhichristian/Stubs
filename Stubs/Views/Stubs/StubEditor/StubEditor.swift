@@ -159,9 +159,6 @@ extension StubEditor {
      */
     private func addConcert() {
         
-        
-        
-        
         // Start asynchronous task to fetch coordinates
         Task {
             do {

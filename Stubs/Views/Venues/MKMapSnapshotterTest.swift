@@ -12,14 +12,19 @@ import SwiftUI
 struct MKMapSnapshotterTest: View {
     let concert: Concert
     let cameraDistance: Double = 800
-
+    
     @State private var mapImage: UIImage?
     @Environment(\.colorScheme) var colorScheme
     
+    
     private let gradient = LinearGradient(
-        colors: [.black.opacity(0.8), .clear],
+        colors: [
+            .black.opacity(0.8),
+            .clear,
+            .clear
+        ],
         startPoint: .top,
-        endPoint: .center
+        endPoint: .bottom
     )
     
     private var shadowColor: Color {
@@ -35,9 +40,9 @@ struct MKMapSnapshotterTest: View {
                 
             }
             
-
+            
             gradient
-                
+            
             VStack(alignment: .leading) {
                 Text(concert.venue)
                     .font(.headline)
@@ -50,13 +55,14 @@ struct MKMapSnapshotterTest: View {
             .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .frame(minHeight: 150)
         .shadow(color: shadowColor, radius: 2)
         .padding(2)
         .onAppear {
             generateMapSnapshot(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
         }
     }
-
+    
     private func generateMapSnapshot(latitude: Double, longitude: Double) {
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
