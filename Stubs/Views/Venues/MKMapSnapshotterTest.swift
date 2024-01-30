@@ -31,8 +31,10 @@ struct MKMapSnapshotterTest: View {
             if let mapImage = mapImage {
                 Image(uiImage: mapImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
+                
             }
+            
 
             gradient
                 
@@ -57,8 +59,8 @@ struct MKMapSnapshotterTest: View {
 
     private func generateMapSnapshot(latitude: Double, longitude: Double) {
         let options = MKMapSnapshotter.Options()
-        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 1000, longitudinalMeters: 1000)
-        options.size = CGSize(width: 300, height: 300)
+        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
+        options.size = CGSize(width: 360, height: 150)
         options.scale = UIScreen.main.scale
         
         let snapshotter = MKMapSnapshotter(options: options)
