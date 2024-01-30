@@ -15,14 +15,13 @@ struct VenueGridItem: View {
 
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
-    @State private var mapImage: UIImage?
     @State private var interactionModes: MapInteractionModes = []
     @Environment(\.colorScheme) var colorScheme
     
     private let gradient = LinearGradient(
         colors: [.black.opacity(0.7), .clear],
         startPoint: .top,
-        endPoint: .center
+        endPoint: .bottom
     )
     
     private var shadowColor: Color {
@@ -35,13 +34,19 @@ struct VenueGridItem: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if let mapImage = mapImage {
-                Image(uiImage: mapImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            }
-        
+            Map(position: $position) {
                 
+                
+            }
+            .mapStyle(.standard(pointsOfInterest: .excludingAll))
+                
+                .onAppear {
+                    updateMapPosition(
+                        latitude: concert.venueLatitude,
+                        longitude: concert.venueLongitude
+                    )
+                }
+            
             gradient
                 
             VStack(alignment: .leading) {
@@ -59,15 +64,6 @@ struct VenueGridItem: View {
         .shadow(color: shadowColor, radius: 2)
 
         .padding(2)
-        
-        .onAppear {
-            updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
-            generateMapSnapshot(
-                latitude: concert.venueLatitude,
-                longitude: concert.venueLongitude
-            )
-        }
-    
     }
     
     private func updateMapPosition(latitude: Double, longitude: Double) {
@@ -83,22 +79,5 @@ struct VenueGridItem: View {
             )
         )
     }
-    
-    private func generateMapSnapshot(latitude: Double, longitude: Double) {
-         let options = MKMapSnapshotter.Options()
-         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 1000, longitudinalMeters: 1000)
-         options.size = CGSize(width: 300, height: 300)
-         options.scale = UIScreen.main.scale
-        options.camera = MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude), fromEyeCoordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude), eyeAltitude: 2000.0)
-        
-         let snapshotter = MKMapSnapshotter(options: options)
-         snapshotter.start { snapshot, error in
-             guard let snapshot = snapshot else {
-                 print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                 return
-             }
-             self.mapImage = snapshot.image
-         }
-     }
 }
 

@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         
         TabBarContainer(selection: $tabSelection){
+            
             StubCollection()
                 .tabBarItem(
                     tab: .stubs,

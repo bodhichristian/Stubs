@@ -47,7 +47,7 @@ struct VenueGridView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(filteredVenues, id: \.venue) { concert in
-                            VenueGridItem(concert: concert)
+                            MKMapSnapshotterTest(concert: concert)
                                 .frame(height: 150)
                                 .matchedGeometryEffect(id: concert.uuid, in: namespace)
                                 .onTapGesture {
@@ -77,6 +77,7 @@ struct VenueGridView: View {
                         }
                         .font(.headline)
                         .foregroundStyle(.secondary)
+                        
                         VenueGridItem(concert: selectedVenue)
                             .padding(.horizontal)
                             .padding(.bottom, 60)
