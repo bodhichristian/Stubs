@@ -8,10 +8,9 @@
 import SwiftUI
 import MapKit
 
-struct VenueGridItem: View {
+struct VenueGridExpandedMapView: View {
     let concert: Concert
-    let cameraDistance: Double = 800
-
+    let cameraDistance: Double = 200
 
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic

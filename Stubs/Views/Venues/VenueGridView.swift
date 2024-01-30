@@ -77,7 +77,7 @@ struct VenueGridView: View {
                         .font(.headline)
                         .foregroundStyle(.secondary)
                         
-                        VenueGridItem(concert: selectedVenue)
+                        VenueGridExpandedMapView(concert: selectedVenue)
                             .padding(.horizontal)
                             .padding(.bottom, 60)
                             .matchedGeometryEffect(id: selectedVenue.uuid, in: namespace)
