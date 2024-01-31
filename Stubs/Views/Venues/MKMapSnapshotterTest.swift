@@ -33,11 +33,17 @@ struct MKMapSnapshotterTest: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if let mapImage = mapImage {
-                Image(uiImage: mapImage)
+//            if let mapImage = mapImage {
+//                Image(uiImage: mapImage)
+//                    .resizable()
+//                    .scaledToFill()
+//                
+//            }
+            
+            if let uiImage = UIImage(data: concert.mapImageData ?? Data()) {
+                Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
-                
             }
             
             
@@ -59,23 +65,23 @@ struct MKMapSnapshotterTest: View {
         .shadow(color: shadowColor, radius: 2)
         .padding(2)
         .onAppear {
-            generateMapSnapshot(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+            //generateMapSnapshot(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
         }
     }
     
-    private func generateMapSnapshot(latitude: Double, longitude: Double) {
-        let options = MKMapSnapshotter.Options()
-        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
-        options.size = CGSize(width: 360, height: 150)
-        options.scale = UIScreen.main.scale
-        
-        let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            self.mapImage = snapshot.image
-        }
-    }
+//    private func generateMapSnapshot(latitude: Double, longitude: Double) {
+//        let options = MKMapSnapshotter.Options()
+//        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
+//        options.size = CGSize(width: 360, height: 150)
+//        options.scale = UIScreen.main.scale
+//        
+//        let snapshotter = MKMapSnapshotter(options: options)
+//        snapshotter.start { snapshot, error in
+//            guard let snapshot = snapshot else {
+//                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
+//                return
+//            }
+//            self.mapImage = snapshot.image
+//        }
+//    }
 }

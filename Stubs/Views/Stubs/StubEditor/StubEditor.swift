@@ -5,9 +5,9 @@
 //  Created by christian on 6/8/23.
 //
 
+import MapKit
 import SwiftUI
 import SwiftData
-import MapKit
 
 // MARK: StubEditor
 // A View that provides a form to add a new concert
@@ -30,10 +30,14 @@ struct StubEditor: View {
         artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     )
     
+    @State private var mapImage: UIImage?
+    
     // MARK: ArtistService related props
     @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
     @State private var fetchedArtist: Artist?
+    
+    
     
     // MARK: Alert props
     @State private var addConcertFailed = false
@@ -169,6 +173,15 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
+                if let mapSnapshot = generateMapSnapshot(latitude: concertTemplate.venueLatitude, longitude: concertTemplate.venueLongitude) {
+                    
+                        concertTemplate.mapImageData = mapSnapshot.jpegData(compressionQuality: 1.0)
+                    
+                    
+                    
+                    
+                }
+                
                 // Create a new Concert object.
                 // Use fetchedArtist object if available.
                 let newConcert = Concert(
@@ -181,7 +194,8 @@ extension StubEditor {
                     notes: concertTemplate.notes,
                     venueLatitude: concertTemplate.venueLatitude,
                     venueLongitude: concertTemplate.venueLongitude,
-                    artist: fetchedArtist ?? concertTemplate.artist
+                    artist: fetchedArtist ?? concertTemplate.artist,
+                    mapImageData: concertTemplate.mapImageData
                 )
                 
                 // Insert updated concert details into model context
@@ -247,5 +261,26 @@ extension StubEditor {
             longitude: coordinates.longitude
         )
     }
+    
+    private func generateMapSnapshot(latitude: Double, longitude: Double) -> UIImage? {
+        var mapImage: UIImage?
+        
+        let options = MKMapSnapshotter.Options()
+        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
+        options.size = CGSize(width: 360, height: 150)
+        options.scale = UIScreen.main.scale
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start { snapshot, error in
+            guard let snapshot = snapshot else {
+                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            mapImage = snapshot.image
+        }
+        
+        return mapImage
+    }
+    
     
 }
