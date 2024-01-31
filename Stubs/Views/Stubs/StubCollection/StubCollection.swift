@@ -116,11 +116,11 @@ struct StubCollection: View {
             .toolbar {
                 
                 
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Demo") {
-//                        addSampleConcert()
-//                    }
-//                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Demo") {
+                        addSampleConcert()
+                    }
+                }
                 
                 ToolbarItem {
                     Button {
@@ -250,7 +250,8 @@ extension StubCollection {
                     isFavorite: isFavorite,
                     venueLatitude: venue.latitude,
                     venueLongitude: venue.longitude,
-                    artist: artist
+                    artist: artist,
+                    mapImageData: Data()
                 )
                 
                 modelContext.insert(newConcert)

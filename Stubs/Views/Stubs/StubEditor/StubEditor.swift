@@ -27,7 +27,8 @@ struct StubEditor: View {
         notes: "",
         venueLatitude: 0.0,
         venueLongitude: 0.0,
-        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
+        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: ""),
+        mapImageData: Data()
     )
     
     @State private var mapImage: UIImage?
@@ -88,15 +89,12 @@ struct StubEditor: View {
             
             .onChange(of: artistService.searchResponse) { _, response in
                 if let artist = response.first {
-                    print("StubEditor: artist search response received.")
                     
                     fetchedArtist = artist
-                    print("StubEditor: artist binding value has been updated.")
                     
                     fetchImageData(from: artist.artistImageURL ?? "") { data in
                         fetchedArtist?.artistImageData = data
-                        print("StubEditor: imageData fetched")
-                        print("StubEditor: Data: \(String(describing: data))")
+
                     }
                     
                     fetchImageData(from: artist.bannerImageURL ?? "") { data in
@@ -173,14 +171,12 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
-                if let mapSnapshot = generateMapSnapshot(latitude: concertTemplate.venueLatitude, longitude: concertTemplate.venueLongitude) {
-                    
-                        concertTemplate.mapImageData = mapSnapshot.jpegData(compressionQuality: 1.0)
-                    
-                    
+                
+                
+                generateMapSnapshot(latitude: coordinates.latitude, longitude: coordinates.longitude)
                     
                     
-                }
+                
                 
                 // Create a new Concert object.
                 // Use fetchedArtist object if available.
@@ -195,8 +191,8 @@ extension StubEditor {
                     venueLatitude: concertTemplate.venueLatitude,
                     venueLongitude: concertTemplate.venueLongitude,
                     artist: fetchedArtist ?? concertTemplate.artist,
-                    mapImageData: concertTemplate.mapImageData
-                )
+                    mapImageData: concertTemplate.mapImageData)
+                
                 
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
@@ -243,9 +239,6 @@ extension StubEditor {
         request.naturalLanguageQuery = query
         request.resultTypes = .pointOfInterest
         
-        // Debug print for query search
-        print("searching for \(query)")
-        
         // Initialize and start search
         let search = MKLocalSearch(request: request)
         let response = try? await search.start()
@@ -262,8 +255,7 @@ extension StubEditor {
         )
     }
     
-    private func generateMapSnapshot(latitude: Double, longitude: Double) -> UIImage? {
-        var mapImage: UIImage?
+    private func generateMapSnapshot(latitude: Double, longitude: Double) {
         
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
@@ -276,10 +268,11 @@ extension StubEditor {
                 print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
                 return
             }
-            mapImage = snapshot.image
+            if let imageData = snapshot.image.jpegData(compressionQuality: 1.0) {
+                concertTemplate.mapImageData = imageData
+            }
         }
         
-        return mapImage
     }
     
     
