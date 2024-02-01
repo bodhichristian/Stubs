@@ -173,8 +173,7 @@ extension StubEditor {
                 
                 
                 
-                generateMapSnapshot(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                    
+                let mapImageData = try await generateMapSnapshot(latitude: coordinates.latitude, longitude: coordinates.longitude)
                     
                 
                 
@@ -191,7 +190,7 @@ extension StubEditor {
                     venueLatitude: concertTemplate.venueLatitude,
                     venueLongitude: concertTemplate.venueLongitude,
                     artist: fetchedArtist ?? concertTemplate.artist,
-                    mapImageData: concertTemplate.mapImageData)
+                    mapImageData: mapImageData ?? Data())
                 
                 
                 // Insert updated concert details into model context
@@ -255,24 +254,22 @@ extension StubEditor {
         )
     }
     
-    private func generateMapSnapshot(latitude: Double, longitude: Double) {
-        
+    private func generateMapSnapshot(latitude: Double, longitude: Double) async throws -> Data? {
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
-        options.scale = UIScreen.main.scale
+        //options.scale = await UIScreen.main.scale
         
         let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            if let imageData = snapshot.image.jpegData(compressionQuality: 1.0) {
-                concertTemplate.mapImageData = imageData
-            }
-        }
         
+        do {
+            let snapshot = try await snapshotter.start()
+            guard let imageData = snapshot.image.pngData() else { return nil }
+            return imageData
+        } catch {
+            print("Error capturing snapshot: \(error.localizedDescription)")
+            return nil
+        }
     }
     
     

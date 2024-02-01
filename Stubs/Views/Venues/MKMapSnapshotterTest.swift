@@ -40,7 +40,7 @@ struct MKMapSnapshotterTest: View {
 //                
 //            }
             
-            if let uiImage = UIImage(data: concert.mapImageData ?? Data()) {
+            if let uiImage = UIImage(data: concert.mapImageData) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
