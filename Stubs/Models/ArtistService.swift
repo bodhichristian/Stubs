@@ -43,6 +43,7 @@ import Foundation
                 let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
                 self?.searchResponse = response.artists
                 
+                print("Artist is \(response.artists.first?.artistName ?? "")")
             } catch {
                 print(error)
             }

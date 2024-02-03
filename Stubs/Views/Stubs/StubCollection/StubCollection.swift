@@ -250,8 +250,7 @@ extension StubCollection {
                     isFavorite: isFavorite,
                     venueLatitude: venue.latitude,
                     venueLongitude: venue.longitude,
-                    artist: artist,
-                    mapImageData: Data()
+                    artist: artist
                 )
                 
                 modelContext.insert(newConcert)

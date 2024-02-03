@@ -17,7 +17,7 @@ struct StubEditorIconSelector: View {
     var body: some View {
         Section("Icon") {
 
-                ScrollView(.horizontal){ 
+                ScrollView(.horizontal){ // Icon options
                     HStack(spacing: 20) {
                         ForEach(iconOptions, id: \.self) { icon in
                             Button {
@@ -40,3 +40,10 @@ struct StubEditorIconSelector: View {
         }
     }
 }
+
+#Preview {
+    StubEditorIconSelector(iconName: .constant("guitars"))
+}
+
+
+

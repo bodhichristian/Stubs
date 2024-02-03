@@ -29,8 +29,6 @@ final class Concert {
     
     var artist: Artist
     
-    var mapImageData: Data
-    
     init(
         uuid: UUID = UUID(),
         artistName: String,
@@ -43,8 +41,7 @@ final class Concert {
         isFavorite: Bool = false,
         venueLatitude: Double,
         venueLongitude: Double,
-        artist: Artist,
-        mapImageData: Data
+        artist: Artist
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -58,7 +55,6 @@ final class Concert {
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
         self.artist = artist
-        self.mapImageData = mapImageData
     }
     
    

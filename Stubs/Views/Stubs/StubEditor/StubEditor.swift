@@ -5,9 +5,9 @@
 //  Created by christian on 6/8/23.
 //
 
-import MapKit
 import SwiftUI
 import SwiftData
+import MapKit
 
 // MARK: StubEditor
 // A View that provides a form to add a new concert
@@ -27,18 +27,13 @@ struct StubEditor: View {
         notes: "",
         venueLatitude: 0.0,
         venueLongitude: 0.0,
-        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: ""),
-        mapImageData: Data()
+        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     )
-    
-    @State private var mapImage: UIImage?
     
     // MARK: ArtistService related props
     @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
     @State private var fetchedArtist: Artist?
-    
-    
     
     // MARK: Alert props
     @State private var addConcertFailed = false
@@ -89,12 +84,15 @@ struct StubEditor: View {
             
             .onChange(of: artistService.searchResponse) { _, response in
                 if let artist = response.first {
+                    print("StubEditor: artist search response received.")
                     
                     fetchedArtist = artist
+                    print("StubEditor: artist binding value has been updated.")
                     
                     fetchImageData(from: artist.artistImageURL ?? "") { data in
                         fetchedArtist?.artistImageData = data
-
+                        print("StubEditor: imageData fetched")
+                        print("StubEditor: Data: \(String(describing: data))")
                     }
                     
                     fetchImageData(from: artist.bannerImageURL ?? "") { data in
@@ -171,12 +169,6 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
-                
-                
-                let mapImageData = try await generateMapSnapshot(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                    
-                
-                
                 // Create a new Concert object.
                 // Use fetchedArtist object if available.
                 let newConcert = Concert(
@@ -189,9 +181,8 @@ extension StubEditor {
                     notes: concertTemplate.notes,
                     venueLatitude: concertTemplate.venueLatitude,
                     venueLongitude: concertTemplate.venueLongitude,
-                    artist: fetchedArtist ?? concertTemplate.artist,
-                    mapImageData: mapImageData ?? Data())
-                
+                    artist: fetchedArtist ?? concertTemplate.artist
+                )
                 
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
@@ -238,6 +229,9 @@ extension StubEditor {
         request.naturalLanguageQuery = query
         request.resultTypes = .pointOfInterest
         
+        // Debug print for query search
+        print("searching for \(query)")
+        
         // Initialize and start search
         let search = MKLocalSearch(request: request)
         let response = try? await search.start()
@@ -253,24 +247,5 @@ extension StubEditor {
             longitude: coordinates.longitude
         )
     }
-    
-    private func generateMapSnapshot(latitude: Double, longitude: Double) async throws -> Data? {
-        let options = MKMapSnapshotter.Options()
-        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
-        options.size = CGSize(width: 360, height: 150)
-        //options.scale = await UIScreen.main.scale
-        
-        let snapshotter = MKMapSnapshotter(options: options)
-        
-        do {
-            let snapshot = try await snapshotter.start()
-            guard let imageData = snapshot.image.pngData() else { return nil }
-            return imageData
-        } catch {
-            print("Error capturing snapshot: \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
     
 }
