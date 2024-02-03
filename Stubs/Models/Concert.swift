@@ -26,6 +26,7 @@ final class Concert {
     
     var venueLatitude: Double
     var venueLongitude: Double
+    var mapSnapshotData: Data
     
     var artist: Artist
     
@@ -41,6 +42,7 @@ final class Concert {
         isFavorite: Bool = false,
         venueLatitude: Double,
         venueLongitude: Double,
+        mapSnapshotData: Data,
         artist: Artist
     ) {
         self.uuid = uuid
@@ -54,6 +56,7 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
+        self.mapSnapshotData = mapSnapshotData
         self.artist = artist
     }
     
