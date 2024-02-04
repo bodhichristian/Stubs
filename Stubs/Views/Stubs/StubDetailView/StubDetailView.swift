@@ -12,9 +12,9 @@ import SwiftUI
 // MARK: StubDetailView
 // A View for displaying the ticket stub and relevant data
 struct StubDetailView: View {
+    @Environment(\.modelContext) var modelContext
     
     @Query var concerts: [Concert]
-    @Environment(\.modelContext) var modelContext
     
     @State var concert: Concert
     
@@ -27,26 +27,21 @@ struct StubDetailView: View {
     }
     
     var body: some View {
-        
         VStack(spacing: 0){
-            
             StubView(concert: concert)
                 .onChange(of: concert) { _, _ in
                     isEditingNotes = false
                 }
             
             ScrollView {
-            if !isEditingNotes {
-                concertButtonRow
-                    .transition(.scale)
-            }
-            
+                if !isEditingNotes {
+                    concertButtonRow
+                        .transition(.scale)
+                }
+                
                 StubNotesView(concert: $concert, isEditing: $isEditingNotes)
                 
                 RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
-                
-                
-                
             }
         }
         
@@ -65,14 +60,10 @@ struct StubDetailView: View {
                 title: Text("Delete Stub"),
                 message: Text("Are you sure you want to delete this stub?"),
                 primaryButton: .destructive(Text("Delete")) {
-                    
-                    
+      
                     // TODO: Write logic for checking if this is the only stub for a particular artist. If so, delete the artist from the model context as to prevent unnecessary storage of irrelevant data.
-                    
-                    
+
                     modelContext.delete(concert)
-                    
-                    
                 },
                 secondaryButton: .cancel()
             )
@@ -93,7 +84,7 @@ extension StubDetailView {
                          concert: $concert) {
                 showingMap = true
             }
-
+            
             // Toggle Favorite Status
             ActionButton(titleKey: "Favorite",
                          systemImage: concert.isFavorite ? "checkmark.seal.fill" : "checkmark.seal",
@@ -115,6 +106,4 @@ extension StubDetailView {
         .offset(y: -7)
         
     }
-    
-    
 }

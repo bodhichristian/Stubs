@@ -11,9 +11,7 @@ struct ArtistStubsLabel: View {
     let concert: Concert
     
     var body: some View {
-        
         VStack(alignment: .leading) {
-            
             StubThumbnail(concert: concert)
                 .frame(minHeight: 60)
                 .offset(x: 8)

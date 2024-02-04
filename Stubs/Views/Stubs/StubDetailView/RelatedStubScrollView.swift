@@ -24,7 +24,6 @@ struct RelatedStubScrollView: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(concerts.reversed(), id: \.uuid) { concert in
-                        
                         ArtistStubsLabel(concert: concert)
                             .onTapGesture {
                                 selectedConcert = concert
@@ -34,7 +33,6 @@ struct RelatedStubScrollView: View {
                 }
                 .padding(.vertical)
             }
-                    
         }
     }
 }

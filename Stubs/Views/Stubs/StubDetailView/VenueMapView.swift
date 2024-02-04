@@ -13,12 +13,13 @@ import MapKit
 
 struct VenueMapView: View {
     let concert: Concert
-    let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    
+    @Environment(\.dismiss) var dismiss
     
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
-
-    @Environment(\.dismiss) var dismiss
+    
+    private let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     private var query: String { // Creates the location query
         return concert.venue + " venue " + concert.city
@@ -30,11 +31,9 @@ struct VenueMapView: View {
             longitude: concert.venueLongitude
         )
     }
-
+    
     var body: some View {
-        
         NavigationStack {
-            
             ZStack(alignment: .topLeading) {
                 // Apple Maps base
                 Map(position: $position, selection: $location) {
@@ -57,7 +56,6 @@ struct VenueMapView: View {
                     MapScaleView(anchorEdge: .trailing)
                     
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -80,7 +78,6 @@ struct VenueMapView: View {
                         distance: 1200,
                         heading: 100,
                         pitch: 60)
-
                 )
             }
         }

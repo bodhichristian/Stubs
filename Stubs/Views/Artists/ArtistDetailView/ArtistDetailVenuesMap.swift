@@ -35,7 +35,6 @@ struct ArtistDetailVenuesMap: View {
             
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
-                    
                     Marker(
                         concert.venue,
                         coordinate: CLLocationCoordinate2D(

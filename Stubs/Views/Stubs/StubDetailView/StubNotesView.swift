@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct StubNotesView: View {
-    
     @Binding var concert: Concert
-    
     @Binding var isEditing: Bool
     
     @FocusState private var editingFocus: Bool
@@ -21,11 +19,8 @@ struct StubNotesView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
             HStack(spacing: 0) {
-                
                 if isEditing {
-                    
                     Text("Editing ")
                         .font(.title2.bold())
                         .foregroundStyle(accentColor)
@@ -35,7 +30,6 @@ struct StubNotesView: View {
                                 removal: .push(from: .trailing)
                             )
                         )
-                    
                 }
                 
                 Text("Notes")
@@ -48,17 +42,19 @@ struct StubNotesView: View {
                         isEditing.toggle()
                         editingFocus.toggle()
                     }
-                    
                 } label: {
-                    
                     HStack {
-                        
                         if isEditing {
                             Text("DONE")
                                 .font(.callout.bold())
                                 .foregroundStyle(.white)
                                 .shadow(radius: 2)
-                                .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
+                                .transition(
+                                    .asymmetric(
+                                        insertion: .push(from: .trailing),
+                                        removal: .push(from: .leading)
+                                    )
+                                )
                         }
                         
                         Image(systemName:"square.and.pencil.circle")
@@ -72,7 +68,6 @@ struct StubNotesView: View {
                     .background {
                         if isEditing {
                             Capsule()
-                            
                                 .frame(width: 100, height: 30)
                                 .foregroundStyle(accentColor.opacity(0.8))
                                 .shadow(radius: 2, y: 4)

@@ -21,7 +21,6 @@ struct StubView: View {
 
     var body: some View {
         GeometryReader { geo in
-            
             ZStack{
                 // MARK: Stub base
                 StubShape()
@@ -33,18 +32,15 @@ struct StubView: View {
                 
                 // MARK: Ticket Stub Elements
                 HStack(alignment: .bottom) {
-                    
                     VerticalLineBoundary() // Left Edge
                     
                     // MARK: Ticket Details
                     VStack(alignment: .leading) {
-                        
                         // Artist Name
                         Text(concert.artistName)
                             .font(.title.bold())
                             .foregroundStyle(.white)
                             .shadow(radius: 2)
-                        
                         // Venue Details
                         Text(concert.venue)
                             .font(.title2)
@@ -52,10 +48,8 @@ struct StubView: View {
                             .foregroundStyle(.black)
                         
                         HStack {
-                            
                             // MARK: Location
                             VStack(alignment: .leading) {
-                                
                                 // City
                                 Text(concert.city)
                                     .font(.title2)
@@ -64,7 +58,6 @@ struct StubView: View {
                                 Spacer()
                                 
                                 HStack(alignment: .bottom){
-                                    
                                     // MARK: Concert Date
                                     // Format: `Jun 9, 2023`
                                     Text(concert.date.formatted(date: .numeric, time: .omitted))
@@ -73,13 +66,9 @@ struct StubView: View {
                                         .foregroundStyle(.black)
                                     
                                     if concert.isFavorite {
-                                        
                                         FavoriteIcon()
-                                        
                                     }
-                                    
                                 }
-                                
                             }
                             
                             Spacer()
@@ -101,21 +90,17 @@ struct StubView: View {
                                         iconTapped.toggle()
                                     }
                             }
-                            
                         }
                     }
                     .padding(.leading)
                     
                     VerticalLineBoundary() // Right Edge
-                
                 }
                 .padding(30)
-                
             }
             // Main ZStack
             .frame(width: geo.size.width, height: geo.size.width * 0.60)
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )
-            
         }
         // Maximum height for GeometryReader
         .frame(maxHeight: 320)
