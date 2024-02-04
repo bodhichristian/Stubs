@@ -30,14 +30,11 @@ struct StubEditor: View {
         artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
     )
     
-    // MARK: ArtistService related props
+    @State private var addConcertFailed = false
+    @State private var addConcertFailedAlert: Alert?
     @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
     @State private var fetchedArtist: Artist?
-    
-    // MARK: Alert props
-    @State private var addConcertFailed = false
-    @State private var addConcertFailedAlert: Alert?
     
     var body: some View {
         NavigationStack {
@@ -102,9 +99,7 @@ struct StubEditor: View {
                 } else {
                     print("StubEditorDetails: artist search failed.")
                 }
-                
-            }
-            
+            }            
         }
         .alert(isPresented: $addConcertFailed) {
             addConcertFailedAlert ?? Alert(title: Text("Error"))

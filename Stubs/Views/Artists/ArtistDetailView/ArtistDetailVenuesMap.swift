@@ -10,7 +10,6 @@ import SwiftData
 import MapKit
 
 struct ArtistDetailVenuesMap: View {
-    
     // Pass in filteredConcerts from ArtistDetailView
     let concerts: [Concert]
     

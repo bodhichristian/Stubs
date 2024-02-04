@@ -13,12 +13,9 @@ struct ArtistDetailView: View {
     let artist: Artist
     
     @Environment(\.dismiss) var dismiss
+    @Namespace var namespace
     @Query var concerts: [Concert]
     
-    @Namespace var namespace
-    
-    
-    // MARK: Formatting
     // Toggle to disbale lineLimit
     @State private var showingFullBio = false
     
@@ -38,27 +35,19 @@ struct ArtistDetailView: View {
         }
     }
     
-
-    
-    
     var body: some View {
         GeometryReader { geo in
             ZStack {
                 if !showingFullBio{
                     ArtistDetailBannerView(artist: artist)
-                       // .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
+                    // .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                         .transition(.asymmetric(insertion: .push(from: .top), removal: .push(from: .bottom)))
                 }
                 
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .bottom) {
                         ZStack { // artist image
-//                            Circle()
-//                                .foregroundStyle(.gray)
-//                                .frame(width: artistImageWidth)
-//                                .padding()
-
-                                Image(uiImage: artistImage)
+                            Image(uiImage: artistImage)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: artistImageWidth)
@@ -102,10 +91,10 @@ struct ArtistDetailView: View {
                                 .foregroundStyle(.secondary)
                                 .matchedGeometryEffect(id: "moreLess", in: namespace)
                             }
-
+                            
                         }
                         .offset(y: showingFullBio ? -110 : -16)
-
+                        
                     }
                     .padding(.top, geo.size.width / 4)
                     
@@ -145,7 +134,6 @@ struct ArtistDetailView: View {
                                 .matchedGeometryEffect(id: "moreLess", in: namespace)
                             }
                         }
-
                         
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         

@@ -39,20 +39,6 @@ struct NoStubsView: View {
             
             Spacer()
         }
-//#if DEBUG
-//
-//#endif
+
     }
-}
-
-extension NoStubsView {
-    private func addSampleConcert() {
-        
-    }
-}
-
-
-
-#Preview {
-    NoStubsView(isAddingConcert: .constant(false))
 }

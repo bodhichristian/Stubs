@@ -13,7 +13,6 @@ struct StubCountIndicator: View {
     
     @Query var concerts: [Concert]
 
-    
     private var stubCount: Int {
         var count = 0
         

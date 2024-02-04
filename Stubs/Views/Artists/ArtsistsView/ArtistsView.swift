@@ -12,24 +12,18 @@ import SwiftData
 
 struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
-    
-    @Query var concerts: [Concert]
     @Namespace var namespace
-    
-    @State private var model = ArtistService()
-    
-    @State private var listView = true
+    @Query var concerts: [Concert]
     
     @State private var artistImageWidth: CGFloat = 44
-    
+    @State private var listView = true
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
-    
     @State private var sortOrder: SortOrder = .byNameAscending
     
     private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
-    private let columns = [
+    private let columns = [ // For LazyVGrid
         GridItem(.adaptive(minimum: 120))
     ]
     
@@ -85,7 +79,6 @@ struct ArtistsView: View {
         }
     }
     
-    
     // Computed property to group artists
     private var groupedArtists: [String: [Artist]] {
         Dictionary(grouping: filteredArtists) { $0.artistName?.first?.uppercased() ?? "#" }
@@ -102,7 +95,6 @@ struct ArtistsView: View {
             groupedArtists.keys.sorted()
 
         }
-        
     }
     
     private func alphabetHeader(_ letter: String) -> some View {
@@ -125,9 +117,7 @@ struct ArtistsView: View {
         NavigationStack {
             
             ScrollView {
-                
-                
-                
+
                 if listView {
                     
                     VStack {
