@@ -17,12 +17,11 @@ struct StubCollection: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) private var modelContext
     
-    @Query(sort: \Concert.date) private var concerts: [Concert]
     @Namespace var namespace
+    @Query(sort: \Concert.date) private var concerts: [Concert]
     
     @State private var isAddingConcert = false
     @State private var searchText = ""
-    
     @State private var filteringFavorites = false
     
     private let searchPrompt = "Search Artist, Venue, City, or Date"
@@ -54,27 +53,15 @@ struct StubCollection: View {
                     
                     ScrollView{
                         VStack(alignment: .leading)  {
-                            
                             // Sort concerts in reverse chronological order
                             ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
-                                
                                 // Create a section for each decade
                                 Section(header: decadeHeader(year)) {
-                                    
                                     // Create a NavLink to StubDetailView for each concert
                                     ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
-                                        
                                         NavigationLink {
-                                            
-                                            
-                                            
-                                            
                                             StubDetailView(concert: concert)
-                                                
-                                            
-                                            
                                         } label: {
-                                            
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .foregroundStyle(tileBackgroundColor)
@@ -91,13 +78,10 @@ struct StubCollection: View {
                                                 .padding(.vertical, 10)
                                                 .padding(.leading, 20)
                                             }
-                                            
                                         }
                                         .buttonStyle(PlainButtonStyle())
-
                                     }
                                 }
-                                
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -107,15 +91,12 @@ struct StubCollection: View {
                         
                     }
                 }
-                
             }
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor()
             }
             .toolbar {
-                
-                
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Demo") {
                         addSampleConcert()

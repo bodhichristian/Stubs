@@ -34,9 +34,7 @@ struct NoStubsView: View {
                 .bold()
             
             Text("Tap the + Button to Add a Concert")
-            
-
-            
+                        
             Spacer()
         }
 
