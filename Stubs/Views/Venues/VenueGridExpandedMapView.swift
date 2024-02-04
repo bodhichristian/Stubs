@@ -12,10 +12,10 @@ struct VenueGridExpandedMapView: View {
     let concert: Concert
     let cameraDistance: Double = 200
 
+    @Environment(\.colorScheme) var colorScheme
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     @State private var interactionModes: MapInteractionModes = []
-    @Environment(\.colorScheme) var colorScheme
     
     private let gradient = LinearGradient(
         colors: [.black.opacity(0.7), .clear],
@@ -54,7 +54,7 @@ struct VenueGridExpandedMapView: View {
                 Text(concert.city)
                     .font(.caption)
             }
-            .foregroundStyle(.white)
+            .foregroundStyle(.primary)
             .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))

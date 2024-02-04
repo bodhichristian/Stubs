@@ -58,15 +58,16 @@ struct VenueGridView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: "Search Venues")
+                    .padding(.bottom, 80)
+
                 }
                 .ignoresSafeArea(edges: .bottom)
                 .padding(.horizontal)
-                .navigationTitle("Venues")
             } else {
                 if let selectedVenue {
                     VStack(alignment: .trailing) {
                         Button {
-                            withAnimation(.snappy){
+                            withAnimation(.smooth){
                                 showingAllVenues = true
                             }
                         } label: {
@@ -81,9 +82,14 @@ struct VenueGridView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 60)
                             .matchedGeometryEffect(id: selectedVenue.uuid, in: namespace)
-                    }
+                    }        .navigationBarTitleDisplayMode(.large)
+
                 }
             }
         }
+        .navigationTitle("Venues")
+
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar(.visible, for: .navigationBar)
     }
 }
