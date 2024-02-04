@@ -18,11 +18,9 @@ struct ArtistDetailBannerView: View {
         }
     }
     
-    
     var body: some View {
         GeometryReader { geo in
             VStack { // Outer Stack
-                
                 ZStack(alignment: .bottomTrailing){
                     Image(uiImage: bannerImage)
                         .resizable()
@@ -37,11 +35,9 @@ struct ArtistDetailBannerView: View {
                             )
                             .opacity(0.6)
                         }
-
                     
                     // Genre & Location
                     VStack(alignment: .trailing) {
-                        
                         Text(artist.genre ?? "")
                             .font(.title3)
                             .fontWeight(.semibold)
@@ -52,11 +48,7 @@ struct ArtistDetailBannerView: View {
                     .padding(.trailing)
                     .padding(.bottom, 10)
                 }
-                
-                
-                
 
-                
                 Spacer() // Push bannerImage to top
             }
         }

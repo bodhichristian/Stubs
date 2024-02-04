@@ -15,11 +15,6 @@ struct AlbumScrollViewPlaceholder: View {
                 .frame(width: 100, height: 100)
                 .shadow(radius: 3, x: 5, y: 5)
                 .padding(.trailing, 10)
-            
         }
     }
-}
-
-#Preview {
-    AlbumScrollViewPlaceholder()
 }

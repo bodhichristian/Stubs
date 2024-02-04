@@ -12,7 +12,6 @@ import MapKit
 struct ArtistDetailVenuesMap: View {
     // Pass in filteredConcerts from ArtistDetailView
     let concerts: [Concert]
-    
     let cameraDistance: Double = 500
     
     @State private var location: MKMapItem?
@@ -25,24 +24,25 @@ struct ArtistDetailVenuesMap: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack{
-                
                 Image(systemName: "ticket")
                     .foregroundStyle(.purple)
                 Text("\(concerts.count) Stubs" )
-
-                Spacer()
                 
+                Spacer()
             }
             .font(.title2)
             .fontWeight(.bold)
-
             
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
-                        
-                        Marker(concert.venue, coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude))
-
                     
+                    Marker(
+                        concert.venue,
+                        coordinate: CLLocationCoordinate2D(
+                            latitude: concert.venueLatitude,
+                            longitude: concert.venueLongitude
+                        )
+                    )
                 }
             }
             .mapStyle(
@@ -57,9 +57,7 @@ struct ArtistDetailVenuesMap: View {
             .onAppear {
                 updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
             }
-            
-            
-            
+                        
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(concerts, id: \.uuid) { concert in
@@ -75,10 +73,8 @@ struct ArtistDetailVenuesMap: View {
             }
             .padding(.top)
             
-
         }
         .padding(.horizontal)
-        
     }
     
     private func updateMapPosition(latitude: Double, longitude: Double) {

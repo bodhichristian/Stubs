@@ -18,14 +18,11 @@ struct AlbumScrollView: View {
     @State private var model = AlbumService()
     
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 0) {
-            
             Text("Albums")
                 .font(.title2.bold())
             
             ScrollView(.horizontal) {
-                
                 HStack {
                     if model.albums.isEmpty {
                         AlbumScrollViewPlaceholder()
