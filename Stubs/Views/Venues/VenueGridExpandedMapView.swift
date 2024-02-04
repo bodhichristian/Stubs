@@ -45,9 +45,7 @@ struct VenueGridExpandedMapView: View {
                         longitude: concert.venueLongitude
                     )
                 }
-            
-            gradient
-                
+                            
             VStack(alignment: .leading) {
                 Text(concert.venue)
                     .font(.headline)

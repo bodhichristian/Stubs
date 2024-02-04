@@ -47,7 +47,7 @@ struct VenueGridView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(filteredVenues, id: \.venue) { concert in
-                            MKMapSnapshotterTest(concert: concert)
+                            VenueGridItem(concert: concert)
                                 .matchedGeometryEffect(id: concert.uuid, in: namespace)
                                 .onTapGesture {
                                     withAnimation(.snappy){
