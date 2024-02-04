@@ -30,6 +30,8 @@ final class Concert {
     
     var artist: Artist
     
+    @Attribute(.externalStorage)
+    var mapSnapshotData: Data?
     
     init(
         uuid: UUID = UUID(),
@@ -57,9 +59,25 @@ final class Concert {
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
         self.artist = artist
+        
+        getMapSnapshot()
     }
     
-   
+    func getMapSnapshot() {
+        let options = MKMapSnapshotter.Options()
+        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), latitudinalMeters: 200, longitudinalMeters: 200)
+        options.size = CGSize(width: 360, height: 150)
+        options.scale = UIScreen.main.scale
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start { snapshot, error in
+            guard let snapshot = snapshot else {
+                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            self.mapSnapshotData = snapshot.image.jpegData(compressionQuality: 1.0)
+        }
+    }
 }
 
 
