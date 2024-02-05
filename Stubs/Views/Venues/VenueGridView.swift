@@ -45,7 +45,7 @@ struct VenueGridView: View {
         GeometryReader { geo in
             if showingAllVenues {
                 ScrollView {
-                    LazyVStack {
+                    VStack {
                         ForEach(filteredVenues, id: \.venue) { concert in
                             VenueGridItem(concert: concert)
                                 .matchedGeometryEffect(id: concert.uuid, in: namespace)
@@ -67,7 +67,7 @@ struct VenueGridView: View {
                 if let selectedVenue {
                     VStack(alignment: .trailing) {
                         Button {
-                            withAnimation(.smooth){
+                            withAnimation(.snappy){
                                 showingAllVenues = true
                             }
                         } label: {
@@ -77,12 +77,14 @@ struct VenueGridView: View {
                         }
                         .font(.headline)
                         .foregroundStyle(.secondary)
+                        .padding(.top, 5)
                         
                         VenueGridExpandedMapView(concert: selectedVenue)
                             .padding(.horizontal)
-                            .padding(.bottom, 60)
+                            .padding(.bottom, 65)
                             .matchedGeometryEffect(id: selectedVenue.uuid, in: namespace)
-                    }       
+                            .navigationBarTitleDisplayMode(.inline)
+                    }
 
                 }
             }

@@ -15,7 +15,6 @@ struct VenuesView: View {
         NavigationStack {
             VenueGridView()
                 .navigationTitle("Venues")
-                .navigationBarTitleDisplayMode(.large)
         }
     }
 }
