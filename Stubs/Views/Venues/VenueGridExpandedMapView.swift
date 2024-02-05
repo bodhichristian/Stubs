@@ -58,7 +58,7 @@ struct VenueGridExpandedMapView: View {
             .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(color: shadowColor, radius: 2)
+        .shadow(color: shadowColor, radius: 4)
 
         .padding(2)
     }

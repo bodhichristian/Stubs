@@ -28,11 +28,21 @@ struct VenueGridView: View {
         }
     }
     
+   
+    
     private var filteredVenues: [Concert] {
         if searchText.isEmpty {
             return venues
         } else {
-            return venues.filter { $0.venue.lowercased().contains(searchText.lowercased())}
+            return venues.filter {
+                $0.venue.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
+    private var sortedVenues: [Concert] {
+        return filteredVenues.sorted {
+            $0.venue < $1.venue
         }
     }
     
@@ -46,7 +56,7 @@ struct VenueGridView: View {
             if showingAllVenues {
                 ScrollView {
                     VStack {
-                        ForEach(filteredVenues, id: \.venue) { concert in
+                        ForEach(sortedVenues, id: \.venue) { concert in
                             VenueGridItem(concert: concert)
                                 .matchedGeometryEffect(id: concert.uuid, in: namespace)
                                 .onTapGesture {
