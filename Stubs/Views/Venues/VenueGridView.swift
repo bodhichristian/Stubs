@@ -82,14 +82,11 @@ struct VenueGridView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 60)
                             .matchedGeometryEffect(id: selectedVenue.uuid, in: namespace)
-                    }        .navigationBarTitleDisplayMode(.large)
+                    }       
 
                 }
             }
         }
-        .navigationTitle("Venues")
-
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar(.visible, for: .navigationBar)
+        
     }
 }

@@ -8,18 +8,14 @@
 import SwiftUI
 
 
-struct Venues: View {
+struct VenuesView: View {
 
     var body: some View {
         
         NavigationStack {
             VenueGridView()
                 .navigationTitle("Venues")
-                .toolbarBackground(.hidden, for: .navigationBar)
+                .navigationBarTitleDisplayMode(.large)
         }
     }
-}
-
-#Preview {
-    Venues()
 }
