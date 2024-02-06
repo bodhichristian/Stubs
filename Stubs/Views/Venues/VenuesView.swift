@@ -9,12 +9,13 @@ import SwiftUI
 
 
 struct VenuesView: View {
-
+    
     var body: some View {
         
         NavigationStack {
             VenueGridView()
                 .navigationTitle("Venues")
+
         }
     }
 }

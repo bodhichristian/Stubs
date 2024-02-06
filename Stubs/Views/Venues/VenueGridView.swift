@@ -9,12 +9,16 @@ import SwiftUI
 import SwiftData
 
 struct VenueGridView: View {
+    @Namespace var namespace
+
     @Query var concerts: [Concert]
     
+    @State private var listView = true
     @State private var searchText = ""
     @State private var showingAllVenues = true
     @State private var selectedVenue: Concert?
-    @Namespace var namespace
+    @State private var sortOrder: SortOrder = .byNameAscending
+    
     
     private var venues: [Concert] {
         var uniqueVenues = Set<String>()
@@ -41,8 +45,14 @@ struct VenueGridView: View {
     }
     
     private var sortedVenues: [Concert] {
-        return filteredVenues.sorted {
-            $0.venue < $1.venue
+        if sortOrder == .byNameAscending {
+            return filteredVenues.sorted {
+                $0.venue < $1.venue
+            }
+        } else {
+            return filteredVenues.sorted {
+                $0.venue > $1.venue
+            }
         }
     }
     
@@ -55,20 +65,43 @@ struct VenueGridView: View {
         GeometryReader { geo in
             if showingAllVenues {
                 ScrollView {
-                    VStack {
-                        ForEach(sortedVenues, id: \.venue) { concert in
-                            VenueGridItem(concert: concert)
-                                .matchedGeometryEffect(id: concert.uuid, in: namespace)
-                                .onTapGesture {
-                                    withAnimation(.snappy){
-                                        selectedVenue = concert
-                                        showingAllVenues = false
+                    if listView {
+                        VStack {
+                            ForEach(sortedVenues, id: \.venue) { concert in
+                                VenueGridItem(concert: concert)
+                                    .matchedGeometryEffect(id: concert.uuid, in: namespace)
+                                    .onTapGesture {
+                                        withAnimation(.snappy){
+                                            selectedVenue = concert
+                                            showingAllVenues = false
+                                        }
                                     }
-                                }
+                            }
                         }
+                        .searchable(text: $searchText, prompt: "Search Venues")
+                        .padding(.bottom, 100)
+                        
                     }
-                    .searchable(text: $searchText, prompt: "Search Venues")
-                    .padding(.bottom, 80)
+                    
+                    else {
+                        LazyVGrid(columns: columns) {
+                            ForEach(sortedVenues, id: \.venue) { concert in
+                                VenueGridItem(concert: concert)
+                                    .matchedGeometryEffect(id: concert.uuid, in: namespace)
+                                    .onTapGesture {
+                                        withAnimation(.snappy){
+                                            selectedVenue = concert
+                                            showingAllVenues = false
+                                        }
+                                    }
+                            }
+                        }
+                        .searchable(text: $searchText, prompt: "Search Venues")
+                        .padding(.bottom, 100)
+                        
+                    }
+                    
+                    
 
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -99,6 +132,59 @@ struct VenueGridView: View {
                 }
             }
         }
-        
+        .toolbar {
+            ToolbarItem {
+                if showingAllVenues {
+                    Menu {
+                        Button {
+                            withAnimation(.smooth(extraBounce: 0.2)) {
+                                listView.toggle()
+                            }
+                        } label: {
+                            Label(
+                                listView
+                                ? "Switch to Grid View"
+                                : "Switch to List View",
+                                systemImage: listView
+                                ? "square.grid.2x2"
+                                : "list.bullet"
+                            )
+                        }
+                        
+                        Section {
+                            
+                            Button {
+                                withAnimation(.smooth(extraBounce: 0.2)){
+                                    sortOrder = .byNameAscending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by Venue Name A-Z",
+                                    systemImage: "a.square"
+                                )
+                            }
+                            
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameDescending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by Venue Name Z-A",
+                                    systemImage: "z.square"
+                                )
+                            }
+                            
+                        }
+                        
+                    } label: {
+                        Label(
+                            "View Options",
+                            systemImage: "list.bullet"
+                        )
+                    }
+                }
+            }
+        }
     }
 }
