@@ -68,7 +68,7 @@ struct VenueGridView: View {
                     if listView {
                         VStack {
                             ForEach(sortedVenues, id: \.venue) { concert in
-                                VenueGridItem(concert: concert)
+                                VenueGridItem(concert: concert, listView: $listView)
                                     .matchedGeometryEffect(id: concert.uuid, in: namespace)
                                     .onTapGesture {
                                         withAnimation(.snappy){
@@ -86,7 +86,7 @@ struct VenueGridView: View {
                     else {
                         LazyVGrid(columns: columns) {
                             ForEach(sortedVenues, id: \.venue) { concert in
-                                VenueGridItem(concert: concert)
+                                VenueGridItem(concert: concert, listView: $listView)
                                     .matchedGeometryEffect(id: concert.uuid, in: namespace)
                                     .onTapGesture {
                                         withAnimation(.snappy){

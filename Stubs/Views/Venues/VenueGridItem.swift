@@ -11,13 +11,13 @@ import SwiftUI
 
 struct VenueGridItem: View {
     let concert: Concert
+    @Binding var listView: Bool
     
     @Environment(\.colorScheme) var colorScheme
     
     private let gradient = LinearGradient(
         colors: [
             .black.opacity(0.8),
-            .clear,
             .clear
         ],
         startPoint: .top,
@@ -33,16 +33,18 @@ struct VenueGridItem: View {
             Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
+                .frame(maxWidth: listView ? .infinity : 120)
+
             
             gradient
             
             VStack(alignment: .leading) {
                 Text(concert.venue)
-                    .font(.title2)
+                    .font(listView ? .title2 : .headline)
                     .fontWeight(.semibold)
                 
                 Text(concert.city)
-                    .font(.headline)
+                    .font(listView ? .headline : .subheadline)
             }
             .foregroundStyle(.white)
             .padding(10)
