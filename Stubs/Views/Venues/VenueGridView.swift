@@ -19,7 +19,6 @@ struct VenueGridView: View {
     @State private var selectedVenue: Concert?
     @State private var sortOrder: SortOrder = .byNameAscending
     
-    
     private var venues: [Concert] {
         var uniqueVenues = Set<String>()
         
@@ -31,8 +30,6 @@ struct VenueGridView: View {
             return false
         }
     }
-    
-   
     
     private var filteredVenues: [Concert] {
         if searchText.isEmpty {
@@ -55,7 +52,6 @@ struct VenueGridView: View {
             }
         }
     }
-    
     
     private let columns = [
         GridItem(.adaptive(minimum: 120))

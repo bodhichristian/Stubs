@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import MapKit
+import SwiftUI
 
 // MARK: Concert Type
 // An object that represents a single concert
@@ -68,7 +69,20 @@ final class Concert {
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
         options.scale = UIScreen.main.scale
-                
+        
+        options.camera = MKMapCamera(
+            lookingAtCenter: CLLocationCoordinate2D(
+                latitude: venueLatitude,
+                longitude: venueLongitude
+            ),
+            fromDistance: 400,
+            pitch: 70,
+            heading: 0
+        )
+        
+        
+        options.showsPointsOfInterest = false
+        
         let snapshotter = MKMapSnapshotter(options: options)
         snapshotter.start { snapshot, error in
             guard let snapshot = snapshot else {

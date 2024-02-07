@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct VenuesView: View {
-    
     var body: some View {
         
         NavigationStack {
