@@ -14,7 +14,7 @@ struct AddConcertTip: Tip {
     }
     
     var message: Text? {
-        Text("Tap here to create a Concert Ticket Stub")
+        Text("Tap + to add a concert.")
     }
     
     var image: Image? {

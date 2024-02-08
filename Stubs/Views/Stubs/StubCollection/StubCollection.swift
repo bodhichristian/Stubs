@@ -49,11 +49,9 @@ struct StubCollection: View {
             VStack {
                 
                 if concerts.isEmpty { // If no concerts have been saved
-                    NoStubsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
-
+                    NoStubsView()
                     
                 } else  {
-                    
                     ScrollView{
                         VStack(alignment: .leading)  {
                             // Sort concerts in reverse chronological order
@@ -103,8 +101,7 @@ struct StubCollection: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Demo") {
                         addSampleConcert()
-                    }
-                }
+                    }                }
                 
                 ToolbarItem {
                     Button {
@@ -120,12 +117,15 @@ struct StubCollection: View {
                     }
                 }
                 
-                ToolbarItem {
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         isAddingConcert = true
                     } label: {
-                        Label("Add Concert", systemImage: "plus")
+                        Image(systemName: "plus")
                     }
+                    .popoverTip(addConcertTip, arrowEdge: .top)
+
                 }
             }
             
@@ -144,7 +144,7 @@ extension StubCollection {
             } else {
                 return concerts
             }
-  
+            
         } else {
             // Search filter
             return concerts.filter { concert in
@@ -254,7 +254,7 @@ extension StubCollection {
         
         
         HStack {
-
+            
             Text(("\(decade)")
                 .replacingOccurrences(of: ",", with: ""))
             .textCase(nil)
