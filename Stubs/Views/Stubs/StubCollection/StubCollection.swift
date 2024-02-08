@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 // MARK: StubCollection
 // A View for displaying and searching for saved concerts
@@ -24,7 +25,7 @@ struct StubCollection: View {
     @State private var searchText = ""
     @State private var filteringFavorites = false
     
-    private let addConcertTip = AddConcertTip()
+    let addConcertTip = AddConcertTip()
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     private var tileBackgroundColor: Color {
@@ -49,6 +50,7 @@ struct StubCollection: View {
                 
                 if concerts.isEmpty { // If no concerts have been saved
                     NoStubsView(modelContext: _modelContext, isAddingConcert: $isAddingConcert)
+
                     
                 } else  {
                     
@@ -124,11 +126,11 @@ struct StubCollection: View {
                     } label: {
                         Label("Add Concert", systemImage: "plus")
                     }
-                    .popoverTip(addConcertTip)
                 }
             }
             
         }
+        
     }
 }
 

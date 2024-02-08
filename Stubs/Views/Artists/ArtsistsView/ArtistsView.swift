@@ -312,6 +312,7 @@ struct ArtistsView: View {
                             systemImage: "list.bullet"
                         )
                     }
+
                 }
                 
                 ToolbarItem {
