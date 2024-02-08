@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
+		AA19591C2B753CA600266267 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* Tips.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
@@ -55,13 +56,13 @@
 		AAD8B0B12B66027D00693D14 /* VenueGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8B0B02B66027D00693D14 /* VenueGridView.swift */; };
 		AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */; };
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
-		AADE4FBE2B63DCFF000C7DF3 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBD2B63DCFF000C7DF3 /* VenuesView.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
+		AA19591B2B753CA600266267 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		AAD8B0B02B66027D00693D14 /* VenueGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueGridView.swift; sourceTree = "<group>"; };
 		AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueGridExpandedMapView.swift; sourceTree = "<group>"; };
 		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
-		AADE4FBD2B63DCFF000C7DF3 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA19591A2B753C8400266267 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				AA19591B2B753CA600266267 /* Tips.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
 		AA2A038F2B555A69002C1071 /* ArtsistsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +238,9 @@
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
 				AA8A747B2A32BE0A003E9B41 /* Models */,
-				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A74802A32C8FE003E9B41 /* Extensions */,
+				AA19591A2B753C8400266267 /* Tips */,
+				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
 				AA8A74712A32BDF4003E9B41 /* Preview Content */,
 			);
@@ -320,7 +329,6 @@
 		AADE4FBC2B63DCE0000C7DF3 /* Venues */ = {
 			isa = PBXGroup;
 			children = (
-				AADE4FBD2B63DCFF000C7DF3 /* VenuesView.swift */,
 				AAD8B0B02B66027D00693D14 /* VenueGridView.swift */,
 				AAACA44A2B69217B0078DE2F /* VenueGridItem.swift */,
 				AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */,
@@ -407,7 +415,6 @@
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */,
 				AA5E74E32B3DA67F005DBD87 /* ArtistService.swift in Sources */,
-				AADE4FBE2B63DCFF000C7DF3 /* VenuesView.swift in Sources */,
 				AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AA87B0D92B4833F80071DB44 /* ArtistDetailProfileImage.swift in Sources */,
@@ -443,6 +450,7 @@
 				AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
 				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
+				AA19591C2B753CA600266267 /* Tips.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,

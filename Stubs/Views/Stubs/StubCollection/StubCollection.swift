@@ -24,6 +24,7 @@ struct StubCollection: View {
     @State private var searchText = ""
     @State private var filteringFavorites = false
     
+    private let addConcertTip = AddConcertTip()
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     private var tileBackgroundColor: Color {
@@ -123,6 +124,7 @@ struct StubCollection: View {
                     } label: {
                         Label("Add Concert", systemImage: "plus")
                     }
+                    .popoverTip(addConcertTip)
                 }
             }
             

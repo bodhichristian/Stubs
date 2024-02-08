@@ -8,16 +8,16 @@
 import Observation
 import SwiftUI
 import SwiftData
+import TipKit
 
 @main
 struct StubsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            
             ContentView()
 
-        }
+    }
         .modelContainer(for: Concert.self)
     }
 }
