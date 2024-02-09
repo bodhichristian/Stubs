@@ -21,6 +21,7 @@ struct ArtistsView: View {
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
     
+    private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     private let columns = [ // For LazyVGrid
@@ -307,11 +308,9 @@ struct ArtistsView: View {
                         }
                         
                     } label: {
-                        Label(
-                            "View Options",
-                            systemImage: "list.bullet"
-                        )
+                        Image(systemName: "list.bullet")
                     }
+                    .popoverTip(artistsViewOptionsTip)
 
                 }
                 

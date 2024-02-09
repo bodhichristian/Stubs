@@ -21,3 +21,17 @@ struct AddConcertTip: Tip {
         Image(systemName: "ticket")
     }
 }
+
+struct ArtistsViewOptionsTip: Tip {
+    var title: Text {
+        Text("Change it up.")
+    }
+    
+    var message: Text? {
+        Text("Open this menu to explore sorting options.")
+    }
+    
+    var image: Image? {
+        Image(systemName: "list.bullet")
+    }
+}
