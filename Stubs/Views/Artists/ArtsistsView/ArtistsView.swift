@@ -310,15 +310,9 @@ struct ArtistsView: View {
                     } label: {
                         Image(systemName: "list.bullet")
                     }
-                    .popoverTip(artistsViewOptionsTip)
+                    //.popoverTip(artistsViewOptionsTip)
 
                 }
-                
-                ToolbarItem {
-
-                }
-                
-                
             }
         }
         

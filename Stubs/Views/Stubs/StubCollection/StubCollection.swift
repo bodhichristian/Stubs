@@ -124,7 +124,7 @@ struct StubCollection: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    .popoverTip(addConcertTip, arrowEdge: .top)
+                    //.popoverTip(addConcertTip, arrowEdge: .top)
 
                 }
             }
