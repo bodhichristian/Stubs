@@ -91,10 +91,10 @@ struct ArtistsView: View {
         switch sortOrder {
         case .byNameDescending:
             groupedArtists.keys.sorted().reversed()
-
+            
         default:
             groupedArtists.keys.sorted()
-
+            
         }
     }
     
@@ -116,11 +116,8 @@ struct ArtistsView: View {
     
     var body: some View {
         NavigationStack {
-            
             ScrollView {
-
                 if listView {
-                    
                     VStack {
                         ForEach(sortedKeys, id: \.self) { key in
                             Section {
@@ -311,7 +308,7 @@ struct ArtistsView: View {
                         Image(systemName: "list.bullet")
                     }
                     //.popoverTip(artistsViewOptionsTip)
-
+                    
                 }
             }
         }
