@@ -109,7 +109,6 @@ struct ArtistsView: View {
                 .font(.title2)
                 .bold()
                 .foregroundStyle(.secondary)
-            
         }
         .padding(.vertical, 15)
     }
@@ -174,7 +173,6 @@ struct ArtistsView: View {
                                         }
                                     }
                                     .buttonStyle(PlainButtonStyle())
-                                    
                                 }
                             } header: {
                                 alphabetHeader(key)
@@ -183,7 +181,6 @@ struct ArtistsView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-                    
                     .padding(.horizontal)
                     .padding(.bottom, 100)
                     
@@ -192,7 +189,6 @@ struct ArtistsView: View {
                         ForEach(sortedKeys, id: \.self) { key in
                             Section {
                                 ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
-                                    
                                     NavigationLink {
                                         ArtistDetailView(artist: artist)
                                     } label: {
