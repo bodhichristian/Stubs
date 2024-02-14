@@ -17,9 +17,11 @@ struct ArtistImageView: View {
                 .scaledToFit()
                 .clipShape(Circle())
                 .shadow(color: .primary.opacity(0.5), radius: 3)
+                .padding(.trailing, 8)
         } else {
             Circle()
                 .foregroundStyle(.gray)
+                .padding(.trailing, 8)
         }
     }
 }

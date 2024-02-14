@@ -136,7 +136,6 @@ struct ArtistsView: View {
                                                     .frame(width: artistImageWidth)
                                                     .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                                 
-                                                    .padding(.trailing, 8)
                                                 
                                                 Text(artist.artistName ?? "")
                                                     .font(.headline)
@@ -190,18 +189,8 @@ struct ArtistsView: View {
                                             
                                             VStack {
                                                 ZStack(alignment: .bottomTrailing) {
-                                                    ZStack {
-                                                        Circle()
-                                                            .foregroundStyle(.gray)
-                                                            .frame(width: artistImageWidth)
-                                                        
-                                                        if let data = artist.artistImageData {
-                                                            
-                                                            ArtistImageView(imageData: data)
-                                                                .frame(width: artistImageWidth)
-                                                        }
-                                                    }
-                                                    .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                    ArtistImageView(imageData: artist.artistImageData)
+                                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                                     
                                                     StubCountIndicator(artist: artist)
                                                         .offset(x: 4, y: 4)
