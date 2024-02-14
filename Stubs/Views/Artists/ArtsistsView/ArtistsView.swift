@@ -132,19 +132,11 @@ struct ArtistsView: View {
                                                 .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
                                             
                                             HStack {
-                                                ZStack {
-                                                    if let data = artist.artistImageData {
-                                                        ArtistImageView(imageData: data)
-                                                            .frame(width: artistImageWidth)
-                                                    } else {
-                                                        Circle()
-                                                            .foregroundStyle(.gray)
-                                                            .frame(width: artistImageWidth)
-                                                    }
-                                                }
-                                                .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                ArtistImageView(imageData: artist.artistImageData)
+                                                    .frame(width: artistImageWidth)
+                                                    .matchedGeometryEffect(id: artist.artistID, in: namespace)
                                                 
-                                                .padding(.trailing, 8)
+                                                    .padding(.trailing, 8)
                                                 
                                                 Text(artist.artistName ?? "")
                                                     .font(.headline)
