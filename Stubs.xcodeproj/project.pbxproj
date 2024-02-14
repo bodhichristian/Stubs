@@ -25,6 +25,7 @@
 		AA5E74FA2B3EFF9B005DBD87 /* ArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */; };
 		AA62228E2B2A58F5004899A9 /* AlbumScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */; };
 		AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228F2B2B367C004899A9 /* NoStubsView.swift */; };
+		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
 		AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
@@ -79,6 +80,7 @@
 		AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsView.swift; sourceTree = "<group>"; };
 		AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollView.swift; sourceTree = "<group>"; };
 		AA62228F2B2B367C004899A9 /* NoStubsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoStubsView.swift; sourceTree = "<group>"; };
+		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7C57ED2B249B7B006843C4 /* StubShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubShape.swift; sourceTree = "<group>"; };
 		AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollViewLabel.swift; sourceTree = "<group>"; };
 		AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollViewPlaceholder.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
+				AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */,
 				AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */,
 				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 			);
@@ -449,6 +452,7 @@
 				AA5615F82B27AB5B00A35D4A /* AlbumService.swift in Sources */,
 				AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
+				AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */,
 				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
 				AA19591C2B753CA600266267 /* Tips.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,

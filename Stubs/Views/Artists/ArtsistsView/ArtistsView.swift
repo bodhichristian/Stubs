@@ -134,12 +134,8 @@ struct ArtistsView: View {
                                             HStack {
                                                 ZStack {
                                                     if let data = artist.artistImageData {
-                                                        Image(uiImage: UIImage(data: data) ?? UIImage())
-                                                            .resizable()
-                                                            .scaledToFit()
+                                                        ArtistImageView(imageData: data)
                                                             .frame(width: artistImageWidth)
-                                                            .clipShape(Circle())
-                                                            .shadow(color: .primary.opacity(0.5), radius: 3)
                                                     } else {
                                                         Circle()
                                                             .foregroundStyle(.gray)
@@ -208,12 +204,9 @@ struct ArtistsView: View {
                                                             .frame(width: artistImageWidth)
                                                         
                                                         if let data = artist.artistImageData {
-                                                            Image(uiImage: UIImage(data: data) ?? UIImage())
-                                                                .resizable()
-                                                                .scaledToFit()
+                                                            
+                                                            ArtistImageView(imageData: data)
                                                                 .frame(width: artistImageWidth)
-                                                                .clipShape(Circle())
-                                                                .shadow(color: .primary.opacity(0.5), radius: 3)
                                                         }
                                                     }
                                                     .matchedGeometryEffect(id: artist.artistID, in: namespace)
