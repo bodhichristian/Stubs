@@ -137,6 +137,7 @@ struct ArtistsView: View {
                                                         id: artist.bannerImageURL,
                                                         in: namespace
                                                     )
+                                                    .padding(.leading, 5)
                                                 
                                                 
                                                 Spacer()
@@ -160,7 +161,6 @@ struct ArtistsView: View {
                             }
                         }
                     }
-                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
                     .padding(.horizontal)
                     .padding(.bottom, 100)
                     
@@ -214,12 +214,13 @@ struct ArtistsView: View {
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 100)
-                    .searchable(
-                        text: $searchText,
-                        prompt: searchPrompt
-                    )
+
                 }
             }
+            .searchable(
+                text: $searchText,
+                prompt: searchPrompt
+            )
             .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {
