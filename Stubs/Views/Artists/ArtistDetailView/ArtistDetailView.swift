@@ -138,7 +138,7 @@ struct ArtistDetailView: View {
                         ArtistDetailVenuesMap(concerts: filteredConcerts)
                         
                         AlbumScrollView(artistID: artist.artistID ?? "")
-                            .padding(.bottom, 50)
+                            .padding(.bottom, 80)
                     }
                     .offset(y: showingFullBio ? -110 : 0)
                     .ignoresSafeArea()

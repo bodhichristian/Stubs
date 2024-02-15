@@ -52,7 +52,9 @@ struct ArtistsView: View {
         }
         
         let uniqueArtists = Set(artists)
-        let sortedArists = Array(uniqueArtists).sorted { $0.artistName ?? "" < $1.artistName ?? "" }
+        let sortedArists = Array(uniqueArtists).sorted {
+            $0.artistName ?? "" < $1.artistName ?? ""
+        }
         return sortedArists
     }
     
@@ -80,12 +82,10 @@ struct ArtistsView: View {
         }
     }
     
-    // Computed property to group artists
     private var groupedArtists: [String: [Artist]] {
-        Dictionary(grouping: filteredArtists) { $0.artistName?.first?.uppercased() ?? "#" }
+        Dictionary(grouping: sortedArtists) { $0.artistName?.first?.uppercased() ?? "#" }
     }
     
-    // Computed property to get sorted keys
     private var sortedKeys: [String] {
         
         switch sortOrder {
@@ -96,21 +96,6 @@ struct ArtistsView: View {
             groupedArtists.keys.sorted()
             
         }
-    }
-    
-    private func alphabetHeader(_ letter: String) -> some View {
-        HStack {
-            VStack {
-                Divider()
-            }
-            
-            Text(digits.contains(letter) ? "#" : letter)
-                .textCase(nil)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.secondary)
-        }
-        .padding(.vertical, 15)
     }
     
     var body: some View {
@@ -128,13 +113,18 @@ struct ArtistsView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .foregroundStyle(tileBackgroundColor)
                                                 .shadow(color: shadowColor, radius: 2)
-                                            // use smallest, unused piece of unique data as reference
-                                                .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
+                                                .matchedGeometryEffect(
+                                                    id: artist.artistImageURL,
+                                                    in: namespace
+                                                )
                                             
                                             HStack {
                                                 ArtistImageView(imageData: artist.artistImageData)
                                                     .frame(width: artistImageWidth)
-                                                    .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                    .matchedGeometryEffect(
+                                                        id: artist.artistID,
+                                                        in: namespace
+                                                    )
                                                 
                                                 
                                                 Text(artist.artistName ?? "")
@@ -143,17 +133,17 @@ struct ArtistsView: View {
                                                     .lineLimit(3)
                                                 
                                                 StubCountIndicator(artist: artist)
-                                                    .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                                    .matchedGeometryEffect(
+                                                        id: artist.bannerImageURL,
+                                                        in: namespace
+                                                    )
                                                 
-                                                Text(stubCount(for: artist) > 1 ? "Stubs" : "Stub")
-                                                    .foregroundStyle(.secondary)
                                                 
                                                 Spacer()
                                                 
                                                 Image(systemName: "chevron.right")
                                                     .foregroundStyle(.secondary.opacity(0.5))
                                                     .frame(width: 10)
-                                                
                                             }
                                             .padding(.horizontal)
                                             .padding(.vertical, 10)
@@ -163,7 +153,10 @@ struct ArtistsView: View {
                                 }
                             } header: {
                                 alphabetHeader(key)
-                                    .matchedGeometryEffect(id: key, in: namespace)
+                                    .matchedGeometryEffect(
+                                        id: key,
+                                        in: namespace
+                                    )
                             }
                         }
                     }
@@ -173,9 +166,7 @@ struct ArtistsView: View {
                     
                 } else {
                     LazyVGrid(columns: columns) {
-                        ForEach(sortedKeys, id: \.self) { key in
-                            Section {
-                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
+                                ForEach(sortedArtists, id: \.artistID) { artist in
                                     NavigationLink {
                                         ArtistDetailView(artist: artist)
                                     } label: {
@@ -183,20 +174,27 @@ struct ArtistsView: View {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .foregroundStyle(tileBackgroundColor)
                                                 .shadow(color: shadowColor, radius: 2)
-                                            // use smallest, unused piece of unique data as reference
-                                                .matchedGeometryEffect(id: artist.artistImageURL, in: namespace)
-                                            
+                                                .matchedGeometryEffect(
+                                                    id: artist.artistImageURL,
+                                                    in: namespace
+                                                )
                                             
                                             VStack {
                                                 ZStack(alignment: .bottomTrailing) {
                                                     ArtistImageView(imageData: artist.artistImageData)
-                                                        .matchedGeometryEffect(id: artist.artistID, in: namespace)
+                                                        .matchedGeometryEffect(
+                                                            id: artist.artistID,
+                                                            in: namespace
+                                                        )
                                                     
                                                     StubCountIndicator(artist: artist)
-                                                        .offset(x: 4, y: 4)
-                                                        .matchedGeometryEffect(id: artist.bannerImageURL, in: namespace)
+                                                        .offset(x: -4)
+                                                        .matchedGeometryEffect(
+                                                            id: artist.bannerImageURL,
+                                                            in: namespace
+                                                        )
                                                 }
-                                                
+                                                .offset(x: 4)
                                                 
                                                 Spacer()
                                                 
@@ -211,23 +209,17 @@ struct ArtistsView: View {
                                         }
                                     }
                                     .frame(minHeight: 150)
-                                    
                                     .buttonStyle(PlainButtonStyle())
                                 }
-                            } header: {
-                                alphabetHeader(key)
-                                    .matchedGeometryEffect(id: key, in: namespace)
-                            }
-                        }
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 100)
-                    .searchable(text: $searchText, prompt: searchPrompt) // Search bar
-                    
+                    .searchable(
+                        text: $searchText,
+                        prompt: searchPrompt
+                    )
                 }
             }
-            
-            
             .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {
@@ -249,7 +241,6 @@ struct ArtistsView: View {
                         }
                         
                         Section {
-                            
                             Button {
                                 withAnimation(.smooth(extraBounce: 0.2)){
                                     sortOrder = .byNameAscending
@@ -271,30 +262,28 @@ struct ArtistsView: View {
                                     systemImage: "z.square"
                                 )
                             }
-                            
                         }
-                        
                     } label: {
                         Image(systemName: "list.bullet")
                     }
-                    //.popoverTip(artistsViewOptionsTip)
-                    
                 }
             }
         }
-        
     }
     
-    private func stubCount(for artist: Artist) -> Int {
-        var count = 0
-        
-        for concert in concerts {
-            if concert.artistName.lowercased() == artist.artistName?.lowercased() {
-                count += 1
+    private func alphabetHeader(_ letter: String) -> some View {
+        HStack {
+            Text(digits.contains(letter) ? "#" : letter)
+                .textCase(nil)
+                .font(.title2)
+                .bold()
+                .foregroundStyle(.secondary)
+            
+            VStack {
+                Divider()
             }
         }
-        
-        return count
+        .padding(.vertical, 15)
     }
     
     private func setImageWidth() {
