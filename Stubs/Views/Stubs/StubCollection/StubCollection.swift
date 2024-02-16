@@ -9,11 +9,6 @@ import SwiftUI
 import SwiftData
 import TipKit
 
-// MARK: StubCollection
-// A View for displaying and searching for saved concerts
-// Performs query from SwiftData store
-// Groups concerts by decade
-
 struct StubCollection: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) private var modelContext
@@ -25,7 +20,8 @@ struct StubCollection: View {
     @State private var searchText = ""
     @State private var filteringFavorites = false
     
-    let addConcertTip = AddConcertTip()
+    private let service = ArtistService()
+    private let addConcertTip = AddConcertTip()
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     private var tileBackgroundColor: Color {
@@ -101,7 +97,8 @@ struct StubCollection: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Demo") {
                         addSampleConcert()
-                    }                }
+                    }
+                }
                 
                 ToolbarItem {
                     Button {
@@ -133,7 +130,6 @@ struct StubCollection: View {
         
     }
 }
-
 
 extension StubCollection {
     // Concerts whose data contains searchText
@@ -194,7 +190,6 @@ extension StubCollection {
     
     // MARK: addSampleConcert()
     private func addSampleConcert() {
-        let service = ArtistService()
         
         let artistName = DebugData.artists.randomElement()!
         let venue = DebugData.venues.randomElement()!
