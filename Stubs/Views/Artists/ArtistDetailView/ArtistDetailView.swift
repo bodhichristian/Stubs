@@ -20,7 +20,7 @@ struct ArtistDetailView: View {
     @State private var showingFullBio = false
     
     // Provide sizing for artistImage and placeholder
-    private let artistImageWidth: CGFloat = 100
+    private let artistImageWidth: CGFloat = 120
     
     // MARK: Computed props
     private var filteredConcerts: [Concert] {

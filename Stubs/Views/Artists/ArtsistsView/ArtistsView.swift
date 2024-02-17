@@ -126,12 +126,13 @@ struct ArtistsView: View {
                                                         in: namespace
                                                     )
                                                 
-                                                
                                                 Text(artist.artistName ?? "")
                                                     .font(.headline)
                                                     .multilineTextAlignment(.center)
                                                     .lineLimit(3)
                                                 
+                                                Spacer()
+
                                                 StubCountIndicator(artist: artist)
                                                     .matchedGeometryEffect(
                                                         id: artist.bannerImageURL,
@@ -140,7 +141,6 @@ struct ArtistsView: View {
                                                     .padding(.leading, 5)
                                                 
                                                 
-                                                Spacer()
                                                 
                                                 Image(systemName: "chevron.right")
                                                     .foregroundStyle(.secondary.opacity(0.5))

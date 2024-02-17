@@ -11,6 +11,7 @@ import SwiftData
 struct StubCountIndicator: View {
     let artist: Artist
     
+    @Environment(\.colorScheme) var colorScheme
     @Query var concerts: [Concert]
 
     private var stubCount: Int {
@@ -25,46 +26,28 @@ struct StubCountIndicator: View {
         return count
     }
     
-    private var gradientColors: [Color] {
-            switch stubCount {
-            case 1: // 1 Stub
-                return [.white, .green, .green, .gray]
-            case 2: // 2 Stubs
-                return [.white, .blue, .blue, .gray]
-            case 3: //3 Stubs
-                return [.white, .indigo, .indigo, .gray]
-            case 4: // 4 Stubs
-                return [.white, .purple, .purple, .gray]
-            default: // 5+ Stubs
-                return [.white, .orange, .orange, .gray]
-            }
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.6)
+        } else {
+            return .secondary
         }
+    }
     
     var body: some View {
         ZStack {
-            if stubCount > 1 {
-                StubShape()
-                    .foregroundStyle(.white)
-                    .rotationEffect(Angle(degrees: 15))
-                    .frame(width: 42, height: 28)
-
-                StubShape()
-                    .foregroundStyle(.gray)
-                    .rotationEffect(Angle(degrees: 30))
-                    .frame(width: 42, height: 28)
-
-            }
             
             StubShape()
                 .frame(width: 42, height: 28)
                 .foregroundStyle(
-                    LinearGradient(
-                        colors: gradientColors,
-                        startPoint: .topLeading,
-                        endPoint:  .bottomTrailing
-                    )
+                    .ultraThickMaterial
                 )
-            
+                .shadow(
+                    color: shadowColor,
+                    radius: 2,
+                    y: 2
+                )
+
             HStack {
                 VerticalLineBoundary()
                 Spacer()
@@ -73,13 +56,10 @@ struct StubCountIndicator: View {
             .frame(width: 32, height: 28)
             
             Text(String(stubCount))
-                .foregroundStyle(.white)
-                .shadow(radius: 3)
-                .rotationEffect(Angle(degrees: 15))
+                .foregroundStyle(.primary)
+                .fontWeight(.semibold)
 
         }
-        .rotationEffect(Angle(degrees: -15))
-        .shadow(radius: 2)
     }
 }
 

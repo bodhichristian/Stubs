@@ -53,7 +53,7 @@ struct StubCollection: View {
                             // Sort concerts in reverse chronological order
                             ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
                                 // Create a section for each decade
-                                Section(header: decadeHeader(year)) {
+                                Section(header: yearHeader(year)) {
                                     // Create a NavLink to StubDetailView for each concert
                                     ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
                                         NavigationLink {
@@ -245,11 +245,8 @@ extension StubCollection {
     
     
     // Header for decade sections in list
-    private func decadeHeader(_ decade: Int) -> some View {
-        
-        
+    private func yearHeader(_ decade: Int) -> some View {
         HStack {
-            
             Text(("\(decade)")
                 .replacingOccurrences(of: ",", with: ""))
             .textCase(nil)
@@ -264,6 +261,7 @@ extension StubCollection {
         .padding(.vertical, 15)
         
     }
+    
     // Delete concert
     private func delete(offsets: IndexSet) {
         withAnimation {
@@ -272,6 +270,4 @@ extension StubCollection {
             }
         }
     }
-    
-    
 }
