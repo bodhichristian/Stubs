@@ -265,7 +265,7 @@ struct ArtistsView: View {
                             }
                         }
                     } label: {
-                        Image(systemName: "list.bullet")
+                        Image(systemName: "line.3.horizontal")
                     }
                 }
             }

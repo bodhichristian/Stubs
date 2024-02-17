@@ -10,7 +10,7 @@ import SwiftData
 
 struct VenuesView: View {
     @Namespace var namespace
-
+    
     @Query var concerts: [Concert]
     
     @State private var listView = true
@@ -65,8 +65,14 @@ struct VenuesView: View {
                         if listView {
                             VStack {
                                 ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueGridItem(concert: concert, listView: $listView)
-                                        .matchedGeometryEffect(id: concert.uuid, in: namespace)
+                                    VenueGridItem(
+                                        concert: concert,
+                                        listView: $listView
+                                    )
+                                        .matchedGeometryEffect(
+                                            id: concert.uuid,
+                                            in: namespace
+                                        )
                                         .onTapGesture {
                                             withAnimation(.snappy){
                                                 selectedVenue = concert
@@ -75,7 +81,10 @@ struct VenuesView: View {
                                         }
                                 }
                             }
-                            .searchable(text: $searchText, prompt: "Search Venues")
+                            .searchable(
+                                text: $searchText,
+                                prompt: "Search Venues"
+                            )
                             .padding(.bottom, 100)
                             
                         }
@@ -83,23 +92,32 @@ struct VenuesView: View {
                         else {
                             LazyVGrid(columns: columns) {
                                 ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueGridItem(concert: concert, listView: $listView)
-                                        .matchedGeometryEffect(id: concert.uuid, in: namespace)
-                                        .onTapGesture {
-                                            withAnimation(.snappy){
-                                                selectedVenue = concert
-                                                showingAllVenues = false
-                                            }
+                                    VenueGridItem(
+                                        concert: concert,
+                                        listView: $listView
+                                    )
+                                    .matchedGeometryEffect(
+                                        id: concert.uuid,
+                                        in: namespace
+                                    )
+                                    .onTapGesture {
+                                        withAnimation(.snappy){
+                                            selectedVenue = concert
+                                            showingAllVenues = false
                                         }
+                                    }
                                 }
                             }
-                            .searchable(text: $searchText, prompt: "Search Venues")
+                            .searchable(
+                                text: $searchText,
+                                prompt: "Search Venues"
+                            )
                             .padding(.bottom, 100)
                             
                         }
                         
                         
-
+                        
                     }
                     .ignoresSafeArea(edges: .bottom)
                     .padding(.horizontal)
@@ -111,7 +129,7 @@ struct VenuesView: View {
                                     showingAllVenues = true
                                 }
                             } label: {
-                                    Image(systemName: "x.circle.fill")
+                                Image(systemName: "x.circle.fill")
                                     .padding(.trailing)
                                 
                             }
@@ -122,10 +140,13 @@ struct VenuesView: View {
                             VenueGridExpandedMapView(concert: selectedVenue)
                                 .padding(.horizontal)
                                 .padding(.bottom, 65)
-                                .matchedGeometryEffect(id: selectedVenue.uuid, in: namespace)
+                                .matchedGeometryEffect(
+                                    id: selectedVenue.uuid,
+                                    in: namespace
+                                )
                                 .navigationBarTitleDisplayMode(.inline)
                         }
-
+                        
                     }
                 }
             }
@@ -178,7 +199,7 @@ struct VenuesView: View {
                         } label: {
                             Label(
                                 "View Options",
-                                systemImage: "list.bullet"
+                                systemImage: "line.3.horizontal"
                             )
                         }
                     }
