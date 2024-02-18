@@ -65,7 +65,7 @@ struct VenuesView: View {
                         if listView {
                             VStack {
                                 ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueGridItem(
+                                    VenueTile(
                                         concert: concert,
                                         listView: $listView
                                     )
@@ -92,7 +92,7 @@ struct VenuesView: View {
                         else {
                             LazyVGrid(columns: columns) {
                                 ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueGridItem(
+                                    VenueTile(
                                         concert: concert,
                                         listView: $listView
                                     )
@@ -113,11 +113,7 @@ struct VenuesView: View {
                                 prompt: "Search Venues"
                             )
                             .padding(.bottom, 100)
-                            
                         }
-                        
-                        
-                        
                     }
                     .ignoresSafeArea(edges: .bottom)
                     .padding(.horizontal)

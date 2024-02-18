@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct VerticalLineBoundary: View {
+    
     var body: some View {
         Rectangle()
-            .frame(width: 2)
+            .frame(width: 1)
            // .padding(.trailing, 10)
             .foregroundStyle(.primary)
     }
 }
 
-#Preview {
-    VerticalLineBoundary()
-}

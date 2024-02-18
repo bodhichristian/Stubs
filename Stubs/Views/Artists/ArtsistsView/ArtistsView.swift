@@ -28,14 +28,6 @@ struct ArtistsView: View {
         GridItem(.adaptive(minimum: 120))
     ]
     
-    private var tileBackgroundColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.2)
-        } else {
-            return Color(white: 0.95)
-        }
-    }
-    
     private var shadowColor: Color {
         if colorScheme == .dark {
             return Color(white: 0.9)
@@ -110,9 +102,7 @@ struct ArtistsView: View {
                                         ArtistDetailView(artist: artist)
                                     } label: {
                                         ZStack {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .foregroundStyle(tileBackgroundColor)
-                                                .shadow(color: shadowColor, radius: 2)
+                                            TileBase()
                                                 .matchedGeometryEffect(
                                                     id: artist.artistImageURL,
                                                     in: namespace
@@ -171,9 +161,7 @@ struct ArtistsView: View {
                                         ArtistDetailView(artist: artist)
                                     } label: {
                                         ZStack {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .foregroundStyle(tileBackgroundColor)
-                                                .shadow(color: shadowColor, radius: 2)
+                                            TileBase()
                                                 .matchedGeometryEffect(
                                                     id: artist.artistImageURL,
                                                     in: namespace

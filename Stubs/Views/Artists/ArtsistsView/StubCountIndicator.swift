@@ -36,18 +36,18 @@ struct StubCountIndicator: View {
     
     var body: some View {
         ZStack {
-            
             StubShape()
+                .foregroundStyle(.thinMaterial)
                 .frame(width: 42, height: 28)
-                .foregroundStyle(
-                    .ultraThickMaterial
-                )
                 .shadow(
                     color: shadowColor,
-                    radius: 2,
-                    y: 2
+                    radius: colorScheme == .dark ? 2 : 3
                 )
-
+            
+            StubShape()
+                .stroke(style: StrokeStyle(lineWidth: 1))
+                .frame(width: 42, height: 28)
+               
             HStack {
                 VerticalLineBoundary()
                 Spacer()
@@ -57,7 +57,7 @@ struct StubCountIndicator: View {
             
             Text(String(stubCount))
                 .foregroundStyle(.primary)
-                .fontWeight(.semibold)
+                .fontWeight(.bold)
 
         }
     }
