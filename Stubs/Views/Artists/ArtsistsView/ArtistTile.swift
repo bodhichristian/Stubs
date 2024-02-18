@@ -13,11 +13,11 @@ struct ArtistTile: View {
     
     var body: some View {
         ZStack {
-            Image(uiImage: UIImage(data: artist.bannerImageData ?? Data()) ?? UIImage())
+            Image(uiImage: UIImage(data: artist.artistImageData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
-                .frame(height: listView ? 60 : 150)
-                .frame(maxWidth: listView ? .infinity : 100)
+                .frame(height: listView ? 60 : 160)
+                .frame(maxWidth: listView ? .infinity : 120)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             TileBase()
         }

@@ -94,7 +94,7 @@ struct ArtistsView: View {
         NavigationStack {
             ScrollView {
                 if listView {
-                    VStack {
+                    LazyVStack {
                         ForEach(sortedKeys, id: \.self) { key in
                             Section {
                                 ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
@@ -215,7 +215,7 @@ struct ArtistsView: View {
                 ToolbarItem {
                     Menu {
                         Button {
-                            withAnimation(.smooth(extraBounce: 0.2)) {
+                            withAnimation(.snappy(duration: 0.5)) {
                                 setImageWidth()
                                 listView.toggle()
                             }
@@ -232,7 +232,7 @@ struct ArtistsView: View {
                         
                         Section {
                             Button {
-                                withAnimation(.smooth(extraBounce: 0.2)){
+                                withAnimation(.snappy){
                                     sortOrder = .byNameAscending
                                 }
                             } label: {
