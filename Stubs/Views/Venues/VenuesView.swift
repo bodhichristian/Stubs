@@ -54,7 +54,7 @@ struct VenuesView: View {
     }
     
     private let columns = [
-        GridItem(.adaptive(minimum: 120))
+        GridItem(.adaptive(minimum: 150))
     ]
     
     var body: some View {

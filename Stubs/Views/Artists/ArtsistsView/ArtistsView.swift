@@ -102,7 +102,8 @@ struct ArtistsView: View {
                                         ArtistDetailView(artist: artist)
                                     } label: {
                                         ZStack {
-                                            TileBase()
+                                            ArtistTile(artist: artist, listView: $listView)
+                                                .frame(height: 60)
                                                 .matchedGeometryEffect(
                                                     id: artist.artistImageURL,
                                                     in: namespace
@@ -161,7 +162,7 @@ struct ArtistsView: View {
                                         ArtistDetailView(artist: artist)
                                     } label: {
                                         ZStack {
-                                            TileBase()
+                                            ArtistTile(artist: artist, listView: $listView)
                                                 .matchedGeometryEffect(
                                                     id: artist.artistImageURL,
                                                     in: namespace

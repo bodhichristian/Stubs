@@ -12,9 +12,7 @@ import SwiftUI
 struct VenueTile: View {
     let concert: Concert
     @Binding var listView: Bool
-    
-    @Environment(\.colorScheme) var colorScheme
-    
+        
     var body: some View {
         ZStack() {
             Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
@@ -29,7 +27,7 @@ struct VenueTile: View {
                 Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 60)
+                    .frame(width: listView ? 60 : 40)
                     .clipShape(Circle())
                     .shadow(radius: 3, y: 2)
                     .padding(.leading)
