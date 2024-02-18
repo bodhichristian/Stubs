@@ -21,78 +21,64 @@ struct StubView: View {
 
     var body: some View {
         GeometryReader { geo in
-            ZStack{
+            ZStack {
                 // MARK: Stub base
                 StubShape()
                     .foregroundStyle(stubColor)
                     .shadow(radius: 6, y: 10)
                 
+                Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: geo.size.width * 0.9)
+                    .clipShape(StubShape())
+                
                 StubShape()
-                    .foregroundStyle(StubStyle.gradientOverlay)
+                    .foregroundStyle(.thinMaterial)
+                
+                Image(systemName: concert.iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .foregroundStyle(.thinMaterial)
                 
                 // MARK: Ticket Stub Elements
-                HStack(alignment: .bottom) {
+                HStack {
                     VerticalLineBoundary() // Left Edge
                     
+                    
+                    Spacer()
+                    
                     // MARK: Ticket Details
-                    VStack(alignment: .leading) {
+                    VStack {
                         // Artist Name
                         Text(concert.artistName)
-                            .font(.title.bold())
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 36))
+                            .fontWeight(.bold)
                             .foregroundStyle(.white)
-                            .shadow(radius: 2)
                         // Venue Details
                         Text(concert.venue)
                             .font(.title2)
-                            .fontWeight(.semibold)
+                            .fontWeight(.bold)
                             .foregroundStyle(.black)
+                            .shadow(color: .secondary.opacity(0.7), radius: 2, y: 1)
+
+                        // City
+                        Text(concert.city)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
                         
-                        HStack {
-                            // MARK: Location
-                            VStack(alignment: .leading) {
-                                // City
-                                Text(concert.city)
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
-                                                                
-                                Spacer()
-                                
-                                HStack(alignment: .bottom){
-                                    // MARK: Concert Date
-                                    // Format: `Jun 9, 2023`
-                                    Text(concert.date.formatted(date: .numeric, time: .omitted))
-                                        .fontDesign(.monospaced)
-                                        .font(.title2)
-                                        .foregroundStyle(.black)
-                                    
-                                    if concert.isFavorite {
-                                        FavoriteIcon()
-                                    }
-                                }
-                            }
-                            
-                            Spacer()
-                            
-                            VStack {
-                                Spacer()
-                                
-                                // MARK: Concert icon
-                                Image(systemName: concert.iconName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(
-                                        width: geo.size.width * 0.2,
-                                        height: geo.size.width * 0.2)
-                                    .foregroundStyle(.white)
-                                    .shadow(radius: 4, x: 2, y: 6)
-                                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-                                    .onTapGesture {
-                                        iconTapped.toggle()
-                                    }
-                            }
-                        }
+                        // MARK: Concert Date
+                        // Format: `Jun 9, 2023`
+                        Text(concert.date.formatted(date: .long, time: .omitted))
+                            .font(.title2)
+                            .foregroundStyle(.secondary)
+                            .fontDesign(.monospaced)
                     }
-                    .padding(.leading)
+
+                    Spacer()
                     
                     VerticalLineBoundary() // Right Edge
                 }

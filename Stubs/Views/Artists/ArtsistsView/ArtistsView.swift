@@ -91,170 +91,172 @@ struct ArtistsView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                if listView {
-                    LazyVStack {
-                        ForEach(sortedKeys, id: \.self) { key in
-                            Section {
-                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
-                                    NavigationLink {
-                                        ArtistDetailView(artist: artist)
-                                    } label: {
-                                        ZStack {
-                                            ArtistTile(artist: artist, listView: $listView)
-                                                .frame(height: 60)
-                                                .matchedGeometryEffect(
-                                                    id: artist.artistImageURL,
-                                                    in: namespace
-                                                )
-                                            
-                                            HStack {
-                                                ArtistImageView(imageData: artist.artistImageData)
-                                                    .frame(width: artistImageWidth)
+        ZStack {
+            NavigationStack {
+                ScrollView {
+                    if listView {
+                        LazyVStack {
+                            ForEach(sortedKeys, id: \.self) { key in
+                                Section {
+                                    ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
+                                        NavigationLink {
+                                            ArtistDetailView(artist: artist)
+                                        } label: {
+                                            ZStack {
+                                                ArtistTile(artist: artist, listView: $listView)
+                                                    .frame(height: 60)
                                                     .matchedGeometryEffect(
-                                                        id: artist.artistID,
+                                                        id: artist.artistImageURL,
                                                         in: namespace
                                                     )
                                                 
-                                                Text(artist.artistName ?? "")
-                                                    .font(.headline)
-                                                    .multilineTextAlignment(.center)
-                                                    .lineLimit(3)
-                                                
-                                                Spacer()
-
-                                                StubCountIndicator(artist: artist)
-                                                    .matchedGeometryEffect(
-                                                        id: artist.bannerImageURL,
-                                                        in: namespace
-                                                    )
-                                                    .padding(.leading, 5)
-                                                
-                                                
-                                                
-                                                Image(systemName: "chevron.right")
-                                                    .foregroundStyle(.secondary.opacity(0.5))
-                                                    .frame(width: 10)
-                                            }
-                                            .padding(.horizontal)
-                                            .padding(.vertical, 10)
-                                        }
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                }
-                            } header: {
-                                alphabetHeader(key)
-                                    .matchedGeometryEffect(
-                                        id: key,
-                                        in: namespace
-                                    )
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 100)
-                    
-                } else {
-                    LazyVGrid(columns: columns) {
-                                ForEach(sortedArtists, id: \.artistID) { artist in
-                                    NavigationLink {
-                                        ArtistDetailView(artist: artist)
-                                    } label: {
-                                        ZStack {
-                                            ArtistTile(artist: artist, listView: $listView)
-                                                .matchedGeometryEffect(
-                                                    id: artist.artistImageURL,
-                                                    in: namespace
-                                                )
-                                            
-                                            VStack {
-                                                ZStack(alignment: .bottomTrailing) {
+                                                HStack {
                                                     ArtistImageView(imageData: artist.artistImageData)
+                                                        .frame(width: artistImageWidth)
                                                         .matchedGeometryEffect(
                                                             id: artist.artistID,
                                                             in: namespace
                                                         )
                                                     
+                                                    Text(artist.artistName ?? "")
+                                                        .font(.headline)
+                                                        .multilineTextAlignment(.center)
+                                                        .lineLimit(3)
+                                                    
+                                                    Spacer()
+
                                                     StubCountIndicator(artist: artist)
-                                                        .offset(x: -4)
                                                         .matchedGeometryEffect(
                                                             id: artist.bannerImageURL,
                                                             in: namespace
                                                         )
+                                                        .padding(.leading, 5)
+                                                    
+                                                    
+                                                    
+                                                    Image(systemName: "chevron.right")
+                                                        .foregroundStyle(.secondary.opacity(0.5))
+                                                        .frame(width: 10)
                                                 }
-                                                .offset(x: 4)
-                                                
-                                                Spacer()
-                                                
-                                                Text(artist.artistName ?? "")
-                                                    .font(.headline)
-                                                    .multilineTextAlignment(.center)
-                                                    .lineLimit(3)
-                                                
-                                                Spacer()
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 10)
                                             }
-                                            .padding([.top, .horizontal])
                                         }
+                                        .buttonStyle(PlainButtonStyle())
                                     }
-                                    .frame(minHeight: 150)
-                                    .buttonStyle(PlainButtonStyle())
+                                } header: {
+                                    alphabetHeader(key)
+                                        .matchedGeometryEffect(
+                                            id: key,
+                                            in: namespace
+                                        )
                                 }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 100)
-
-                }
-            }
-            .searchable(
-                text: $searchText,
-                prompt: searchPrompt
-            )
-            .navigationTitle("Artists")
-            .toolbar {
-                ToolbarItem {
-                    Menu {
-                        Button {
-                            withAnimation(.snappy(duration: 0.5)) {
-                                setImageWidth()
-                                listView.toggle()
                             }
-                        } label: {
-                            Label(
-                                listView
-                                ? "Switch to Grid View"
-                                : "Switch to List View",
-                                systemImage: listView
-                                ? "square.grid.2x2"
-                                : "list.bullet"
-                            )
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom, 100)
                         
-                        Section {
+                    } else {
+                        LazyVGrid(columns: columns) {
+                                    ForEach(sortedArtists, id: \.artistID) { artist in
+                                        NavigationLink {
+                                            ArtistDetailView(artist: artist)
+                                        } label: {
+                                            ZStack {
+                                                ArtistTile(artist: artist, listView: $listView)
+                                                    .matchedGeometryEffect(
+                                                        id: artist.artistImageURL,
+                                                        in: namespace
+                                                    )
+                                                
+                                                VStack {
+                                                    ZStack(alignment: .bottomTrailing) {
+                                                        ArtistImageView(imageData: artist.artistImageData)
+                                                            .matchedGeometryEffect(
+                                                                id: artist.artistID,
+                                                                in: namespace
+                                                            )
+                                                        
+                                                        StubCountIndicator(artist: artist)
+                                                            .offset(x: -4)
+                                                            .matchedGeometryEffect(
+                                                                id: artist.bannerImageURL,
+                                                                in: namespace
+                                                            )
+                                                    }
+                                                    .offset(x: 4)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Text(artist.artistName ?? "")
+                                                        .font(.headline)
+                                                        .multilineTextAlignment(.center)
+                                                        .lineLimit(3)
+                                                    
+                                                    Spacer()
+                                                }
+                                                .padding([.top, .horizontal])
+                                            }
+                                        }
+                                        .frame(minHeight: 150)
+                                        .buttonStyle(PlainButtonStyle())
+                                    }
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 100)
+
+                    }
+                }
+                .searchable(
+                    text: $searchText,
+                    prompt: searchPrompt
+                )
+                .navigationTitle("Artists")
+                .toolbar {
+                    ToolbarItem {
+                        Menu {
                             Button {
-                                withAnimation(.snappy){
-                                    sortOrder = .byNameAscending
+                                withAnimation(.snappy(duration: 0.5)) {
+                                    setImageWidth()
+                                    listView.toggle()
                                 }
                             } label: {
                                 Label(
-                                    "Sort by Name A-Z",
-                                    systemImage: "a.square"
+                                    listView
+                                    ? "Switch to Grid View"
+                                    : "Switch to List View",
+                                    systemImage: listView
+                                    ? "square.grid.2x2"
+                                    : "list.bullet"
                                 )
                             }
                             
-                            Button {
-                                withAnimation(.snappy){
-                                    sortOrder = .byNameDescending
+                            Section {
+                                Button {
+                                    withAnimation(.snappy){
+                                        sortOrder = .byNameAscending
+                                    }
+                                } label: {
+                                    Label(
+                                        "Sort by Name A-Z",
+                                        systemImage: "a.square"
+                                    )
                                 }
-                            } label: {
-                                Label(
-                                    "Sort by Name Z-A",
-                                    systemImage: "z.square"
-                                )
+                                
+                                Button {
+                                    withAnimation(.snappy){
+                                        sortOrder = .byNameDescending
+                                    }
+                                } label: {
+                                    Label(
+                                        "Sort by Name Z-A",
+                                        systemImage: "z.square"
+                                    )
+                                }
                             }
+                        } label: {
+                            Image(systemName: "line.3.horizontal")
                         }
-                    } label: {
-                        Image(systemName: "line.3.horizontal")
                     }
                 }
             }
