@@ -32,7 +32,7 @@ struct StubCollectionRowLabel: View {
                 Text(concert.venue)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color(colorName: concert.accentColor)!)
+                    .foregroundStyle(.secondary)
                 
                 HStack {
                     Text(concert.city)
@@ -45,6 +45,7 @@ struct StubCollectionRowLabel: View {
             }
             .lineLimit(1)
         }
+
     }
 }
 

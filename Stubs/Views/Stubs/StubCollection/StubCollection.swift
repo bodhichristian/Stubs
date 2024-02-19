@@ -24,29 +24,11 @@ struct StubCollection: View {
     private let addConcertTip = AddConcertTip()
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
-    private var tileBackgroundColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.2)
-        } else {
-            return Color(white: 0.95)
-        }
-    }
-    
-    private var shadowColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.9)
-        } else {
-            return .secondary
-        }
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
-                
-                if concerts.isEmpty { // If no concerts have been saved
+                if concerts.isEmpty {
                     NoStubsView()
-                    
                 } else  {
                     ScrollView{
                         VStack(alignment: .leading)  {
@@ -60,9 +42,13 @@ struct StubCollection: View {
                                             StubDetailView(concert: concert)
                                         } label: {
                                             ZStack {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .foregroundStyle(tileBackgroundColor)
-                                                    .shadow(color: shadowColor, radius: 2)
+                                                Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .frame(maxHeight: 80)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                
+                                                TileBase()
                                                 
                                                 HStack{
                                                     StubCollectionRowLabel(concert: concert)
@@ -94,11 +80,11 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Demo") {
-                        addSampleConcert()
-                    }
-                }
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Demo") {
+//                        addSampleConcert()
+//                    }
+//                }
                 
                 ToolbarItem {
                     Button {

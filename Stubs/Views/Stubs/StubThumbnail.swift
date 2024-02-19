@@ -10,22 +10,33 @@ import SwiftUI
 struct StubThumbnail: View {
     let concert: Concert
     
+    var stubColor: Color {
+        return Color(colorName: concert.accentColor)!
+    }
+    
     var body: some View {
         ZStack {
+//            
+//            StubShape()
+//                .foregroundStyle(Color(colorName: concert.accentColor)!)
+//            
+            StubShape()
+                .foregroundStyle(stubColor)
+                .shadow(radius: 6, y: 10)
             
             StubShape()
-                .foregroundStyle(Color(colorName: concert.accentColor)!)
+                .foregroundStyle(.thinMaterial)
+            
+            Image(systemName: concert.iconName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 25)
+                .foregroundStyle(.ultraThickMaterial)
+                .opacity(0.6)
+                .shadow(radius: 2, y: 2)
             
             HStack {
                 VerticalLineBoundary()
-                
-                Spacer()
-                
-                Image(systemName: concert.iconName)
-                    .resizable()
-                    .foregroundStyle(.white)
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
                 
                 Spacer()
                 
@@ -33,11 +44,8 @@ struct StubThumbnail: View {
             }
             .frame(maxWidth: 50)
         }
-        .shadow(color: .black.opacity(0.3), radius: 3, y: 2)
-        
-        .rotationEffect(Angle(degrees: -15))
-        
         .frame(maxWidth: 66, maxHeight: 40)
+        .rotationEffect(Angle(degrees: -15))
         .padding(.trailing)
     }
 }
