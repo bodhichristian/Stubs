@@ -42,17 +42,12 @@ struct StubCollection: View {
                                             StubDetailView(concert: concert)
                                         } label: {
                                             ZStack {
-                                                Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(maxHeight: 80)
-                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                                
-                                                TileBase()
-                                                
+                                                StubTile(concert: concert)
+                                                    .frame(height: 100)
                                                 HStack{
                                                     StubCollectionRowLabel(concert: concert)
                                                     Spacer()
+                                                    
                                                     Image(systemName: "chevron.right")
                                                         .foregroundStyle(.secondary.opacity(0.5))
                                                         .frame(width: 10)
