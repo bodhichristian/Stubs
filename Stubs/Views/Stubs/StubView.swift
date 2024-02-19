@@ -41,6 +41,7 @@ struct StubView: View {
                     .scaledToFit()
                     .frame(height: 200)
                     .foregroundStyle(.thinMaterial)
+                    .opacity(0.6)
                 
                 // MARK: Ticket Stub Elements
                 HStack {
@@ -53,36 +54,36 @@ struct StubView: View {
                     VStack {
                         // Artist Name
                         Text(concert.artistName)
-                            .multilineTextAlignment(.center)
                             .font(.system(size: 36))
                             .fontWeight(.bold)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                         // Venue Details
                         Text(concert.venue)
                             .font(.title2)
                             .fontWeight(.bold)
-                            .foregroundStyle(.black)
-                            .shadow(color: .secondary.opacity(0.7), radius: 2, y: 1)
+                            .foregroundStyle(.secondary)
 
                         // City
                         Text(concert.city)
-                            .font(.title2)
+                            .font(.title3)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                         
                         // MARK: Concert Date
                         // Format: `Jun 9, 2023`
                         Text(concert.date.formatted(date: .long, time: .omitted))
-                            .font(.title2)
+                            .font(.title3)
+                            .fontWeight(.semibold)
                             .foregroundStyle(.secondary)
                             .fontDesign(.monospaced)
                     }
+                    .multilineTextAlignment(.center)
 
                     Spacer()
                     
                     VerticalLineBoundary() // Right Edge
                 }
-                .padding(30)
+                .padding(.horizontal, 30)
             }
             // Main ZStack
             .frame(width: geo.size.width, height: geo.size.width * 0.60)
