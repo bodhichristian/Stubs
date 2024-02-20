@@ -18,7 +18,7 @@ struct VenueTile: View {
             Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
-                .frame(height: 80)
+                .frame(height: 60)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             TileBase()
@@ -42,7 +42,7 @@ struct VenueTile: View {
 
         }
         
-        .frame(height: 120)
+        .frame(height: listView ? 80 : 120)
         .padding(.horizontal, 2)
     }
 }
