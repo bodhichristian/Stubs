@@ -28,7 +28,7 @@ struct TileBase: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
-            .foregroundStyle(.ultraThinMaterial)
+            .foregroundStyle(.thinMaterial)
             .shadow(color: shadowColor, radius: 2)
     }
 }

@@ -31,10 +31,10 @@ enum TabBarItem: Hashable {
     
     var color: Color {
         switch self {
-        case .stubs: return .blue
-        case .profile: return .purple
-        case .artists: return .green
-        case .venues: return .orange
+        case .stubs: return .black
+        case .profile: return .black
+        case .artists: return .black
+        case .venues: return .black
         }
     }
 }

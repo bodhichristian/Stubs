@@ -121,8 +121,7 @@ struct ArtistsView: View {
                                                     Text(artist.artistName ?? "")
                                                         .font(.headline)
                                                         .multilineTextAlignment(.center)
-                                                        .lineLimit(3)
-                                                    
+                                                        
                                                     Spacer()
 
                                                     StubCountIndicator(artist: artist)
