@@ -12,12 +12,16 @@ struct StubTile: View {
     
     var body: some View {
         ZStack {
-            Image(uiImage: UIImage(data: concert.artist.artistImageData ?? Data()) ?? UIImage())
+            Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipped()
             
+                
             TileBase()
         }
+        .contentShape(RoundedRectangle(cornerRadius: 10)) 
     }
 }

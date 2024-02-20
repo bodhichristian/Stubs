@@ -43,7 +43,6 @@ struct StubCollection: View {
                                         } label: {
                                             ZStack {
                                                 StubTile(concert: concert)
-                                                    .frame(height: 100)
                                                 HStack{
                                                     StubCollectionRowLabel(concert: concert)
                                                     Spacer()
