@@ -21,5 +21,6 @@ struct ArtistTile: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             TileBase()
         }
+        .contentShape(RoundedRectangle(cornerRadius: 10)) 
     }
 }

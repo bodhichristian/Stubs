@@ -141,7 +141,7 @@ struct ArtistsView: View {
                                                 .padding(.horizontal)
                                                 .padding(.vertical, 10)
                                             }
-                                            .contentShape(RoundedRectangle(cornerRadius: 10))
+                                            
                                         }
                                         .buttonStyle(PlainButtonStyle())
                                     }
@@ -198,7 +198,6 @@ struct ArtistsView: View {
                                                 }
                                                 .padding([.top, .horizontal])
                                             }
-                                            .contentShape(RoundedRectangle(cornerRadius: 10)) 
                                         }
                                         .frame(minHeight: 150)
                                         .buttonStyle(PlainButtonStyle())

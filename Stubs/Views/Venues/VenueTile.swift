@@ -23,32 +23,43 @@ struct VenueTile: View {
             
             TileBase()
             
-            HStack {
-                Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: listView ? 60 : 40)
-                    .clipShape(Circle())
-                    .shadow(radius: 3, y: 2)
-                    .padding(.leading)
-                
-                
-                VStack(alignment: .leading) {
-                    Text(concert.venue)
-                        .font(listView ? .title2 : .headline)
-                        .fontWeight(.semibold)
+//            HStack {
+//                Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
+//                    .resizable()
+//                    .scaledToFill()
+//                    .frame(width: listView ? 60 : 50)
+//                    .clipShape(Circle())
+//                    .overlay {
+//                        Circle()
+//                            .stroke(lineWidth: 1)
+//                            .foregroundStyle(.white)
+//                    }
+//                    .shadow(radius: 4, y: 2)
+//                    
+                    VStack(alignment: .leading) {
+                        
+                        
+                        
+                        Text(concert.venue)
+                            .font(listView ? .title2 : .headline)
+                            //.fontWeight(.semibold)
+                            .lineLimit(2)
+                            .foregroundStyle(.white)
+                        
+                        Text(concert.city)
+                            .font(listView ? .headline : .subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    .padding(10)
                     
-                    Text(concert.city)
-                        .font(listView ? .headline : .subheadline)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(10)
                 
-                Spacer()
-            }
+//            }
+//            .padding(.leading)
         }
         
-        .frame(height: 80)
+        .frame(height: 120)
         .padding(.horizontal, 2)
     }
 }

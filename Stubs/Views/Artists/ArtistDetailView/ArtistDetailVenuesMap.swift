@@ -23,15 +23,30 @@ struct ArtistDetailVenuesMap: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack{
-                Image(systemName: "ticket")
-                    .foregroundStyle(.purple)
-                Text("\(concerts.count) Stubs" )
-                
-                Spacer()
+//            HStack{
+//                Image(systemName: "ticket")
+//                    .foregroundStyle(.purple)
+//                Text("\(concerts.count) Stubs" )
+//                
+//                Spacer()
+//            }
+//            .font(.title2)
+//            .fontWeight(.bold)
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(concerts, id: \.uuid) { concert in
+                        
+                        ArtistStubsLabel(concert: concert)
+                            .onTapGesture {
+                                withAnimation(.easeInOut){
+                                    updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+                                }
+                            }
+                    }
+                }
             }
-            .font(.title2)
-            .fontWeight(.bold)
+            .padding(.vertical)
             
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
@@ -57,20 +72,7 @@ struct ArtistDetailVenuesMap: View {
                 updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
             }
                         
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(concerts, id: \.uuid) { concert in
-                        
-                        ArtistStubsLabel(concert: concert)
-                            .onTapGesture {
-                                withAnimation(.easeInOut){
-                                    updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
-                                }
-                            }
-                    }
-                }
-            }
-            .padding(.top)
+            
             
         }
         .padding(.horizontal)

@@ -13,7 +13,7 @@ struct VenuesView: View {
     
     @Query var concerts: [Concert]
     
-    @State private var listView = true
+    @State private var listView = false
     @State private var searchText = ""
     @State private var showingAllVenues = true
     @State private var selectedVenue: Concert?
