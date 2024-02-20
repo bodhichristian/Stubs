@@ -22,6 +22,6 @@ struct StubsApp: App {
             ContentView()
                 
     }
-        .modelContainer(for: Concert.self)
+        .modelContainer(for: [Concert.self, Artist.self])
     }
 }

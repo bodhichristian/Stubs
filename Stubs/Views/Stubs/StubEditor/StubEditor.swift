@@ -27,8 +27,8 @@ struct StubEditor: View {
         notes: "",
         venueLatitude: 0.0,
         venueLongitude: 0.0,
-        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
-    )
+        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: ""))
+    
     
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
@@ -39,7 +39,13 @@ struct StubEditor: View {
     var body: some View {
         NavigationStack {
             Form {
-                StubEditorStubPreview(concert: concertTemplate)
+                
+                
+                //StubEditorStubPreview(concert: concertTemplate)
+                StubView(concert: concertTemplate)
+                
+                // TODO: Update StubEditors StubView to match new theme
+                // TODO: Solve bug that causes app crash when creating a new stub
                 
                 StubEditorDetails(concert: concertTemplate)
                 
