@@ -18,7 +18,8 @@ struct VenueTile: View {
             Image(uiImage: UIImage(data: concert.mapSnapshotData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
-                .frame(height: 60)
+                .frame(height: listView ? 80 : 120)
+                .frame(maxWidth: listView ? .infinity : 150)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             TileBase()
@@ -29,7 +30,7 @@ struct VenueTile: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                     .lineLimit(2)
-                    .foregroundStyle(.white)
+//                    .foregroundStyle(.white)
                 
                 Text("📍" + concert.city)
                     .font(listView ? .headline : .subheadline)
@@ -43,6 +44,7 @@ struct VenueTile: View {
         }
         
         .frame(height: listView ? 80 : 120)
+        .contentShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal, 2)
     }
 }

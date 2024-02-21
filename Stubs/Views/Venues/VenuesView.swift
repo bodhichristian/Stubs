@@ -10,10 +10,9 @@ import SwiftData
 
 struct VenuesView: View {
     @Namespace var namespace
-    
     @Query var concerts: [Concert]
     
-    @State private var listView = false
+    @State private var listView = true
     @State private var searchText = ""
     @State private var showingAllVenues = true
     @State private var selectedVenue: Concert?
@@ -69,16 +68,16 @@ struct VenuesView: View {
                                         concert: concert,
                                         listView: $listView
                                     )
-                                        .matchedGeometryEffect(
-                                            id: concert.uuid,
-                                            in: namespace
-                                        )
-                                        .onTapGesture {
-                                            withAnimation(.snappy){
-                                                selectedVenue = concert
-                                                showingAllVenues = false
-                                            }
+                                    .matchedGeometryEffect(
+                                        id: concert.uuid,
+                                        in: namespace
+                                    )
+                                    .onTapGesture {
+                                        withAnimation(.snappy){
+                                            selectedVenue = concert
+                                            showingAllVenues = false
                                         }
+                                    }
                                 }
                             }
                             .searchable(
@@ -108,99 +107,119 @@ struct VenuesView: View {
                                     }
                                 }
                             }
-                            .searchable(
-                                text: $searchText,
-                                prompt: "Search Venues"
-                            )
+                            
                             .padding(.bottom, 100)
                         }
                     }
                     .ignoresSafeArea(edges: .bottom)
-                    .padding(.horizontal)
+                    
                 } else {
                     if let selectedVenue {
-                        VStack(alignment: .trailing) {
-                            Button {
-                                withAnimation(.snappy){
-                                    showingAllVenues = true
-                                }
-                            } label: {
-                                Image(systemName: "x.circle.fill")
-                                    .padding(.trailing)
-                                
-                            }
-                            .font(.headline)
-                            .foregroundStyle(.secondary)
-                            .padding(.top, 5)
+                        VStack(alignment: .trailing, spacing: 4) {
+                            
                             
                             VenueGridExpandedMapView(concert: selectedVenue)
-                                .padding(.horizontal)
-                                .padding(.bottom, 65)
+                                .transition(.push(from: .top))
+                            
+                            
+                            ZStack(alignment: .trailing) {
+                                
+                                VenueTile(
+                                    concert: selectedVenue,
+                                    listView: $listView
+                                )
+                                .padding(.vertical)
                                 .matchedGeometryEffect(
                                     id: selectedVenue.uuid,
                                     in: namespace
                                 )
-                                .navigationBarTitleDisplayMode(.inline)
+                                
+                                Button {
+                                    withAnimation(.snappy){
+                                        showingAllVenues = true
+                                    }
+                                } label: {
+                                    Image(systemName: "x.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40)
+                                        .fontWeight(.light)
+                                        .symbolRenderingMode(.multicolor)
+                                }
+                                .font(.headline)
+                                .foregroundStyle(.secondary.opacity(0.7))
+                                .padding()
+                            }
                         }
-                        
+                        .padding(.bottom, 65)
+
                     }
                 }
             }
             .navigationTitle("Venues")
+            .navigationBarTitleDisplayMode(.large)
+            .searchable(
+                text: $searchText,
+                prompt: "Search Venues"
+            )
+            
+            .padding(.horizontal)
             .toolbar {
                 ToolbarItem {
-                    if showingAllVenues {
-                        Menu {
+                    Menu {
+                        Button {
+                            withAnimation(.smooth(extraBounce: 0.2)) {
+                                listView.toggle()
+                            }
+                        } label: {
+                            Label(
+                                listView
+                                ? "Switch to Grid View"
+                                : "Switch to List View",
+                                systemImage: listView
+                                ? "square.grid.2x2"
+                                : "list.bullet"
+                            )
+                        }
+                        
+                        Section {
+                            
                             Button {
-                                withAnimation(.smooth(extraBounce: 0.2)) {
-                                    listView.toggle()
+                                withAnimation(.smooth(extraBounce: 0.2)){
+                                    sortOrder = .byNameAscending
                                 }
                             } label: {
                                 Label(
-                                    listView
-                                    ? "Switch to Grid View"
-                                    : "Switch to List View",
-                                    systemImage: listView
-                                    ? "square.grid.2x2"
-                                    : "list.bullet"
+                                    "Sort by Venue Name A-Z",
+                                    systemImage: "a.square"
                                 )
                             }
                             
-                            Section {
-                                
-                                Button {
-                                    withAnimation(.smooth(extraBounce: 0.2)){
-                                        sortOrder = .byNameAscending
-                                    }
-                                } label: {
-                                    Label(
-                                        "Sort by Venue Name A-Z",
-                                        systemImage: "a.square"
-                                    )
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameDescending
                                 }
-                                
-                                Button {
-                                    withAnimation(.snappy){
-                                        sortOrder = .byNameDescending
-                                    }
-                                } label: {
-                                    Label(
-                                        "Sort by Venue Name Z-A",
-                                        systemImage: "z.square"
-                                    )
-                                }
-                                
+                            } label: {
+                                Label(
+                                    "Sort by Venue Name Z-A",
+                                    systemImage: "z.square"
+                                )
                             }
                             
-                        } label: {
-                            Label(
-                                "View Options",
-                                systemImage: "line.3.horizontal"
-                            )
                         }
+                        
+                    } label: {
+                        Label(
+                            "View Options",
+                            systemImage: "line.3.horizontal"
+                        )
                     }
+                    
                 }
             }
+//            .navigationBarTitleDisplayMode(.large)
+//            
+
         }
     }
 }

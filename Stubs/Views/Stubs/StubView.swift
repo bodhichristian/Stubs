@@ -13,7 +13,7 @@ import SwiftUI
 struct StubView: View {
     let concert: Concert
 
-    var stubColor: Color {
+    private var stubColor: Color {
         return Color(colorName: concert.accentColor)!
     }
     
