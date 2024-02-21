@@ -11,12 +11,18 @@ struct MaterialTabBar: View {
     let tabs: [TabBarItem]
     let contentShape = RoundedRectangle(cornerRadius: 5)
     @Binding var selection: TabBarItem
-    
-    // For matchedGeometryEffect
-    @State var localSelection: TabBarItem
+    @Environment(\.colorScheme) var colorScheme
     @Namespace private var namespace
-    
-    
+    @State var localSelection: TabBarItem
+
+    private var colors: [Color] {
+        switch colorScheme{
+        case .light:
+            return [.white, .white, .secondary]
+        default:
+            return [.white, .black, .black]
+        }
+    }
     var body: some View {
         VStack {
             Spacer()
@@ -29,6 +35,9 @@ struct MaterialTabBar: View {
             .background {
                 contentShape
                     .foregroundStyle(.ultraThinMaterial)
+                    .background {
+                        LinearGradient(colors: colors, startPoint: .top, endPoint: .bottom)
+                    }
             }
             .ignoresSafeArea(edges: .bottom)
             .clipShape(RoundedRectangle(cornerRadius: 10))
