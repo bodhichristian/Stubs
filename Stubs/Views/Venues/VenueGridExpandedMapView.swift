@@ -46,6 +46,10 @@ struct VenueGridExpandedMapView: View {
                         latitude: concert.venueLatitude,
                         longitude: concert.venueLongitude
                     )
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        
+                    }
                 }
             }
 //
@@ -56,11 +60,7 @@ struct VenueGridExpandedMapView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: shadowColor, radius: 4)
         .padding(2)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                
-            }
-        }
+
     }
     
     private func updateMapPosition(latitude: Double, longitude: Double) {

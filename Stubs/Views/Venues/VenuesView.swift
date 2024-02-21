@@ -12,7 +12,6 @@ struct VenuesView: View {
     @Namespace var namespace
     @Query var concerts: [Concert]
     
-    @State private var listView = true
     @State private var searchText = ""
     @State private var showingAllVenues = true
     @State private var selectedVenue: Concert?
@@ -61,74 +60,49 @@ struct VenuesView: View {
             GeometryReader { geo in
                 if showingAllVenues {
                     ScrollView {
-                        if listView {
-                            VStack {
-                                ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueTile(
-                                        concert: concert,
-                                        listView: $listView
-                                    )
-                                    .matchedGeometryEffect(
-                                        id: concert.uuid,
-                                        in: namespace
-                                    )
-                                    .onTapGesture {
-                                        withAnimation(.snappy){
-                                            selectedVenue = concert
-                                            showingAllVenues = false
-                                        }
+                        VStack {
+                            ForEach(sortedVenues, id: \.venue) { concert in
+                                VenueTile(
+                                    concert: concert,
+                                    listView: .constant(true)
+                                )
+                                .matchedGeometryEffect(
+                                    id: concert.uuid,
+                                    in: namespace
+                                )
+                                .onTapGesture {
+                                    withAnimation(){
+                                        selectedVenue = concert
+                                        showingAllVenues = false
                                     }
                                 }
                             }
-                            .searchable(
-                                text: $searchText,
-                                prompt: "Search Venues"
-                            )
-                            .padding(.bottom, 100)
-                            
                         }
+                        .searchable(
+                            text: $searchText,
+                            prompt: "Search Venues"
+                        )
+                        .padding(.bottom, 100)
                         
-                        else {
-                            LazyVGrid(columns: columns) {
-                                ForEach(sortedVenues, id: \.venue) { concert in
-                                    VenueTile(
-                                        concert: concert,
-                                        listView: $listView
-                                    )
-                                    .matchedGeometryEffect(
-                                        id: concert.uuid,
-                                        in: namespace
-                                    )
-                                    .onTapGesture {
-                                        withAnimation(.snappy){
-                                            selectedVenue = concert
-                                            showingAllVenues = false
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            .padding(.bottom, 100)
-                        }
+                        
+                        
+                        
                     }
                     .ignoresSafeArea(edges: .bottom)
                     
                 } else {
                     if let selectedVenue {
-                        VStack(alignment: .trailing, spacing: 4) {
-                            
+                        VStack() {
                             
                             VenueGridExpandedMapView(concert: selectedVenue)
-                                .transition(.push(from: .top))
-                            
+                                .padding(.top, 10)
                             
                             ZStack(alignment: .trailing) {
                                 
                                 VenueTile(
                                     concert: selectedVenue,
-                                    listView: $listView
+                                    listView: .constant(true)
                                 )
-                                .padding(.vertical)
                                 .matchedGeometryEffect(
                                     id: selectedVenue.uuid,
                                     in: namespace
@@ -151,75 +125,56 @@ struct VenuesView: View {
                                 .padding()
                             }
                         }
-                        .padding(.bottom, 65)
+                        .navigationBarTitleDisplayMode(.inline)
 
+                        .padding(.bottom, 65)
+                        
                     }
                 }
             }
             .navigationTitle("Venues")
             .navigationBarTitleDisplayMode(.large)
-            .searchable(
-                text: $searchText,
-                prompt: "Search Venues"
-            )
-            
+          
             .padding(.horizontal)
             .toolbar {
                 ToolbarItem {
                     Menu {
+                        
+                        
                         Button {
-                            withAnimation(.smooth(extraBounce: 0.2)) {
-                                listView.toggle()
+                            withAnimation(.smooth(extraBounce: 0.2)){
+                                sortOrder = .byNameAscending
                             }
                         } label: {
                             Label(
-                                listView
-                                ? "Switch to Grid View"
-                                : "Switch to List View",
-                                systemImage: listView
-                                ? "square.grid.2x2"
-                                : "list.bullet"
+                                "Sort by Venue Name A-Z",
+                                systemImage: "a.square"
                             )
                         }
                         
-                        Section {
-                            
-                            Button {
-                                withAnimation(.smooth(extraBounce: 0.2)){
-                                    sortOrder = .byNameAscending
-                                }
-                            } label: {
-                                Label(
-                                    "Sort by Venue Name A-Z",
-                                    systemImage: "a.square"
-                                )
+                        Button {
+                            withAnimation(.snappy){
+                                sortOrder = .byNameDescending
                             }
-                            
-                            Button {
-                                withAnimation(.snappy){
-                                    sortOrder = .byNameDescending
-                                }
-                            } label: {
-                                Label(
-                                    "Sort by Venue Name Z-A",
-                                    systemImage: "z.square"
-                                )
-                            }
-                            
+                        } label: {
+                            Label(
+                                "Sort by Venue Name Z-A",
+                                systemImage: "z.square"
+                            )
                         }
+                        
+                        
                         
                     } label: {
                         Label(
                             "View Options",
-                            systemImage: "line.3.horizontal"
+                            systemImage: "arrow.up.arrow.down.circle"
                         )
                     }
                     
                 }
             }
-//            .navigationBarTitleDisplayMode(.large)
-//            
-
+            
         }
     }
 }
