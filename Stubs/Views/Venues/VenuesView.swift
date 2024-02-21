@@ -125,6 +125,7 @@ struct VenuesView: View {
                                 .padding()
                             }
                         }
+                        .transition(.asymmetric(insertion: .push(from: .leading), removal: .push(from: .trailing)))
                         .navigationBarTitleDisplayMode(.inline)
 
                         .padding(.bottom, 65)
@@ -138,38 +139,40 @@ struct VenuesView: View {
             .padding(.horizontal)
             .toolbar {
                 ToolbarItem {
-                    Menu {
-                        
-                        
-                        Button {
-                            withAnimation(.smooth(extraBounce: 0.2)){
-                                sortOrder = .byNameAscending
+                    if showingAllVenues {
+                        Menu {
+                            
+                            
+                            Button {
+                                withAnimation(.smooth(extraBounce: 0.2)){
+                                    sortOrder = .byNameAscending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by Venue Name A-Z",
+                                    systemImage: "a.square"
+                                )
                             }
+                            
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameDescending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by Venue Name Z-A",
+                                    systemImage: "z.square"
+                                )
+                            }
+                            
+                            
+                            
                         } label: {
                             Label(
-                                "Sort by Venue Name A-Z",
-                                systemImage: "a.square"
+                                "View Options",
+                                systemImage: "arrow.up.arrow.down.circle"
                             )
                         }
-                        
-                        Button {
-                            withAnimation(.snappy){
-                                sortOrder = .byNameDescending
-                            }
-                        } label: {
-                            Label(
-                                "Sort by Venue Name Z-A",
-                                systemImage: "z.square"
-                            )
-                        }
-                        
-                        
-                        
-                    } label: {
-                        Label(
-                            "View Options",
-                            systemImage: "arrow.up.arrow.down.circle"
-                        )
                     }
                     
                 }
