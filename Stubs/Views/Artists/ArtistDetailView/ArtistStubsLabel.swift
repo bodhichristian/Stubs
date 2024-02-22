@@ -13,16 +13,19 @@ struct ArtistStubsLabel: View {
     var body: some View {
         VStack(alignment: .leading) {
             StubThumbnail(concert: concert)
-                .frame(minHeight: 60)
-                .frame(width: 90)
-                .offset(x: 8)
+                .rotationEffect(Angle(degrees: 15))
+
+                .frame(
+                    width: 70,
+                    height: 50
+                )
             
             Text(concert.city)
-                .font(.headline)
+                .font(.subheadline)
                 .bold()
             
             Text(concert.date.formatted(date: .numeric, time: .omitted))
-                .font(.subheadline)
+                .font(.caption)
                 .fontDesign(.monospaced)
                 .foregroundStyle(.secondary)
         }

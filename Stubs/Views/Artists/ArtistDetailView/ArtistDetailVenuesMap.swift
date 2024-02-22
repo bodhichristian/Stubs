@@ -21,22 +21,47 @@ struct ArtistDetailVenuesMap: View {
         return concerts[0]
     }
     
+    private var venues: [Concert] {
+        var uniqueVenues = Set<String>()
+        
+        return concerts.filter { concert in
+            if !uniqueVenues.contains(concert.venue) {
+                uniqueVenues.insert(concert.venue)
+                return true
+            }
+            return false
+        }
+    }
+        
     var body: some View {
         VStack(alignment: .leading) {
-//            HStack{
-//                Image(systemName: "ticket")
-//                    .foregroundStyle(.purple)
-//                Text("\(concerts.count) Stubs" )
-//                
-//                Spacer()
-//            }
-//            .font(.title2)
-//            .fontWeight(.bold)
-            
             ScrollView(.horizontal) {
                 HStack {
+                    
+                    TileBase()
+                        .frame(
+                            width: 100,
+                            height: 110
+                        )
+                        .overlay{
+                            VStack {
+                                ArtistStubStatView(
+                                    count: concerts.count,
+                                    statNameSingular: "Stub",
+                                    statNamePlural: "Stubs"
+                                )
+                                
+                                ArtistStubStatView(
+                                    count: venues.count,
+                                    statNameSingular: "Venue",
+                                    statNamePlural: "Venues"
+                                )
+                                
+                            }
+                            
+                        }
+                    
                     ForEach(concerts, id: \.uuid) { concert in
-                        
                         ArtistStubsLabel(concert: concert)
                             .onTapGesture {
                                 withAnimation(.easeInOut){
@@ -45,10 +70,9 @@ struct ArtistDetailVenuesMap: View {
                             }
                     }
                 }
-                .padding([.vertical, .leading], 5)
+                .padding(5)
                 
             }
-            //.padding(.vertical)
             
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
@@ -68,12 +92,12 @@ struct ArtistDetailVenuesMap: View {
                 )
             )
             .frame(maxWidth: .infinity)
-            .frame(height: 200)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .frame(height: 150)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
             }
-                        
+            
             
             
         }

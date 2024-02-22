@@ -63,6 +63,7 @@ struct ArtistDetailView: View {
                             Text("Bio")
                                 .font(.title2.bold())
                                 .padding(.trailing)
+                                .offset(y: showingFullBio ? 0 : 6)
                             
                             // MARK: More/Less Button
                             // Toggle `lineLimit` to display a brief or full bio
@@ -96,49 +97,52 @@ struct ArtistDetailView: View {
                         .offset(y: showingFullBio ? -110 : -16)
                         
                     }
-                    .padding(.top, geo.size.width / 4)
+                    .padding(.top, geo.size.width / 6)
                     
                     ScrollView {
-                        Text(artist.bio ?? "")
-                            .lineLimit(showingFullBio ? .none : 3)
-                            .padding(.horizontal)
-                            .frame(width: geo.size.width)
-                        
-                        HStack {
-                            Spacer()
-                            // MARK: More/Less Button
-                            // Toggle `lineLimit` to display a brief or full bio
-                            if !showingFullBio {
-                                Button {
-                                    withAnimation{
-                                        showingFullBio.toggle()
+                        VStack(spacing: 4) {
+                            Text(artist.bio ?? "")
+                                .lineLimit(showingFullBio ? .none : 2)
+                                .padding(.horizontal)
+                                .frame(width: geo.size.width)
+                            
+                            HStack {
+                                Spacer()
+                                // MARK: More/Less Button
+                                // Toggle `lineLimit` to display a brief or full bio
+                                if !showingFullBio {
+                                    Button {
+                                        withAnimation{
+                                            showingFullBio.toggle()
+                                        }
+                                    } label: {
+                                        HStack {
+                                            Text(
+                                                showingFullBio
+                                                ? "Less"
+                                                : "More"
+                                            )
+                                            
+                                            Image(
+                                                systemName: showingFullBio
+                                                ? "chevron.up"
+                                                : "chevron.down"
+                                            )
+                                        }
+                                        .font(.caption.bold())
+                                        .padding(.horizontal)
                                     }
-                                } label: {
-                                    HStack {
-                                        Text(
-                                            showingFullBio
-                                            ? "Less"
-                                            : "More"
-                                        )
-                                        
-                                        Image(
-                                            systemName: showingFullBio
-                                            ? "chevron.up"
-                                            : "chevron.down"
-                                        )
-                                    }
-                                    .font(.caption.bold())
-                                    .padding(.horizontal)
+                                    .foregroundStyle(.secondary)
+                                    .matchedGeometryEffect(id: "moreLess", in: namespace)
                                 }
-                                .foregroundStyle(.secondary)
-                                .matchedGeometryEffect(id: "moreLess", in: namespace)
                             }
+                            
+                            ArtistDetailVenuesMap(concerts: filteredConcerts)
+                            
+                            AlbumScrollView(artistID: artist.artistID ?? "")
+                                .padding(.bottom, 65)
+                                .padding(.top, 4)
                         }
-                        
-                        ArtistDetailVenuesMap(concerts: filteredConcerts)
-                        
-                        AlbumScrollView(artistID: artist.artistID ?? "")
-                            .padding(.bottom, 80)
                     }
                     .offset(y: showingFullBio ? -110 : 0)
                     .ignoresSafeArea()

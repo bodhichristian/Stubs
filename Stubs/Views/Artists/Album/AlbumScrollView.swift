@@ -18,9 +18,10 @@ struct AlbumScrollView: View {
     @State private var model = AlbumService()
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Albums")
                 .font(.title2.bold())
+                
             
             ScrollView(.horizontal) {
                 HStack {
@@ -35,11 +36,11 @@ struct AlbumScrollView: View {
                             }
                     }
                 }
-                .padding(.vertical)
+                .padding(.vertical, 2)
             }
             Spacer()
         }
-        .padding()
+        .padding(.horizontal)
         .onAppear {
             model.searchAlbums(for: artistID)
         }

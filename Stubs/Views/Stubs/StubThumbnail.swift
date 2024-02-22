@@ -16,13 +16,9 @@ struct StubThumbnail: View {
     
     var body: some View {
         ZStack {
-//            
-//            StubShape()
-//                .foregroundStyle(Color(colorName: concert.accentColor)!)
-//            
             StubShape()
                 .foregroundStyle(stubColor)
-                .shadow(radius: 6, y: 10)
+                .shadow(radius: 6, y: 4)
             
             StubShape()
                 .foregroundStyle(.thinMaterial)
