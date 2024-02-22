@@ -14,16 +14,21 @@ struct ArtistStubsLabel: View {
         VStack(alignment: .leading) {
             StubThumbnail(concert: concert)
                 .frame(minHeight: 60)
+                .frame(width: 90)
                 .offset(x: 8)
             
             Text(concert.city)
                 .font(.headline)
                 .bold()
             
-            Text(concert.date.formatted(date: .abbreviated, time: .omitted))
+            Text(concert.date.formatted(date: .numeric, time: .omitted))
                 .font(.subheadline)
+                .fontDesign(.monospaced)
                 .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: 90)
+        .padding(10)
+        .background {
+            TileBase()
+        }
     }
 }

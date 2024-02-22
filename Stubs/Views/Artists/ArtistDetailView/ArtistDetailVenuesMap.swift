@@ -45,8 +45,10 @@ struct ArtistDetailVenuesMap: View {
                             }
                     }
                 }
+                .padding([.vertical, .leading], 5)
+                
             }
-            .padding(.vertical)
+            //.padding(.vertical)
             
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in

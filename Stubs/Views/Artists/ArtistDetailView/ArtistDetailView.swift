@@ -101,7 +101,7 @@ struct ArtistDetailView: View {
                     ScrollView {
                         Text(artist.bio ?? "")
                             .lineLimit(showingFullBio ? .none : 3)
-                            .padding()
+                            .padding(.horizontal)
                             .frame(width: geo.size.width)
                         
                         HStack {
