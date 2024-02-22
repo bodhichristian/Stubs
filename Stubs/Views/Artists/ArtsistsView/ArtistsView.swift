@@ -203,7 +203,7 @@ struct ArtistsView: View {
                                     }
                         }
                         .padding(.horizontal)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 65)
 
                     }
                 }

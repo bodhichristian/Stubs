@@ -12,7 +12,7 @@ import TipKit
 
 @main
 struct StubsApp: App {
-
+    
     init() {
         try? Tips.resetDatastore()
         try? Tips.configure()
@@ -20,8 +20,7 @@ struct StubsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                
-    }
+        }
         .modelContainer(for: [Concert.self, Artist.self])
     }
 }

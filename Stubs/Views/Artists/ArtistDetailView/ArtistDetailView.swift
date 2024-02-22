@@ -145,6 +145,7 @@ struct ArtistDetailView: View {
                 }
             }
             .navigationTitle(artist.artistName ?? "")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

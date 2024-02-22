@@ -18,7 +18,7 @@ struct MaterialTabBar: View {
     private var colors: [Color] {
         switch colorScheme{
         case .light:
-            return [.white, .white, .secondary]
+            return [.white, .white, .white, .black]
         default:
             return [.white, .black, .black]
         }
@@ -36,12 +36,12 @@ struct MaterialTabBar: View {
                 contentShape
                     .foregroundStyle(.ultraThinMaterial)
                     .background {
-                        LinearGradient(colors: colors, startPoint: .top, endPoint: .bottom)
+                        LinearGradient(colors: colors, startPoint: .bottom, endPoint: .top).opacity(0.7)
                     }
             }
             .ignoresSafeArea(edges: .bottom)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: .secondary, radius: 5)
+            .shadow(color: .secondary, radius: 3)
             .padding(.horizontal)
             .onChange(of: selection) { _, newValue in
                 withAnimation(.bouncy(duration: 0.3)) {
@@ -83,7 +83,7 @@ extension MaterialTabBar {
             ZStack {
                 if localSelection == tab {
                     contentShape
-                        .fill(tab.color.opacity(0.2))
+                        .foregroundStyle(.secondary.opacity(0.2))
                         .matchedGeometryEffect(id: "tabHighlighting", in: namespace)
                 }
             }

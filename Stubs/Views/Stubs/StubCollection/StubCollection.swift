@@ -63,7 +63,7 @@ struct StubCollection: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
-                        .padding(.bottom, 80)
+                        .padding(.bottom, 65)
                         .searchable(text: $searchText, prompt: searchPrompt) // Search bar
                         
                     }
