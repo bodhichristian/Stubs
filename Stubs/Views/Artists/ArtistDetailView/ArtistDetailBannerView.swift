@@ -38,10 +38,8 @@ struct ArtistDetailBannerView: View {
                     
                     // Genre & Location
                     VStack(alignment: .trailing) {
-                        HStack {
-                            Text("\(artist.mood ?? "") ")
                             Text(artist.genre ?? "")
-                        }
+                        
                             .font(.title3)
                             .fontWeight(.semibold)
                         Text(artist.geo ?? "")

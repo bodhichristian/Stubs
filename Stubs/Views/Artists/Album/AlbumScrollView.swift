@@ -17,29 +17,42 @@ struct AlbumScrollView: View {
     
     @State private var model = AlbumService()
     
+    private var albumCount: Int {
+        return model.albums.count
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text("Albums")
-                .font(.title2.bold())
-                
-            
-            ScrollView(.horizontal) {
-                HStack {
-                    if model.albums.isEmpty {
-                        AlbumScrollViewPlaceholder()
-                    } else {
-                        ForEach(
-                            model.albums.sorted {
-                                $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
-                            }, id: \.idAlbum) { album in
-                                AlbumScrollViewLabel(album: album)
-                            }
+        ScrollView(.horizontal) {
+            HStack {
+                if model.albums.isEmpty {
+                    AlbumScrollViewPlaceholder()
+                } else {
+                        ZStack {
+                            TileBase()
+                            
+                            StatViewLabel(
+                                count: albumCount,
+                                statNameSingular: "Release",
+                                statNamePlural: "Releases"
+                            )
+                        
+                        }
+                    .frame(maxHeight: .infinity)
+                    .padding(.leading, 2)
+                    
+                    ForEach(
+                        model.albums.sorted {
+                            $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
+                        }, id: \.idAlbum
+                    ) { album in
+                        AlbumScrollViewLabel(album: album)
                     }
                 }
-                .padding(.vertical, 2)
             }
-            Spacer()
+            .frame(height: 160)
+            .padding(.vertical, 4)
         }
+        
         .padding(.horizontal)
         .onAppear {
             model.searchAlbums(for: artistID)

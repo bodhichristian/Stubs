@@ -74,11 +74,11 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Demo") {
-//                        addSampleConcert()
-//                    }
-//                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Demo") {
+                        addSampleConcert()
+                    }
+                }
                 
                 ToolbarItem {
                     Button {
@@ -191,8 +191,6 @@ extension StubCollection {
                 
                 fetchImageData(from: artist.artistImageURL ?? "") { data in
                     artist.artistImageData = data
-                    print("StubEditor: imageData fetched")
-                    print("StubEditor: Data: \(String(describing: data))")
                 }
                 
                 fetchImageData(from: artist.bannerImageURL ?? "") { data in

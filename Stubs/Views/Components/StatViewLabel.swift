@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtistStubStatView: View {
+struct StatViewLabel: View {
     let count: Int
     let statNameSingular: String
     let statNamePlural: String

@@ -29,7 +29,7 @@
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
 		AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22912B837D9C0017B3F0 /* StubTile.swift */; };
-		AA7B22962B86F7A80017B3F0 /* ArtistStubStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22952B86F7A80017B3F0 /* ArtistStubStatView.swift */; };
+		AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */; };
 		AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
 		AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
@@ -87,7 +87,7 @@
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
 		AA7B22912B837D9C0017B3F0 /* StubTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTile.swift; sourceTree = "<group>"; };
-		AA7B22952B86F7A80017B3F0 /* ArtistStubStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistStubStatView.swift; sourceTree = "<group>"; };
+		AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewLabel.swift; sourceTree = "<group>"; };
 		AA7C57ED2B249B7B006843C4 /* StubShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubShape.swift; sourceTree = "<group>"; };
 		AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollViewLabel.swift; sourceTree = "<group>"; };
 		AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollViewPlaceholder.swift; sourceTree = "<group>"; };
@@ -170,6 +170,7 @@
 			children = (
 				AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */,
 				AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */,
+				AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */,
 				AA7B228D2B818E320017B3F0 /* TileBase.swift */,
 			);
 			path = Components;
@@ -192,7 +193,6 @@
 				AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */,
 				AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */,
 				AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */,
-				AA7B22952B86F7A80017B3F0 /* ArtistStubStatView.swift */,
 				AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */,
 			);
 			path = ArtistDetailView;
@@ -466,7 +466,7 @@
 				AA19591C2B753CA600266267 /* Tips.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
-				AA7B22962B86F7A80017B3F0 /* ArtistStubStatView.swift in Sources */,
+				AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */,
 				AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */,

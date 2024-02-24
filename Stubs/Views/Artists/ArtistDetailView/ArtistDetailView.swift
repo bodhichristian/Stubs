@@ -16,15 +16,13 @@ struct ArtistDetailView: View {
     @Namespace var namespace
     @Query var concerts: [Concert]
     
-    // Toggle to disbale lineLimit
+    @State private var artistImageWidth: CGFloat = 120
     @State private var showingFullBio = false
     
-    // Provide sizing for artistImage and placeholder
-    private let artistImageWidth: CGFloat = 120
-    
-    // MARK: Computed props
     private var filteredConcerts: [Concert] {
-        return concerts.filter({$0.artistName == artist.artistName })
+        return concerts.filter {
+            $0.artistName == artist.artistName
+        }
     }
     
     private var artistImage: UIImage {
@@ -54,7 +52,7 @@ struct ArtistDetailView: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 7,  y: 7)
                                 .padding()
-                                .offset(y: showingFullBio ? -110 : 0)
+                                .offset(y: showingFullBio ? -80 : 0)
                         }
                         
                         Spacer()
@@ -94,7 +92,7 @@ struct ArtistDetailView: View {
                             }
                             
                         }
-                        .offset(y: showingFullBio ? -110 : -16)
+                        .offset(y: showingFullBio ? -80 : -16)
                         
                     }
                     .padding(.top, geo.size.width / 6)
@@ -104,6 +102,7 @@ struct ArtistDetailView: View {
                             Text(artist.bio ?? "")
                                 .lineLimit(showingFullBio ? .none : 2)
                                 .padding(.horizontal)
+                                
                                 .frame(width: geo.size.width)
                             
                             HStack {
@@ -136,15 +135,14 @@ struct ArtistDetailView: View {
                                     .matchedGeometryEffect(id: "moreLess", in: namespace)
                                 }
                             }
-                            
+                            AlbumScrollView(artistID: artist.artistID ?? "")
+                                .padding(.top, 4)
                             ArtistDetailVenuesMap(concerts: filteredConcerts)
                             
-                            AlbumScrollView(artistID: artist.artistID ?? "")
-                                .padding(.bottom, 65)
-                                .padding(.top, 4)
+                           
                         }
                     }
-                    .offset(y: showingFullBio ? -110 : 0)
+                    .offset(y: showingFullBio ? -80 : 0)
                     .ignoresSafeArea()
                 }
             }

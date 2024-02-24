@@ -35,6 +35,29 @@ struct ArtistDetailVenuesMap: View {
         
     var body: some View {
         VStack(alignment: .leading) {
+            Map(position: $position) {
+                ForEach(concerts, id: \.uuid) { concert in
+                    Marker(
+                        concert.venue,
+                        coordinate: CLLocationCoordinate2D(
+                            latitude: concert.venueLatitude,
+                            longitude: concert.venueLongitude
+                        )
+                    )
+                }
+            }
+            .mapStyle(
+                .imagery(
+                    elevation: .realistic
+                )
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 150)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .onAppear {
+                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
+            }
+            
             ScrollView(.horizontal) {
                 HStack {
                     
@@ -45,13 +68,13 @@ struct ArtistDetailVenuesMap: View {
                         )
                         .overlay{
                             VStack {
-                                ArtistStubStatView(
+                                StatViewLabel(
                                     count: concerts.count,
                                     statNameSingular: "Stub",
                                     statNamePlural: "Stubs"
                                 )
                                 
-                                ArtistStubStatView(
+                                StatViewLabel(
                                     count: venues.count,
                                     statNameSingular: "Venue",
                                     statNamePlural: "Venues"
@@ -70,33 +93,11 @@ struct ArtistDetailVenuesMap: View {
                             }
                     }
                 }
-                .padding(5)
+                .padding(2)
                 
             }
             
-            Map(position: $position) {
-                ForEach(concerts, id: \.uuid) { concert in
-                    Marker(
-                        concert.venue,
-                        coordinate: CLLocationCoordinate2D(
-                            latitude: concert.venueLatitude,
-                            longitude: concert.venueLongitude
-                        )
-                    )
-                }
-            }
-            .mapStyle(
-                .standard(
-                    elevation: .realistic,
-                    pointsOfInterest: .excludingAll
-                )
-            )
-            .frame(maxWidth: .infinity)
-            .frame(height: 150)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .onAppear {
-                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
-            }
+            
             
             
             
