@@ -125,7 +125,7 @@ struct VenuesView: View {
                                 .padding()
                             }
                         }
-                        .transition(.asymmetric(insertion: .push(from: .leading), removal: .push(from: .trailing)))
+                        .transition(.asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top)))
                         .navigationBarTitleDisplayMode(.inline)
 
                         .padding(.bottom, 65)

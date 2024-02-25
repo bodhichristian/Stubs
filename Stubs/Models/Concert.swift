@@ -69,7 +69,7 @@ final class Concert {
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
         options.scale = UIScreen.main.scale
-        
+        options.mapType = .satelliteFlyover
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
                 latitude: venueLatitude,
@@ -79,9 +79,6 @@ final class Concert {
             pitch: 70,
             heading: 0
         )
-        
-        
-        options.showsPointsOfInterest = false
         
         let snapshotter = MKMapSnapshotter(options: options)
         snapshotter.start { snapshot, error in
