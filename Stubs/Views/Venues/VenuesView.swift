@@ -40,15 +40,26 @@ struct VenuesView: View {
     }
     
     private var sortedVenues: [Concert] {
-        if sortOrder == .byNameAscending {
-            return filteredVenues.sorted {
-                $0.venue < $1.venue
-            }
-        } else {
+        switch sortOrder {
+        case .byNameDescending:
             return filteredVenues.sorted {
                 $0.venue > $1.venue
             }
+
+        case .byCityAscending:
+            return filteredVenues.sorted {
+                $0.city < $1.city
+            }
+        case .byCityDescending:
+            return filteredVenues.sorted {
+                $0.city > $1.city
+            }
+        default:
+            return filteredVenues.sorted {
+                $0.venue < $1.venue
+            }
         }
+        
     }
     
     private let columns = [
@@ -161,6 +172,28 @@ struct VenuesView: View {
                             } label: {
                                 Label(
                                     "Sort by Venue Name Z-A",
+                                    systemImage: "z.square"
+                                )
+                            }
+                            
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byCityAscending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by City A-Z",
+                                    systemImage: "a.square"
+                                )
+                            }
+                            
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byCityDescending
+                                }
+                            } label: {
+                                Label(
+                                    "Sort by City Z-A",
                                     systemImage: "z.square"
                                 )
                             }

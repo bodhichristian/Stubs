@@ -22,15 +22,20 @@ struct DebugData {
         ("Wembley Stadium", "London", 51.556, -0.2795),
         ("Hollywood Bowl", "Los Angeles", 34.1122, -118.3391),
         ("AT&T Stadium", "Arlington", 32.7473, -97.0945),
-        ("Royal Albert Hall", "London", 51.501, 0.1774),
         ("Barclays", "Brooklyn", 40.6829, -73.9752),
         ("The Moody Theatre", "Austin", 30.2652, -97.7470),
         ("Tokyo Dome", "Tokyo", 35.6251, 139.7752),
         ("NRG Stadium", "Houston", 29.6847, -95.4107),
         ("The Forum", "Inglewood", 33.9581, -118.3417),
-        ("Maracanã Stadium", "Rio de Janeiro", -22.9129, -43.2302),
         ("The Gorge Amphitheatre", "George", 47.6133, -122.3315),
         ("Paramount Theatre", "Seattle", 47.6133, -122.3315),
+        ("Ryman Auditorium", "Nashville", 36.1616, -86.7782),
+        ("The Fillmore", "San Francisco", 37.7840, -122.4333),
+        ("The Tabernacle", "Atlanta", 33.7580, -84.3915),
+        ("House of Blues", "Chicago", 41.8884, -87.6265),
+        ("The Bowery Ballroom", "New York", 40.7209, -73.9938),
+        ("First Avenue", "Minneapolis", 44.9784, -93.2760),
+        ("The Orpheum Theatre", "Los Angeles", 34.0448, -118.2550)
     ]
     
     static let notes = [
