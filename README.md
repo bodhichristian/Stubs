@@ -11,7 +11,7 @@ A SwiftUI app for storing digital representations of concert ticket stubs. The t
 <b>Notice:</b> An API key from RapidAPI is required to run the app with a complete experience. Sign up for free [here](https://rapidapi.com/auth/sign-up).
 
 ## StubCollection
-![Stubs Showcase 001](https://github.com/bodhichristian/Stubs/assets/110639779/dd11dc51-bd03-45ad-9a9f-1751bcc83da3)
+![Stubs Showcase 2:26 4 001](https://github.com/bodhichristian/Stubs/assets/110639779/6a8e5152-8796-463d-8664-05eff9830015)
 At the heart of the app is adding a Stub. Users may record details such as artist name, venue, and city, customize their ticket color and icon, and store notes about attended concerts. When a user attemtps to save a stub, MapKit fetches venue coordinate data, and artist details are fetched from TheAudioDB. Stubs, along with related artist info and image data are persisted with SwiftData. 
 * <b>StubCollection </b> is the view that launches with the app. It provides a button to create a new stub, and presents users a list of their saved concerts. This list is searchable by most data available to the concert, and users may filter their favorites for quick reference.
 * <b>StubDetailsView </b> celebrates the concert with large scale stub, ability to view the venue on a map, favorite or delete the concert, or even edit the notes. Users may also access additional stubs by the same artist.
