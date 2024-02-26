@@ -19,4 +19,4 @@ At the heart of the app is adding a Stub. Users may record details such as artis
    
 ## ArtistsView
 ![Stubs Showcase 2:26 2 001](https://github.com/bodhichristian/Stubs/assets/110639779/f5954405-29e5-4bb1-b31b-36702df47630)
-When a Stub is added, the artist is displayed on a list in ArtistsView. Users may toggle a grid view that transitions in with a matched geometry effect. ArtistDetailsView presents a rich artist experience with profile and banner images, an expandable bio, intersctive map, additional stubs, and discography. 
+When a Stub is added, the artist is displayed on a list in ArtistsView. Users may toggle a grid view that transitions in with a matched geometry effect. ArtistDetailsView presents a rich artist experience with profile and banner images, an expandable bio, interactive map, additional stubs, and discography. 
