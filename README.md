@@ -20,3 +20,7 @@ At the heart of the app is adding a Stub. Users may record details such as artis
 ## ArtistsView
 ![Stubs Showcase 2:26 2 001](https://github.com/bodhichristian/Stubs/assets/110639779/f5954405-29e5-4bb1-b31b-36702df47630)
 When a Stub is added, the artist is displayed on a list in ArtistsView. Users may toggle a grid view that transitions in with a matched geometry effect. ArtistDetailsView presents a rich artist experience with profile and banner images, an expandable bio, interactive map, additional stubs, and discography. 
+
+## VenuesView
+![Stubs Showcase 2:26 3 001](https://github.com/bodhichristian/Stubs/assets/110639779/9d24c1c7-53e0-447b-8ab8-531d158f8416)
+Users may reference the locations of previously attended concerts in the Venues tab. VenuesView shows an alphabetical list of visited venues by default, while providing the ability to sort by name or city, ascending or descending. Tapping on a list item will launch a Map view centered on the selected venue.
