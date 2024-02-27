@@ -30,15 +30,22 @@ struct AlbumScrollView: View {
                         ZStack {
                             TileBase()
                             
-                            StatViewLabel(
-                                count: albumCount,
-                                statNameSingular: "Release",
-                                statNamePlural: "Releases"
-                            )
+                            VStack(spacing: 2) {
+                                Text("Appears on")
+                                    .font(.headline)
+                                    .foregroundStyle(.secondary)
+                                
+                                StatViewLabel(
+                                    count: albumCount,
+                                    statNameSingular: "Release",
+                                    statNamePlural: "Releases"
+                                )
+                            }
                         
                         }
                     .frame(maxHeight: .infinity)
                     .padding(.leading, 2)
+                    .padding(.trailing, 4)
                     
                     ForEach(
                         model.albums.sorted {

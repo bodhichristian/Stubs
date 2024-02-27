@@ -160,7 +160,7 @@ struct VenuesView: View {
                                 }
                             } label: {
                                 Label(
-                                    "Sort by Venue Name A-Z",
+                                    "Sort by Venue A-Z",
                                     systemImage: "a.square"
                                 )
                             }
@@ -171,7 +171,7 @@ struct VenuesView: View {
                                 }
                             } label: {
                                 Label(
-                                    "Sort by Venue Name Z-A",
+                                    "Sort by Venue Z-A",
                                     systemImage: "z.square"
                                 )
                             }

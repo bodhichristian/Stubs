@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 import MapKit
+import SwiftData
 import SwiftUI
 
 // MARK: Concert Type
@@ -27,7 +27,6 @@ final class Concert {
     
     var venueLatitude: Double
     var venueLongitude: Double
-    
     
     var artist: Artist
     

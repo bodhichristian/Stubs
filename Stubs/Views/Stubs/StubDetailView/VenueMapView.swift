@@ -41,9 +41,8 @@ struct VenueMapView: View {
                     Marker(concert.venue, coordinate: venueCoordinates)
                 }
                 .mapStyle(
-                    .standard(
-                        elevation: .realistic,
-                        pointsOfInterest: .excludingAll
+                    .imagery(
+                        elevation: .realistic
                     )
                 )
                 

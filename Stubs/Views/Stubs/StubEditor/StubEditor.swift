@@ -5,18 +5,19 @@
 //  Created by christian on 6/8/23.
 //
 
+import MapKit
 import SwiftUI
 import SwiftData
-import MapKit
 
 // MARK: StubEditor
 // A View that provides a form to add a new concert
 
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     
     // MARK: Local concert for editing
+    
     @State private var concertTemplate = Concert(
         artistName: "",
         venue: "",
@@ -27,7 +28,8 @@ struct StubEditor: View {
         notes: "",
         venueLatitude: 0.0,
         venueLongitude: 0.0,
-        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: ""))
+        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
+    )
     
     
     @State private var addConcertFailed = false
