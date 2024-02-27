@@ -28,7 +28,7 @@ final class Concert {
     var venueLatitude: Double
     var venueLongitude: Double
     
-    var artist: Artist
+    var artist: Artist?
     
     @Attribute(.externalStorage)
     var mapSnapshotData: Data?
@@ -44,8 +44,7 @@ final class Concert {
         notes: String,
         isFavorite: Bool = false,
         venueLatitude: Double,
-        venueLongitude: Double,
-        artist: Artist
+        venueLongitude: Double
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -58,7 +57,6 @@ final class Concert {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
-        self.artist = artist
         
         getMapSnapshot()
     }

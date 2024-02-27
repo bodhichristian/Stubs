@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 class Artist: Codable, Hashable {
+//    @Relationship(deleteRule: .nullify, inverse: Concert.artist)
     enum CodingKeys: String, CodingKey {
         case artistID = "idArtist"
         case artistName = "strArtist"

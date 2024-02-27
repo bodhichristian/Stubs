@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MaterialTabBar: View {
+    
     let tabs: [TabBarItem]
     let contentShape = RoundedRectangle(cornerRadius: 5)
+    
     @Binding var selection: TabBarItem
     @Environment(\.colorScheme) var colorScheme
     @Namespace private var namespace

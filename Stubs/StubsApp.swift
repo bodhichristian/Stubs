@@ -17,6 +17,7 @@ struct StubsApp: App {
         try? Tips.resetDatastore()
         try? Tips.configure()
     }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -24,3 +25,6 @@ struct StubsApp: App {
         .modelContainer(for: Concert.self)
     }
 }
+
+
+

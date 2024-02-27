@@ -22,26 +22,30 @@ struct StubView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                // MARK: Stub base
-                StubShape()
-                    .foregroundStyle(stubColor)
-                    .shadow(radius: 6, y: 10)
-                
-                Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: geo.size.width * 0.9)
-                    .clipShape(StubShape())
-                
-                StubShape()
-                    .foregroundStyle(.thinMaterial)
-                
-                Image(systemName: concert.iconName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
-                    .foregroundStyle(.thinMaterial)
-                    .opacity(0.6)
+                Group {
+                    // MARK: Stub base
+                    StubShape()
+                        .foregroundStyle(stubColor)
+                        .shadow(radius: 6, y: 10)
+                        .padding()
+                    
+                    Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: geo.size.width * 0.9)
+                        .clipShape(StubShape())
+                    
+                    StubShape()
+                        .foregroundStyle(.thinMaterial)
+                    
+                    Image(systemName: concert.iconName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
+                        .foregroundStyle(.thinMaterial)
+                        .opacity(0.6)
+                }
+                .padding()
                 
                 // MARK: Ticket Stub Elements
                 HStack {
@@ -84,13 +88,15 @@ struct StubView: View {
                     VerticalLineBoundary() // Right Edge
                 }
                 .padding(.horizontal, 30)
+                
             }
             // Main ZStack
             .frame(width: geo.size.width, height: geo.size.width * 0.60)
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )
+            .padding(.vertical)
         }
         // Maximum height for GeometryReader
-        .frame(maxHeight: 320)
+        .frame(height: 320)
     }
 }
 

@@ -40,7 +40,7 @@ struct ArtistsView: View {
         var artists = [Artist]()
         
         for concert in concerts {
-            artists.append(concert.artist)
+            artists.append(concert.artist ?? Artist())
         }
         
         let uniqueArtists = Set(artists)

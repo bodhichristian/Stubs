@@ -9,15 +9,11 @@ import MapKit
 import SwiftUI
 import SwiftData
 
-// MARK: StubEditor
-// A View that provides a form to add a new concert
-
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     
     // MARK: Local concert for editing
-    
     @State private var concertTemplate = Concert(
         artistName: "",
         venue: "",
@@ -27,8 +23,7 @@ struct StubEditor: View {
         accentColor: StubStyle.colors.randomElement()!,
         notes: "",
         venueLatitude: 0.0,
-        venueLongitude: 0.0,
-        artist: Artist(artistID: "", artistName: "", style: "", genre: "", mood: "", bio: "", geo: "", artistImageURL: "", bannerImageURL: "")
+        venueLongitude: 0.0
     )
     
     
@@ -45,10 +40,7 @@ struct StubEditor: View {
                 
                 //StubEditorStubPreview(concert: concertTemplate)
                 StubView(concert: concertTemplate)
-                
-                // TODO: Update StubEditors StubView to match new theme
-                // TODO: Solve bug that causes app crash when creating a new stub
-                
+                                
                 StubEditorDetails(concert: concertTemplate)
                 
                 StubEditorIconSelector(iconName: $concertTemplate.iconName)
@@ -183,8 +175,7 @@ extension StubEditor {
                     accentColor: concertTemplate.accentColor,
                     notes: concertTemplate.notes,
                     venueLatitude: concertTemplate.venueLatitude,
-                    venueLongitude: concertTemplate.venueLongitude,
-                    artist: fetchedArtist ?? concertTemplate.artist
+                    venueLongitude: concertTemplate.venueLongitude
                 )
                 
                 // Insert updated concert details into model context

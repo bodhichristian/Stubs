@@ -74,11 +74,11 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Demo") {
-//                        addSampleConcert()
-//                    }
-//                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Demo") {
+                        addSampleConcert()
+                    }
+                }
                 
                 ToolbarItem {
                     Button {
@@ -207,9 +207,10 @@ extension StubCollection {
                     notes: notes,
                     isFavorite: isFavorite,
                     venueLatitude: venue.latitude,
-                    venueLongitude: venue.longitude,
-                    artist: artist
+                    venueLongitude: venue.longitude
                 )
+                
+                newConcert.artist = artist
                 
                 modelContext.insert(newConcert)
             } else {

@@ -12,7 +12,7 @@ struct StubTile: View {
     
     var body: some View {
         ZStack {
-            Image(uiImage: UIImage(data: concert.artist.bannerImageData ?? Data()) ?? UIImage())
+            Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: 80)
