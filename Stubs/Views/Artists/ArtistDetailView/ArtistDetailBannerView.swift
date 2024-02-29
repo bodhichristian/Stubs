@@ -27,7 +27,7 @@ struct ArtistDetailBannerView: View {
                         .scaledToFill()
                         .frame(
                             width: geo.size.width,
-                            height: geo.size.height * 0.4,
+                            height: geo.size.height * 0.3,
                             alignment: .topLeading
                         )
                         .clipShape(Rectangle())

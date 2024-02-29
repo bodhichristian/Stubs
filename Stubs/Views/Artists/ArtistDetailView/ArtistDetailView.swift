@@ -44,17 +44,17 @@ struct ArtistDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .bottom) {
-                        ZStack { // artist image
-                            Image(uiImage: artistImage)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: artistImageWidth)
-                                .clipShape(Circle())
-                                .shadow(radius: 7,  y: 7)
-                                .padding()
-                                .offset(y: showingFullBio ? -80 : 0)
-                        }
-                        
+//                        ZStack { // artist image
+//                            Image(uiImage: artistImage)
+//                                .resizable()
+//                                .scaledToFill()
+//                                .frame(width: artistImageWidth)
+//                                .clipShape(Circle())
+//                                .shadow(radius: 7,  y: 7)
+//                                .padding()
+//                                .offset(y: showingFullBio ? -80 : 0)
+//                        }
+//                        
                         Spacer()
                         
                         VStack(alignment: .trailing, spacing: 0){
@@ -95,7 +95,7 @@ struct ArtistDetailView: View {
                         .offset(y: showingFullBio ? -80 : -16)
                         
                     }
-                    .padding(.top, geo.size.width / 6)
+                    .padding(.top, geo.size.height / 6)
                     
                     ScrollView {
                         VStack(spacing: 4) {
