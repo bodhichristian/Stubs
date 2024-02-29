@@ -12,6 +12,7 @@ import SwiftData
 
 struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Namespace var namespace
     @Query var concerts: [Concert]
     
@@ -23,10 +24,11 @@ struct ArtistsView: View {
     
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    
+
     private let columns = [ // For LazyVGrid
         GridItem(.adaptive(minimum: 120))
     ]
+    
     
     private var shadowColor: Color {
         if colorScheme == .dark {

@@ -89,7 +89,7 @@ struct StubView: View {
             }
             // Main ZStack
             .frame(
-                width: horizontalSizeClass == .compact ? geo.size.width : geo.size.width * 0.6,
+                width: horizontalSizeClass == .compact ? geo.size.width : geo.size.width * 0.5,
                 height: geo.size.height * 0.9
             )
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )

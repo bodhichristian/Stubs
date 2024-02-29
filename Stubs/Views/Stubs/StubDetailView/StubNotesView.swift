@@ -13,9 +13,11 @@ struct StubNotesView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @FocusState private var editingFocus: Bool
     
-    var accentColor: Color {
+    private var accentColor: Color {
         Color(colorName: concert.accentColor)!
     }
+    
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -86,7 +88,7 @@ struct StubNotesView: View {
                 .foregroundStyle(isEditing
                                  ? accentColor
                                  : .primary)
-                .frame(minHeight: 100)
+                .frame(minHeight: horizontalSizeClass == .compact ? 100 : 80)
                 
             
                 .disabled(!isEditing)

@@ -13,7 +13,7 @@ import SwiftUI
 // A View for displaying the ticket stub and relevant data
 struct StubDetailView: View {
     @Environment(\.modelContext) var modelContext
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Query var concerts: [Concert]
     
     @State var concert: Concert
@@ -25,23 +25,32 @@ struct StubDetailView: View {
     private var concertsByArtist: [Concert] {
         return concerts.filter({ $0.artistName == concert.artistName })
     }
+    private var spacing: CGFloat {
+        if horizontalSizeClass == .compact {
+            return 20
+        } else {
+            return 0
+        }
+    }
     
     var body: some View {
-        VStack(spacing: 0){
+        VStack{
             StubView(concert: concert)
                 .onChange(of: concert) { _, _ in
                     isEditingNotes = false
                 }
             
             ScrollView {
-                if !isEditingNotes {
-                    concertButtonRow
-                        .transition(.scale)
+                VStack(spacing: spacing){
+                    if !isEditingNotes {
+                        concertButtonRow
+                            .transition(.scale)
+                    }
+                    
+                    StubNotesView(concert: $concert, isEditing: $isEditingNotes)
+                    
+                    RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
                 }
-                
-                StubNotesView(concert: $concert, isEditing: $isEditingNotes)
-                
-                RelatedStubScrollView(selectedConcert: $concert, concerts: concertsByArtist)
             }
         }
         
