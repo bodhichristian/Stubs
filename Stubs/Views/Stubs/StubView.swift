@@ -17,8 +17,10 @@ struct StubView: View {
         return Color(colorName: concert.accentColor)!
     }
     
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @State private var iconTapped = false // For icon animation
-
+    
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -30,7 +32,7 @@ struct StubView: View {
                 Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: geo.size.height * 0.7)
+                    .frame(maxWidth: geo.size.height, maxHeight: geo.size.height)
                     .clipShape(StubShape())
                 
                 StubShape()
@@ -83,10 +85,13 @@ struct StubView: View {
                     
                     VerticalLineBoundary() // Right Edge
                 }
-                .padding(30)
+                .padding(.horizontal, geo.size.width * 0.05)
             }
             // Main ZStack
-            .frame(width: geo.size.width, height: geo.size.width * 0.60)
+            .frame(
+                width: horizontalSizeClass == .compact ? geo.size.width: geo.size.width * 0.5,
+                height: geo.size.height * 0.8
+            )
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )
         }
         // Maximum height for GeometryReader
