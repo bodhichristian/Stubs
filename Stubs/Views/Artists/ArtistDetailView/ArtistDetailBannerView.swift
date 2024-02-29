@@ -25,7 +25,11 @@ struct ArtistDetailBannerView: View {
                     Image(uiImage: bannerImage)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.width * 0.4)
+                        .frame(
+                            width: geo.size.width,
+                            height: geo.size.height * 0.4,
+                            alignment: .topLeading
+                        )
                         .clipShape(Rectangle())
                         .overlay {
                             LinearGradient(

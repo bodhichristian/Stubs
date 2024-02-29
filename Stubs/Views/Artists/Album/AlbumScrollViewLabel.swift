@@ -30,6 +30,7 @@ struct AlbumScrollViewLabel: View {
                     Color.secondary.opacity(0.1)
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 90, height: 90)
                 .shadow(radius: 5, y: 3)
 
                 Text(album.strAlbum ?? "")

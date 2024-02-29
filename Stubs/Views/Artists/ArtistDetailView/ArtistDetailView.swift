@@ -146,6 +146,7 @@ struct ArtistDetailView: View {
                     .padding(.bottom, 60)
                 }
             }
+            
             .navigationTitle(artist.artistName ?? "")
             .navigationBarTitleDisplayMode(.inline)
             

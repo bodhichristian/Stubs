@@ -14,6 +14,7 @@ struct ArtistDetailVenuesMap: View {
     let concerts: [Concert]
     let cameraDistance: Double = 500
     
+    @Environment(\.horizontalSizeClass) var sizeClass
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     
@@ -52,7 +53,7 @@ struct ArtistDetailVenuesMap: View {
                 )
             )
             .frame(maxWidth: .infinity)
-            .frame(height: 150)
+            .frame(height: sizeClass == .compact ? 150 : 300)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
