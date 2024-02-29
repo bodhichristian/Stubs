@@ -35,13 +35,9 @@ struct StubEditor: View {
     
     var body: some View {
         NavigationStack {
-                
                 Form {
-                    
-                    
-                    //StubEditorStubPreview(concert: concertTemplate)
-                    StubView(concert: concertTemplate)
-
+                    StubEditorStubPreview(concert: concertTemplate)
+                    //StubView(concert: concertTemplate)
                     StubEditorDetails(concert: concertTemplate)
                     
                     StubEditorIconSelector(iconName: $concertTemplate.iconName)

@@ -10,11 +10,9 @@ import SwiftUI
 struct StubEditorStubPreview: View {
     let concert: Concert
     
-    let gradient = LinearGradient( // For stub base
-        colors: [.clear, .black.opacity(0.2)],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
+    private var stubColor: Color {
+        return Color(colorName: concert.accentColor)!
+    }
     
     @State private var iconTapped = false
     
@@ -24,76 +22,63 @@ struct StubEditorStubPreview: View {
             ZStack{
                 // MARK: Stub base
                 StubShape()
-                    .foregroundStyle(Color(colorName: concert.accentColor)!)
+                    .foregroundStyle(stubColor)
                     .shadow(radius: 6, y: 10)
                 
-                StubShape()
-                    .foregroundStyle(gradient)
+                Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: geo.size.height * 0.7)
+                    .clipShape(StubShape())
                 
+                StubShape()
+                    .foregroundStyle(.thinMaterial)
+                
+                Image(systemName: concert.iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .foregroundStyle(.thinMaterial)
+                    .opacity(0.6)
                 // MARK: Ticket Stub Elements
-                HStack(alignment: .bottom) {
-                    
+                HStack {
                     VerticalLineBoundary() // Left Edge
                     
+                    
+                    Spacer()
+                    
                     // MARK: Ticket Details
-                    VStack(alignment: .leading) {
-                        
+                    VStack {
                         // Artist Name
                         Text(concert.artistName)
-                            .font(.title2)
-                            .bold()
-                            .foregroundStyle(.white)
-                            .shadow(radius: 2)
-                        
+                            .font(.system(size: 36))
+                            .fontWeight(.bold)
+                            .foregroundStyle(.primary)
                         // Venue Details
                         Text(concert.venue)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.secondary)
+
+                        // City
+                        Text(concert.city)
                             .font(.title3)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.primary)
                         
-                        HStack {
-                            
-                            // MARK: Location
-                            VStack(alignment: .leading) {
-                                                            
-                                // City
-                                Text(concert.city)
-                                    .foregroundStyle(.white)
-                                
-                                Spacer()
-                                
-                                // MARK: Concert Date
-                                // Format: `Jun 9, 2023`
-                                Text(concert.date.formatted(date: .abbreviated, time: .omitted))
-                                    .fontDesign(.monospaced)
-                                    .foregroundStyle(.black)
-                                
-                            }
+                        // MARK: Concert Date
+                        // Format: `Jun 9, 2023`
+                        Text(concert.date.formatted(date: .long, time: .omitted))
                             .font(.title3)
-
-                            
-                            Spacer()
-                            
-                            VStack {
-                                Spacer()
-                                
-                                // MARK: Concert icon
-                                Image(systemName: concert.iconName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(
-                                        width: geo.size.width * 0.2,
-                                        height: geo.size.width * 0.2)
-                                    .foregroundStyle(.white)
-                                    .shadow(radius: 4, x: 2, y: 6)
-                                    .symbolEffect(.bounce, options: .nonRepeating, value: iconTapped)
-                            }
-                        }
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.secondary)
+                            .fontDesign(.monospaced)
                     }
-                    .padding(.leading)
+                    .multilineTextAlignment(.center)
+
+                    Spacer()
                     
                     VerticalLineBoundary() // Right Edge
-                
                 }
                 .padding(30)
                 
@@ -104,7 +89,6 @@ struct StubEditorStubPreview: View {
             
         }
         // GeometryReader Frame
-        .frame(minHeight: 250)
-        .frame(maxHeight: 320)
+        .frame(height: 320)
     }
 }

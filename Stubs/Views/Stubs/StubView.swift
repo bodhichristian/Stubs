@@ -30,7 +30,7 @@ struct StubView: View {
                 Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: geo.size.width * 0.9)
+                    .frame(maxWidth: geo.size.height * 0.7)
                     .clipShape(StubShape())
                 
                 StubShape()
@@ -91,7 +91,7 @@ struct StubView: View {
         }
         // Maximum height for GeometryReader
         .frame(maxHeight: 320)
-        .frame(minHeight: 250)
+        //.frame(minHeight: 250)
     }
 }
 
