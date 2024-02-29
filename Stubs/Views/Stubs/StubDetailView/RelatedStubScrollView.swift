@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RelatedStubScrollView: View {
     @Binding var selectedConcert: Concert
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let concerts: [Concert]
     
     var artist: String {
@@ -35,5 +35,6 @@ struct RelatedStubScrollView: View {
                 .padding(.leading, 2)
             }
         }
+        .frame(maxWidth: horizontalSizeClass == .compact ? .infinity : 600)
     }
 }

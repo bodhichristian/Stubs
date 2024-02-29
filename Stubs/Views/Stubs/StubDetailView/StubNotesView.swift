@@ -10,7 +10,7 @@ import SwiftUI
 struct StubNotesView: View {
     @Binding var concert: Concert
     @Binding var isEditing: Bool
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @FocusState private var editingFocus: Bool
     
     var accentColor: Color {
@@ -63,15 +63,16 @@ struct StubNotesView: View {
                             .frame(width: isEditing ? 18 : 25, height: isEditing ? 18 : 25)
                             .foregroundStyle(isEditing ? .white : accentColor)
                             .shadow(radius: isEditing ? 2 : 0)
-                            .padding(.trailing)
+                            
                     }
+                    .padding(.trailing, 10)
                     .background {
                         if isEditing {
                             Capsule()
                                 .frame(width: 100, height: 30)
                                 .foregroundStyle(accentColor.opacity(0.8))
                                 .shadow(radius: 2, y: 4)
-                                .padding(.trailing)
+                                .padding(.trailing, 20)
                                 .transition(.asymmetric(insertion: .push(from: .trailing), removal: .push(from: .leading)))
                         }
                     }
@@ -79,22 +80,22 @@ struct StubNotesView: View {
                 .buttonStyle(PlainButtonStyle())
                 
             }
-            .padding(.top, 10)
             
             TextEditor(text: $concert.notes)
+            
                 .foregroundStyle(isEditing
                                  ? accentColor
                                  : .primary)
                 .frame(minHeight: 100)
-                .frame(maxWidth: .infinity)
+                
             
                 .disabled(!isEditing)
                 .focused($editingFocus)
                 .offset(x: -5)
             
-            Divider()
-                .padding(.bottom)
+
         }
+        .frame(maxWidth: horizontalSizeClass == .compact ? .infinity : 600)
         .padding(.top, 5)
     }
 }

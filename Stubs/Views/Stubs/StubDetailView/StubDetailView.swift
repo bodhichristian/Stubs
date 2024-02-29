@@ -103,7 +103,6 @@ extension StubDetailView {
         }
         .frame(minHeight: 70)
         .padding(.horizontal, 5)
-        .offset(y: -7)
-        
+        .frame(maxWidth: 420)
     }
 }
