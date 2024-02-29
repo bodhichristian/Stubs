@@ -37,13 +37,10 @@ struct StubEditor: View {
         NavigationStack {
                 Form {
                     StubEditorStubPreview(concert: concertTemplate)
-                    //StubView(concert: concertTemplate)
+                    StubView(concert: concertTemplate)
                     StubEditorDetails(concert: concertTemplate)
-                    
                     StubEditorIconSelector(iconName: $concertTemplate.iconName)
-                    
                     StubEditorColorSelector(accentColor: $concertTemplate.accentColor)
-                    
                     StubEditorNotes(concertNotes: $concertTemplate.notes)
             }
             .navigationTitle("Stub Editor")

@@ -13,6 +13,7 @@ struct ArtistDetailView: View {
     let artist: Artist
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var sizeClass
     @Namespace var namespace
     @Query var concerts: [Concert]
     
@@ -38,7 +39,6 @@ struct ArtistDetailView: View {
             ZStack {
                 if !showingFullBio{
                     ArtistDetailBannerView(artist: artist)
-                    // .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                         .transition(.asymmetric(insertion: .push(from: .top), removal: .push(from: .bottom)))
                 }
                 
@@ -143,11 +143,12 @@ struct ArtistDetailView: View {
                         }
                     }
                     .offset(y: showingFullBio ? -80 : 0)
-                    .ignoresSafeArea()
+                    .padding(.bottom, 60)
                 }
             }
             .navigationTitle(artist.artistName ?? "")
             .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }

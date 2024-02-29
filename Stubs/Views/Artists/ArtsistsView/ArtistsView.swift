@@ -93,7 +93,6 @@ struct ArtistsView: View {
     }
     
     var body: some View {
-        ZStack {
             NavigationStack {
                 ScrollView {
                     if listView {
@@ -262,7 +261,7 @@ struct ArtistsView: View {
                     }
                 }
             }
-        }
+        
     }
     
     private func alphabetHeader(_ letter: String) -> some View {
