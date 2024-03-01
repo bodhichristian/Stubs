@@ -21,7 +21,7 @@ struct FullBioToggle: View {
     
     var body: some View {
         Button {
-            withAnimation{
+            withAnimation(.smooth){
                 showingFullBio.toggle()
             }
         } label: {
@@ -41,7 +41,7 @@ struct FullBioToggle: View {
             .font(.caption.bold())
             .foregroundStyle(fontColor)
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.horizontal)
+            .padding(showingFullBio ? .all : .horizontal)
         }
     }
 }

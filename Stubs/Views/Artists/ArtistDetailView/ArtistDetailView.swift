@@ -19,6 +19,7 @@ struct ArtistDetailView: View {
     @Query var concerts: [Concert]
     
     @State private var artistImageWidth: CGFloat = 120
+    @State private var materialOpacity: CGFloat = 0
     @State private var showingFullBio = false
     
     private var filteredConcerts: [Concert] {
@@ -37,7 +38,7 @@ struct ArtistDetailView: View {
     
     private var bioFontColor: Color {
         if !showingFullBio && colorScheme == .light {
-          return .white
+            return .white
         } else {
             return .primary
         }
@@ -45,65 +46,66 @@ struct ArtistDetailView: View {
     
     var body: some View {
         GeometryReader { geo in
+            ArtistDetailBannerView(artist: artist)
             
-            ZStack { // base
-                if !showingFullBio{
-                    ArtistDetailBannerView(artist: artist)
-                        .transition(.asymmetric(insertion: .push(from: .top), removal: .push(from: .bottom)))
+            Rectangle()
+                .foregroundStyle(.ultraThinMaterial)
+                .opacity(showingFullBio ? 1 : materialOpacity)
+                .ignoresSafeArea()
+            
+            
+            // detail stack
+            VStack(alignment: .leading, spacing: 0) {
+                
+                // MARK: More/Less Button
+                // Toggle `lineLimit` to display a brief or full bio
+                if showingFullBio {
+                    FullBioToggle(showingFullBio: $showingFullBio)
+                        .foregroundStyle(.secondary)
+                        .matchedGeometryEffect(id: "moreLess", in: namespace)
                 }
                 
-                // detail stack
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    // bio stack
-                    VStack(alignment: .leading, spacing: 0){
+                ScrollView {
+                    GeometryReader { scrollViewGeo in
+                        Color.clear.preference(key: ScrollOffsetPreferenceKey.self,
+                                               value: scrollViewGeo.frame(in: .named("scrollView")).minY)
+                    }
+                    VStack(spacing: 4) {
+                        Text(artist.bio ?? "")
+                            .lineLimit(showingFullBio ? .none : 2)
+                            .padding(.horizontal)
+                            .frame(width: geo.size.width)
+                            .foregroundStyle(bioFontColor)
                         
-                        // MARK: More/Less Button
-                        // Toggle `lineLimit` to display a brief or full bio
-                        if showingFullBio {
-                            FullBioToggle(showingFullBio: $showingFullBio)
-                                .foregroundStyle(.secondary)
-                                .matchedGeometryEffect(id: "moreLess", in: namespace)
+                        HStack {
+                            Spacer()
+                            // MARK: More/Less Button
+                            // Toggle `lineLimit` to display a brief or full bio
+                            if !showingFullBio {
+                                FullBioToggle(showingFullBio: $showingFullBio)
+                                    .foregroundStyle(.secondary)
+                                    .matchedGeometryEffect(id: "moreLess", in: namespace)
+                            }
                         }
+                        AlbumScrollView(artistID: artist.artistID ?? "")
+                            .padding(.top, 4)
+                        ArtistDetailVenuesMap(concerts: filteredConcerts)
+                        
                         
                     }
-                    
                     .padding(
                         .top,
                         showingFullBio
                         ? 10
                         : sizeClass == .compact
                         ? geo.size.height * 0.28
-                        : geo.size.height * 0.6
+                        : geo.size.height * 0.57
                     )
                     
-                    ScrollView {
-                        VStack(spacing: 4) {
-                            Text(artist.bio ?? "")
-                                .lineLimit(showingFullBio ? .none : 2)
-                                .padding(.horizontal)
-                                .frame(width: geo.size.width)
-                                .foregroundStyle(bioFontColor)
-                            
-                            HStack {
-                                Spacer()
-                                // MARK: More/Less Button
-                                // Toggle `lineLimit` to display a brief or full bio
-                                if !showingFullBio {
-                                    FullBioToggle(showingFullBio: $showingFullBio)
-                                        .foregroundStyle(.secondary)
-                                        .matchedGeometryEffect(id: "moreLess", in: namespace)
-                                }
-                            }
-                            AlbumScrollView(artistID: artist.artistID ?? "")
-                                .padding(.top, 4)
-                            ArtistDetailVenuesMap(concerts: filteredConcerts)
-                            
-                            
-                        }
-                    }
-                    //.offset(y: showingFullBio ? -80 : 0)
-                    .padding(.bottom, 60)
+                }
+                .padding(.bottom, 60)
+                .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
+                    updateMaterialOpacity(with: value, outerHeight: geo.size.height)
                 }
             }
             
@@ -111,5 +113,19 @@ struct ArtistDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             
         }
+    }
+    private func updateMaterialOpacity(with scrollOffset: CGFloat, outerHeight: CGFloat) {
+        // Assuming the content height is significantly larger than the outerHeight,
+        // adjust these calculations if your UI layout is different.
+        let normalizedOffset = min(max(-scrollOffset / (outerHeight * 0.5), 0), 1)
+        self.materialOpacity = normalizedOffset
+    }
+}
+
+struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value += nextValue()
     }
 }
