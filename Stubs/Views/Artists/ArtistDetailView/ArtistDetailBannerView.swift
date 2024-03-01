@@ -10,6 +10,8 @@ import SwiftUI
 struct ArtistDetailBannerView: View {
     let artist: Artist
     
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     private var bannerImage: UIImage {
         if let data = artist.bannerImageData {
             return UIImage(data: data) ?? UIImage()
@@ -27,7 +29,7 @@ struct ArtistDetailBannerView: View {
                         .scaledToFill()
                         .frame(
                             width: geo.size.width,
-                            height: geo.size.height * 0.3,
+                            height: sizeClass == .compact ? geo.size.height * 0.25 : geo.size.height * 0.4,
                             alignment: .topLeading
                         )
                         .clipShape(Rectangle())
@@ -54,7 +56,9 @@ struct ArtistDetailBannerView: View {
                     .padding(.bottom, 10)
                 }
 
-                Spacer() // Push bannerImage to top
+                if sizeClass == .compact{
+                    Spacer() // Push bannerImage to top
+                }
             }
         }
         

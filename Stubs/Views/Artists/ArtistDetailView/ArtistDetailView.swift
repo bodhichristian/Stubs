@@ -36,32 +36,23 @@ struct ArtistDetailView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ZStack {
+            
+            ZStack { // base
                 if !showingFullBio{
                     ArtistDetailBannerView(artist: artist)
                         .transition(.asymmetric(insertion: .push(from: .top), removal: .push(from: .bottom)))
                 }
                 
+                // detail stack
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack(alignment: .bottom) {
-//                        ZStack { // artist image
-//                            Image(uiImage: artistImage)
-//                                .resizable()
-//                                .scaledToFill()
-//                                .frame(width: artistImageWidth)
-//                                .clipShape(Circle())
-//                                .shadow(radius: 7,  y: 7)
-//                                .padding()
-//                                .offset(y: showingFullBio ? -80 : 0)
-//                        }
-//                        
-                        Spacer()
-                        
+
+                        // bio stack
                         VStack(alignment: .trailing, spacing: 0){
-                            Text("Bio")
-                                .font(.title2.bold())
-                                .padding(.trailing)
-                                .offset(y: showingFullBio ? 0 : 6)
+//                            Text("Bio")
+//                                .font(.title2.bold())
+//                                .frame(maxWidth: .infinity, alignment: .trailing)
+//                                .padding(.trailing)
+//                                .offset(y: showingFullBio ? 0 : 6)
                             
                             // MARK: More/Less Button
                             // Toggle `lineLimit` to display a brief or full bio
@@ -92,10 +83,15 @@ struct ArtistDetailView: View {
                             }
                             
                         }
-                        .offset(y: showingFullBio ? -80 : -16)
+                        .offset(y: showingFullBio ? -80 : 0)
                         
-                    }
-                    .padding(.top, geo.size.height / 6)
+                    
+                    .padding(
+                        .top,
+                        showingFullBio
+                        ? 10
+                        : geo.size.height * 0.28
+                    )
                     
                     ScrollView {
                         VStack(spacing: 4) {
@@ -142,7 +138,7 @@ struct ArtistDetailView: View {
                            
                         }
                     }
-                    .offset(y: showingFullBio ? -80 : 0)
+                    //.offset(y: showingFullBio ? -80 : 0)
                     .padding(.bottom, 60)
                 }
             }
