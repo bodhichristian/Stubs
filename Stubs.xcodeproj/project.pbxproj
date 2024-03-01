@@ -10,6 +10,7 @@
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
 		AA19591C2B753CA600266267 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* Tips.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
+		AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -68,6 +69,7 @@
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
 		AA19591B2B753CA600266267 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
+		AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBioToggle.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				AA5E74E52B3DAA52005DBD87 /* ArtistDetailView.swift */,
+				AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */,
 				AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */,
 				AA5E74E72B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift */,
 				AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */,
@@ -427,6 +430,7 @@
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */,
 				AA5E74E32B3DA67F005DBD87 /* ArtistService.swift in Sources */,
+				AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */,
 				AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */,
 				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
 				AA5E74F32B3EFD81005DBD87 /* TabBarContainer.swift in Sources */,

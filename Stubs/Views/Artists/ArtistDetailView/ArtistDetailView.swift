@@ -45,52 +45,27 @@ struct ArtistDetailView: View {
                 
                 // detail stack
                 VStack(alignment: .leading, spacing: 0) {
-
-                        // bio stack
-                        VStack(alignment: .trailing, spacing: 0){
-//                            Text("Bio")
-//                                .font(.title2.bold())
-//                                .frame(maxWidth: .infinity, alignment: .trailing)
-//                                .padding(.trailing)
-//                                .offset(y: showingFullBio ? 0 : 6)
-                            
-                            // MARK: More/Less Button
-                            // Toggle `lineLimit` to display a brief or full bio
-                            if showingFullBio {
-                                Button {
-                                    withAnimation {
-                                        showingFullBio.toggle()
-                                    }
-                                } label: {
-                                    HStack {
-                                        Text(
-                                            showingFullBio
-                                            ? "Less"
-                                            : "More"
-                                        )
-                                        
-                                        Image(
-                                            systemName: showingFullBio
-                                            ? "chevron.up"
-                                            : "chevron.down"
-                                        )
-                                    }
-                                    .font(.caption)
-                                    .padding(.horizontal)
-                                }
+                    
+                    // bio stack
+                    VStack(alignment: .leading, spacing: 0){
+                        
+                        // MARK: More/Less Button
+                        // Toggle `lineLimit` to display a brief or full bio
+                        if showingFullBio {
+                            FullBioToggle(showingFullBio: $showingFullBio)
                                 .foregroundStyle(.secondary)
                                 .matchedGeometryEffect(id: "moreLess", in: namespace)
-                            }
-                            
                         }
-                        .offset(y: showingFullBio ? -80 : 0)
                         
+                    }
                     
                     .padding(
                         .top,
                         showingFullBio
                         ? 10
-                        : geo.size.height * 0.28
+                        : sizeClass == .compact
+                        ? geo.size.height * 0.28
+                        : geo.size.height * 0.6
                     )
                     
                     ScrollView {
@@ -98,7 +73,7 @@ struct ArtistDetailView: View {
                             Text(artist.bio ?? "")
                                 .lineLimit(showingFullBio ? .none : 2)
                                 .padding(.horizontal)
-                                
+                            
                                 .frame(width: geo.size.width)
                             
                             HStack {
@@ -106,36 +81,16 @@ struct ArtistDetailView: View {
                                 // MARK: More/Less Button
                                 // Toggle `lineLimit` to display a brief or full bio
                                 if !showingFullBio {
-                                    Button {
-                                        withAnimation{
-                                            showingFullBio.toggle()
-                                        }
-                                    } label: {
-                                        HStack {
-                                            Text(
-                                                showingFullBio
-                                                ? "Less"
-                                                : "More"
-                                            )
-                                            
-                                            Image(
-                                                systemName: showingFullBio
-                                                ? "chevron.up"
-                                                : "chevron.down"
-                                            )
-                                        }
-                                        .font(.caption.bold())
-                                        .padding(.horizontal)
-                                    }
-                                    .foregroundStyle(.secondary)
-                                    .matchedGeometryEffect(id: "moreLess", in: namespace)
+                                    FullBioToggle(showingFullBio: $showingFullBio)
+                                        .foregroundStyle(.secondary)
+                                        .matchedGeometryEffect(id: "moreLess", in: namespace)
                                 }
                             }
                             AlbumScrollView(artistID: artist.artistID ?? "")
                                 .padding(.top, 4)
                             ArtistDetailVenuesMap(concerts: filteredConcerts)
                             
-                           
+                            
                         }
                     }
                     //.offset(y: showingFullBio ? -80 : 0)
