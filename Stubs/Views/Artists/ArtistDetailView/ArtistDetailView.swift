@@ -12,6 +12,7 @@ import SwiftUI
 struct ArtistDetailView: View {
     let artist: Artist
     
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @Environment(\.horizontalSizeClass) var sizeClass
     @Namespace var namespace
@@ -31,6 +32,14 @@ struct ArtistDetailView: View {
             return UIImage(data: data) ?? UIImage()
         } else {
             return UIImage()
+        }
+    }
+    
+    private var bioFontColor: Color {
+        if !showingFullBio && colorScheme == .light {
+          return .white
+        } else {
+            return .primary
         }
     }
     
@@ -73,8 +82,8 @@ struct ArtistDetailView: View {
                             Text(artist.bio ?? "")
                                 .lineLimit(showingFullBio ? .none : 2)
                                 .padding(.horizontal)
-                            
                                 .frame(width: geo.size.width)
+                                .foregroundStyle(bioFontColor)
                             
                             HStack {
                                 Spacer()

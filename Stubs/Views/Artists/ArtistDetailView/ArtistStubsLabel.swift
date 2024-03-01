@@ -15,14 +15,15 @@ struct ArtistStubsLabel: View {
             TileBase()
                 .frame(height: 110)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 StubThumbnail(concert: concert)
                     .rotationEffect(Angle(degrees: 15))
 
                     .frame(
-                        width: 80,
+                        width: 90,
                         height: 50
                     )
+                    .offset(x: 7)
                 
                 Text(concert.city)
                     .font(.subheadline)

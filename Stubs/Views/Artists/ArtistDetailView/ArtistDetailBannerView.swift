@@ -31,9 +31,10 @@ struct ArtistDetailBannerView: View {
                             width: geo.size.width,
                             height: sizeClass == .compact 
                             ? geo.size.height * 0.25
-                            : geo.size.height,
+                            : geo.size.height * 1.05,
                             alignment: .topLeading
                         )
+                    
                         .clipShape(Rectangle())
                         .overlay {
                             LinearGradient(
@@ -44,24 +45,14 @@ struct ArtistDetailBannerView: View {
                             .opacity(0.6)
                         }
                     
-                    // Genre & Location
-                    VStack(alignment: .trailing) {
-                            Text(artist.genre ?? "")
-                        
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Text(artist.geo ?? "")
-                        
-                    }
-                    .foregroundStyle(.white)
-                    .padding(.trailing)
-                    .padding(.bottom, 10)
+                   
                 }
 
                 if sizeClass == .compact{
                     Spacer() // Push bannerImage to top
                 }
             }
+            .ignoresSafeArea(edges:.bottom)
         }
         
     }

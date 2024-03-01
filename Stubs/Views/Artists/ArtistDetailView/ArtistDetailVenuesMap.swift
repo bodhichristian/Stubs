@@ -64,7 +64,7 @@ struct ArtistDetailVenuesMap: View {
                     
                     TileBase()
                         .frame(
-                            width: 100,
+                            width: 130,
                             height: 110
                         )
                         .overlay{
@@ -95,13 +95,7 @@ struct ArtistDetailVenuesMap: View {
                     }
                 }
                 .padding(2)
-                
             }
-            
-            
-            
-            
-            
         }
         .padding(.horizontal)
     }

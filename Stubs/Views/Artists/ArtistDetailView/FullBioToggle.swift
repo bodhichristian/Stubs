@@ -9,6 +9,15 @@ import SwiftUI
 
 struct FullBioToggle: View {
     @Binding var showingFullBio: Bool
+    @Environment(\.colorScheme) var colorScheme
+    
+    private var fontColor: Color {
+        if !showingFullBio && colorScheme == .light {
+          return .white
+        } else {
+            return .secondary
+        }
+    }
     
     var body: some View {
         Button {
@@ -30,6 +39,7 @@ struct FullBioToggle: View {
                 )
             }
             .font(.caption.bold())
+            .foregroundStyle(fontColor)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.horizontal)
         }

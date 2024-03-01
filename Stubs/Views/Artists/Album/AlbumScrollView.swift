@@ -44,8 +44,8 @@ struct AlbumScrollView: View {
                         
                         }
                     .frame(maxHeight: .infinity)
-                    .padding(.leading, 2)
-                    .padding(.trailing, 4)
+                    .frame(width: 130)
+                    .padding(.horizontal, 2)
                     
                     ForEach(
                         model.albums.sorted {
