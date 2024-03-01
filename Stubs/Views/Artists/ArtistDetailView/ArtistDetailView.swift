@@ -36,13 +36,13 @@ struct ArtistDetailView: View {
         }
     }
     
-    private var bioFontColor: Color {
-        if !showingFullBio && colorScheme == .light {
-            return .white
-        } else {
-            return .primary
-        }
-    }
+//    private var bioFontColor: Color {
+//        if !showingFullBio && colorScheme == .light {
+//            return .white
+//        } else {
+//            return .primary
+//        }
+//    }
     
     var body: some View {
         GeometryReader { geo in
@@ -57,25 +57,21 @@ struct ArtistDetailView: View {
             // detail stack
             VStack(alignment: .leading, spacing: 0) {
                 
-                // MARK: More/Less Button
-                // Toggle `lineLimit` to display a brief or full bio
-                if showingFullBio {
-                    FullBioToggle(showingFullBio: $showingFullBio)
-                        .foregroundStyle(.secondary)
-                        .matchedGeometryEffect(id: "moreLess", in: namespace)
-                }
-                
                 ScrollView {
                     GeometryReader { scrollViewGeo in
                         Color.clear.preference(key: ScrollOffsetPreferenceKey.self,
                                                value: scrollViewGeo.frame(in: .named("scrollView")).minY)
+                    }
+                    if showingFullBio {
+                        FullBioToggle(showingFullBio: $showingFullBio)
+                            .foregroundStyle(.secondary)
                     }
                     VStack(spacing: 4) {
                         Text(artist.bio ?? "")
                             .lineLimit(showingFullBio ? .none : 2)
                             .padding(.horizontal)
                             .frame(width: geo.size.width)
-                            .foregroundStyle(bioFontColor)
+                            .foregroundStyle(.white)
                         
                         HStack {
                             Spacer()
