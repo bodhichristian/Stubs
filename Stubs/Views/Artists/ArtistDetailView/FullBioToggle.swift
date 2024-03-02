@@ -39,7 +39,6 @@ struct FullBioToggle: View {
                 )
             }
             .font(.caption.bold())
-            .foregroundStyle(fontColor)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(showingFullBio ? .all : .horizontal)
         }

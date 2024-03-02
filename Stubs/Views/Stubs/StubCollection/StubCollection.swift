@@ -74,12 +74,12 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Demo") {
-                        addSampleConcert()
-                    }
-                }
-                
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Demo") {
+//                        addSampleConcert()
+//                    }
+//                }
+//                
                 ToolbarItem {
                     Button {
                         withAnimation(.snappy){

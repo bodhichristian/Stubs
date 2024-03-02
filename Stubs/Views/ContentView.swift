@@ -30,11 +30,11 @@ struct ContentView: View {
                     selection: $tabSelection
                 )
             
-            ProfileView()
-                .tabBarItem(
-                    tab: .profile,
-                    selection: $tabSelection
-                )
+//            ProfileView()
+//                .tabBarItem(
+//                    tab: .profile,
+//                    selection: $tabSelection
+//                )
         }
     }
 }

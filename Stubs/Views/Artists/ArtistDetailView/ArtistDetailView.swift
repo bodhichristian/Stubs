@@ -71,7 +71,7 @@ struct ArtistDetailView: View {
                             .lineLimit(showingFullBio ? .none : 2)
                             .padding(.horizontal)
                             .frame(width: geo.size.width)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                         
                         HStack {
                             Spacer()
@@ -94,7 +94,7 @@ struct ArtistDetailView: View {
                         showingFullBio
                         ? 10
                         : sizeClass == .compact
-                        ? geo.size.height * 0.28
+                        ? geo.size.height * 0.25
                         : geo.size.height * 0.57
                     )
                     
