@@ -24,3 +24,8 @@ When a Stub is added, the artist is displayed on a list in ArtistsView. Users ma
 ## VenuesView
 ![Stubs Showcase 2:26 3 001](https://github.com/bodhichristian/Stubs/assets/110639779/9d24c1c7-53e0-447b-8ab8-531d158f8416)
 Users may reference the locations of previously attended concerts in the Venues tab. VenuesView shows an alphabetical list of visited venues by default, while providing the ability to sort by name or city, ascending or descending. Tapping on a list item will launch a Map view centered on the selected venue.
+
+## Stubs for iPad
+![Stubs Showcase iPad 3:1 001](https://github.com/bodhichristian/Stubs/assets/110639779/532dbb1f-9bd5-43fb-a88e-947d93d7f38b)
+![Stubs Showcase iPad 3:1 002](https://github.com/bodhichristian/Stubs/assets/110639779/b53606c0-1843-49bd-a7d1-882d76f089db)
+
