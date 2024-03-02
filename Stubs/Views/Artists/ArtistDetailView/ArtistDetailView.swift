@@ -46,10 +46,13 @@ struct ArtistDetailView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ArtistDetailBannerView(artist: artist)
+            ArtistDetailBannerView(
+                artist: artist,
+                showingFullBio: showingFullBio
+            )
             
             Rectangle()
-                .foregroundStyle(.ultraThinMaterial)
+                .foregroundStyle(.thinMaterial)
                 .opacity(showingFullBio ? 1 : materialOpacity)
                 .ignoresSafeArea()
             
@@ -65,13 +68,22 @@ struct ArtistDetailView: View {
                     if showingFullBio {
                         FullBioToggle(showingFullBio: $showingFullBio)
                             .foregroundStyle(.secondary)
+                            .matchedGeometryEffect(id: "moreLess", in: namespace)
+
                     }
                     VStack(spacing: 4) {
-                        Text(artist.bio ?? "")
-                            .lineLimit(showingFullBio ? .none : 2)
-                            .padding(.horizontal)
-                            .frame(width: geo.size.width)
-                            .foregroundStyle(.primary)
+                        Group {
+                            if showingFullBio {
+                                Text(artist.bio ?? "")
+                            } else {
+                                Text(artist.bio ?? "")
+                                    .lineLimit(showingFullBio ? .none : 2)
+                                    
+                            }
+                        }
+                        .padding(.horizontal)
+                        .frame(width: geo.size.width)
+                        .foregroundStyle(.primary)
                         
                         HStack {
                             Spacer()

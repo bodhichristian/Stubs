@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtistDetailBannerView: View {
     let artist: Artist
+    let showingFullBio: Bool
     
     @Environment(\.horizontalSizeClass) var sizeClass
     
@@ -29,7 +30,9 @@ struct ArtistDetailBannerView: View {
                     .frame(
                         width: geo.size.width,
                         height: sizeClass == .compact
-                        ? geo.size.height * 0.25
+                        ? showingFullBio
+                        ? geo.size.height * 1.05
+                        : geo.size.height * 0.25
                         : geo.size.height * 1.05,
                         alignment: .top
                     )
