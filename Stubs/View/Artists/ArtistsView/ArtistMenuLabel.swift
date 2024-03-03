@@ -14,6 +14,7 @@ struct ArtistMenuLabel: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    
     private var shadowColor: Color {
         if colorScheme == .dark {
             return Color(white: 0.9)
@@ -87,7 +88,6 @@ struct ArtistMenuLabel: View {
                         .foregroundStyle(
                             LinearGradient(colors: [.purple, .yellow, .green], startPoint: .leading, endPoint: .trailing).opacity(0.3)
                         )
-                        .shadow(color: .primary.opacity(0.5),radius: 2)
 
                     Capsule()
                         .foregroundStyle(.ultraThinMaterial)

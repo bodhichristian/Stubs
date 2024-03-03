@@ -8,15 +8,9 @@
 import Observation
 import SwiftUI
 import SwiftData
-import TipKit
 
 @main
 struct StubsApp: App {
-    
-    init() {
-        try? Tips.resetDatastore()
-        try? Tips.configure()
-    }
     
     var body: some Scene {
         WindowGroup {

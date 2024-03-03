@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ArtistGridView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     let artists: [Artist]
     let listView: Bool
     let namespace: Namespace.ID
     
-    private let columns = [
-        GridItem(.adaptive(minimum: 120))
-    ]
+    private var columns: [GridItem] {
+        [GridItem(
+            .adaptive(
+                minimum: sizeClass == .compact
+                ? 120
+                : 180
+            )
+        )]
+    }
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(artists, id: \.artistID) { artist in
