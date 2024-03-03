@@ -201,16 +201,13 @@ struct VenuesView: View {
                             
                             
                         } label: {
-                            Label(
-                                "View Options",
-                                systemImage: "arrow.up.arrow.down.circle"
-                            )
+                            ToolbarButtonLabel(text: "Sort", symbol: "arrow.up.arrow.down.circle")
                         }
                     }
                     
                 }
             }
-            
+            .tint(.primary)
         }
     }
 }

@@ -17,6 +17,7 @@
 		AA3C723D2B94043200C24B2B /* ArtistGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C723C2B94043200C24B2B /* ArtistGridView.swift */; };
 		AA3C723F2B940F0E00C24B2B /* ArtistMenuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C723E2B940F0E00C24B2B /* ArtistMenuLabel.swift */; };
 		AA3C72432B941B2000C24B2B /* ToolbarButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72422B941B2000C24B2B /* ToolbarButtonLabel.swift */; };
+		AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72442B94320800C24B2B /* FavoriteToggleLabel.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
 		AA48FED02A60DE3E005BA775 /* Extension-String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA48FECF2A60DE3E005BA775 /* Extension-String.swift */; };
@@ -95,6 +96,7 @@
 		AA3C723C2B94043200C24B2B /* ArtistGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistGridView.swift; sourceTree = "<group>"; };
 		AA3C723E2B940F0E00C24B2B /* ArtistMenuLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMenuLabel.swift; sourceTree = "<group>"; };
 		AA3C72422B941B2000C24B2B /* ToolbarButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonLabel.swift; sourceTree = "<group>"; };
+		AA3C72442B94320800C24B2B /* FavoriteToggleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteToggleLabel.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
 		AA48FECF2A60DE3E005BA775 /* Extension-String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-String.swift"; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 				AA62228F2B2B367C004899A9 /* NoStubsView.swift */,
 				AA7B22912B837D9C0017B3F0 /* StubTile.swift */,
 				AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */,
-				AA3C72422B941B2000C24B2B /* ToolbarButtonLabel.swift */,
+				AA3C72442B94320800C24B2B /* FavoriteToggleLabel.swift */,
 				AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */,
 			);
 			path = StubCollection;
@@ -204,6 +206,7 @@
 				AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */,
 				AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */,
 				AA7B228D2B818E320017B3F0 /* TileBase.swift */,
+				AA3C72422B941B2000C24B2B /* ToolbarButtonLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */,
 				AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */,
+				AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */,
 				AA3C723B2B94007100C24B2B /* ArtistListView.swift in Sources */,
 				AA3C72392B93B75200C24B2B /* ArtistGridItemLabel.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,

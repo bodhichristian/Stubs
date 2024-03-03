@@ -22,13 +22,13 @@ struct ToolbarButtonLabel: View {
         .padding(.leading, 2)
         .padding(.vertical, 7)
         .padding(.horizontal, 15)
-        .frame(height: 36)
+        .frame(width: 132, height: 36)
         .background {
             Capsule()
                 .foregroundStyle(
-                    LinearGradient(colors: [.red, .orange, .yellow], startPoint: .leading, endPoint: .trailing).opacity(0.3)
+                    LinearGradient(colors: [.yellow, .orange, .red], startPoint: .leading, endPoint: .trailing).opacity(0.3)
                 )
-                .shadow(color: .primary.opacity(0.5),radius: 2)
+                .shadow(color: .primary.opacity(0.7),radius: 2)
 
             Capsule()
                 .foregroundStyle(.ultraThinMaterial)

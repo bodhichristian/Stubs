@@ -74,17 +74,13 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem {
                     Button {
                         withAnimation(.snappy){
                             filteringFavorites.toggle()
                         }
                     } label: {
-                        Label(
-                            "Favorites",
-                            systemImage: filteringFavorites
-                            ? "checkmark.seal.fill"
-                            : "checkmark.seal")
+                        FavoriteToggleLabel(filteringFavorites: filteringFavorites)
                     }
                 }
                 
