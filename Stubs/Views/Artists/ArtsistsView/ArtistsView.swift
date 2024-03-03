@@ -24,7 +24,7 @@ struct ArtistsView: View {
     
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
+    
     private let columns = [ // For LazyVGrid
         GridItem(.adaptive(minimum: 120))
     ]
@@ -93,174 +93,122 @@ struct ArtistsView: View {
     }
     
     var body: some View {
-            NavigationStack {
-                ScrollView {
-                    if listView {
-                        LazyVStack {
-                            ForEach(sortedKeys, id: \.self) { key in
-                                Section {
-                                    ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
-                                        NavigationLink {
-                                            ArtistDetailView(artist: artist)
-                                        } label: {
-                                            ZStack {
-                                                ArtistTile(artist: artist, listView: $listView)
-                                                    .frame(height: 60)
-                                                    .matchedGeometryEffect(
-                                                        id: artist.artistImageURL,
-                                                        in: namespace
-                                                    )
-                                                
-                                                HStack {
-                                                    ArtistImageView(imageData: artist.artistImageData)
-                                                        .frame(width: artistImageWidth)
-                                                        .matchedGeometryEffect(
-                                                            id: artist.artistID,
-                                                            in: namespace
-                                                        )
-                                                    
-                                                    Text(artist.artistName ?? "")
-                                                        .font(.headline)
-                                                        .multilineTextAlignment(.center)
-                                                        
-                                                    Spacer()
-
-                                                    StubCountIndicator(artist: artist)
-                                                        .matchedGeometryEffect(
-                                                            id: artist.bannerImageURL,
-                                                            in: namespace
-                                                        )
-                                                        .padding(.leading, 5)
-                                                    
-                                                    
-                                                    
-                                                    Image(systemName: "chevron.right")
-                                                        .foregroundStyle(.secondary.opacity(0.5))
-                                                        .frame(width: 10)
-                                                }
-                                                .padding(.horizontal)
-                                                .padding(.vertical, 10)
-                                            }
-                                            
+        NavigationStack {
+            ScrollView {
+                if listView {
+                    LazyVStack {
+                        ForEach(sortedKeys, id: \.self) { key in
+                            Section {
+                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
+                                    NavigationLink {
+                                        ArtistDetailView(artist: artist)
+                                    } label: {
+                                        ZStack {
+                                            ArtistsViewListRowLabel(
+                                                artist: artist,
+                                                listView: listView,
+                                                namespace: namespace
+                                            )
                                         }
-                                        .buttonStyle(PlainButtonStyle())
                                     }
-                                } header: {
-                                    alphabetHeader(key)
-                                        .matchedGeometryEffect(
-                                            id: key,
-                                            in: namespace
-                                        )
+                                    .buttonStyle(PlainButtonStyle())
                                 }
+                            } header: {
+                                alphabetHeader(key)
+                                    .matchedGeometryEffect(
+                                        id: key,
+                                        in: namespace
+                                    )
                             }
                         }
-                        .padding(.horizontal)
-                        .padding(.bottom, 100)
-                        
-                    } else {
-                        LazyVGrid(columns: columns) {
-                                    ForEach(sortedArtists, id: \.artistID) { artist in
-                                        NavigationLink {
-                                            ArtistDetailView(artist: artist)
-                                        } label: {
-                                            ZStack {
-                                                ArtistTile(artist: artist, listView: $listView)
-                                                    .matchedGeometryEffect(
-                                                        id: artist.artistImageURL,
-                                                        in: namespace
-                                                    )
-                                                
-                                                VStack {
-                                                    ZStack(alignment: .bottomTrailing) {
-                                                        ArtistImageView(imageData: artist.artistImageData)
-                                                            .matchedGeometryEffect(
-                                                                id: artist.artistID,
-                                                                in: namespace
-                                                            )
-                                                        
-                                                        StubCountIndicator(artist: artist)
-                                                            .offset(x: -4)
-                                                            .matchedGeometryEffect(
-                                                                id: artist.bannerImageURL,
-                                                                in: namespace
-                                                            )
-                                                    }
-                                                    .offset(x: 4)
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Text(artist.artistName ?? "")
-                                                        .font(.headline)
-                                                        .multilineTextAlignment(.center)
-                                                        .lineLimit(3)
-                                                    
-                                                    Spacer()
-                                                }
-                                                .padding([.top, .horizontal])
-                                            }
-                                        }
-                                        .frame(minHeight: 150)
-                                        .buttonStyle(PlainButtonStyle())
-                                    }
-                        }
-                        .padding(.horizontal)
-                        .padding(.bottom, 65)
-
                     }
+                    .padding(.horizontal)
+                    .padding(.bottom, 100)
+                    
+                } else {
+                    LazyVGrid(columns: columns) {
+                        ForEach(sortedArtists, id: \.artistID) { artist in
+                            NavigationLink {
+                                ArtistDetailView(artist: artist)
+                            } label: {
+                                ZStack {
+                                    ArtistTile(
+                                        artist: artist,
+                                        listView: listView
+                                    )
+                                    .matchedGeometryEffect(
+                                        id: artist.artistImageURL,
+                                        in: namespace
+                                    )
+                                    
+                                    ArtistsViewGridItemLabel(
+                                        artist: artist,
+                                        namespace: namespace
+                                    )
+                                }
+                            }
+                            .frame(minHeight: 150)
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 65)
+                    
                 }
-                .searchable(
-                    text: $searchText,
-                    prompt: searchPrompt
-                )
-                .navigationTitle("Artists")
-                .toolbar {
-                    ToolbarItem {
-                        Menu {
+            }
+            .searchable(
+                text: $searchText,
+                prompt: searchPrompt
+            )
+            .navigationTitle("Artists")
+            .toolbar {
+                ToolbarItem {
+                    Menu {
+                        Button {
+                            withAnimation(.snappy(duration: 0.5)) {
+                                setImageWidth()
+                                listView.toggle()
+                            }
+                        } label: {
+                            Label(
+                                listView
+                                ? "Switch to Grid View"
+                                : "Switch to List View",
+                                systemImage: listView
+                                ? "square.grid.2x2"
+                                : "list.bullet"
+                            )
+                        }
+                        
+                        Section {
                             Button {
-                                withAnimation(.snappy(duration: 0.5)) {
-                                    setImageWidth()
-                                    listView.toggle()
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameAscending
                                 }
                             } label: {
                                 Label(
-                                    listView
-                                    ? "Switch to Grid View"
-                                    : "Switch to List View",
-                                    systemImage: listView
-                                    ? "square.grid.2x2"
-                                    : "list.bullet"
+                                    "Sort by Name A-Z",
+                                    systemImage: "a.square"
                                 )
                             }
                             
-                            Section {
-                                Button {
-                                    withAnimation(.snappy){
-                                        sortOrder = .byNameAscending
-                                    }
-                                } label: {
-                                    Label(
-                                        "Sort by Name A-Z",
-                                        systemImage: "a.square"
-                                    )
+                            Button {
+                                withAnimation(.snappy){
+                                    sortOrder = .byNameDescending
                                 }
-                                
-                                Button {
-                                    withAnimation(.snappy){
-                                        sortOrder = .byNameDescending
-                                    }
-                                } label: {
-                                    Label(
-                                        "Sort by Name Z-A",
-                                        systemImage: "z.square"
-                                    )
-                                }
+                            } label: {
+                                Label(
+                                    "Sort by Name Z-A",
+                                    systemImage: "z.square"
+                                )
                             }
-                        } label: {
-                            Image(systemName: "line.3.horizontal.circle")
                         }
+                    } label: {
+                        Image(systemName: "line.3.horizontal.circle")
                     }
                 }
             }
+        }
         
     }
     

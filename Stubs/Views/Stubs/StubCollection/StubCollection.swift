@@ -21,7 +21,7 @@ struct StubCollection: View {
     @State private var filteringFavorites = false
     
     private let service = ArtistService()
-    private let addConcertTip = AddConcertTip()
+//    private let addConcertTip = AddConcertTip()
     private let searchPrompt = "Search Artist, Venue, City, or Date"
     
     var body: some View {

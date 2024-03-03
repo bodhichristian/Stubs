@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArtistTile: View {
     let artist: Artist
-    @Binding var listView: Bool
+    let listView: Bool
     
     var body: some View {
         ZStack {
