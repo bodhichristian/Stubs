@@ -108,11 +108,11 @@ struct ArtistsView: View {
                     )
                 }
             }
+            .navigationTitle("Artists")
             .searchable(
                 text: $searchText,
                 prompt: searchPrompt
             )
-            .navigationTitle("Artists")
             .toolbar {
                 ToolbarItem {
                     Menu {
