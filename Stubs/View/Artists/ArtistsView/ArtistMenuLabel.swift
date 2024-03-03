@@ -1,0 +1,86 @@
+//
+//  ArtistMenuLabel.swift
+//  Stubs
+//
+//  Created by christian on 3/2/24.
+//
+
+import SwiftUI
+
+struct ArtistMenuLabel: View {
+    @Binding var artistImageWidth: CGFloat
+    @Binding var listView: Bool
+    @Binding var sortOrder: SortOrder
+    
+    var body: some View {
+        Menu {
+            Button {
+                withAnimation(.snappy(duration: 0.5)) {
+                    listView.toggle()
+                    setImageWidth()
+                    
+                }
+            } label: {
+                Label(
+                    listView
+                    ? "Switch to Grid View"
+                    : "Switch to List View",
+                    systemImage: listView
+                    ? "square.grid.2x2"
+                    : "list.bullet"
+                )
+            }
+            
+            Section {
+                Button {
+                    withAnimation(.snappy){
+                        sortOrder = .byNameAscending
+                    }
+                } label: {
+                    Label(
+                        "Sort by Name A-Z",
+                        systemImage: "a.square"
+                    )
+                }
+                
+                Button {
+                    withAnimation(.snappy){
+                        sortOrder = .byNameDescending
+                    }
+                } label: {
+                    Label(
+                        "Sort by Name Z-A",
+                        systemImage: "z.square"
+                    )
+                }
+            }
+        } label: {
+            ZStack {
+                
+                HStack {
+                    Text("View Options")
+                        .foregroundStyle(.primary)
+                        .font(.subheadline)
+                    Image(systemName: "line.3.horizontal.circle")
+                    .symbolRenderingMode(.hierarchical)
+                }
+                .padding(.vertical, 5)
+                .padding(.horizontal, 15)
+                .background {
+                    Capsule()
+                        .foregroundStyle(.ultraThinMaterial)
+                    
+                }
+                
+            }
+        }
+    }
+    
+    private func setImageWidth() {
+        if artistImageWidth == 44 {
+            artistImageWidth = 75
+        } else {
+            artistImageWidth = 44
+        }
+    }
+}

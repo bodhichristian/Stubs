@@ -21,7 +21,7 @@ struct ArtistsView: View {
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
-        
+    
     private var artists: [Artist] {
         var artists = [Artist]()
         
@@ -104,61 +104,17 @@ struct ArtistsView: View {
             )
             .toolbar {
                 ToolbarItem {
-                    Menu {
-                        Button {
-                            withAnimation(.snappy(duration: 0.5)) {
-                                listView.toggle()
-                                setImageWidth()
-
-                            }
-                        } label: {
-                            Label(
-                                listView
-                                ? "Switch to Grid View"
-                                : "Switch to List View",
-                                systemImage: listView
-                                ? "square.grid.2x2"
-                                : "list.bullet"
-                            )
-                        }
-                        
-                        Section {
-                            Button {
-                                withAnimation(.snappy){
-                                    sortOrder = .byNameAscending
-                                }
-                            } label: {
-                                Label(
-                                    "Sort by Name A-Z",
-                                    systemImage: "a.square"
-                                )
-                            }
-                            
-                            Button {
-                                withAnimation(.snappy){
-                                    sortOrder = .byNameDescending
-                                }
-                            } label: {
-                                Label(
-                                    "Sort by Name Z-A",
-                                    systemImage: "z.square"
-                                )
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "line.3.horizontal.circle")
-                    }
+                    ArtistMenuLabel(
+                        artistImageWidth: $artistImageWidth,
+                        listView: $listView,
+                        sortOrder: $sortOrder
+                    )
                 }
+                
             }
+            .tint(.primary)
         }
         
     }
-    
-    private func setImageWidth() {
-        if artistImageWidth == 44 {
-            artistImageWidth = 75
-        } else {
-            artistImageWidth = 44
-        }
-    }
+
 }
