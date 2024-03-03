@@ -76,43 +76,47 @@ struct ArtistsView: View {
         }
     }
     
+    
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                if listView {
-                    ArtistListView(
-                        groupedArtists: groupedArtists,
-                        sortedKeys: sortedKeys,
-                        listView: listView,
-                        namespace: namespace
-                    )
+        ZStack {
+            
+            NavigationStack {
+                ScrollView {
+                    if listView {
+                        ArtistListView(
+                            groupedArtists: groupedArtists,
+                            sortedKeys: sortedKeys,
+                            listView: listView,
+                            namespace: namespace
+                        )
+                        
+                    } else {
+                        ArtistGridView(
+                            artists: sortedArtists,
+                            listView: listView,
+                            namespace: namespace
+                        )
+                    }
+                }
+                .navigationTitle("Artists")
+                .searchable(
+                    text: $searchText,
+                    prompt: searchPrompt
+                )
+                .toolbar {
+                    ToolbarItem {
+                        ArtistMenuLabel(
+                            artistImageWidth: $artistImageWidth,
+                            listView: $listView,
+                            sortOrder: $sortOrder
+                        )
+                    }
                     
-                } else {
-                    ArtistGridView(
-                        artists: sortedArtists,
-                        listView: listView,
-                        namespace: namespace
-                    )
                 }
+                .tint(.primary)
             }
-            .navigationTitle("Artists")
-            .searchable(
-                text: $searchText,
-                prompt: searchPrompt
-            )
-            .toolbar {
-                ToolbarItem {
-                    ArtistMenuLabel(
-                        artistImageWidth: $artistImageWidth,
-                        listView: $listView,
-                        sortOrder: $sortOrder
-                    )
-                }
-                
-            }
-            .tint(.primary)
         }
         
     }

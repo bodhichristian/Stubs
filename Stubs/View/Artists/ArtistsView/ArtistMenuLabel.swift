@@ -12,6 +12,17 @@ struct ArtistMenuLabel: View {
     @Binding var listView: Bool
     @Binding var sortOrder: SortOrder
     
+    @Environment(\.colorScheme) var colorScheme
+    
+    private var colors: [Color] {
+        switch colorScheme{
+        case .light:
+            return [.white, .white, .white, .black.opacity(0.7)]
+        default:
+            return [.white, .black, .black]
+        }
+    }
+    
     var body: some View {
         Menu {
             Button {
@@ -60,13 +71,23 @@ struct ArtistMenuLabel: View {
                 HStack {
                     Text("View Options")
                         .foregroundStyle(.primary)
-                        .font(.subheadline)
-                    Image(systemName: "line.3.horizontal.circle")
+                      
+                    Image(systemName: listView
+                          ? "line.3.horizontal.circle"
+                          : "circle.grid.3x3.circle"
+                    )
                     .symbolRenderingMode(.hierarchical)
                 }
+                .font(.subheadline)
+                .fontWeight(.medium)
                 .padding(.vertical, 5)
                 .padding(.horizontal, 15)
                 .background {
+                    Capsule()
+                        .foregroundStyle(
+                            LinearGradient(colors: [.black, .white], startPoint: .top, endPoint: .bottom).opacity(0.3)
+                        )
+
                     Capsule()
                         .foregroundStyle(.ultraThinMaterial)
                     
