@@ -165,7 +165,7 @@
 			path = Tips;
 			sourceTree = "<group>";
 		};
-		AA2A038F2B555A69002C1071 /* ArtsistsView */ = {
+		AA2A038F2B555A69002C1071 /* ArtistsView */ = {
 			isa = PBXGroup;
 			children = (
 				AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */,
@@ -174,10 +174,10 @@
 				AA3C723C2B94043200C24B2B /* ArtistGridView.swift */,
 				AA3C72382B93B75200C24B2B /* ArtistGridItemLabel.swift */,
 				AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */,
-				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 				AA7B228F2B819F380017B3F0 /* ArtistTile.swift */,
+				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 			);
-			path = ArtsistsView;
+			path = ArtistsView;
 			sourceTree = "<group>";
 		};
 		AA48FED32A64E51C005BA775 /* StubCollection */ = {
@@ -239,7 +239,7 @@
 		AA5E74F82B3EFF8A005DBD87 /* Artists */ = {
 			isa = PBXGroup;
 			children = (
-				AA2A038F2B555A69002C1071 /* ArtsistsView */,
+				AA2A038F2B555A69002C1071 /* ArtistsView */,
 				AA87B0D52B47AEF60071DB44 /* Album */,
 				AA5E74E42B3DAA43005DBD87 /* ArtistDetailView */,
 			);

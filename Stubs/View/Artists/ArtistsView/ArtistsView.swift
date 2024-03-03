@@ -21,20 +21,7 @@ struct ArtistsView: View {
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
-    
-    private let artistsViewOptionsTip = ArtistsViewOptionsTip()
-    
-
-    
-    
-    private var shadowColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.9)
-        } else {
-            return .secondary
-        }
-    }
-    
+        
     private var artists: [Artist] {
         var artists = [Artist]()
         
@@ -89,6 +76,8 @@ struct ArtistsView: View {
         }
     }
     
+    private let artistsViewOptionsTip = ArtistsViewOptionsTip()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -118,8 +107,9 @@ struct ArtistsView: View {
                     Menu {
                         Button {
                             withAnimation(.snappy(duration: 0.5)) {
-                                setImageWidth()
                                 listView.toggle()
+                                setImageWidth()
+
                             }
                         } label: {
                             Label(

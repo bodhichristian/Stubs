@@ -8,5 +8,10 @@
 import Foundation
 
 enum SortOrder {
-    case byNameAscending, byNameDescending, byStubCountAscending, byStubCountDescending, byCityAscending, byCityDescending
+    case byNameAscending, 
+         byNameDescending,
+         byStubCountAscending,
+         byStubCountDescending,
+         byCityAscending,
+         byCityDescending
 }
