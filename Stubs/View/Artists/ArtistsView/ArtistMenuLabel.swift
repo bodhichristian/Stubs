@@ -14,12 +14,11 @@ struct ArtistMenuLabel: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    private var colors: [Color] {
-        switch colorScheme{
-        case .light:
-            return [.white, .white, .white, .black.opacity(0.7)]
-        default:
-            return [.white, .black, .black]
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
         }
     }
     
@@ -71,6 +70,8 @@ struct ArtistMenuLabel: View {
                 HStack {
                     Text("View Options")
                       
+                    Spacer()
+                    
                     Image(systemName: listView
                           ? "line.3.horizontal.circle"
                           : "circle.grid.3x3.circle"
@@ -80,7 +81,7 @@ struct ArtistMenuLabel: View {
                 .font(.caption)
                 .padding(.vertical, 5)
                 .padding(.horizontal, 15)
-                .frame(height: 36)
+                .frame(width: 132, height: 36)
                 .background {
                     Capsule()
                         .foregroundStyle(
@@ -90,7 +91,8 @@ struct ArtistMenuLabel: View {
 
                     Capsule()
                         .foregroundStyle(.ultraThinMaterial)
-                    
+                        .shadow(color: shadowColor, radius: 2)
+
                 }
                 
             }

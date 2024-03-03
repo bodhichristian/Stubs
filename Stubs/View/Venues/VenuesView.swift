@@ -201,7 +201,7 @@ struct VenuesView: View {
                             
                             
                         } label: {
-                            ToolbarButtonLabel(text: "Sort", symbol: "arrow.up.arrow.down.circle")
+                            ToolbarButtonLabel(text: "Sort", symbol: "arrow.up.arrow.down.circle", colors: [.green, .brown, .blue])
                         }
                     }
                     

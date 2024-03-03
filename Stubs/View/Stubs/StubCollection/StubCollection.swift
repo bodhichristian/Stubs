@@ -89,7 +89,7 @@ struct StubCollection: View {
                     Button {
                         isAddingConcert = true
                     } label: {
-                        ToolbarButtonLabel(text: "Add Concert", symbol: "plus.circle")
+                        ToolbarButtonLabel(text: "Add Concert", symbol: "plus.circle", colors: [.yellow, .orange, .red])
                     }
                     //.popoverTip(addConcertTip, arrowEdge: .top)
 

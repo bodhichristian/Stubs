@@ -10,15 +10,36 @@ import SwiftUI
 struct ToolbarButtonLabel: View {
     let text: String
     let symbol: String
+    let colors: [Color]
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    private var tileBackgroundColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.2)
+        } else {
+            return Color(white: 0.95)
+        }
+    }
+    
+    private var shadowColor: Color {
+        if colorScheme == .dark {
+            return Color(white: 0.9)
+        } else {
+            return .secondary
+        }
+    }
     
     var body: some View {
         HStack {
             Text(text)
-
+            Spacer()
+            
             Image(systemName: symbol)
                 .symbolRenderingMode(.hierarchical)
         }
         .font(.caption)
+        .fontWeight(.medium)
         .padding(.leading, 2)
         .padding(.vertical, 7)
         .padding(.horizontal, 15)
@@ -26,13 +47,17 @@ struct ToolbarButtonLabel: View {
         .background {
             Capsule()
                 .foregroundStyle(
-                    LinearGradient(colors: [.yellow, .orange, .red], startPoint: .leading, endPoint: .trailing).opacity(0.3)
+                    LinearGradient(
+                        colors: colors,
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    ).opacity(0.3)
                 )
-                .shadow(color: .primary.opacity(0.7),radius: 2)
 
             Capsule()
                 .foregroundStyle(.ultraThinMaterial)
-            
+                .shadow(color: shadowColor, radius: 2)
+
         }
     }
 }
