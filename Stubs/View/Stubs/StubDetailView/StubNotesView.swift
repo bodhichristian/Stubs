@@ -97,7 +97,7 @@ struct StubNotesView: View {
             
 
         }
-        .frame(maxWidth: horizontalSizeClass == .compact ? .infinity : 600)
+        .frame(maxWidth: .infinity)
         .padding(.top, 5)
     }
 }

@@ -13,7 +13,7 @@ import SwiftUI
 // A View for displaying the ticket stub and relevant data
 struct StubDetailView: View {
     @Environment(\.modelContext) var modelContext
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.horizontalSizeClass) var sizeClass
     @Query var concerts: [Concert]
     
     @State var concert: Concert
@@ -26,7 +26,7 @@ struct StubDetailView: View {
         return concerts.filter({ $0.artistName == concert.artistName })
     }
     private var spacing: CGFloat {
-        if horizontalSizeClass == .compact {
+        if sizeClass == .compact {
             return 20
         } else {
             return 0
@@ -34,6 +34,8 @@ struct StubDetailView: View {
     }
     
     var body: some View {
+        
+        
         VStack{
             StubView(concert: concert)
                 .onChange(of: concert) { _, _ in
@@ -54,6 +56,7 @@ struct StubDetailView: View {
             }
         }
         
+        
         .navigationTitle("\(concert.artistName) | \(concert.venue)" )
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
@@ -69,9 +72,9 @@ struct StubDetailView: View {
                 title: Text("Delete Stub"),
                 message: Text("Are you sure you want to delete this stub?"),
                 primaryButton: .destructive(Text("Delete")) {
-      
+                    
                     // TODO: Write logic for checking if this is the only stub for a particular artist. If so, delete the artist from the model context as to prevent unnecessary storage of irrelevant data.
-
+                    
                     modelContext.delete(concert)
                 },
                 secondaryButton: .cancel()

@@ -83,12 +83,14 @@ struct StubEditorStubPreview: View {
                 .padding(30)
                 
             }
+            
             // Main ZStack
             .frame(width: geo.size.width, height: geo.size.width * 0.60)
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )
-            
         }
         // GeometryReader Frame
         .frame(height: 320)
+        .frame(maxWidth: 800, maxHeight: 400)
+
     }
 }

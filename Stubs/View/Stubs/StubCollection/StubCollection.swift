@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import TipKit
 
 struct StubCollection: View {
     @Environment(\.colorScheme) var colorScheme
@@ -22,10 +21,10 @@ struct StubCollection: View {
     
     private let service = ArtistService()
 //    private let addConcertTip = AddConcertTip()
-    private let searchPrompt = "Search Artist, Venue, City, or Date"
+    private let searchPrompt = "Search Concerts"
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if concerts.isEmpty {
                     NoStubsView()
@@ -64,7 +63,7 @@ struct StubCollection: View {
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal)
                         .padding(.bottom, 65)
-                        .searchable(text: $searchText, prompt: searchPrompt) // Search bar
+                        .searchable(text: $searchText, prompt: searchPrompt)
                         
                     }
                 }
@@ -84,15 +83,16 @@ struct StubCollection: View {
                     }
                 }
                 
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         isAddingConcert = true
                     } label: {
-                        ToolbarButtonLabel(text: "Add Concert", symbol: "plus.circle", colors: [.yellow, .orange, .red])
+                        ToolbarButtonLabel(
+                            text: "Add Concert",
+                            symbol: "plus.circle",
+                            colors: [.yellow, .orange, .red]
+                        )
                     }
-                    //.popoverTip(addConcertTip, arrowEdge: .top)
-
                 }
             }
             .tint(.primary)

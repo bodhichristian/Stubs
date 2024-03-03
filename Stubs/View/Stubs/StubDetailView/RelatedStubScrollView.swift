@@ -35,6 +35,6 @@ struct RelatedStubScrollView: View {
                 .padding(.leading, 2)
             }
         }
-        .frame(maxWidth: horizontalSizeClass == .compact ? .infinity : 600)
+        .frame(maxWidth: .infinity)
     }
 }
