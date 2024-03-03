@@ -70,7 +70,6 @@ struct ArtistMenuLabel: View {
                 
                 HStack {
                     Text("View Options")
-                        .foregroundStyle(.primary)
                       
                     Image(systemName: listView
                           ? "line.3.horizontal.circle"
@@ -78,10 +77,10 @@ struct ArtistMenuLabel: View {
                     )
                     .symbolRenderingMode(.hierarchical)
                 }
-                .font(.subheadline)
-                .fontWeight(.medium)
+                .font(.caption)
                 .padding(.vertical, 5)
                 .padding(.horizontal, 15)
+                .frame(height: 36)
                 .background {
                     Capsule()
                         .foregroundStyle(

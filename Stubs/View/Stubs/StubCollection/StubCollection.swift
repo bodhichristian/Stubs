@@ -74,13 +74,7 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button("Demo") {
-//                        addSampleConcert()
-//                    }
-//                }
-//                
-                ToolbarItem {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         withAnimation(.snappy){
                             filteringFavorites.toggle()
@@ -99,13 +93,13 @@ struct StubCollection: View {
                     Button {
                         isAddingConcert = true
                     } label: {
-                        Image(systemName: "plus")
+                        ToolbarButtonLabel(text: "Add Concert", symbol: "plus.circle")
                     }
                     //.popoverTip(addConcertTip, arrowEdge: .top)
 
                 }
             }
-            
+            .tint(.primary)
         }
         
     }
