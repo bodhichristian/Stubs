@@ -26,8 +26,9 @@ struct ToolbarButtonLabel: View {
         .background {
             Capsule()
                 .foregroundStyle(
-                    LinearGradient(colors: [.black, .white], startPoint: .top, endPoint: .bottom).opacity(0.3)
+                    LinearGradient(colors: [.red, .orange, .yellow], startPoint: .leading, endPoint: .trailing).opacity(0.3)
                 )
+                .shadow(color: .primary.opacity(0.5),radius: 2)
 
             Capsule()
                 .foregroundStyle(.ultraThinMaterial)

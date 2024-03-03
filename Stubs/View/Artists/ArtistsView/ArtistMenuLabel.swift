@@ -84,8 +84,9 @@ struct ArtistMenuLabel: View {
                 .background {
                     Capsule()
                         .foregroundStyle(
-                            LinearGradient(colors: [.black, .white], startPoint: .top, endPoint: .bottom).opacity(0.3)
+                            LinearGradient(colors: [.purple, .yellow, .green], startPoint: .leading, endPoint: .trailing).opacity(0.3)
                         )
+                        .shadow(color: .primary.opacity(0.5),radius: 2)
 
                     Capsule()
                         .foregroundStyle(.ultraThinMaterial)
