@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtistsViewListRowLabel: View {
+struct ArtistListRowLabel: View {
     let artist: Artist
     let listView: Bool
     let namespace: Namespace.ID

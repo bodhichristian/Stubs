@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtistsViewGridItemLabel: View {
+struct ArtistGridItemLabel: View {
     let artist: Artist
     let namespace: Namespace.ID
     

@@ -23,11 +23,8 @@ struct ArtistsView: View {
     @State private var sortOrder: SortOrder = .byNameAscending
     
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
-    private let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
-    private let columns = [ // For LazyVGrid
-        GridItem(.adaptive(minimum: 120))
-    ]
+
     
     
     private var shadowColor: Color {
@@ -96,64 +93,19 @@ struct ArtistsView: View {
         NavigationStack {
             ScrollView {
                 if listView {
-                    LazyVStack {
-                        ForEach(sortedKeys, id: \.self) { key in
-                            Section {
-                                ForEach(groupedArtists[key] ?? [], id: \.artistID) { artist in
-                                    NavigationLink {
-                                        ArtistDetailView(artist: artist)
-                                    } label: {
-                                        ZStack {
-                                            ArtistsViewListRowLabel(
-                                                artist: artist,
-                                                listView: listView,
-                                                namespace: namespace
-                                            )
-                                        }
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                }
-                            } header: {
-                                alphabetHeader(key)
-                                    .matchedGeometryEffect(
-                                        id: key,
-                                        in: namespace
-                                    )
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 100)
+                    ArtistListView(
+                        groupedArtists: groupedArtists,
+                        sortedKeys: sortedKeys,
+                        listView: listView,
+                        namespace: namespace
+                    )
                     
                 } else {
-                    LazyVGrid(columns: columns) {
-                        ForEach(sortedArtists, id: \.artistID) { artist in
-                            NavigationLink {
-                                ArtistDetailView(artist: artist)
-                            } label: {
-                                ZStack {
-                                    ArtistTile(
-                                        artist: artist,
-                                        listView: listView
-                                    )
-                                    .matchedGeometryEffect(
-                                        id: artist.artistImageURL,
-                                        in: namespace
-                                    )
-                                    
-                                    ArtistsViewGridItemLabel(
-                                        artist: artist,
-                                        namespace: namespace
-                                    )
-                                }
-                            }
-                            .frame(minHeight: 150)
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 65)
-                    
+                    ArtistGridView(
+                        artists: sortedArtists,
+                        listView: listView,
+                        namespace: namespace
+                    )
                 }
             }
             .searchable(
@@ -210,21 +162,6 @@ struct ArtistsView: View {
             }
         }
         
-    }
-    
-    private func alphabetHeader(_ letter: String) -> some View {
-        HStack {
-            Text(digits.contains(letter) ? "#" : letter)
-                .textCase(nil)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.secondary)
-            
-            VStack {
-                Divider()
-            }
-        }
-        .padding(.vertical, 15)
     }
     
     private func setImageWidth() {
