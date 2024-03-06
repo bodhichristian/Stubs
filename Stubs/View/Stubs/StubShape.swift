@@ -60,6 +60,9 @@ struct StubShape: Shape {
                 control: CGPoint(x: rect.maxX * 0.95, y: rect.maxY * 0.2))
             
             path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+            
+            // MARK: Top Edge
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
         }
     }
 }

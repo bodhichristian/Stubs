@@ -56,6 +56,16 @@
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
+		AAC34E922B979FB400BBA44A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC34E912B979FB400BBA44A /* WidgetKit.framework */; };
+		AAC34E942B979FB400BBA44A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC34E932B979FB400BBA44A /* SwiftUI.framework */; };
+		AAC34E972B979FB400BBA44A /* StubCollectionWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC34E962B979FB400BBA44A /* StubCollectionWidgetBundle.swift */; };
+		AAC34E992B979FB400BBA44A /* StubCollectionWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC34E982B979FB400BBA44A /* StubCollectionWidgetLiveActivity.swift */; };
+		AAC34E9B2B979FB400BBA44A /* StubCollectionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC34E9A2B979FB400BBA44A /* StubCollectionWidget.swift */; };
+		AAC34E9D2B979FB400BBA44A /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC34E9C2B979FB400BBA44A /* AppIntent.swift */; };
+		AAC34E9F2B979FB500BBA44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC34E9E2B979FB500BBA44A /* Assets.xcassets */; };
+		AAC34EA32B979FB500BBA44A /* StubCollectionWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AAC34E8F2B979FB400BBA44A /* StubCollectionWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AAC34EA82B97A25C00BBA44A /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
+		AAC34EA92B97A33A00BBA44A /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
 		AAC4D4D02B2E77F80098D28D /* StubEditorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
@@ -72,6 +82,16 @@
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AAC34EA12B979FB500BBA44A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAC34E8E2B979FB400BBA44A;
+			remoteInfo = StubCollectionWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		AA3C72082B92C7EC00C24B2B /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -81,6 +101,17 @@
 			files = (
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC34EA42B979FB500BBA44A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AAC34EA32B979FB500BBA44A /* StubCollectionWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -136,6 +167,15 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
+		AAC34E8F2B979FB400BBA44A /* StubCollectionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StubCollectionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC34E912B979FB400BBA44A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AAC34E932B979FB400BBA44A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AAC34E962B979FB400BBA44A /* StubCollectionWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionWidgetBundle.swift; sourceTree = "<group>"; };
+		AAC34E982B979FB400BBA44A /* StubCollectionWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		AAC34E9A2B979FB400BBA44A /* StubCollectionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionWidget.swift; sourceTree = "<group>"; };
+		AAC34E9C2B979FB400BBA44A /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		AAC34E9E2B979FB500BBA44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAC34EA02B979FB500BBA44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorDetails.swift; sourceTree = "<group>"; };
 		AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLineBoundary.swift; sourceTree = "<group>"; };
@@ -157,6 +197,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC34E8C2B979FB400BBA44A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC34E942B979FB400BBA44A /* SwiftUI.framework in Frameworks */,
+				AAC34E922B979FB400BBA44A /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				AA8A746A2A32BDF3003E9B41 /* Stubs */,
+				AAC34E952B979FB400BBA44A /* StubCollectionWidget */,
+				AAC34E902B979FB400BBA44A /* Frameworks */,
 				AA8A74692A32BDF3003E9B41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -277,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8A74682A32BDF3003E9B41 /* Stubs.app */,
+				AAC34E8F2B979FB400BBA44A /* StubCollectionWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,6 +392,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AAC34E902B979FB400BBA44A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAC34E912B979FB400BBA44A /* WidgetKit.framework */,
+				AAC34E932B979FB400BBA44A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAC34E952B979FB400BBA44A /* StubCollectionWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AAC34E962B979FB400BBA44A /* StubCollectionWidgetBundle.swift */,
+				AAC34E982B979FB400BBA44A /* StubCollectionWidgetLiveActivity.swift */,
+				AAC34E9A2B979FB400BBA44A /* StubCollectionWidget.swift */,
+				AAC34E9C2B979FB400BBA44A /* AppIntent.swift */,
+				AAC34E9E2B979FB500BBA44A /* Assets.xcassets */,
+				AAC34EA02B979FB500BBA44A /* Info.plist */,
+			);
+			path = StubCollectionWidget;
+			sourceTree = "<group>";
+		};
 		AAC4D4D12B2E79CB0098D28D /* StubEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,10 +470,12 @@
 				AA8A74652A32BDF3003E9B41 /* Frameworks */,
 				AA8A74662A32BDF3003E9B41 /* Resources */,
 				AA3C72082B92C7EC00C24B2B /* Embed Watch Content */,
+				AAC34EA42B979FB500BBA44A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AAC34EA22B979FB500BBA44A /* PBXTargetDependency */,
 			);
 			name = Stubs;
 			packageProductDependencies = (
@@ -407,6 +483,23 @@
 			productName = Stubs;
 			productReference = AA8A74682A32BDF3003E9B41 /* Stubs.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AAC34E8E2B979FB400BBA44A /* StubCollectionWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAC34EA72B979FB500BBA44A /* Build configuration list for PBXNativeTarget "StubCollectionWidgetExtension" */;
+			buildPhases = (
+				AAC34E8B2B979FB400BBA44A /* Sources */,
+				AAC34E8C2B979FB400BBA44A /* Frameworks */,
+				AAC34E8D2B979FB400BBA44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StubCollectionWidgetExtension;
+			productName = StubCollectionWidgetExtension;
+			productReference = AAC34E8F2B979FB400BBA44A /* StubCollectionWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -420,6 +513,9 @@
 				TargetAttributes = {
 					AA8A74672A32BDF3003E9B41 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					AAC34E8E2B979FB400BBA44A = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -439,6 +535,7 @@
 			projectRoot = "";
 			targets = (
 				AA8A74672A32BDF3003E9B41 /* Stubs */,
+				AAC34E8E2B979FB400BBA44A /* StubCollectionWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -450,6 +547,14 @@
 			files = (
 				AA8A74732A32BDF4003E9B41 /* Preview Assets.xcassets in Resources */,
 				AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAC34E8D2B979FB400BBA44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC34E9F2B979FB500BBA44A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +629,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAC34E8B2B979FB400BBA44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC34EA82B97A25C00BBA44A /* StubShape.swift in Sources */,
+				AAC34EA92B97A33A00BBA44A /* VerticalLineBoundary.swift in Sources */,
+				AAC34E992B979FB400BBA44A /* StubCollectionWidgetLiveActivity.swift in Sources */,
+				AAC34E9D2B979FB400BBA44A /* AppIntent.swift in Sources */,
+				AAC34E9B2B979FB400BBA44A /* StubCollectionWidget.swift in Sources */,
+				AAC34E972B979FB400BBA44A /* StubCollectionWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAC34EA22B979FB500BBA44A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAC34E8E2B979FB400BBA44A /* StubCollectionWidgetExtension */;
+			targetProxy = AAC34EA12B979FB500BBA44A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AA8A74762A32BDF4003E9B41 /* Debug */ = {
@@ -706,6 +832,62 @@
 			};
 			name = Release;
 		};
+		AAC34EA52B979FB500BBA44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StubCollectionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StubCollectionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs.StubCollectionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAC34EA62B979FB500BBA44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StubCollectionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StubCollectionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs.StubCollectionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -723,6 +905,15 @@
 			buildConfigurations = (
 				AA8A74792A32BDF4003E9B41 /* Debug */,
 				AA8A747A2A32BDF4003E9B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAC34EA72B979FB500BBA44A /* Build configuration list for PBXNativeTarget "StubCollectionWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAC34EA52B979FB500BBA44A /* Debug */,
+				AAC34EA62B979FB500BBA44A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
