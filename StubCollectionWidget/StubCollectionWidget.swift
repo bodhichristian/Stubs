@@ -38,36 +38,45 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct StubCollectionWidgetEntryView : View {
-    
     var entry: Provider.Entry
     
     var body: some View {
-        ZStack {
-            StubShape()
-                .foregroundStyle(.black.gradient)
-            StubShape()
-                .foregroundStyle(.ultraThinMaterial)
-            StubShape()
+        GeometryReader { geo in
+            ZStack {
+                StubShape()
+                    .foregroundStyle(.black.gradient.opacity(0.8))
+                    
+                StubShape()
+                    .foregroundStyle(.ultraThinMaterial)
+
+     
+                StubShape()
+                    .stroke(style: StrokeStyle(lineWidth: 1))
+                    .foregroundStyle(.white.gradient)
+                HStack {
+                    VerticalLineBoundary()
+                    Spacer()
+                    VerticalLineBoundary()
+                }
+                .frame(maxWidth: .infinity, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .foregroundStyle(.white.gradient)
- 
-            HStack {
-                VerticalLineBoundary()
-                Spacer()
-                VerticalLineBoundary()
+                .padding(.horizontal, 10)
+                
+                VStack {
+                    Text("34")
+                        .font(.system(size: 72))
+                        .foregroundStyle(.white)
+                        .fontWeight(.heavy)
+                        .fontDesign(.monospaced)
+                    
+                    Text("Concerts")
+                }
+                
             }
-            .foregroundStyle(.black)
-            .padding(.horizontal, 10)
             
-            Text("34")
-                .font(.system(size: 72))
-                .foregroundStyle(.black.gradient)
-                .fontWeight(.heavy)
-                .fontDesign(.monospaced)
-            
+            .padding(.vertical)
         }
-        
-        .padding(.vertical)
-        
+
     }
 }
 

@@ -10,7 +10,6 @@ import SwiftData
 
 @Model
 class Artist: Codable, Hashable {
-//    @Relationship(deleteRule: .nullify, inverse: Concert.artist)
     enum CodingKeys: String, CodingKey {
         case artistID = "idArtist"
         case artistName = "strArtist"
@@ -73,7 +72,7 @@ class Artist: Codable, Hashable {
         geo = try container.decode(String.self, forKey: .geo)
         artistImageURL = try container.decode(String.self, forKey: .artistImageURL)
         bannerImageURL = try container.decode(String.self, forKey: .bannerImageURL)
-
+        
     }
     
     func encode(to encoder: Encoder) throws {
@@ -102,7 +101,7 @@ class Artist: Codable, Hashable {
 struct ArtistSearchResponse: Codable {
     let artists: [Artist]
 }
- 
+
 
 // MARK: - Sample JSON Response
 /*
