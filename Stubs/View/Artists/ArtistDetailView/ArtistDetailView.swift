@@ -16,17 +16,11 @@ struct ArtistDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.horizontalSizeClass) var sizeClass
     @Namespace var namespace
-    @Query var concerts: [Concert]
     
     @State private var artistImageWidth: CGFloat = 120
     @State private var materialOpacity: CGFloat = 0
     @State private var showingFullBio = false
     
-    private var filteredConcerts: [Concert] {
-        return concerts.filter {
-            $0.artistName == artist.artistName
-        }
-    }
     
     private var artistImage: UIImage {
         if let data = artist.artistImageData {
@@ -90,7 +84,10 @@ struct ArtistDetailView: View {
                         }
                         AlbumScrollView(artistID: artist.artistID ?? "")
                             .padding(.top, 4)
-                        ArtistDetailVenuesMap(concerts: filteredConcerts)
+                        
+                        if let concerts = artist.concerts{
+                            ArtistDetailVenuesMap(concerts: concerts)
+                        }
                         
                         
                     }
