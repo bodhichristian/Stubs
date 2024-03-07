@@ -171,6 +171,7 @@ extension StubEditor {
                     venueLongitude: concertTemplate.venueLongitude
                 )
                 
+                newConcert.artist = fetchedArtist
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
                 

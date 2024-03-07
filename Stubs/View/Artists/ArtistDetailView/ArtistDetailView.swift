@@ -36,14 +36,6 @@ struct ArtistDetailView: View {
         }
     }
     
-//    private var bioFontColor: Color {
-//        if !showingFullBio && colorScheme == .light {
-//            return .white
-//        } else {
-//            return .primary
-//        }
-//    }
-    
     var body: some View {
         GeometryReader { geo in
             ArtistDetailBannerView(
@@ -75,6 +67,7 @@ struct ArtistDetailView: View {
                         Group {
                             if showingFullBio {
                                 Text(artist.bio ?? "")
+                                    .fontWeight(.medium)
                             } else {
                                 Text(artist.bio ?? "")
                                     .lineLimit(showingFullBio ? .none : 2)
