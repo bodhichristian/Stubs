@@ -14,27 +14,13 @@ struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Namespace var namespace
-    @Query var concerts: [Concert]
+    @Query var artists: [Artist]
     
     @State private var artistImageWidth: CGFloat = 44
     @State private var listView = true
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
-    
-    private var artists: [Artist] {
-        var artists = [Artist]()
-        
-        for concert in concerts {
-            artists.append(concert.artist ?? Artist())
-        }
-        
-        let uniqueArtists = Set(artists)
-        let sortedArists = Array(uniqueArtists).sorted {
-            $0.artistName ?? "" < $1.artistName ?? ""
-        }
-        return sortedArists
-    }
     
     private var filteredArtists: [Artist] {
         if searchText.isEmpty {

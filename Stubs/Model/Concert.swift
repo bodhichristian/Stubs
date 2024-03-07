@@ -24,7 +24,6 @@ final class Concert {
     var accentColor: String
     var notes: String
     var isFavorite: Bool
-    
     var venueLatitude: Double
     var venueLongitude: Double
     

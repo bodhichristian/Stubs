@@ -75,6 +75,14 @@ struct StubCollection: View {
             .toolbar {
                 ToolbarItem {
                     Button {
+                        addSampleConcert()
+                    } label: {
+                        Text("Demo")
+                    }
+                }
+                
+                ToolbarItem {
+                    Button {
                         withAnimation(.snappy){
                             filteringFavorites.toggle()
                         }
