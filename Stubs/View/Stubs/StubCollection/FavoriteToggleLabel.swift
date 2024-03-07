@@ -22,10 +22,12 @@ struct FavoriteToggleLabel: View {
     
     var body: some View {
         ZStack {
-            Circle()
-                .foregroundStyle(
-                    LinearGradient(colors: [.orange, .yellow], startPoint: .leading, endPoint: .trailing).opacity(0.3)
-                )
+            if filteringFavorites {
+                Circle()
+                    .foregroundStyle(
+                        LinearGradient(colors: [.orange, .yellow], startPoint: .leading, endPoint: .trailing).opacity(0.3)
+                    )
+            }
                 
 
             Circle()
@@ -37,6 +39,7 @@ struct FavoriteToggleLabel: View {
                 ? "checkmark.seal.fill"
                 : "checkmark.seal"
             )
+            
             .font(.caption)
             .foregroundStyle(
                 filteringFavorites 

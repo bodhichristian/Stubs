@@ -84,10 +84,10 @@ struct ArtistMenuLabel: View {
                 .padding(.horizontal, 15)
                 .frame(width: 132, height: 36)
                 .background {
-                    Capsule()
-                        .foregroundStyle(
-                            LinearGradient(colors: [.purple, .yellow, .green], startPoint: .leading, endPoint: .trailing).opacity(0.3)
-                        )
+//                    Capsule()
+//                        .foregroundStyle(
+//                            LinearGradient(colors: [.purple, .yellow, .green], startPoint: .leading, endPoint: .trailing).opacity(0.3)
+//                        )
 
                     Capsule()
                         .foregroundStyle(.ultraThinMaterial)

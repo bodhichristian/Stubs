@@ -94,10 +94,6 @@ struct VenuesView: View {
                             prompt: "Search Venues"
                         )
                         .padding(.bottom, 100)
-                        
-                        
-                        
-                        
                     }
                     .ignoresSafeArea(edges: .bottom)
                     
@@ -128,8 +124,8 @@ struct VenuesView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 40)
-                                        .fontWeight(.light)
-                                        .symbolRenderingMode(.multicolor)
+                                        .fontDesign(.monospaced)
+                                        .fontWeight(.bold)
                                 }
                                 .font(.headline)
                                 .foregroundStyle(.secondary.opacity(0.7))

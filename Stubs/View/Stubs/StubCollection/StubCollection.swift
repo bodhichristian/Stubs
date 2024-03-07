@@ -73,11 +73,11 @@ struct StubCollection: View {
                 StubEditor()
             }
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         addSampleConcert()
                     } label: {
-                        Text("Demo")
+                        ToolbarButtonLabel(text: "Demo", symbol: "sparkles.rectangle.stack", colors: [.blue, .purple])
                     }
                 }
                 

@@ -36,7 +36,7 @@ struct ToolbarButtonLabel: View {
             Spacer()
             
             Image(systemName: symbol)
-                .symbolRenderingMode(.hierarchical)
+                .symbolRenderingMode(.multicolor)
         }
         .font(.caption)
         .fontWeight(.medium)
@@ -45,14 +45,14 @@ struct ToolbarButtonLabel: View {
         .padding(.horizontal, 15)
         .frame(width: 132, height: 36)
         .background {
-            Capsule()
-                .foregroundStyle(
-                    LinearGradient(
-                        colors: colors,
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    ).opacity(0.3)
-                )
+//            Capsule()
+//                .foregroundStyle(
+//                    LinearGradient(
+//                        colors: colors,
+//                        startPoint: .leading,
+//                        endPoint: .trailing
+//                    ).opacity(0.3)
+//                )
 
             Capsule()
                 .foregroundStyle(.ultraThinMaterial)
