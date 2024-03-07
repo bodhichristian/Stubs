@@ -45,20 +45,17 @@ struct StubCollectionWidgetEntryView : View {
             ZStack {
                 StubShape()
                     .foregroundStyle(.black.gradient.opacity(0.8))
-                    
                 StubShape()
                     .foregroundStyle(.ultraThinMaterial)
-
-     
                 StubShape()
                     .stroke(style: StrokeStyle(lineWidth: 1))
                     .foregroundStyle(.white.gradient)
+                
                 HStack {
                     VerticalLineBoundary()
                     Spacer()
                     VerticalLineBoundary()
                 }
-                .frame(maxWidth: .infinity, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .foregroundStyle(.white.gradient)
                 .padding(.horizontal, 10)
                 
@@ -68,15 +65,19 @@ struct StubCollectionWidgetEntryView : View {
                         .foregroundStyle(.white)
                         .fontWeight(.heavy)
                         .fontDesign(.monospaced)
-                    
-                    Text("Concerts")
                 }
-                
             }
-            
-            .padding(.vertical)
+            .position(
+                CGPoint(
+                    x: geo.size.width / 2,
+                    y: geo.size.height / 2
+                )
+            )
+            .frame(
+                maxWidth: 200,
+                maxHeight: 100
+            )
         }
-
     }
 }
 
