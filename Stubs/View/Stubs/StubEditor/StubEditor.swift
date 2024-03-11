@@ -12,7 +12,7 @@ import SwiftData
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
-    
+    @Query var artists: [Artist]
     // MARK: Local concert for editing
     @State private var concertTemplate = Concert(
         artistName: "",
@@ -25,13 +25,14 @@ struct StubEditor: View {
         venueLatitude: 0.0,
         venueLongitude: 0.0
     )
-    
-    
+        
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
     @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
     @State private var fetchedArtist: Artist?
+    
+    let addConcertTip: AddConcertTip
     
     var body: some View {
         NavigationStack {
@@ -174,6 +175,8 @@ extension StubEditor {
                 newConcert.artist = fetchedArtist
                 // Insert updated concert details into model context
                 modelContext.insert(newConcert)
+                // Invalidate addConcertTip
+                addConcertTip.invalidate(reason: .actionPerformed)
                 
                 dismiss()
                 

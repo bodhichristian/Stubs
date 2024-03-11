@@ -37,9 +37,10 @@ struct StubEditorStubPreview: View {
                 Image(systemName: concert.iconName)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 200)
-                    .foregroundStyle(.thinMaterial)
-                    .opacity(0.6)
+                    .frame(height: 180)
+                    .foregroundStyle(.ultraThinMaterial)
+                    .opacity(0.5)
+                
                 // MARK: Ticket Stub Elements
                 HStack {
                     VerticalLineBoundary() // Left Edge
@@ -80,7 +81,7 @@ struct StubEditorStubPreview: View {
                     
                     VerticalLineBoundary() // Right Edge
                 }
-                .padding(30)
+                .padding(.horizontal)
                 
             }
             
@@ -89,7 +90,7 @@ struct StubEditorStubPreview: View {
             .position(x: geo.size.width / 2, y: geo.size.height / 2 )
         }
         // GeometryReader Frame
-        .frame(height: 320)
+        .frame(height: 250)
         .frame(maxWidth: 800, maxHeight: 400)
 
     }

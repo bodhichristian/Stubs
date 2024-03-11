@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ToolbarButtonLabel: View {
     let text: String

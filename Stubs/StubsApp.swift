@@ -8,6 +8,7 @@
 import Observation
 import SwiftUI
 import SwiftData
+import TipKit
 
 @main
 struct StubsApp: App {
@@ -17,6 +18,10 @@ struct StubsApp: App {
             ContentView()
         }
         .modelContainer(for: Concert.self)
+    }
+    
+    init() {
+        try? Tips.configure()
     }
 }
 
