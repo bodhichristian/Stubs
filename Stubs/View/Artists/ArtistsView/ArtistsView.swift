@@ -9,6 +9,7 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -21,6 +22,8 @@ struct ArtistsView: View {
     @State private var searchPrompt = "Search Artists"
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
+    
+    let viewOptionsTip = ArtistsViewOptionsTip()
     
     private var filteredArtists: [Artist] {
         if searchText.isEmpty {
@@ -98,7 +101,9 @@ struct ArtistsView: View {
                             listView: $listView,
                             sortOrder: $sortOrder
                         )
+                        .popoverTip(viewOptionsTip, arrowEdge: .top)
                     }
+                    
                     
                 }
                 .tint(.primary)

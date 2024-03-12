@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
-		AA19591C2B753CA600266267 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* Tips.swift */; };
+		AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* AddConcertTip.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */; };
@@ -73,6 +73,8 @@
 		AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACBD17D2B5B09710093EAB7 /* ProfileView.swift */; };
 		AAD8B0B12B66027D00693D14 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8B0B02B66027D00693D14 /* VenuesView.swift */; };
 		AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */; };
+		AADBF81F2B9F7640002F36D6 /* ArtistViewOptionsTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADBF81E2B9F7640002F36D6 /* ArtistViewOptionsTip.swift */; };
+		AADBF8212B9F767A002F36D6 /* FavoriteConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADBF8202B9F767A002F36D6 /* FavoriteConcertTip.swift */; };
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
@@ -118,7 +120,7 @@
 
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
-		AA19591B2B753CA600266267 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
+		AA19591B2B753CA600266267 /* AddConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertTip.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBioToggle.swift; sourceTree = "<group>"; };
 		AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRowLabel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,8 @@
 		AACBD17D2B5B09710093EAB7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AAD8B0B02B66027D00693D14 /* VenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesView.swift; sourceTree = "<group>"; };
 		AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueGridExpandedMapView.swift; sourceTree = "<group>"; };
+		AADBF81E2B9F7640002F36D6 /* ArtistViewOptionsTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewOptionsTip.swift; sourceTree = "<group>"; };
+		AADBF8202B9F767A002F36D6 /* FavoriteConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConcertTip.swift; sourceTree = "<group>"; };
 		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
@@ -213,7 +217,9 @@
 		AA19591A2B753C8400266267 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
-				AA19591B2B753CA600266267 /* Tips.swift */,
+				AA19591B2B753CA600266267 /* AddConcertTip.swift */,
+				AADBF8202B9F767A002F36D6 /* FavoriteConcertTip.swift */,
+				AADBF81E2B9F7640002F36D6 /* ArtistViewOptionsTip.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -619,14 +625,16 @@
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
 				AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */,
 				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
-				AA19591C2B753CA600266267 /* Tips.swift in Sources */,
+				AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
+				AADBF81F2B9F7640002F36D6 /* ArtistViewOptionsTip.swift in Sources */,
 				AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */,
 				AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */,
 				AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */,
+				AADBF8212B9F767A002F36D6 /* FavoriteConcertTip.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */,
 				AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */,
 				AA3C723B2B94007100C24B2B /* ArtistListView.swift in Sources */,

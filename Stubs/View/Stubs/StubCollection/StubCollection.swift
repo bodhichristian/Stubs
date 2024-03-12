@@ -74,17 +74,17 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        addSampleConcert()
-                    } label: {
-                        ToolbarButtonLabel(
-                            text: "Demo",
-                            symbol: "sparkles.rectangle.stack",
-                            colors: [.blue, .purple]
-                        )
-                    }
-                }
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button {
+//                        addSampleConcert()
+//                    } label: {
+//                        ToolbarButtonLabel(
+//                            text: "Demo",
+//                            symbol: "sparkles.rectangle.stack",
+//                            colors: [.blue, .purple]
+//                        )
+//                    }
+//                }
                 
                 ToolbarItem {
                     Button {

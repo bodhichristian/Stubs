@@ -1,26 +1,13 @@
 //
-//  Tips.swift
+//  ArtistViewOptionsTip.swift
 //  Stubs
 //
-//  Created by christian on 2/8/24.
+//  Created by christian on 3/11/24.
 //
 
 import Foundation
 import TipKit
 
-struct AddConcertTip: Tip {
-    var title: Text {
-        Text("Add your first Stub.")
-    }
-    
-    var message: Text? {
-        Text("Tap + to add a concert.")
-    }
-    
-    var image: Image? {
-        Image(systemName: "ticket")
-    }
-}
 
 struct ArtistsViewOptionsTip: Tip {
     var title: Text {
@@ -34,4 +21,9 @@ struct ArtistsViewOptionsTip: Tip {
     var image: Image? {
         Image(systemName: "list.bullet")
     }
+    
+    var options: [TipOption] {
+        Tip.MaxDisplayCount(1)
+    }
 }
+
