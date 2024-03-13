@@ -19,5 +19,9 @@ struct FavoriteConcertTip: Tip {
     
     var options: [TipOption] {
         Tip.MaxDisplayCount(1)
+        Tip.IgnoresDisplayFrequency(true)
     }
 }
+
+
+
