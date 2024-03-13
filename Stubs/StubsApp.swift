@@ -21,7 +21,7 @@ struct StubsApp: App {
     }
     
     init() {
-       // try? Tips.resetDatastore()
+//        try? Tips.resetDatastore()
         try? Tips.configure()
     }
 }

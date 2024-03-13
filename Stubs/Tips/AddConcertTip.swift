@@ -20,4 +20,8 @@ struct AddConcertTip: Tip {
     var image: Image? {
         Image(systemName: "ticket")
     }
+    
+    var options: [TipOption] {
+        Tip.MaxDisplayCount(1)
+    }
 }

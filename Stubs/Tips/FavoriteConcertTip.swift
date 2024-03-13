@@ -17,4 +17,7 @@ struct FavoriteConcertTip: Tip {
         Text("Tap the Favorite button to toggle status.")
     }
     
+    var options: [TipOption] {
+        Tip.MaxDisplayCount(1)
+    }
 }
