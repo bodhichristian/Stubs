@@ -73,6 +73,8 @@ struct ArtistsView: View {
             
             NavigationStack {
                 ScrollView {
+                    TipView(artistsViewOptionsTip)
+                    
                     if listView {
                         ArtistListView(
                             groupedArtists: groupedArtists,
@@ -101,7 +103,7 @@ struct ArtistsView: View {
                             listView: $listView,
                             sortOrder: $sortOrder
                         )
-                        .popoverTip(viewOptionsTip, arrowEdge: .top)
+                        //.popoverTip(viewOptionsTip, arrowEdge: .top)
                     }
                     
                     

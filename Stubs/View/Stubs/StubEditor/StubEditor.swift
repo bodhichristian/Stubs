@@ -25,7 +25,6 @@ struct StubEditor: View {
         venueLatitude: 0.0,
         venueLongitude: 0.0
     )
-        
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
     @State private var artistService = ArtistService()
@@ -33,6 +32,7 @@ struct StubEditor: View {
     @State private var fetchedArtist: Artist?
     
     let addConcertTip: AddConcertTip
+    let artistViewOptionsTip = ArtistsViewOptionsTip()
     
     var body: some View {
         NavigationStack {
@@ -177,6 +177,10 @@ extension StubEditor {
                 modelContext.insert(newConcert)
                 // Invalidate addConcertTip
                 addConcertTip.invalidate(reason: .actionPerformed)
+                
+                Task { // Add to event counter
+                    await ArtistsViewOptionsTip.addArtistEvent.donate()
+                }
                 
                 dismiss()
                 
