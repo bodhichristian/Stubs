@@ -6,30 +6,47 @@
 //
 
 import XCTest
+@testable import Stubs
 
 final class ConcertTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let test = TestFunctions()
+    
+    func testConcertInitiatlizationWithoutArtist() {
+        // arranage (given)
+        let artistName = test.randomString()
+        let venue = test.randomString()
+        let city = test.randomString()
+        let date = Date()
+        let iconName = test.randomString()
+        let accentColor = test.randomString()
+        let notes = test.randomString()
+        let venueLatitude = Double.random(in: -90...90)
+        let venueLongitude = Double.random(in: 0...180)
+        
+        // action (when)
+        let concert = Concert(
+            artistName: artistName,
+            venue: venue,
+            city: city,
+            date: date,
+            iconName: iconName,
+            accentColor: accentColor,
+            notes: notes,
+            venueLatitude: venueLatitude,
+            venueLongitude: venueLongitude
+        )
+        
+        // assert (then)
+        XCTAssertEqual(concert.artistName, artistName)
+        XCTAssertEqual(concert.venue, venue)
+        XCTAssertEqual(concert.city, city)
+        XCTAssertEqual(concert.date, date)
+        XCTAssertEqual(concert.iconName, iconName)
+        XCTAssertEqual(concert.accentColor, accentColor)
+        XCTAssertEqual(concert.notes, notes)
+        XCTAssertEqual(concert.venueLatitude, venueLatitude)
+        XCTAssertEqual(concert.venueLongitude, venueLongitude)
+        
+        XCTAssertEqual(concert.isFavorite, false)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
