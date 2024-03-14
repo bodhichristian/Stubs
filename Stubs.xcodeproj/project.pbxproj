@@ -62,6 +62,9 @@
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
+		AAB57E592BA34C8400F1ED56 /* StubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E582BA34C8400F1ED56 /* StubsTests.swift */; };
+		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
+		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
 		AAC4D4D02B2E77F80098D28D /* StubEditorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
@@ -91,6 +94,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA4588342B9A1A470099D6C0;
 			remoteInfo = StubsWidgetExtension;
+		};
+		AAB57E5A2BA34C8400F1ED56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA8A74672A32BDF3003E9B41;
+			remoteInfo = Stubs;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -174,6 +184,10 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
+		AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB57E582BA34C8400F1ED56 /* StubsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsTests.swift; sourceTree = "<group>"; };
+		AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTests.swift; sourceTree = "<group>"; };
+		AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
 		AAC34E912B979FB400BBA44A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AAC34E932B979FB400BBA44A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +219,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA8A74652A32BDF3003E9B41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAB57E532BA34C8400F1ED56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,6 +355,7 @@
 			children = (
 				AA8A746A2A32BDF3003E9B41 /* Stubs */,
 				AA4588382B9A1A470099D6C0 /* StubsWidget */,
+				AAB57E572BA34C8400F1ED56 /* StubsTests */,
 				AAC34E902B979FB400BBA44A /* Frameworks */,
 				AA8A74692A32BDF3003E9B41 /* Products */,
 			);
@@ -344,6 +366,7 @@
 			children = (
 				AA8A74682A32BDF3003E9B41 /* Stubs.app */,
 				AA4588352B9A1A470099D6C0 /* StubsWidgetExtension.appex */,
+				AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,6 +428,16 @@
 				AA48FECF2A60DE3E005BA775 /* Extension-String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AAB57E572BA34C8400F1ED56 /* StubsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAB57E582BA34C8400F1ED56 /* StubsTests.swift */,
+				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
+				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
+			);
+			path = StubsTests;
 			sourceTree = "<group>";
 		};
 		AAC34E902B979FB400BBA44A /* Frameworks */ = {
@@ -503,6 +536,24 @@
 			productReference = AA8A74682A32BDF3003E9B41 /* Stubs.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AAB57E552BA34C8400F1ED56 /* StubsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAB57E5E2BA34C8400F1ED56 /* Build configuration list for PBXNativeTarget "StubsTests" */;
+			buildPhases = (
+				AAB57E522BA34C8400F1ED56 /* Sources */,
+				AAB57E532BA34C8400F1ED56 /* Frameworks */,
+				AAB57E542BA34C8400F1ED56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAB57E5B2BA34C8400F1ED56 /* PBXTargetDependency */,
+			);
+			name = StubsTests;
+			productName = StubsTests;
+			productReference = AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -518,6 +569,10 @@
 					};
 					AA8A74672A32BDF3003E9B41 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					AAB57E552BA34C8400F1ED56 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = AA8A74672A32BDF3003E9B41;
 					};
 				};
 			};
@@ -538,6 +593,7 @@
 			targets = (
 				AA8A74672A32BDF3003E9B41 /* Stubs */,
 				AA4588342B9A1A470099D6C0 /* StubsWidgetExtension */,
+				AAB57E552BA34C8400F1ED56 /* StubsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -557,6 +613,13 @@
 			files = (
 				AA8A74732A32BDF4003E9B41 /* Preview Assets.xcassets in Resources */,
 				AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAB57E542BA34C8400F1ED56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +709,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAB57E522BA34C8400F1ED56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */,
+				AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */,
+				AAB57E592BA34C8400F1ED56 /* StubsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -653,6 +726,11 @@
 			isa = PBXTargetDependency;
 			target = AA4588342B9A1A470099D6C0 /* StubsWidgetExtension */;
 			targetProxy = AA4588402B9A1A4A0099D6C0 /* PBXContainerItemProxy */;
+		};
+		AAB57E5B2BA34C8400F1ED56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA8A74672A32BDF3003E9B41 /* Stubs */;
+			targetProxy = AAB57E5A2BA34C8400F1ED56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -892,6 +970,44 @@
 			};
 			name = Release;
 		};
+		AAB57E5C2BA34C8400F1ED56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stubs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Stubs";
+			};
+			name = Debug;
+		};
+		AAB57E5D2BA34C8400F1ED56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stubs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Stubs";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -918,6 +1034,15 @@
 			buildConfigurations = (
 				AA8A74792A32BDF4003E9B41 /* Debug */,
 				AA8A747A2A32BDF4003E9B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAB57E5E2BA34C8400F1ED56 /* Build configuration list for PBXNativeTarget "StubsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAB57E5C2BA34C8400F1ED56 /* Debug */,
+				AAB57E5D2BA34C8400F1ED56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
