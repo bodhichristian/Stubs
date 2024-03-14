@@ -13,18 +13,20 @@ final class ConcertTests: XCTestCase {
     
     func testConcertInitiatlizationWithoutArtist() {
         // arranage (given)
-        let artistName = test.randomString()
-        let venue = test.randomString()
-        let city = test.randomString()
+        let uuid = UUID()
+        let artistName = "Artist"
+        let venue = "Venue"
+        let city = "City"
         let date = Date()
-        let iconName = test.randomString()
-        let accentColor = test.randomString()
-        let notes = test.randomString()
-        let venueLatitude = Double.random(in: -90...90)
-        let venueLongitude = Double.random(in: 0...180)
+        let iconName = "person"
+        let accentColor = "blue"
+        let notes = "Notes"
+        let venueLatitude = 50.0
+        let venueLongitude = 140.0
         
         // action (when)
         let concert = Concert(
+            uuid: uuid,
             artistName: artistName,
             venue: venue,
             city: city,
@@ -37,6 +39,7 @@ final class ConcertTests: XCTestCase {
         )
         
         // assert (then)
+        XCTAssertEqual(concert.uuid, uuid)
         XCTAssertEqual(concert.artistName, artistName)
         XCTAssertEqual(concert.venue, venue)
         XCTAssertEqual(concert.city, city)
@@ -46,8 +49,7 @@ final class ConcertTests: XCTestCase {
         XCTAssertEqual(concert.notes, notes)
         XCTAssertEqual(concert.venueLatitude, venueLatitude)
         XCTAssertEqual(concert.venueLongitude, venueLongitude)
-        XCTAssertEqual(concert.isFavorite, false)
-        XCTAssertNotNil(concert.uuid)
+        XCTAssertFalse(concert.isFavorite)
     }
 }
 
