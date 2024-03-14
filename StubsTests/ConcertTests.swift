@@ -46,7 +46,11 @@ final class ConcertTests: XCTestCase {
         XCTAssertEqual(concert.notes, notes)
         XCTAssertEqual(concert.venueLatitude, venueLatitude)
         XCTAssertEqual(concert.venueLongitude, venueLongitude)
-        
         XCTAssertEqual(concert.isFavorite, false)
+        XCTAssertNotNil(concert.uuid)
     }
 }
+
+
+
+
