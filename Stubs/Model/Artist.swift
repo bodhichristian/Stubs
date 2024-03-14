@@ -23,7 +23,7 @@ class Artist: Codable, Hashable {
         
     }
     
-    @Relationship(inverse: \Concert.artist)
+    
     var concerts: [Concert]?
     
     var artistID: String? = nil
