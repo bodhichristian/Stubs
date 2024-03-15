@@ -12,7 +12,7 @@ final class ConcertTests: XCTestCase {
     
     func testConcertInitiatlizationWithAllValuesProvided() {
         
-        // arrange (given)
+        // arrange
         let uuid = UUID()
         let artistName = "Artist"
         let venue = "Venue"
@@ -25,7 +25,7 @@ final class ConcertTests: XCTestCase {
         let venueLatitude = 50.0
         let venueLongitude = 140.0
         
-        // action (when)
+        // action
         let concert = Concert(
             uuid: uuid,
             artistName: artistName,
@@ -40,7 +40,7 @@ final class ConcertTests: XCTestCase {
             venueLongitude: venueLongitude
         )
         
-        // assert (then)
+        // assert
         XCTAssertEqual(concert.uuid, uuid)
         XCTAssertEqual(concert.artistName, artistName)
         XCTAssertEqual(concert.venue, venue)
@@ -56,7 +56,7 @@ final class ConcertTests: XCTestCase {
     
     func testConcertInitiatlizationWithDefaultValues() {
         
-        // arrange (given)
+        // arrange
         let artistName = "Artist"
         let venue = "Venue"
         let city = "City"
@@ -67,7 +67,7 @@ final class ConcertTests: XCTestCase {
         let venueLatitude = -50.0
         let venueLongitude = 140.0
         
-        // action (when)
+        // action
         let concert = Concert(
             artistName: artistName,
             venue: venue,
@@ -80,7 +80,7 @@ final class ConcertTests: XCTestCase {
             venueLongitude: venueLongitude
         )
         
-        // assert (then)
+        // assert
         XCTAssertNotNil(concert.uuid)
         XCTAssertEqual(concert.artistName, artistName)
         XCTAssertEqual(concert.venue, venue)
@@ -96,7 +96,7 @@ final class ConcertTests: XCTestCase {
     
     func testConcertPropertyUpdates() {
         
-        // arrange (given)
+        // arrange
         let concert = Concert(
             artistName: "Initial Artist",
             venue: "Initial Venue",
@@ -109,7 +109,7 @@ final class ConcertTests: XCTestCase {
             venueLongitude: 140
         )
         
-        // action (when)
+        // action
         let artistName = "Updated Artist"
         let venue = "Updated Venue"
         let city = "Updated City"
@@ -119,6 +119,8 @@ final class ConcertTests: XCTestCase {
         let notes = "Updated Notes"
         let venueLatitude = 75.0
         let venueLongitude = 45.0
+        
+        XCTAssertFalse(concert.isFavorite)
         
         concert.artistName = artistName
         concert.venue = venue
@@ -131,7 +133,7 @@ final class ConcertTests: XCTestCase {
         concert.venueLatitude = venueLatitude
         concert.venueLongitude = venueLongitude
         
-        // assert (then)
+        // assert
         XCTAssertEqual(concert.artistName, artistName)
         XCTAssertEqual(concert.venue, venue)
         XCTAssertEqual(concert.city, city)
@@ -143,6 +145,8 @@ final class ConcertTests: XCTestCase {
         XCTAssertEqual(concert.venueLatitude, venueLatitude)
         XCTAssertEqual(concert.venueLongitude, venueLongitude)
     }
+    
+
     
 }
 
