@@ -144,26 +144,6 @@ final class ConcertTests: XCTestCase {
         XCTAssertEqual(concert.venueLongitude, venueLongitude)
     }
     
-//    func testConcertAddEmptyArtist() {
-//        // arrange (given)
-//        let concert = Concert(
-//            artistName: "Artist",
-//            venue: "Venue",
-//            city: "City",
-//            date: Date(),
-//            iconName: "person",
-//            accentColor: "blue",
-//            notes: "Notes",
-//            venueLatitude: -50.0,
-//            venueLongitude: 140
-//        )
-//        
-//        // action (when)
-//        concert.artist = Artist()
-//        
-//        XCTAssertNotNil(concert.artist)
-//    }
-    
 }
 
 

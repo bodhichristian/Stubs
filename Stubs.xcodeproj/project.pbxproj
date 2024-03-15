@@ -65,6 +65,7 @@
 		AAB57E592BA34C8400F1ED56 /* StubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E582BA34C8400F1ED56 /* StubsTests.swift */; };
 		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
+		AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
 		AAC4D4D02B2E77F80098D28D /* StubEditorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
@@ -188,6 +189,7 @@
 		AAB57E582BA34C8400F1ED56 /* StubsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsTests.swift; sourceTree = "<group>"; };
 		AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTests.swift; sourceTree = "<group>"; };
 		AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
+		AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		AAC34E912B979FB400BBA44A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AAC34E932B979FB400BBA44A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			children = (
 				AAB57E582BA34C8400F1ED56 /* StubsTests.swift */,
 				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
+				AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */,
 				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
 			);
 			path = StubsTests;
@@ -715,6 +718,7 @@
 			files = (
 				AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */,
 				AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */,
+				AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */,
 				AAB57E592BA34C8400F1ED56 /* StubsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
