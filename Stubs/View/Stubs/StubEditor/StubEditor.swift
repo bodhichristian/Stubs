@@ -36,12 +36,12 @@ struct StubEditor: View {
     
     var body: some View {
         NavigationStack {
-                Form {
-                    StubEditorStubPreview(concert: concertTemplate)
-                    StubEditorDetails(concert: concertTemplate)
-                    StubEditorIconSelector(iconName: $concertTemplate.iconName)
-                    StubEditorColorSelector(accentColor: $concertTemplate.accentColor)
-                    StubEditorNotes(concertNotes: $concertTemplate.notes)
+            Form {
+                StubEditorStubPreview(concert: concertTemplate)
+                StubEditorDetails(concert: concertTemplate)
+                StubEditorIconSelector(iconName: $concertTemplate.iconName)
+                StubEditorColorSelector(accentColor: $concertTemplate.accentColor)
+                StubEditorNotes(concertNotes: $concertTemplate.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -60,16 +60,16 @@ struct StubEditor: View {
             }
             
             .onChange(of: concertTemplate.artistName) {
-                // Invalidate existing timer
-                debounceTimer?.invalidate()
-                
-                
-                // Start a new timer
-                debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
-                    print("StubEditor: concert.artistName has changed")
-                    print("StubEditor: now searching for \(concertTemplate.artistName)")
-                    artistService.search(for: concertTemplate.artistName)
-                })
+                //                // Invalidate existing timer
+                //                debounceTimer?.invalidate()
+                //
+                //
+                //                // Start a new timer
+                //                debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                //                    print("StubEditor: concert.artistName has changed")
+                //                    print("StubEditor: now searching for \(concertTemplate.artistName)")
+                //                    artistService.search(for: concertTemplate.artistName)
+                //                })
             }
             
             
@@ -93,7 +93,7 @@ struct StubEditor: View {
                 } else {
                     print("StubEditorDetails: artist search failed.")
                 }
-            }            
+            }
         }
         .alert(isPresented: $addConcertFailed) {
             addConcertFailedAlert ?? Alert(title: Text("Error"))
@@ -147,8 +147,6 @@ extension StubEditor {
      Uses `Task` for concurrency and error handling within async context.
      */
     private func addConcert() {
-        
-        // Start asynchronous task to fetch coordinates
         Task {
             do {
                 // Attempt to get coordinates for the new concert
@@ -158,8 +156,7 @@ extension StubEditor {
                 concertTemplate.venueLatitude = coordinates.latitude
                 concertTemplate.venueLongitude = coordinates.longitude
                 
-                // Create a new Concert object.
-                // Use fetchedArtist object if available.
+                // Create a new Concert object
                 let newConcert = Concert(
                     artistName: concertTemplate.artistName,
                     venue: concertTemplate.venue,
@@ -172,32 +169,36 @@ extension StubEditor {
                     venueLongitude: concertTemplate.venueLongitude
                 )
                 
-                newConcert.artist = fetchedArtist
-                // Insert updated concert details into model context
-                modelContext.insert(newConcert)
-                // Invalidate addConcertTip
-                addConcertTip.invalidate(reason: .actionPerformed)
-                
-                Task { // Add to event counter
-                    await ArtistsViewOptionsTip.addArtistEvent.donate()
+                // Search for artist by name in the `artists` array
+                if let existingArtist = artists.first(where: { $0.artistName == newConcert.artistName }) {
+                    // If an artist with the same name is found, associate it with the new concert
+                    newConcert.artist = existingArtist
+                } else {
+                    // If no artist is found, search for it using the artistService
+                    await artistService.search(for: concertTemplate.artistName)
+                    newConcert.artist = fetchedArtist
                 }
                 
-                dismiss()
+                // Insert updated concert details into model context
+                modelContext.insert(newConcert)
+                try modelContext.save()
                 
-            } catch let error {
-                // Print error if unable to get coordinates
+                // Invalidate the tip and add an event counter
+                addConcertTip.invalidate(reason: .actionPerformed)
+                await ArtistsViewOptionsTip.addArtistEvent.donate()
+                
+                dismiss()
+            } catch {
+                // Handle error
                 print(error.localizedDescription)
                 
-                // Create an alert object
-                addConcertFailedAlert = Alert(
+                let alert = Alert(
                     title: Text("Save Error"),
                     message: Text(error.localizedDescription),
                     dismissButton: .default(Text("OK"))
                 )
-                
-                // Trigger alert
+                addConcertFailedAlert = alert
                 addConcertFailed = true
-                
             }
         }
     }

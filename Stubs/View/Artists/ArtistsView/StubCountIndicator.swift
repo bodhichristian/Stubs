@@ -15,15 +15,16 @@ struct StubCountIndicator: View {
     @Query var concerts: [Concert]
 
     private var stubCount: Int {
-        var count = 0
-        
-        for concert in concerts {
-            if concert.artistName.lowercased() == artist.artistName?.lowercased() {
-                count += 1
-            }
-        }
-        
-        return count
+//        var count = 0
+//        
+//        for concert in concerts {
+//            if concert.artistName.lowercased() == artist.artistName?.lowercased() {
+//                count += 1
+//            }
+//        }
+//        
+//        return count
+        artist.concerts?.count ?? 1
     }
     
     private var shadowColor: Color {

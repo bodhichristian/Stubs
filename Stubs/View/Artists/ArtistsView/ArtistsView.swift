@@ -58,7 +58,6 @@ struct ArtistsView: View {
         switch sortOrder {
         case .byNameDescending:
             groupedArtists.keys.sorted().reversed()
-            
         default:
             groupedArtists.keys.sorted()
             

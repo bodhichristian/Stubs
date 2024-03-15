@@ -11,7 +11,7 @@ import Foundation
     
     var searchResponse: [Artist] = []
     
-    func search(for artistName: String) {
+    func search(for artistName: String) async {
             
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
