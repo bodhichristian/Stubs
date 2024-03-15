@@ -146,6 +146,7 @@ extension StubEditor {
      No parameters or return value.
      Uses `Task` for concurrency and error handling within async context.
      */
+    @MainActor
     private func addConcert() {
         Task {
             do {

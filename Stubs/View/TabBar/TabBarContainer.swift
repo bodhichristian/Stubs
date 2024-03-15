@@ -32,12 +32,3 @@ struct TabBarContainer<Content: View>: View {
         })
     }
 }
-
-#Preview {
-    TabBarContainer(selection: .constant(.stubs)) {
-        Color.blue
-    }
-}
-
-
-
