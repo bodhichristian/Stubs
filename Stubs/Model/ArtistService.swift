@@ -53,7 +53,7 @@ import Foundation
     }
     
     
-    func debugSearch(for artistName: String) async -> Artist? {
+    func debugSearch(for artistName: String) async throws -> Artist? {
         
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
@@ -79,8 +79,7 @@ import Foundation
                 let artist = response.artists.first
                 return artist
             } catch {
-                print(error)
-                return nil
+                throw error
             }
 
     }

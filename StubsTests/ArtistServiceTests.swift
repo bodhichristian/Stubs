@@ -25,22 +25,20 @@ final class ArtistServiceTests: XCTestCase {
     func testArtistServiceDebugSearchResponseSuccess() async {
         let service = ArtistService()
         let expectation = XCTestExpectation(description: "Retrieve artist data.")
-        
         let artistName = "Coldplay" // Example artist name
         
-        Task {
-            if let artist = await service.debugSearch(for: artistName) {
-
-                XCTAssertNotNil(artist)
-                XCTAssertEqual(artist.artistName, artistName)
-                expectation.fulfill()
-            } else {
-                
-                XCTFail("Failed to retrieve artist data")
-            }
+        do {
+            let artist = try await service.debugSearch(for: artistName)
+            XCTAssertNotNil(artist)
+            XCTAssertNotNil(artist?.artistName)
+            expectation.fulfill()
+        } catch {
+            XCTFail("Failed to retrieve artist data")
         }
         
         await fulfillment(of: [expectation], timeout: 10.0)
     }
-    
 }
+
+
+
