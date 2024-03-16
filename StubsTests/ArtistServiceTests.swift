@@ -16,10 +16,26 @@ final class ArtistServiceTests: XCTestCase {
         XCTAssertNotNil(service)
     }
     
-    func testArtistServiceSearchResponseEmpty() {
+    func testArtistServiceSearchResponseEmptyByDefault() {
         let service = ArtistService()
         
         XCTAssertTrue(service.searchResponse.isEmpty)
+    }
+    
+    func testArtistServiceSearchResponseSuccess() async {
+        let service = ArtistService()
+        let expectation = XCTestExpectation(description: "Retrieve artist data.")
+        let artistName = "Ariana Grande" // Example artist name
+        
+        do {
+            try await service.search(for: artistName)
+            XCTAssertNotNil(service.searchResponse)
+            expectation.fulfill()
+        } catch {
+            XCTFail("Failed to retrieve artist data")
+        }
+        
+        await fulfillment(of: [expectation], timeout: 10.0)
     }
     
     func testArtistServiceDebugSearchResponseSuccess() async {

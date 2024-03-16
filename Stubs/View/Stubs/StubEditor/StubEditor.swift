@@ -176,7 +176,7 @@ extension StubEditor {
                     newConcert.artist = existingArtist
                 } else {
                     // If no artist is found, search for it using the artistService
-                    await artistService.search(for: concertTemplate.artistName)
+                    try await artistService.search(for: concertTemplate.artistName)
                     newConcert.artist = fetchedArtist
                 }
                 
