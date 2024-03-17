@@ -10,7 +10,6 @@ import SwiftData
 
 let calendar = Calendar.current
 
-
 struct DebugData {
     static let artists = ["Adele", "Beyoncé", "Green Day", "Metallica", "Kendrick Lamar", "Fall Out Boy",  "John Mayer", "Paramore", "Red Hot Chili Peppers", "My Chemical Romance", "Coheed & Cambria", "Circa Survive", "Thrice", "Eminem", "Madonna", "Bruno Mars" ,"The Weeknd", "Ariana Grande","Billie Eilish", "A Day to Remember", "AC/DC", "Dua Lipa" ,"Travis Scott", "Taking Back Sunday", "Deftones", "Bad Bunny", "Harry Styles", "Lana Del Rey" ,"Sia", "Yellowcard", "Khalid", "Sam Smith", "Tame Impala", "Avenged Sevenfold", "Incubus", "Linkin Park", "Explosions in the Sky", "System of a Down"]
     
