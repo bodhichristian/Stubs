@@ -13,4 +13,4 @@ import Foundation
  API Key is necessary to use search features
  */
 
-let rapidAPIKey = ""
+let yourRapidAPIKey = ""
