@@ -62,7 +62,7 @@
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
 		AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */; };
-		AAAE3D6F2BA6A05100F2BC3E /* KeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D6E2BA6A05100F2BC3E /* KeyTest.swift */; };
+		AAAE3D712BA6A0D200F2BC3E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D702BA6A0D200F2BC3E /* Keys.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
 		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
@@ -186,7 +186,7 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
 		AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceTests.swift; sourceTree = "<group>"; };
-		AAAE3D6E2BA6A05100F2BC3E /* KeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTest.swift; sourceTree = "<group>"; };
+		AAAE3D702BA6A0D200F2BC3E /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTests.swift; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
 				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
-				AAAE3D6E2BA6A05100F2BC3E /* KeyTest.swift */,
+				AAAE3D702BA6A0D200F2BC3E /* Keys.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -658,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC4D4E22B2FF5A40098D28D /* RelatedStubScrollView.swift in Sources */,
+				AAAE3D712BA6A0D200F2BC3E /* Keys.swift in Sources */,
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */,
@@ -706,7 +707,6 @@
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AADBF81F2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift in Sources */,
-				AAAE3D6F2BA6A05100F2BC3E /* KeyTest.swift in Sources */,
 				AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */,
 				AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */,
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
