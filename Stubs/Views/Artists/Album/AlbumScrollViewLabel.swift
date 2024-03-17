@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AlbumScrollViewLabel: View {
-    let album: AlbumService.Album
+    let album: Album
     
     var body: some View {
         ZStack {
