@@ -11,103 +11,37 @@ import Foundation
     
     var albums: [Album] = []
     
-//    struct AlbumSearchResponse: Codable {
-//        let album: [Album]
-//    }
-//
-//    struct Album: Codable {
-//        let idAlbum: String?
-//        let idArtist: String?
-//        let idLabel: String?
-//        let intLoved: String?
-//        let intSales: String?
-//        let intScore: String?
-//        let intScoreVotes: String?
-//        let intYearReleased: String?
-//        let strAlbum: String?
-//        let strAlbum3DCase: String?
-//        let strAlbum3DFace: String?
-//        let strAlbum3DFlat: String?
-//        let strAlbumCDart: String?
-//        let strAlbumSpine: String?
-//        let strAlbumStripped: String?
-//        let strAlbumThumb: String?
-//        let strAlbumThumbBack: String?
-//        let strAlbumThumbHQ: String?
-//        let strAllMusicID: String?
-//        let strAmazonID: String?
-//        let strArtist: String?
-//        let strArtistStripped: String?
-//        let strBBCReviewID: String?
-//        let strDescriptionCN: String?
-//        let strDescriptionDE: String?
-//        let strDescriptionEN: String?
-//        let strDescriptionES: String?
-//        let strDescriptionFR: String?
-//        let strDescriptionHU: String?
-//        let strDescriptionIL: String?
-//        let strDescriptionIT: String?
-//        let strDescriptionJP: String?
-//        let strDescriptionNL: String?
-//        let strDescriptionNO: String?
-//        let strDescriptionPL: String?
-//        let strDescriptionPT: String?
-//        let strDescriptionRU: String?
-//        let strDescriptionSE: String?
-//        let strDiscogsID: String?
-//        let strGeniusID: String?
-//        let strGenre: String?
-//        let strItunesID: String?
-//        let strLabel: String?
-//        let strLocation: String?
-//        let strLocked: String?
-//        let strLyricWikiID: String?
-//        let strMood: String?
-//        let strMusicBrainzArtistID: String?
-//        let strMusicBrainzID: String?
-//        let strMusicMozID: String?
-//        let strRateYourMusicID: String?
-//        let strReleaseFormat: String?
-//        let strReview: String?
-//        let strSpeed: String?
-//        let strStyle: String?
-//        let strTheme: String?
-//        let strWikidataID: String?
-//        let strWikipediaID: String?
-//    }
-
     func searchAlbums(for artistID: String) {
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
-
+        
         let urlString = "https://theaudiodb.p.rapidapi.com/album.php?i=\(artistID)"
         guard let url = URL(string: urlString) else { return }
-
+        
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
-
+        
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request) { [weak self] (data, response, error) in
             if let error = error {
                 print(error)
                 return
             }
-
+            
             guard let data = data else { return }
             
             do {
-                
                 let albumSearchResponse = try JSONDecoder().decode(AlbumSearchResponse.self, from: data)
-                    self?.albums = albumSearchResponse.album
+                self?.albums = albumSearchResponse.album
                 print(albumSearchResponse.album)
             } catch {
                 print(error)
             }
         }
-
+        
         dataTask.resume()
     }
     

@@ -12,13 +12,13 @@ import Foundation
     var searchResponse: [Artist] = []
     
     func search(for artistName: String) async throws {
-            
+        
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
         
-        let urlStringPrefix = "https://theaudiodb.p.rapidapi.com/search.php?s="        
+        let urlStringPrefix = "https://theaudiodb.p.rapidapi.com/search.php?s="
         
         let artistSnakeCase = artistName.replacingOccurrences(of: " ", with: "_")
         
@@ -71,16 +71,15 @@ import Foundation
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-      
-            do {
-                let (data, _) = try await URLSession.shared.data(for: request)
-
-                let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
-                let artist = response.artists.first
-                return artist
-            } catch {
-                throw error
-            }
-
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            
+            let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
+            let artist = response.artists.first
+            return artist
+        } catch {
+            throw error
+        }
+        
     }
 }
