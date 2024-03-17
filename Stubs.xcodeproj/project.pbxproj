@@ -62,6 +62,7 @@
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
 		AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */; };
+		AAAE3D692BA69C6F00F2BC3E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D682BA69C6F00F2BC3E /* APIKey.swift */; };
 		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
 		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
@@ -185,6 +186,7 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
 		AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceTests.swift; sourceTree = "<group>"; };
+		AAAE3D682BA69C6F00F2BC3E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
 		AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTests.swift; sourceTree = "<group>"; };
@@ -377,10 +379,11 @@
 			isa = PBXGroup;
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
-				AA8A747B2A32BE0A003E9B41 /* Model */,
+				AA8A747B2A32BE0A003E9B41 /* Models */,
 				AA8A74802A32C8FE003E9B41 /* Extensions */,
+				AAAE3D6B2BA69CCE00F2BC3E /* Services */,
 				AA19591A2B753C8400266267 /* Tips */,
-				AA8A747C2A32BE12003E9B41 /* View */,
+				AA8A747C2A32BE12003E9B41 /* Views */,
 				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
 				AA8A74712A32BDF4003E9B41 /* Preview Content */,
 			);
@@ -395,21 +398,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AA8A747B2A32BE0A003E9B41 /* Model */ = {
+		AA8A747B2A32BE0A003E9B41 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
 				AA87B0DC2B4A24D20071DB44 /* Artist.swift */,
-				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */,
 				AAEDF07E2B596BC50059F8B6 /* DebugData.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		AA8A747C2A32BE12003E9B41 /* View */ = {
+		AA8A747C2A32BE12003E9B41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				AAC4D4CD2B2B41790098D28D /* ContentView.swift */,
@@ -420,7 +421,7 @@
 				AA5E74EF2B3EFD00005DBD87 /* TabBar */,
 				AADE4FBC2B63DCE0000C7DF3 /* Venues */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AA8A74802A32C8FE003E9B41 /* Extensions */ = {
@@ -430,6 +431,16 @@
 				AA48FECF2A60DE3E005BA775 /* Extension-String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AAAE3D6B2BA69CCE00F2BC3E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AAAE3D682BA69C6F00F2BC3E /* APIKey.swift */,
+				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
+				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AAB57E572BA34C8400F1ED56 /* StubsTests */ = {
@@ -688,6 +699,7 @@
 				AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */,
 				AA3C723F2B940F0E00C24B2B /* ArtistMenuLabel.swift in Sources */,
 				AAC4D4E62B31B7470098D28D /* StubNotesView.swift in Sources */,
+				AAAE3D692BA69C6F00F2BC3E /* APIKey.swift in Sources */,
 				AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */,
 				AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */,
 				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
