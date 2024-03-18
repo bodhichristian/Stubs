@@ -13,8 +13,8 @@ struct TestFunctions{
         let characters =
         """
         abcdefghijklmnopqrstuvwxyz
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-        ,./?!@#$%^&*()_-+=;:'\"
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        0123456789,./?!@#$%^&*()_-+=;:'\"
         """
         let randomLength = Int.random(in: 0...25)
         let randomString = String(

@@ -62,7 +62,9 @@ struct AlbumScrollView: View {
         
         .padding(.horizontal)
         .onAppear {
-            model.searchAlbums(for: artistID)
+            Task {
+                await model.searchAlbums(for: artistID)
+            }
         }
     }
 }
