@@ -36,13 +36,14 @@ final class AlbumServiceTests: XCTestCase {
 
     func testAlbumServiceSearchResponseFailsWithoutValidArtistID() async {
         let service = AlbumService()
-        let testString = "Elvis Presley"
+        let testString = "Elvis Presley" 
         
-        // searchAlbums(for artist:) needs a valid Artist ID from TheAudioDB to properly fetch Album data
         do {
-            try await service.searchAlbums(for: testString) // Should throw error
+            try await service.searchAlbums(for: testString)
         } catch {
-            XCTAssertTrue(service.albums.isEmpty)
+            XCTAssertTrue(service.albums.isEmpty) // Album data not retrieved
         }
     }
 }
+
+

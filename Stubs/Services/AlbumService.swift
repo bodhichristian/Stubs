@@ -8,16 +8,24 @@
 import Foundation
 
 @Observable class AlbumService {
+    enum AlbumSearchError: Error {
+        case invalidArtistID
+    }
 
     var albums: [Album] = []
 
     func searchAlbums(for artistID: String) async throws {
+        
+        guard let id = Int(artistID) else {
+            throw AlbumSearchError.invalidArtistID
+        }
+        
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
         ]
 
-        let urlString = "https://theaudiodb.p.rapidapi.com/album.php?i=\(artistID)"
+        let urlString = "https://theaudiodb.p.rapidapi.com/album.php?i=\(id)"
 
         guard let url = URL(string: urlString) else { return }
 
@@ -38,6 +46,8 @@ import Foundation
             throw error
         }
     }
+    
+   
 }
     
     // MARK: - Sample JSON Response
