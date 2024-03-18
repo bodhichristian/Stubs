@@ -11,7 +11,7 @@ import Foundation
 
     var albums: [Album] = []
 
-    func searchAlbums(for artistID: String) async {
+    func searchAlbums(for artistID: String) async throws {
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
@@ -21,7 +21,11 @@ import Foundation
 
         guard let url = URL(string: urlString) else { return }
 
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        var request = URLRequest(
+            url: url,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0
+        )
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
 
@@ -31,7 +35,7 @@ import Foundation
             self.albums = albumSearchResponse.album
             print(albumSearchResponse.album)
         } catch {
-            print(error)
+            throw error
         }
     }
 }
