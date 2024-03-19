@@ -38,6 +38,7 @@
 		AA5E74FA2B3EFF9B005DBD87 /* ArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */; };
 		AA62228E2B2A58F5004899A9 /* AlbumScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */; };
 		AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228F2B2B367C004899A9 /* NoStubsView.swift */; };
+		AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -162,6 +163,7 @@
 		AA5E74F92B3EFF9B005DBD87 /* ArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsView.swift; sourceTree = "<group>"; };
 		AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollView.swift; sourceTree = "<group>"; };
 		AA62228F2B2B367C004899A9 /* NoStubsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoStubsView.swift; sourceTree = "<group>"; };
+		AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensionTests.swift; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			children = (
 				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
 				AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */,
+				AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */,
 				AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */,
 				AAAE3D782BA6A71A00F2BC3E /* AlbumServiceTests.swift */,
 				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
@@ -734,6 +737,7 @@
 				AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */,
 				AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */,
 				AAAE3D792BA6A71A00F2BC3E /* AlbumServiceTests.swift in Sources */,
+				AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */,
 				AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */,
 				AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */,
 			);

@@ -94,7 +94,7 @@ final class ConcertTests: XCTestCase {
         XCTAssertEqual(concert.venueLongitude, venueLongitude)
     }
     
-    func testConcertPropertyUpdates() {
+    func testConcertAllowsPropertyMutation() {
         
         // arrange
         let concert = Concert(

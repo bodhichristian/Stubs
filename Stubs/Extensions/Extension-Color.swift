@@ -10,7 +10,9 @@ import SwiftUI
 
 extension Color {
     init?(colorName: String) {
-        switch colorName {
+        let color = colorName.lowercased()
+        
+        switch color {
         case "red":
             self = .red
         case "orange":
