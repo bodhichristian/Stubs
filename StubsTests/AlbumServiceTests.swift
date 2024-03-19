@@ -36,7 +36,7 @@ final class AlbumServiceTests: XCTestCase {
 
     func testAlbumServiceSearchResponseFailsWithoutValidArtistID() async {
         let service = AlbumService()
-        let testString = "Elvis Presley" 
+        let testString = "Elvis Presley"
         
         do {
             try await service.searchAlbums(for: testString)
