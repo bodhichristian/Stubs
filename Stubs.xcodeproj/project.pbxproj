@@ -450,11 +450,11 @@
 		AAB57E572BA34C8400F1ED56 /* StubsTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
 				AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */,
-				AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */,
 				AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */,
 				AAAE3D782BA6A71A00F2BC3E /* AlbumServiceTests.swift */,
+				AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */,
+				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
 				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
 			);
 			path = StubsTests;
