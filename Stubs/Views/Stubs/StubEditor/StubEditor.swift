@@ -13,6 +13,9 @@ struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     @Query var artists: [Artist]
+    
+    @State private var viewModel: ViewModel
+    
     // MARK: Local concert for editing
     @State private var concertTemplate = Concert(
         artistName: "",
@@ -27,12 +30,18 @@ struct StubEditor: View {
     )
     @State private var addConcertFailed = false
     @State private var addConcertFailedAlert: Alert?
-    @State private var artistService = ArtistService()
     @State private var debounceTimer: Timer?
     @State private var fetchedArtist: Artist?
     
     let addConcertTip: AddConcertTip
     let artistViewOptionsTip = ArtistsViewOptionsTip()
+    
+    // Returns true if any field is empty
+    private var saveReady: Bool {
+        !concertTemplate.artistName.isEmpty
+        && !concertTemplate.venue.isEmpty
+        && !concertTemplate.city.isEmpty
+    }
     
     var body: some View {
         NavigationStack {
@@ -53,40 +62,40 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        addConcert()
+                        //viewModel.addConcert()
                     }
                     .disabled(!saveReady)
                 }
             }
             
-            .onChange(of: concertTemplate.artistName) {
-                //                // Invalidate existing timer
-                //                debounceTimer?.invalidate()
-                //
-                //
-                //                // Start a new timer
-                //                debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
-                //                    print("StubEditor: concert.artistName has changed")
-                //                    print("StubEditor: now searching for \(concertTemplate.artistName)")
-                //                    artistService.search(for: concertTemplate.artistName)
-                //                })
-            }
+            //            .onChange(of: concertTemplate.artistName) {
+            //                                // Invalidate existing timer
+            //                                debounceTimer?.invalidate()
+            //
+            //
+            //                                // Start a new timer
+            //                                debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+            //                                    print("StubEditor: concert.artistName has changed")
+            //                                    print("StubEditor: now searching for \(concertTemplate.artistName)")
+            //                                    artistService.search(for: concertTemplate.artistName)
+            //                                })
+            //            }
             
             
-            .onChange(of: artistService.searchResponse) { _, response in
+            .onChange(of: viewModel.artistService.searchResponse) { _, response in
                 if let artist = response.first {
                     print("StubEditor: artist search response received.")
                     
                     fetchedArtist = artist
                     print("StubEditor: artist binding value has been updated.")
                     
-                    fetchImageData(from: artist.artistImageURL ?? "") { data in
+                    viewModel.fetchImageData(from: artist.artistImageURL ?? "") { data in
                         fetchedArtist?.artistImageData = data
                         print("StubEditor: imageData fetched")
                         print("StubEditor: Data: \(String(describing: data))")
                     }
                     
-                    fetchImageData(from: artist.bannerImageURL ?? "") { data in
+                    viewModel.fetchImageData(from: artist.bannerImageURL ?? "") { data in
                         fetchedArtist?.bannerImageData = data
                     }
                     
@@ -106,143 +115,159 @@ struct StubEditor: View {
 
 extension StubEditor {
     
-    // MARK: - Computed Properties
-    
-    // Returns true if any field is empty
-    private var saveReady: Bool {
-        !concertTemplate.artistName.isEmpty
-        && !concertTemplate.venue.isEmpty
-        && !concertTemplate.city.isEmpty
-    }
-    
-    // MARK: - Methods
-    
-    // MARK: fetchImageData(from urlString:)
-    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
+    @Observable
+    class ViewModel {
+        var artists: [Artist]
+        var concerts: [Concert]
+        var modelContext: ModelContext
+
+        let artistService = ArtistService()
+        
+        init(modelContext: ModelContext) {
+            self.modelContext = modelContext
+            fetchData()
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
+        func fetchImageData(
+            from urlString: String,
+            completion: @escaping (Data?) -> Void
+        ) {
+            guard let url = URL(string: urlString) else {
                 completion(nil)
                 return
             }
-            completion(data)
-        }
-        task.resume()
-    }
-    
-    
-    // MARK: addConcert()
-    /**
-     Adds a concert after retrieving and storing its coordinates.
-     
-     Retrieves coordinates asynchronously for a new concert and updates concert details.
-     Handles errors by printing them to the console.
-     Inserts updated concert details into the model context.
-     
-     No parameters or return value.
-     Uses `Task` for concurrency and error handling within async context.
-     */
-    @MainActor
-    private func addConcert() {
-        Task {
-            do {
-                // Attempt to get coordinates for the new concert
-                let coordinates = try await getCoordinates(for: concertTemplate)
-                
-                // Update concert details with retrieved coordinates
-                concertTemplate.venueLatitude = coordinates.latitude
-                concertTemplate.venueLongitude = coordinates.longitude
-                
-                // Create a new Concert object
-                let newConcert = Concert(
-                    artistName: concertTemplate.artistName,
-                    venue: concertTemplate.venue,
-                    city: concertTemplate.city,
-                    date: concertTemplate.date,
-                    iconName: concertTemplate.iconName,
-                    accentColor: concertTemplate.accentColor,
-                    notes: concertTemplate.notes,
-                    venueLatitude: concertTemplate.venueLatitude,
-                    venueLongitude: concertTemplate.venueLongitude
-                )
-                
-                // Search for artist by name in the `artists` array
-                if let existingArtist = artists.first(where: { $0.artistName == newConcert.artistName }) {
-                    // If an artist with the same name is found, associate it with the new concert
-                    newConcert.artist = existingArtist
-                } else {
-                    // If no artist is found, search for it using the artistService
-                    try await artistService.search(for: concertTemplate.artistName)
-                    newConcert.artist = fetchedArtist
+            
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    completion(nil)
+                    return
                 }
-                
-                // Insert updated concert details into model context
-                modelContext.insert(newConcert)
-                try modelContext.save()
-                
-                // Invalidate the tip and add an event counter
-                addConcertTip.invalidate(reason: .actionPerformed)
-                await ArtistsViewOptionsTip.addArtistEvent.donate()
-                
-                dismiss()
-            } catch {
-                // Handle error
-                print(error.localizedDescription)
-                
-                let alert = Alert(
-                    title: Text("Save Error"),
-                    message: Text(error.localizedDescription),
-                    dismissButton: .default(Text("OK"))
+                completion(data)
+            }
+            task.resume()
+        }
+        
+        
+        // MARK: addConcert()
+
+        @MainActor
+        func addConcert(_ concert: Concert) {
+            Task {
+                do {
+                    // Attempt to get coordinates for the new concert
+                    let coordinates = try await getCoordinates(for: concert)
+                    
+                    // Update concert details with retrieved coordinates
+                    concert.venueLatitude = coordinates.latitude
+                    concert.venueLongitude = coordinates.longitude
+                    
+                    // Create a new Concert object
+                    let newConcert = Concert(
+                        artistName: concert.artistName,
+                        venue: concert.venue,
+                        city: concert.city,
+                        date: concert.date,
+                        iconName: concert.iconName,
+                        accentColor: concert.accentColor,
+                        notes: concert.notes,
+                        venueLatitude: concert.venueLatitude,
+                        venueLongitude: concert.venueLongitude
+                    )
+                    
+                    // Search for artist by name in the `artists` array
+                    if let existingArtist = artists.first(where: { $0.artistName == newConcert.artistName }) {
+                        // If an artist with the same name is found, associate it with the new concert
+                        newConcert.artist = existingArtist
+                    } else {
+                        // If no artist is found, search for it using the artistService
+                        try await artistService.search(for: concert.artistName)
+                        if let fetchedArtist = artistService.searchResponse[0] {
+                            newConcert.artist = fetchedArtist
+                        }
+                    }
+                    
+                    // Insert updated concert details into model context
+                    modelContext.insert(newConcert)
+                    try modelContext.save()
+                    
+                    // Invalidate the tip and add an event counter
+                    addConcertTip.invalidate(reason: .actionPerformed)
+                    await ArtistsViewOptionsTip.addArtistEvent.donate()
+                    
+                    dismiss()
+                } catch {
+                    // Handle error
+                    print(error.localizedDescription)
+                    
+                    let alert = Alert(
+                        title: Text("Save Error"),
+                        message: Text(error.localizedDescription),
+                        dismissButton: .default(Text("OK"))
+                    )
+                    addConcertFailedAlert = alert
+                    addConcertFailed = true
+                }
+            }
+            fetchData()
+        }
+        
+        // MARK: - getCoordinates(for:)
+        /**
+         Retrieves coordinates for given concert details.
+         
+         - Parameters:
+         - concert: `Concert`
+         - Returns: Tuple containing latitude and longitude of the concert venue.
+         
+         Uses MKLocalSearch to query based on concert venue and city. Converts query response to geographic coordinates.
+         Throws error if unable to find location or extract coordinates from response.
+         */
+        private func getCoordinates(
+            for concert: Concert
+        ) async throws -> (latitude: Double, longitude: Double) {
+            
+            // Construct search request using concert details
+            let request = MKLocalSearch.Request()
+            let query = concert.venue + " venue " + concert.city
+            
+            request.naturalLanguageQuery = query
+            request.resultTypes = .pointOfInterest
+            
+            // Debug print for query search
+            print("searching for \(query)")
+            
+            // Initialize and start search
+            let search = MKLocalSearch(request: request)
+            let response = try? await search.start()
+            
+            // Ensure coordinates are available, else throw error
+            guard let coordinates = response?.mapItems.first?.placemark.coordinate else  {
+                throw NSError(domain: "LocationError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to find location"])
+            }
+            
+            // Return latitude and longitude as tuple
+            return (
+                latitude: coordinates.latitude,
+                longitude: coordinates.longitude
+            )
+        }
+        
+        func fetchData() {
+            do {
+                let artistDescriptor = FetchDescriptor<Artist>(
+                    sortBy: [SortDescriptor(\.artistName)]
                 )
-                addConcertFailedAlert = alert
-                addConcertFailed = true
+                let concertDescriptor = FetchDescriptor<Concert>(
+                    sortBy: [SortDescriptor(\.artistName)]
+                )
+                concerts = try modelContext.fetch(concertDescriptor)
+                artists = try modelContext.fetch(artistDescriptor)
+            } catch {
+                print("Fetch failed")
             }
         }
+        
+        
+        
     }
-    
-    // MARK: - getCoordinates(for:)
-    /**
-     Retrieves coordinates for given concert details.
-     
-     - Parameters:
-     - concert: `Concert`
-     - Returns: Tuple containing latitude and longitude of the concert venue.
-     
-     Uses MKLocalSearch to query based on concert venue and city. Converts query response to geographic coordinates.
-     Throws error if unable to find location or extract coordinates from response.
-     */
-    private func getCoordinates(
-        for concert: Concert
-    ) async throws -> (latitude: Double, longitude: Double) {
-        
-        // Construct search request using concert details
-        let request = MKLocalSearch.Request()
-        let query = concert.venue + " venue " + concert.city
-        
-        request.naturalLanguageQuery = query
-        request.resultTypes = .pointOfInterest
-        
-        // Debug print for query search
-        print("searching for \(query)")
-        
-        // Initialize and start search
-        let search = MKLocalSearch(request: request)
-        let response = try? await search.start()
-        
-        // Ensure coordinates are available, else throw error
-        guard let coordinates = response?.mapItems.first?.placemark.coordinate else  {
-            throw NSError(domain: "LocationError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to find location"])
-        }
-        
-        // Return latitude and longitude as tuple
-        return (
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude
-        )
-    }
-    
 }
