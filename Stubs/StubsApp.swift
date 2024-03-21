@@ -12,15 +12,25 @@ import TipKit
 
 @main
 struct StubsApp: App {
+    let container: ModelContainer
     
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Concert.self, Artist.self])
+        .modelContainer(container)
     }
     
     init() {
+        
+        do {
+            container = try ModelContainer(for: Concert.self)
+        } catch {
+            fatalError("Failed to create Model Container for Concert.")
+        }
+        
+        
+        
         // Purge TipKit data
         // try? Tips.resetDatastore()
         
@@ -42,6 +52,7 @@ struct StubsApp: App {
                 .displayFrequency(.hourly) // Set frequency of Tip presentation.
             ]
         )
+        
     }
 }
 
