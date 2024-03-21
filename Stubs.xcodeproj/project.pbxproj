@@ -39,8 +39,9 @@
 		AA62228E2B2A58F5004899A9 /* AlbumScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */; };
 		AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228F2B2B367C004899A9 /* NoStubsView.swift */; };
 		AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */; };
-		AA675E672BAC9223000C23C8 /* StubView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E662BAC9223000C23C8 /* StubView-ViewModel.swift */; };
+		AA675E672BAC9223000C23C8 /* StubEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E662BAC9223000C23C8 /* StubEditor-ViewModel.swift */; };
 		AA675E692BACBA28000C23C8 /* StubCollection-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E682BACBA28000C23C8 /* StubCollection-ViewModel.swift */; };
+		AA675E6B2BACBD5D000C23C8 /* MapKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -166,8 +167,9 @@
 		AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScrollView.swift; sourceTree = "<group>"; };
 		AA62228F2B2B367C004899A9 /* NoStubsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoStubsView.swift; sourceTree = "<group>"; };
 		AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensionTests.swift; sourceTree = "<group>"; };
-		AA675E662BAC9223000C23C8 /* StubView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubView-ViewModel.swift"; sourceTree = "<group>"; };
+		AA675E662BAC9223000C23C8 /* StubEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		AA675E682BACBA28000C23C8 /* StubCollection-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubCollection-ViewModel.swift"; sourceTree = "<group>"; };
+		AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitService.swift; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
 				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
+				AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AAAE3D722BA6A2B000F2BC3E /* Keys.swift */,
 			);
@@ -478,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8A747E2A32BF79003E9B41 /* StubEditor.swift */,
+				AA675E662BAC9223000C23C8 /* StubEditor-ViewModel.swift */,
 				AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */,
 				AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */,
 				AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */,
@@ -491,7 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				AAB050182A59D88600EB88BD /* StubView.swift */,
-				AA675E662BAC9223000C23C8 /* StubView-ViewModel.swift */,
 				AA7C57ED2B249B7B006843C4 /* StubShape.swift */,
 				AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */,
 				AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */,
@@ -697,9 +700,10 @@
 				AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */,
 				AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */,
 				AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */,
+				AA675E6B2BACBD5D000C23C8 /* MapKitService.swift in Sources */,
 				AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */,
 				AA59EF9E2B3B152900EC82EB /* StubEditorStubPreview.swift in Sources */,
-				AA675E672BAC9223000C23C8 /* StubView-ViewModel.swift in Sources */,
+				AA675E672BAC9223000C23C8 /* StubEditor-ViewModel.swift in Sources */,
 				AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */,
 				AA675E692BACBA28000C23C8 /* StubCollection-ViewModel.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */,

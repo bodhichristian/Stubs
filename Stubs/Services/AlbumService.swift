@@ -7,7 +7,8 @@
 
 import Foundation
 
-@Observable class AlbumService {
+@Observable 
+class AlbumService {
     
     var albums: [Album] = []
     

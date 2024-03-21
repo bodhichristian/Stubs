@@ -7,7 +7,8 @@
 
 import Foundation
 
-@Observable class ArtistService {
+@Observable 
+class ArtistService {
     
     var searchResponse: [Artist] = []
     
