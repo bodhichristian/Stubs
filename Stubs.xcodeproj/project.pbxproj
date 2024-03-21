@@ -44,6 +44,7 @@
 		AA675E6B2BACBD5D000C23C8 /* MapKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */; };
 		AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */; };
 		AA675E6F2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6E2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift */; };
+		AA675E712BACCBFE000C23C8 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E702BACCBFE000C23C8 /* StubStyle.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -174,6 +175,7 @@
 		AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitService.swift; sourceTree = "<group>"; };
 		AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServiceTests.swift; sourceTree = "<group>"; };
 		AA675E6E2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubEditor-ViewModelTests.swift"; sourceTree = "<group>"; };
+		AA675E702BACCBFE000C23C8 /* StubStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStyle.swift; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				AA8A74742A32BDF4003E9B41 /* Concert.swift */,
 				AAEDF07E2B596BC50059F8B6 /* DebugData.swift */,
 				AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */,
+				AA675E702BACCBFE000C23C8 /* StubStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				AADBF8212B9F767A002F36D6 /* FavoriteConcertTip.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */,
 				AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */,
+				AA675E712BACCBFE000C23C8 /* StubStyle.swift in Sources */,
 				AA3C723B2B94007100C24B2B /* ArtistListView.swift in Sources */,
 				AA3C72392B93B75200C24B2B /* ArtistGridItemLabel.swift in Sources */,
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
