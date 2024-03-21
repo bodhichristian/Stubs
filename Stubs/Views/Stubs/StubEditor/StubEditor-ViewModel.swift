@@ -17,10 +17,11 @@ extension StubEditor {
     class ViewModel {
         var artists = [Artist]()
         var concerts = [Concert]()
-        var modelContext: ModelContext
         var addConcertFailed: Bool
         var artistService: ArtistService
-        
+        var mapKitService: MapKitService
+        var modelContext: ModelContext
+
         let saveFailedAlert = Alert(
             title: Text("Save Error"),
             message: Text("Unable to save Stub."),
@@ -31,6 +32,7 @@ extension StubEditor {
             self.modelContext = modelContext
             self.addConcertFailed = false
             self.artistService = ArtistService()
+            self.mapKitService = MapKitService()
             fetchData()
         }
         
@@ -41,11 +43,11 @@ extension StubEditor {
             Task {
                 do {
                     // Attempt to get coordinates for the new concert
-                    let coordinates = try await getCoordinates(for: concert)
+                    try await mapKitService.getCoordinates(for: concert)
                     
                     // Update concert details with retrieved coordinates
-                    concert.venueLatitude = coordinates.latitude
-                    concert.venueLongitude = coordinates.longitude
+                    concert.venueLatitude = mapKitService.latitude
+                    concert.venueLongitude = mapKitService.longitude
                     
                     // Search for artist by name in the `artists` array
                     if let existingArtist = artists.first(where: { $0.artistName == concert.artistName }) {
@@ -119,35 +121,7 @@ extension StubEditor {
             task.resume()
         }
         
-        private func getCoordinates(
-            for concert: Concert
-        ) async throws -> (latitude: Double, longitude: Double) {
-            
-            // Construct search request using concert details
-            let request = MKLocalSearch.Request()
-            let query = concert.venue + " venue " + concert.city
-            
-            request.naturalLanguageQuery = query
-            request.resultTypes = .pointOfInterest
-            
-            // Debug print for query search
-            print("searching for \(query)")
-            
-            // Initialize and start search
-            let search = MKLocalSearch(request: request)
-            let response = try? await search.start()
-            
-            // Ensure coordinates are available, else throw error
-            guard let coordinates = response?.mapItems.first?.placemark.coordinate else  {
-                throw NSError(domain: "LocationError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to find location"])
-            }
-            
-            // Return latitude and longitude as tuple
-            return (
-                latitude: coordinates.latitude,
-                longitude: coordinates.longitude
-            )
-        }
+        
   
     }
 }

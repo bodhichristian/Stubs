@@ -10,15 +10,10 @@ import XCTest
 
 final class AlbumServiceTests: XCTestCase {
 
-    func testAlbumServiceInitialization() {
+    func testAlbumServiceInit() {
         let service = AlbumService()
         
         XCTAssertNotNil(service)
-    }
-    
-    func testAlbumServiceSearchResponseEmptyByDefault() {
-        let service = AlbumService()
-        
         XCTAssertTrue(service.albums.isEmpty)
     }
     

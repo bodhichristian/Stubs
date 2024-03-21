@@ -42,6 +42,8 @@
 		AA675E672BAC9223000C23C8 /* StubEditor-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E662BAC9223000C23C8 /* StubEditor-ViewModel.swift */; };
 		AA675E692BACBA28000C23C8 /* StubCollection-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E682BACBA28000C23C8 /* StubCollection-ViewModel.swift */; };
 		AA675E6B2BACBD5D000C23C8 /* MapKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */; };
+		AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */; };
+		AA675E6F2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6E2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -170,6 +172,8 @@
 		AA675E662BAC9223000C23C8 /* StubEditor-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubEditor-ViewModel.swift"; sourceTree = "<group>"; };
 		AA675E682BACBA28000C23C8 /* StubCollection-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubCollection-ViewModel.swift"; sourceTree = "<group>"; };
 		AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitService.swift; sourceTree = "<group>"; };
+		AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServiceTests.swift; sourceTree = "<group>"; };
+		AA675E6E2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StubEditor-ViewModelTests.swift"; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -463,6 +467,8 @@
 				AAAE3D782BA6A71A00F2BC3E /* AlbumServiceTests.swift */,
 				AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */,
 				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
+				AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */,
+				AA675E6E2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift */,
 				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
 			);
 			path = StubsTests;
@@ -746,8 +752,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */,
 				AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */,
 				AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */,
+				AA675E6F2BACCA53000C23C8 /* StubEditor-ViewModelTests.swift in Sources */,
 				AAAE3D792BA6A71A00F2BC3E /* AlbumServiceTests.swift in Sources */,
 				AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */,
 				AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */,
