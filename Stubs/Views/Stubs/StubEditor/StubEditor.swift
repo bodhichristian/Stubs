@@ -69,10 +69,9 @@ struct StubEditor: View {
                 }
             }
             .alert(isPresented: $viewModel.addConcertFailed) {
-                viewModel.alert
+                viewModel.saveFailedAlert
             }
         }
-        
     }
     
     init(modelContext: ModelContext, addConcertTip: AddConcertTip) {

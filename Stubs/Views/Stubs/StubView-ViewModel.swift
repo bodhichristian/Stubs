@@ -21,7 +21,7 @@ extension StubEditor {
         var addConcertFailed: Bool
         var artistService: ArtistService
         
-        let alert = Alert(
+        let saveFailedAlert = Alert(
             title: Text("Save Error"),
             message: Text("Unable to save Stub."),
             dismissButton: .default(Text("OK"))
@@ -49,31 +49,29 @@ extension StubEditor {
                     
                     // Search for artist by name in the `artists` array
                     if let existingArtist = artists.first(where: { $0.artistName == concert.artistName }) {
-                        // If an artist with the same name is found, associate it with the new concert
                         concert.artist = existingArtist
                     } else {
-                        // If no artist is found, search for it using the artistService
+                        // If no artist is found, search TheAudioDB
                         try await artistService.search(for: concert.artistName)
-                        
-                        
+
                         if let artist = artistService.searchResponse.first {
                             concert.artist = artist
                         }
                         
+                        // Fetch Artist profile and banner images
                         fetchImageData(from: concert.artist?.artistImageURL ?? "") { data in
                             concert.artist?.artistImageData = data
                         }
-                        
+
                         fetchImageData(from: concert.artist?.bannerImageURL ?? "") { data in
                             concert.artist?.bannerImageData = data
                         }
                     }
                     
-                    // Insert updated concert details into model context
+                    
                     modelContext.insert(concert)
                     try modelContext.save()
-                    
-                    
+                    // Tally TipKit Event
                     await ArtistsViewOptionsTip.addArtistEvent.donate()
                     
                 } catch {
@@ -87,7 +85,7 @@ extension StubEditor {
             fetchData()
         }
         
-        private func fetchData() {
+        func fetchData() {
             do {
                 let artistDescriptor = FetchDescriptor<Artist>(
                     sortBy: [SortDescriptor(\.artistName)]

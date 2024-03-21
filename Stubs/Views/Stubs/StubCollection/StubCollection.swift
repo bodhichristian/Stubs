@@ -68,6 +68,7 @@ struct StubCollection: View {
                     }
                 }
             }
+            
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor(modelContext: modelContext, addConcertTip: addConcertTip)
