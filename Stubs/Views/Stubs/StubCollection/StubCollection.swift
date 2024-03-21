@@ -70,7 +70,7 @@ struct StubCollection: View {
             }
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
-                StubEditor(addConcertTip: addConcertTip)
+                StubEditor(modelContext: modelContext, addConcertTip: addConcertTip)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
