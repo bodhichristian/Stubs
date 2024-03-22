@@ -28,8 +28,8 @@ final class ArtistServiceTests: XCTestCase {
         let artistName = "Ariana Grande" // Example artist name
         
         do {
-            try await service.search(for: artistName)
-            XCTAssertNotNil(service.searchResponse)
+            let artist = try await service.search(for: artistName)
+            XCTAssertEqual(artistName, artist?.artistName)
             expectation.fulfill()
         } catch {
             XCTFail("Failed to retrieve artist data")
@@ -37,23 +37,7 @@ final class ArtistServiceTests: XCTestCase {
         
         await fulfillment(of: [expectation], timeout: 10.0)
     }
-    
-    func testArtistServiceDebugSearchResponseSuccess() async {
-        let service = ArtistService()
-        let expectation = XCTestExpectation(description: "Retrieve artist data.")
-        let artistName = "Coldplay" // Example artist name
-        
-        do {
-            let artist = try await service.debugSearch(for: artistName)
-            XCTAssertNotNil(artist)
-            XCTAssertNotNil(artist?.artistName)
-            expectation.fulfill()
-        } catch {
-            XCTFail("Failed to retrieve artist data")
-        }
-        
-        await fulfillment(of: [expectation], timeout: 10.0)
-    }
+
 }
 
 

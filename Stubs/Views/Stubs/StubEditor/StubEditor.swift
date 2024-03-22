@@ -25,7 +25,6 @@ struct StubEditor: View {
         venueLatitude: 0.0,
         venueLongitude: 0.0
     )
-
     
     let addConcertTip: AddConcertTip
     let artistViewOptionsTip = ArtistsViewOptionsTip()
@@ -50,9 +49,7 @@ struct StubEditor: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
-
                         dismiss()
-                        
                     }
                 }
                 

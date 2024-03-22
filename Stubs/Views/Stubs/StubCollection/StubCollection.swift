@@ -192,7 +192,7 @@ extension StubCollection {
         )!
         
         Task {
-            if let artist = try await service.debugSearch(for: artistName) {
+            if let artist = try await service.search(for: artistName) {
                 
                 fetchImageData(from: artist.artistImageURL ?? "") { data in
                     artist.artistImageData = data

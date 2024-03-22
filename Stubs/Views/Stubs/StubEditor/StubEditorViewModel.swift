@@ -53,27 +53,37 @@ extension StubEditor {
                         concert.artist = existingArtist
                     } else {
                         // If no artist is found, search TheAudioDB
-                        try await artistService.search(for: concert.artistName)
-
-                        if let artist = artistService.searchResponse.first {
-                            concert.artist = artist
+//                        try await artistService.search(for: concert.artistName)
+//
+//                        if let artist = artistService.searchResponse.first {
+//                            concert.artist = artist
+//                        }
+                        
+                        if let fetchedArtist = try await artistService.search(for: concert.artistName) {
+                        
+                            // Fetch artist profile image
+                            fetchImageData(from: fetchedArtist.artistImageURL ?? "") { data in
+                                fetchedArtist.artistImageData = data
+                                
+                            }
+                            
+                            // Fetch artist banner image
+                            fetchImageData(from: fetchedArtist.bannerImageURL ?? "") { data in
+                                fetchedArtist.bannerImageData = data
+                            }
+                            
+                            concert.artist = fetchedArtist
                         }
                         
-                        // Fetch Artist profile and banner images
-                        fetchImageData(from: concert.artist?.artistImageURL ?? "") { data in
-                            concert.artist?.artistImageData = data
-                        }
-
-                        fetchImageData(from: concert.artist?.bannerImageURL ?? "") { data in
-                            concert.artist?.bannerImageData = data
-                        }
+                        
                     }
                     
+                    // Tally TipKit Event
+                    await ArtistsViewOptionsTip.addArtistEvent.donate()
                     
                     modelContext.insert(concert)
                     try modelContext.save()
-                    // Tally TipKit Event
-                    await ArtistsViewOptionsTip.addArtistEvent.donate()
+                    
                     
                 } catch {
                     // Handle error
@@ -83,7 +93,7 @@ extension StubEditor {
                     addConcertFailed = true
                 }
             }
-            fetchData()
+            //fetchData()
         }
         
         public func fetchData() {
