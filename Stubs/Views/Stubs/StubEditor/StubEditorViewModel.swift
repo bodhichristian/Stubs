@@ -10,7 +10,6 @@ import MapKit
 import SwiftData
 import SwiftUI
 
-
 extension StubEditor {
     
     @Observable
