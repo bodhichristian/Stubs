@@ -1,8 +1,8 @@
 //
-//  StubEditor-ViewModelTests.swift
+//  StubEditorViewModelTests.swift
 //  StubsTests
 //
-//  Created by christian on 3/21/24.
+//  Created by christian on 3/22/24.
 //
 
 import XCTest
