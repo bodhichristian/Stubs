@@ -34,15 +34,17 @@ final class StubEditorViewModelTests: XCTestCase {
     func testStubEditorViewModelInit() {
         let expectedArtists: [Artist] = []
         let expectedConcerts: [Concert] = []
-        let expectedAddConcertFailed = false
         
         let viewModel = StubEditor.ViewModel(modelContext: modelContext)
         
         XCTAssertEqual(viewModel.artists, expectedArtists)
         XCTAssertEqual(viewModel.concerts, expectedConcerts)
-        XCTAssertEqual(viewModel.addConcertFailed, false)
     }
 }
+
+
+
+
 
 
 

@@ -86,7 +86,7 @@ extension StubEditor {
             fetchData()
         }
         
-        func fetchData() {
+        public func fetchData() {
             do {
                 let artistDescriptor = FetchDescriptor<Artist>(
                     sortBy: [SortDescriptor(\.artistName)]
