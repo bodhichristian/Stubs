@@ -48,6 +48,9 @@ extension StubEditor {
                     concert.venueLatitude = mapKitService.latitude
                     concert.venueLongitude = mapKitService.longitude
                     
+                    
+                    //concert.mapSnapshotData = mapKitService.getMapSnapshot()
+                    
                     // Search for artist by name in the `artists` array
                     if let existingArtist = artists.first(where: { $0.artistName == concert.artistName }) {
                         concert.artist = existingArtist
