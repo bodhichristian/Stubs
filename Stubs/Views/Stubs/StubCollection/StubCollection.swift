@@ -18,6 +18,7 @@ struct StubCollection: View {
     @State private var isAddingConcert = false
     @State private var searchText = ""
     @State private var filteringFavorites = false
+
     
     private let addConcertTip = AddConcertTip()
     private let service = ArtistService()
@@ -111,8 +112,11 @@ struct StubCollection: View {
                 }
             }
             .tint(.primary)
+
         }
-        
+        .refreshable {
+            
+        }
     }
 }
 

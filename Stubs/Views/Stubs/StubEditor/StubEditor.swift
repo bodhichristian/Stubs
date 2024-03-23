@@ -14,7 +14,6 @@ struct StubEditor: View {
     @Environment(\.modelContext) var modelContext
     @Query var artists: [Artist]
     @State private var concertService = ConcertService()
-    
     let addConcertTip: AddConcertTip
     let artistViewOptionsTip = ArtistsViewOptionsTip()
     

@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-// MARK: StubView - SwiftUI View
-// A View that represents a ticket stub
-
 struct StubView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var iconTapped = false // For icon animation
