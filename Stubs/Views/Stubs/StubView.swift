@@ -11,16 +11,14 @@ import SwiftUI
 // A View that represents a ticket stub
 
 struct StubView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var iconTapped = false // For icon animation
+    
     let concert: Concert
 
     private var stubColor: Color {
         return Color(colorName: concert.accentColor)!
     }
-    
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    
-    @State private var iconTapped = false // For icon animation
-    
     var body: some View {
         GeometryReader { geo in
             ZStack {
