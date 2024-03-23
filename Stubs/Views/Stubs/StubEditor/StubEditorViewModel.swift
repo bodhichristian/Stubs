@@ -48,8 +48,6 @@ extension StubEditor {
                     concert.venueLatitude = mapKitService.latitude
                     concert.venueLongitude = mapKitService.longitude
                     
-                    await mapKitService.getMapSnapshot()
-                    concert.mapSnapshotData = mapKitService.mapSnapshotData
                     
                     //concert.mapSnapshotData = mapKitService.getMapSnapshot()
                     
@@ -83,6 +81,7 @@ extension StubEditor {
                         
                     }
                     
+
                     // Tally TipKit Event
                     await ArtistsViewOptionsTip.addArtistEvent.donate()
                     

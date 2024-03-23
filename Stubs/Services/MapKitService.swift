@@ -43,11 +43,11 @@ class MapKitService {
         longitude = coordinates.longitude
     }
     
-    func getMapSnapshot() async  {
+    func getMapSnapshot() {
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
-        options.scale = 2.0 //await UIScreen.main.scale
+        options.scale = UIScreen.main.scale
         options.mapType = .satelliteFlyover
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
@@ -58,15 +58,15 @@ class MapKitService {
             pitch: 70,
             heading: 0
         )
-
+        
         let snapshotter = MKMapSnapshotter(options: options)
-
-        do {
-            let snapshot = try await snapshotter.start()
-            mapSnapshotData =  snapshot.image.jpegData(compressionQuality: 1.0)
-        } catch {
-            print("Error capturing snapshot: \(error.localizedDescription)")
-//            return nil
+        snapshotter.start { snapshot, error in
+            guard let snapshot = snapshot else {
+                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            self.mapSnapshotData = snapshot.image.jpegData(compressionQuality: 1.0)
         }
     }
+ 
 }
