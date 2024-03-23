@@ -45,6 +45,7 @@
 		AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */; };
 		AA675E6F2BACCA53000C23C8 /* StubEditorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */; };
 		AA675E712BACCBFE000C23C8 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E702BACCBFE000C23C8 /* StubStyle.swift */; };
+		AA745A9A2BAF73B500618EBE /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745A992BAF73B500618EBE /* ConcertService.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -176,6 +177,7 @@
 		AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServiceTests.swift; sourceTree = "<group>"; };
 		AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorViewModelTests.swift; sourceTree = "<group>"; };
 		AA675E702BACCBFE000C23C8 /* StubStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStyle.swift; sourceTree = "<group>"; };
+		AA745A992BAF73B500618EBE /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			children = (
 				AA5615F72B27AB5B00A35D4A /* AlbumService.swift */,
 				AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */,
+				AA745A992BAF73B500618EBE /* ConcertService.swift */,
 				AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */,
 				AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */,
 				AAAE3D722BA6A2B000F2BC3E /* Keys.swift */,
@@ -732,6 +735,7 @@
 				AACBD17E2B5B09710093EAB7 /* ProfileView.swift in Sources */,
 				AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */,
 				AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */,
+				AA745A9A2BAF73B500618EBE /* ConcertService.swift in Sources */,
 				AA5E74F72B3EFDDE005DBD87 /* TabBarItem.swift in Sources */,
 				AADBF81F2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift in Sources */,
 				AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */,

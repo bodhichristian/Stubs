@@ -11,7 +11,7 @@ import TipKit
 
 struct StubCollection: View {
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     @Namespace var namespace
     @Query(sort: \Concert.date) private var concerts: [Concert]
     
@@ -71,7 +71,7 @@ struct StubCollection: View {
             
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
-                StubEditor(modelContext: modelContext, addConcertTip: addConcertTip)
+                StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

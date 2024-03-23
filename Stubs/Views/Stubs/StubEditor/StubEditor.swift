@@ -11,39 +11,28 @@ import SwiftData
 
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
-    @State private var viewModel: ViewModel
-    
-    // MARK: Local concert for editing
-    @State private var concertTemplate = Concert(
-        artistName: "",
-        venue: "",
-        city: "",
-        date: Date.now,
-        iconName: StubStyle.icons.randomElement()!,
-        accentColor: StubStyle.colors.randomElement()!,
-        notes: "",
-        venueLatitude: 0.0,
-        venueLongitude: 0.0
-    )
+    @Environment(\.modelContext) var modelContext
+    @Query var artists: [Artist]
+    @State private var concertService = ConcertService()
     
     let addConcertTip: AddConcertTip
     let artistViewOptionsTip = ArtistsViewOptionsTip()
     
     // Returns true if any field is empty
     private var saveReady: Bool {
-        !concertTemplate.artistName.isEmpty
-        && !concertTemplate.venue.isEmpty
-        && !concertTemplate.city.isEmpty
+        !concertService.template.artistName.isEmpty
+        && !concertService.template.venue.isEmpty
+        && !concertService.template.city.isEmpty
     }
     
     var body: some View {
         NavigationStack {
             Form {
-                StubEditorStubPreview(concert: concertTemplate)
-                StubEditorDetails(concert: concertTemplate)
-                StubEditorIconSelector(iconName: $concertTemplate.iconName)
-                StubEditorColorSelector(accentColor: $concertTemplate.accentColor)
-                StubEditorNotes(concertNotes: $concertTemplate.notes)
+                StubEditorStubPreview(concert: concertService.template)
+                StubEditorDetails(concert: concertService.template)
+                StubEditorIconSelector(iconName: $concertService.template.iconName)
+                StubEditorColorSelector(accentColor: $concertService.template.accentColor)
+                StubEditorNotes(concertNotes: $concertService.template.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -55,27 +44,25 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        viewModel.addConcert(concertTemplate)
                         
-                        if !viewModel.addConcertFailed {
-                            addConcertTip.invalidate(reason: .actionPerformed)
-                            dismiss()
+                        if let savedArtist = artists.first(where: {$0.artistName == concertService.template.artistName}) {
+                            concertService.buildConcert(with: savedArtist)
+                        } else {
+                            concertService.buildConcert()
                         }
+                        modelContext.insert(concertService.template)
+                        addConcertTip.invalidate(reason: .actionPerformed)
+                        dismiss()
                     }
                     .disabled(!saveReady)
                 }
             }
-            .alert(isPresented: $viewModel.addConcertFailed) {
-                viewModel.saveFailedAlert
-            }
+            //            .alert(isPresented: $viewModel.addConcertFailed) {
+            //                viewModel.saveFailedAlert
+            //            }
         }
     }
-    
-    init(modelContext: ModelContext, addConcertTip: AddConcertTip) {
-        let viewModel = ViewModel(modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
-        self.addConcertTip = addConcertTip
-    }
+
 }
 
 

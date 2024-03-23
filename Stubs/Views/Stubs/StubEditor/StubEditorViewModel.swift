@@ -32,7 +32,6 @@ extension StubEditor {
             self.addConcertFailed = false
             self.artistService = ArtistService()
             self.mapKitService = MapKitService()
-            fetchData()
         }
         
         // MARK: - ViewModel methods
@@ -64,16 +63,16 @@ extension StubEditor {
                         
                         if let fetchedArtist = try await artistService.search(for: concert.artistName) {
                         
-                            // Fetch artist profile image
-                            fetchImageData(from: fetchedArtist.artistImageURL ?? "") { data in
-                                fetchedArtist.artistImageData = data
-                                
-                            }
-                            
-                            // Fetch artist banner image
-                            fetchImageData(from: fetchedArtist.bannerImageURL ?? "") { data in
-                                fetchedArtist.bannerImageData = data
-                            }
+//                            // Fetch artist profile image
+//                            fetchImageData(from: fetchedArtist.artistImageURL ?? "") { data in
+//                                fetchedArtist.artistImageData = data
+//                                
+//                            }
+//                            
+//                            // Fetch artist banner image
+//                            fetchImageData(from: fetchedArtist.bannerImageURL ?? "") { data in
+//                                fetchedArtist.bannerImageData = data
+//                            }
                             
                             concert.artist = fetchedArtist
                         }
@@ -97,42 +96,10 @@ extension StubEditor {
                     addConcertFailed = true
                 }
             }
-            //fetchData()
         }
         
-        public func fetchData() {
-            do {
-                let artistDescriptor = FetchDescriptor<Artist>(
-                    sortBy: [SortDescriptor(\.artistName)]
-                )
-                let concertDescriptor = FetchDescriptor<Concert>(
-                    sortBy: [SortDescriptor(\.artistName)]
-                )
-                concerts = try modelContext.fetch(concertDescriptor)
-                artists = try modelContext.fetch(artistDescriptor)
-            } catch {
-                print("Fetch failed")
-            }
-        }
 
-        private func fetchImageData(
-            from urlString: String,
-            completion: @escaping (Data?) -> Void
-        ) {
-            guard let url = URL(string: urlString) else {
-                completion(nil)
-                return
-            }
-            
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else {
-                    completion(nil)
-                    return
-                }
-                completion(data)
-            }
-            task.resume()
-        }
+        
         
         
   
