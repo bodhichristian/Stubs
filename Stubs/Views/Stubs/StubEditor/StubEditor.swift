@@ -34,6 +34,13 @@ struct StubEditor: View {
     let addConcertTip: AddConcertTip
     let artistViewOptionsTip = ArtistsViewOptionsTip()
     
+    // Returns false if any field is empty
+    private var saveReady: Bool {
+        !concertTemplate.artistName.isEmpty
+        && !concertTemplate.venue.isEmpty
+        && !concertTemplate.city.isEmpty
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -108,12 +115,7 @@ extension StubEditor {
     
     // MARK: - Computed Properties
     
-    // Returns true if any field is empty
-    private var saveReady: Bool {
-        !concertTemplate.artistName.isEmpty
-        && !concertTemplate.venue.isEmpty
-        && !concertTemplate.city.isEmpty
-    }
+
     
     // MARK: - Methods
     
