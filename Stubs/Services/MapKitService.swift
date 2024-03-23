@@ -12,7 +12,7 @@ import MapKit
 class MapKitService {
     var latitude: Double = 0
     var longitude: Double = 0
-    var mapSnapshotData = Data()
+    var mapSnapshotData: Data?
     
     func getCoordinates(for concert: Concert) async throws {
         // Construct search request using concert details
@@ -43,9 +43,12 @@ class MapKitService {
         longitude = coordinates.longitude
     }
     
-    func getMapSnapshot() {
+    func getMapSnapshot() async  {
         let options = MKMapSnapshotter.Options()
-        
+        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
+        options.size = CGSize(width: 360, height: 150)
+        options.scale = 2.0 //await UIScreen.main.scale
+        options.mapType = .satelliteFlyover
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
                 latitude: latitude,
@@ -55,24 +58,15 @@ class MapKitService {
             pitch: 70,
             heading: 0
         )
-        options.region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
-            latitudinalMeters: 200,
-            longitudinalMeters: 200
-        )
-        options.size = CGSize(width: 360, height: 150)
-        options.scale = UIScreen.main.scale
-        options.mapType = .satelliteFlyover
-        
-        
+
         let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            self.mapSnapshotData = snapshot.image.jpegData(compressionQuality: 1.0) ?? Data()
+
+        do {
+            let snapshot = try await snapshotter.start()
+            mapSnapshotData =  snapshot.image.jpegData(compressionQuality: 1.0)
+        } catch {
+            print("Error capturing snapshot: \(error.localizedDescription)")
+//            return nil
         }
-        
     }
 }

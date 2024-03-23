@@ -48,6 +48,8 @@ extension StubEditor {
                     concert.venueLatitude = mapKitService.latitude
                     concert.venueLongitude = mapKitService.longitude
                     
+                    await mapKitService.getMapSnapshot()
+                    concert.mapSnapshotData = mapKitService.mapSnapshotData
                     
                     //concert.mapSnapshotData = mapKitService.getMapSnapshot()
                     
