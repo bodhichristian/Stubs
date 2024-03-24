@@ -67,12 +67,13 @@ struct StubCollection: View {
                         .searchable(text: $searchText, prompt: searchPrompt)
                         
                     }
+
                 }
             }
-            
+           
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
-                StubEditor(addConcertTip: addConcertTip)
+                StubEditor(addConcertTip: addConcertTip/*, modelContext: modelContext*/)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -114,9 +115,7 @@ struct StubCollection: View {
             .tint(.primary)
 
         }
-        .refreshable {
-            
-        }
+
     }
 }
 
@@ -158,24 +157,7 @@ extension StubCollection {
         }
     }
     
-    // MARK: - Methods
-    
-    // MARK: fetchImageData(from urlString:)
-    private func fetchImageData(from urlString: String, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(nil)
-                return
-            }
-            completion(data)
-        }
-        task.resume()
-    }
+
     
     // MARK: addSampleConcert()
     private func addSampleConcert() {
@@ -198,11 +180,11 @@ extension StubCollection {
         Task {
             if let artist = try await service.search(for: artistName) {
                 
-                fetchImageData(from: artist.artistImageURL ?? "") { data in
+                service.fetchImageData(from: artist.artistImageURL ?? "") { data in
                     artist.artistImageData = data
                 }
                 
-                fetchImageData(from: artist.bannerImageURL ?? "") { data in
+                service.fetchImageData(from: artist.bannerImageURL ?? "") { data in
                     artist.bannerImageData = data
                 }
                 
@@ -224,6 +206,7 @@ extension StubCollection {
                 await ArtistsViewOptionsTip.addArtistEvent.donate()
                 
                 modelContext.insert(newConcert)
+                
             } else {
                 print("there was an error adding the sample artist.")
             }

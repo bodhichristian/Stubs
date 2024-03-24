@@ -15,6 +15,7 @@ struct StubEditor: View {
     @Query var artists: [Artist]
     @State private var concertService = ConcertService()
     let addConcertTip: AddConcertTip
+   // let modelContext: ModelContext
     let artistViewOptionsTip = ArtistsViewOptionsTip()
     
     // Returns true if any field is empty
@@ -50,6 +51,7 @@ struct StubEditor: View {
                             concertService.buildConcert()
                         }
                         modelContext.insert(concertService.template)
+                        
                         addConcertTip.invalidate(reason: .actionPerformed)
                         dismiss()
                     }
