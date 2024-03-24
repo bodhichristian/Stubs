@@ -27,7 +27,6 @@ class ConcertService {
     func buildConcert(with artist: Artist? = nil)  {
         Task {
             do {
-                
                 try await mapKitService.getCoordinates(for: template)
                 
                 template.venueLatitude = mapKitService.latitude
@@ -43,6 +42,5 @@ class ConcertService {
             }
         }
     }
-    
-    
+  
 }

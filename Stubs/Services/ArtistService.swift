@@ -10,7 +10,6 @@ import Foundation
 @Observable
 class ArtistService {
     
-    //var searchResponse: [Artist] = []
     var fetchedArtist: Artist?
     var fetchFailed = false
     
@@ -39,7 +38,7 @@ class ArtistService {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        do {
+        do { // Search for artist
             let (data, _) = try await URLSession.shared.data(for: request)
             let decoder = JSONDecoder()
             let response = try decoder.decode(ArtistSearchResponse.self, from: data)
@@ -53,7 +52,7 @@ class ArtistService {
             throw ArtistServiceError.failedToFetchArtist
         }
         
-        do {
+        do { // Fetch artist and banner images
             let artistImageData = try await fetchImageData(from: fetchedArtist?.artistImageURL ?? "")
             let bannerImageData = try await fetchImageData(from: fetchedArtist?.bannerImageURL ?? "")
             
