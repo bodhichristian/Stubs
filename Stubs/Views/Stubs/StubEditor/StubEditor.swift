@@ -68,14 +68,6 @@ struct StubEditor: View {
     private func saveConcert(with artist: Artist? = nil)  {
         Task {
             do {
-                // Artist service
-                if let savedArtist = artist {
-                    template.artist = savedArtist
-                } else {
-                    try await artistService.search(for: template.artistName)
-                    template.artist = artistService.fetchedArtist
-                    
-                }
                 // MapKit service
                 try await mapKitService.getCoordinates(for: template)
                 template.venueLatitude = mapKitService.latitude
@@ -94,7 +86,15 @@ struct StubEditor: View {
                 venueLongitude: template.venueLongitude
             )
             
-            newConcert.artist = artistService.fetchedArtist
+            // Artist service
+            if let savedArtist = artist {
+                newConcert.artist = savedArtist
+            } else {
+                try await artistService.search(for: template.artistName)
+                newConcert.artist = artistService.fetchedArtist
+                
+            }
+            
             modelContext.insert(newConcert)
         }
     }

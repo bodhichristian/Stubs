@@ -14,6 +14,7 @@ struct StubCollection: View {
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
     @Query(sort: \Concert.date) private var concerts: [Concert]
+    @Query private var artists: [Artist]
     
     @State private var isAddingConcert = false
     @State private var searchText = ""
@@ -72,18 +73,12 @@ struct StubCollection: View {
             
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
-                StubEditor(addConcertTip: addConcertTip/*, modelContext: modelContext*/)
+                StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        Task {
-                            do {
-                                try await addSampleConcert()
-                            } catch {
-                                throw error
-                            }
-                        }
+                       addSampleConcert()
                     } label: {
                         ToolbarButtonLabel(
                             text: "Demo",
@@ -165,7 +160,7 @@ extension StubCollection {
     
     
     // MARK: addSampleConcert()
-    private func addSampleConcert() async throws {
+    private func addSampleConcert()  {
         
         let artistName = DebugData.artists.randomElement()!
         let venue = DebugData.venues.randomElement()!
@@ -182,30 +177,41 @@ extension StubCollection {
             )
         )!
         
-            do {
-                try await service.search(for: artistName)
-                
-                let newConcert = Concert(
-                    artistName: artistName,
-                    venue: venue.name,
-                    city: venue.city,
-                    date: date,
-                    iconName: icon,
-                    accentColor: color,
-                    notes: notes,
-                    isFavorite: isFavorite,
-                    venueLatitude: venue.latitude,
-                    venueLongitude: venue.longitude
-                )
-                
-                newConcert.artist = service.fetchedArtist
-                
-                await ArtistsViewOptionsTip.addArtistEvent.donate()
-                
-                modelContext.insert(newConcert)
-                
-            } catch {
-                throw error
+            Task {
+                do {
+                    try await service.search(for: artistName)
+                    
+                    let newConcert = Concert(
+                        artistName: artistName,
+                        venue: venue.name,
+                        city: venue.city,
+                        date: date,
+                        iconName: icon,
+                        accentColor: color,
+                        notes: notes,
+                        isFavorite: isFavorite,
+                        venueLatitude: venue.latitude,
+                        venueLongitude: venue.longitude
+                    )
+                    
+                    // Artist service
+                    if let savedArtist = artists.first(where: {$0.artistName == newConcert.artistName}) {
+                        newConcert.artist = savedArtist
+                    } else {
+                        try await service.search(for: newConcert.artistName)
+                        newConcert.artist = service.fetchedArtist
+                        
+                    }
+                    
+                    //newConcert.artist = service.fetchedArtist
+                    
+                    await ArtistsViewOptionsTip.addArtistEvent.donate()
+                    
+                    modelContext.insert(newConcert)
+                    
+                } catch {
+                    throw error
+                }
             }
             
         
