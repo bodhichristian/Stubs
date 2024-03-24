@@ -22,8 +22,7 @@ class Artist: Codable, Hashable {
         case bannerImageURL = "strArtistFanart2"
         
     }
-    
-    
+
     var concerts: [Concert]?
     
     var artistID: String? = nil

@@ -10,9 +10,6 @@ import MapKit
 import SwiftData
 import SwiftUI
 
-// MARK: Concert Type
-// An object that represents a single concert
-
 @Model
 final class Concert: Codable {
     let uuid: UUID

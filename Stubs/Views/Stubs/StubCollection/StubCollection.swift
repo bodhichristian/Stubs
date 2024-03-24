@@ -18,7 +18,6 @@ struct StubCollection: View {
     @State private var isAddingConcert = false
     @State private var searchText = ""
     @State private var filteringFavorites = false
-
     
     private let addConcertTip = AddConcertTip()
     private let service = ArtistService()
@@ -180,12 +179,12 @@ extension StubCollection {
         Task {
             if let artist = try await service.search(for: artistName) {
                 
-                service.fetchImageData(from: artist.artistImageURL ?? "") { data in
-                    artist.artistImageData = data
+                if let artistImageData = await service.fetchImageData(from: artist.artistImageURL ?? "") {
+                    artist.artistImageData = artistImageData
                 }
                 
-                service.fetchImageData(from: artist.bannerImageURL ?? "") { data in
-                    artist.bannerImageData = data
+                if let bannerImageData = await service.fetchImageData(from: artist.bannerImageURL ?? "") {
+                    artist.bannerImageData = bannerImageData
                 }
                 
                 let newConcert = Concert(

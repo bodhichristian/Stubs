@@ -24,7 +24,7 @@ class ConcertService {
         venueLongitude: 0.0
     )
     
-    func buildConcert(with artist: Artist? = nil) {
+    func buildConcert(with artist: Artist? = nil)  {
         Task {
             do {
                 
@@ -37,12 +37,13 @@ class ConcertService {
                     template.artist = savedArtist
                 } else {
                     if let newArtist = try await artistService.search(for: template.artistName) {
-                        artistService.fetchImageData(from: newArtist.artistImageURL ?? "") { data in
-                            newArtist.artistImageData = data
+                        
+                        if let artistImageData = await artistService.fetchImageData(from: newArtist.artistImageURL ?? "") {
+                            newArtist.artistImageData = artistImageData
                         }
                         
-                        artistService.fetchImageData(from: newArtist.bannerImageURL ?? "") { data in
-                            newArtist.bannerImageData = data
+                        if let bannerImageData = await artistService.fetchImageData(from: newArtist.bannerImageURL ?? "") {
+                            newArtist.bannerImageData = bannerImageData
                         }
                         
                         template.artist = newArtist

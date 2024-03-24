@@ -5,8 +5,6 @@
 //  Created by christian on 12/29/23.
 //
 
-// TODO: Find a way to load images in this view and pass to detail views. Currently artist images load here.
-
 import SwiftUI
 import SwiftData
 import TipKit
@@ -15,6 +13,7 @@ struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Namespace var namespace
+    
     @Query var artists: [Artist]
     
     @State private var artistImageWidth: CGFloat = 44
@@ -23,7 +22,8 @@ struct ArtistsView: View {
     @State private var searchText = ""
     @State private var sortOrder: SortOrder = .byNameAscending
     
-    let viewOptionsTip = ArtistsViewOptionsTip()
+    private let viewOptionsTip = ArtistsViewOptionsTip()
+    private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     
     private var filteredArtists: [Artist] {
         if searchText.isEmpty {
@@ -54,22 +54,17 @@ struct ArtistsView: View {
     }
     
     private var sortedKeys: [String] {
-        
         switch sortOrder {
         case .byNameDescending:
             groupedArtists.keys.sorted().reversed()
         default:
             groupedArtists.keys.sorted()
-            
         }
     }
     
     
-    private let artistsViewOptionsTip = ArtistsViewOptionsTip()
-    
     var body: some View {
         ZStack {
-            
             NavigationStack {
                 ScrollView {
                     TipView(artistsViewOptionsTip)
@@ -81,7 +76,6 @@ struct ArtistsView: View {
                             listView: listView,
                             namespace: namespace
                         )
-                        
                     } else {
                         ArtistGridView(
                             artists: sortedArtists,
@@ -104,13 +98,9 @@ struct ArtistsView: View {
                         )
                         //.popoverTip(viewOptionsTip, arrowEdge: .top)
                     }
-                    
-                    
                 }
                 .tint(.primary)
             }
         }
-        
     }
-
 }

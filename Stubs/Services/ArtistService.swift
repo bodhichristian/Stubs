@@ -43,22 +43,36 @@ class ArtistService {
         
     }
     
-    func fetchImageData(
-        from urlString: String,
-        completion: @escaping (Data?) -> Void
-    ) {
+//    func fetchImageData(
+//        from urlString: String,
+//        completion: @escaping (Data?) -> Void
+//    ) {
+//        guard let url = URL(string: urlString) else {
+//            completion(nil)
+//            return
+//        }
+//        
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard let data = data, error == nil else {
+//                completion(nil)
+//                return
+//            }
+//            completion(data)
+//        }
+//        task.resume()
+//    }
+    
+    func fetchImageData(from urlString: String) async -> Data? {
         guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
+            return nil
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(nil)
-                return
-            }
-            completion(data)
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        } catch {
+            print("Error fetching image data: \(error)")
+            return nil
         }
-        task.resume()
     }
 }

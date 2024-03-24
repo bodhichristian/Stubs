@@ -44,11 +44,13 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
+                        Task {
                         
-                        if let savedArtist = artists.first(where: {$0.artistName == concertService.template.artistName}) {
-                            concertService.buildConcert(with: savedArtist)
-                        } else {
-                            concertService.buildConcert()
+                            if let savedArtist = artists.first(where: {$0.artistName == concertService.template.artistName}) {
+                                concertService.buildConcert(with: savedArtist)
+                            } else {
+                                concertService.buildConcert()
+                            }
                         }
                         modelContext.insert(concertService.template)
                         
