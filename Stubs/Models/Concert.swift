@@ -31,16 +31,16 @@ final class Concert: Codable {
     
     init(
         uuid: UUID = UUID(),
-        artistName: String,
-        venue: String,
-        city: String,
-        date: Date,
+        artistName: String = "",
+        venue: String = "",
+        city: String = "",
+        date: Date = Date.now,
         iconName: String,
         accentColor: String,
-        notes: String,
+        notes: String = "",
         isFavorite: Bool = false,
-        venueLatitude: Double,
-        venueLongitude: Double
+        venueLatitude: Double = 0.0,
+        venueLongitude: Double = 0.0
     ) {
         self.uuid = uuid
         self.artistName = artistName
