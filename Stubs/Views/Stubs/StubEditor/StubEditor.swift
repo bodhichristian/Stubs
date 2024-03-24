@@ -48,15 +48,12 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        Task {
-                        
-                            if let savedArtist = artists.first(where: {
-                                $0.artistName == template.artistName
-                            }) {
-                                saveConcert(with: savedArtist)
-                            } else {
-                                saveConcert()
-                            }
+                        if let savedArtist = artists.first(where: {
+                            $0.artistName == template.artistName
+                        }) {
+                            saveConcert(with: savedArtist)
+                        } else {
+                            saveConcert()
                         }
                         
                         addConcertTip.invalidate(reason: .actionPerformed)
