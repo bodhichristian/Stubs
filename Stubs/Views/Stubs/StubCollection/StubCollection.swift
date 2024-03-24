@@ -66,10 +66,10 @@ struct StubCollection: View {
                         .searchable(text: $searchText, prompt: searchPrompt)
                         
                     }
-
+                    
                 }
             }
-           
+            
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor(addConcertTip: addConcertTip/*, modelContext: modelContext*/)
@@ -77,7 +77,13 @@ struct StubCollection: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        addSampleConcert()
+                        Task {
+                            do {
+                                try await addSampleConcert()
+                            } catch {
+                                throw error
+                            }
+                        }
                     } label: {
                         ToolbarButtonLabel(
                             text: "Demo",
@@ -108,13 +114,13 @@ struct StubCollection: View {
                         )
                     }
                     .popoverTip(addConcertTip, arrowEdge: .top)
-
+                    
                 }
             }
             .tint(.primary)
-
+            
         }
-
+        
     }
 }
 
@@ -156,10 +162,10 @@ extension StubCollection {
         }
     }
     
-
+    
     
     // MARK: addSampleConcert()
-    private func addSampleConcert() {
+    private func addSampleConcert() async throws {
         
         let artistName = DebugData.artists.randomElement()!
         let venue = DebugData.venues.randomElement()!
@@ -176,16 +182,8 @@ extension StubCollection {
             )
         )!
         
-        Task {
-            if let artist = try await service.search(for: artistName) {
-                
-                if let artistImageData = await service.fetchImageData(from: artist.artistImageURL ?? "") {
-                    artist.artistImageData = artistImageData
-                }
-                
-                if let bannerImageData = await service.fetchImageData(from: artist.bannerImageURL ?? "") {
-                    artist.bannerImageData = bannerImageData
-                }
+            do {
+                try await service.search(for: artistName)
                 
                 let newConcert = Concert(
                     artistName: artistName,
@@ -200,16 +198,17 @@ extension StubCollection {
                     venueLongitude: venue.longitude
                 )
                 
-                newConcert.artist = artist
+                newConcert.artist = service.fetchedArtist
                 
                 await ArtistsViewOptionsTip.addArtistEvent.donate()
                 
                 modelContext.insert(newConcert)
                 
-            } else {
-                print("there was an error adding the sample artist.")
+            } catch {
+                throw error
             }
-        }
+            
+        
         
         
         

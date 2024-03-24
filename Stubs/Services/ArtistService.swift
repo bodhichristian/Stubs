@@ -7,13 +7,14 @@
 
 import Foundation
 
-@Observable 
+@Observable
 class ArtistService {
     
-    var searchResponse: [Artist] = []
+    //var searchResponse: [Artist] = []
+    var fetchedArtist: Artist?
+    var fetchFailed = false
     
-    
-    func search(for artistName: String) async throws -> Artist? {
+    func search(for artistName: String) async throws {
         
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
@@ -21,58 +22,61 @@ class ArtistService {
         ]
         
         let urlStringPrefix = "https://theaudiodb.p.rapidapi.com/search.php?s="
+        let formattedArtistName = artistName.replacingOccurrences(of: " ", with: "_")
         
-        let artistSnakeCase = artistName.replacingOccurrences(of: " ", with: "_")
+        let urlString = urlStringPrefix + formattedArtistName
+        guard let url = URL(string: urlString)
+        else {
+            fetchFailed = true
+            throw ArtistServiceError.invalidArtistURL
+        }
         
-        let urlString = urlStringPrefix + artistSnakeCase
-        guard let url = URL(string: urlString) else { return Artist() }
-        
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        var request = URLRequest(
+            url: url,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0
+        )
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            
-            let response = try JSONDecoder().decode(ArtistSearchResponse.self, from: data)
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(ArtistSearchResponse.self, from: data)
             let artist = response.artists.first
-            return artist
+            
+            //testing
+            self.fetchedArtist = artist
+            
         } catch {
-            throw error
+            self.fetchFailed = true
+            throw ArtistServiceError.failedToFetchArtist
+        }
+        
+        do {
+            let artistImageData = try await fetchImageData(from: fetchedArtist?.artistImageURL ?? "")
+            let bannerImageData = try await fetchImageData(from: fetchedArtist?.bannerImageURL ?? "")
+            
+            fetchedArtist?.artistImageData = artistImageData
+            fetchedArtist?.bannerImageData = bannerImageData
+            
+        } catch {
+            self.fetchFailed = true
+            throw ArtistServiceError.failedToFetchImages
         }
         
     }
     
-//    func fetchImageData(
-//        from urlString: String,
-//        completion: @escaping (Data?) -> Void
-//    ) {
-//        guard let url = URL(string: urlString) else {
-//            completion(nil)
-//            return
-//        }
-//        
-//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, error == nil else {
-//                completion(nil)
-//                return
-//            }
-//            completion(data)
-//        }
-//        task.resume()
-//    }
-    
-    func fetchImageData(from urlString: String) async -> Data? {
+    func fetchImageData(from urlString: String) async throws-> Data? {
         guard let url = URL(string: urlString) else {
-            return nil
+            throw ArtistServiceError.invalidImageURL
         }
-
+        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             return data
         } catch {
-            print("Error fetching image data: \(error)")
-            return nil
+            throw ArtistServiceError.failedToFetchImages
         }
     }
 }

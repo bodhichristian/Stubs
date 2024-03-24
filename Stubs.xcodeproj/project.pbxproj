@@ -44,6 +44,8 @@
 		AA675E6F2BACCA53000C23C8 /* StubEditorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */; };
 		AA675E712BACCBFE000C23C8 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E702BACCBFE000C23C8 /* StubStyle.swift */; };
 		AA745A9A2BAF73B500618EBE /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745A992BAF73B500618EBE /* ConcertService.swift */; };
+		AA745AA12BB09CEF00618EBE /* AlbumSearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */; };
+		AA745AA32BB09D5200618EBE /* ArtistServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -174,6 +176,8 @@
 		AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorViewModelTests.swift; sourceTree = "<group>"; };
 		AA675E702BACCBFE000C23C8 /* StubStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStyle.swift; sourceTree = "<group>"; };
 		AA745A992BAF73B500618EBE /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
+		AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchError.swift; sourceTree = "<group>"; };
+		AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceError.swift; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -358,6 +362,15 @@
 			path = Artists;
 			sourceTree = "<group>";
 		};
+		AA745A9F2BB09CD100618EBE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */,
+				AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		AA87B0D52B47AEF60071DB44 /* Album */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +407,7 @@
 			children = (
 				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
 				AA8A747B2A32BE0A003E9B41 /* Models */,
+				AA745A9F2BB09CD100618EBE /* Errors */,
 				AA8A74802A32C8FE003E9B41 /* Extensions */,
 				AAAE3D6B2BA69CCE00F2BC3E /* Services */,
 				AA19591A2B753C8400266267 /* Tips */,
@@ -712,6 +726,7 @@
 				AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */,
 				AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */,
 				AAD8B0B12B66027D00693D14 /* VenuesView.swift in Sources */,
+				AA745AA32BB09D5200618EBE /* ArtistServiceError.swift in Sources */,
 				AA6222902B2B367C004899A9 /* NoStubsView.swift in Sources */,
 				AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */,
 				AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */,
@@ -744,6 +759,7 @@
 				AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */,
 				AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */,
 				AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */,
+				AA745AA12BB09CEF00618EBE /* AlbumSearchError.swift in Sources */,
 				AAC4D4D02B2E77F80098D28D /* StubEditorDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

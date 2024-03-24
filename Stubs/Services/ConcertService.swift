@@ -36,18 +36,9 @@ class ConcertService {
                 if let savedArtist = artist {
                     template.artist = savedArtist
                 } else {
-                    if let newArtist = try await artistService.search(for: template.artistName) {
-                        
-                        if let artistImageData = await artistService.fetchImageData(from: newArtist.artistImageURL ?? "") {
-                            newArtist.artistImageData = artistImageData
-                        }
-                        
-                        if let bannerImageData = await artistService.fetchImageData(from: newArtist.bannerImageURL ?? "") {
-                            newArtist.bannerImageData = bannerImageData
-                        }
-                        
-                        template.artist = newArtist
-                    }
+                    try await artistService.search(for: template.artistName)
+                    template.artist = artistService.fetchedArtist
+                    
                 }
             }
         }

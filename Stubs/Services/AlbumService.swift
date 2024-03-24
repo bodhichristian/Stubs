@@ -45,19 +45,7 @@ class AlbumService {
     }
 }
 
-enum AlbumSearchError: Error, CustomStringConvertible {
-    case invalidArtistID,
-         unknownArtistID
-    
-    var description: String {
-        switch self {
-        case .invalidArtistID:
-            return "An Artist ID must only contain digits."
-        case .unknownArtistID:
-            return "Artist ID does not match any known artists."
-        }
-    }
-}
+
 
 // MARK: - Sample JSON Response
 /*
