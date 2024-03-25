@@ -5,7 +5,6 @@
 //  Created by christian on 6/8/23.
 //
 
-import MapKit
 import SwiftUI
 import SwiftData
 
