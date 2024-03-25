@@ -15,8 +15,7 @@ struct StubEditor: View {
     @State private var concertService = ConcertService()
     
     let addConcertTip: AddConcertTip
-
-    // Returns false if any field is empty
+    
     private var saveReady: Bool {
         !concertService.template.artistName.isEmpty
         && !concertService.template.venue.isEmpty
@@ -44,16 +43,15 @@ struct StubEditor: View {
                     Button("Save") {
                         Task {
                             try? await saveConcert()
+                            
                         }
-                        addConcertTip.invalidate(reason: .actionPerformed)
-                        dismiss()
                     }
                     .disabled(!saveReady)
                 }
             }
         }
     }
-  
+    
     private func saveConcert() async throws{
         do {
             if let savedArtist = artists.first(where: {
@@ -63,10 +61,12 @@ struct StubEditor: View {
             } else {
                 try await concertService.buildConcert()
             }
+            modelContext.insert(concertService.template)
+            addConcertTip.invalidate(reason: .actionPerformed)
+            dismiss()
         } catch {
             throw ConcertServiceError.failedToBuildConcert
         }
-        modelContext.insert(concertService.template)
     }
 }
 
