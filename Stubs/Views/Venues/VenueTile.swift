@@ -25,12 +25,10 @@ struct VenueTile: View {
             TileBase()
             
             VStack(alignment: .leading) {
-
                 Text(concert.venue)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .lineLimit(2)
-//                    .foregroundStyle(.white)
                 
                 Text("📍" + concert.city)
                     .font(listView ? .headline : .subheadline)
@@ -38,11 +36,8 @@ struct VenueTile: View {
                     .offset(x: -4)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            
             .padding()
-
         }
-        
         .frame(height: listView ? 80 : 120)
         .contentShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal, 2)

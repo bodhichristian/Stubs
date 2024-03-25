@@ -12,6 +12,7 @@ import TipKit
 struct ArtistsView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.modelContext) var modelContext
     @Namespace var namespace
     
     @Query var artists: [Artist]
@@ -84,6 +85,7 @@ struct ArtistsView: View {
                         )
                     }
                 }
+                
                 .navigationTitle("Artists")
                 .searchable(
                     text: $searchText,

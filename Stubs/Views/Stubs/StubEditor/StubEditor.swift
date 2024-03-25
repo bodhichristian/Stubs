@@ -13,6 +13,7 @@ struct StubEditor: View {
     @Environment(\.modelContext) var modelContext
     @Query var artists: [Artist]
     @State private var concertService = ConcertService()
+    @State private var isSaving = false
     
     let addConcertTip: AddConcertTip
     
@@ -40,12 +41,20 @@ struct StubEditor: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Save") {
-                        Task {
-                            try? await saveConcert()
+                    Button {
+                        isSaving = true
+                    } label: {
+                        if isSaving {
+                            ProgressView()
+                                .task {
+                                    try? await saveConcert()
+                                }
+                        } else {
+                            Text("Save")
                         }
                     }
-                    .disabled(!saveReady)
+                    .disabled(!saveReady || isSaving)
+                    .animation(.default, value: isSaving)
                 }
             }
         }
@@ -60,11 +69,15 @@ struct StubEditor: View {
             } else {
                 try await concertService.buildConcert()
             }
+            
             modelContext.insert(concertService.template)
+            try? modelContext.save()
+            isSaving = false
+            
             addConcertTip.invalidate(reason: .actionPerformed)
             dismiss()
         } catch {
-            throw ConcertServiceError.failedToBuildConcert
+            throw SaveError.failedToSaveConcert
         }
     }
 }
