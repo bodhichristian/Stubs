@@ -67,7 +67,6 @@ struct StubEditor: View {
         } catch {
             throw ConcertServiceError.failedToBuildConcert
         }
-        
         modelContext.insert(concertService.template)
     }
 }
