@@ -43,7 +43,6 @@ struct StubEditor: View {
                     Button("Save") {
                         Task {
                             try? await saveConcert()
-                            
                         }
                     }
                     .disabled(!saveReady)
