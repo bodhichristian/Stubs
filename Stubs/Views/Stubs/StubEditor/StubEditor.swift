@@ -13,30 +13,25 @@ struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     @Query var artists: [Artist]
+    @State private var concertService = ConcertService()
     
     let addConcertTip: AddConcertTip
-    
-    @State private var artistService = ArtistService()
-    @State private var mapKitService = MapKitService()
-    @State private var template = Concert(
-        iconName: StubStyle.colors.randomElement()!,
-        accentColor: StubStyle.colors.randomElement()!
-    )
+
     // Returns false if any field is empty
     private var saveReady: Bool {
-        !template.artistName.isEmpty
-        && !template.venue.isEmpty
-        && !template.city.isEmpty
+        !concertService.template.artistName.isEmpty
+        && !concertService.template.venue.isEmpty
+        && !concertService.template.city.isEmpty
     }
     
     var body: some View {
         NavigationStack {
             Form {
-                StubEditorStubPreview(concert: template)
-                StubEditorDetails(concert: template)
-                StubEditorIconSelector(iconName: $template.iconName)
-                StubEditorColorSelector(accentColor: $template.accentColor)
-                StubEditorNotes(concertNotes: $template.notes)
+                StubEditorStubPreview(concert: concertService.template)
+                StubEditorDetails(concert: concertService.template)
+                StubEditorIconSelector(iconName: $concertService.template.iconName)
+                StubEditorColorSelector(accentColor: $concertService.template.accentColor)
+                StubEditorNotes(concertNotes: $concertService.template.notes)
             }
             .navigationTitle("Stub Editor")
             .toolbar {
@@ -48,14 +43,9 @@ struct StubEditor: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        if let savedArtist = artists.first(where: {
-                            $0.artistName == template.artistName
-                        }) {
-                            saveConcert(with: savedArtist)
-                        } else {
-                            saveConcert()
+                        Task {
+                            try? await saveConcert()
                         }
-                        
                         addConcertTip.invalidate(reason: .actionPerformed)
                         dismiss()
                     }
@@ -64,39 +54,21 @@ struct StubEditor: View {
             }
         }
     }
-    
-    private func saveConcert(with artist: Artist? = nil)  {
-        Task {
-            do {
-                // MapKit service
-                try await mapKitService.getCoordinates(for: template)
-                template.venueLatitude = mapKitService.latitude
-                template.venueLongitude = mapKitService.longitude
-            }
-            
-            let newConcert = Concert(
-                artistName: template.artistName,
-                venue: template.venue,
-                city: template.city,
-                date: template.date,
-                iconName: template.iconName,
-                accentColor: template.accentColor,
-                notes: template.notes,
-                venueLatitude: template.venueLatitude,
-                venueLongitude: template.venueLongitude
-            )
-            
-            // Artist service
-            if let savedArtist = artist {
-                newConcert.artist = savedArtist
+  
+    private func saveConcert() async throws{
+        do {
+            if let savedArtist = artists.first(where: {
+                $0.artistName == concertService.template.artistName
+            }) {
+                try await concertService.buildConcert(with: savedArtist)
             } else {
-                try await artistService.search(for: template.artistName)
-                newConcert.artist = artistService.fetchedArtist
-                
+                try await concertService.buildConcert()
             }
-            
-            modelContext.insert(newConcert)
+        } catch {
+            throw ConcertServiceError.failedToBuildConcert
         }
+        
+        modelContext.insert(concertService.template)
     }
 }
 

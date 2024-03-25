@@ -14,7 +14,7 @@ class MapKitService {
     var longitude: Double = 0
     var mapSnapshotData: Data?
     
-    func getCoordinates(for concert: Concert) async throws {
+    func getCoordinates(for concert: Concert) async throws -> (Double, Double) {
         // Construct search request using concert details
         let request = MKLocalSearch.Request()
         let query = concert.venue + " venue " + concert.city
@@ -41,6 +41,8 @@ class MapKitService {
         
         latitude = coordinates.latitude
         longitude = coordinates.longitude
+        
+        return (coordinates.latitude, coordinates.longitude)
     }
     
     func getMapSnapshot() {

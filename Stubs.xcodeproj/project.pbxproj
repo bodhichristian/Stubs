@@ -65,6 +65,7 @@
 		AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA8A74862A32D5B1003E9B41 /* StubCollectionRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */; };
 		AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */; };
+		AA97CF332BB1CDA8000A2725 /* ConcertServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
@@ -198,6 +199,7 @@
 		AA8A74812A32C912003E9B41 /* Extension-Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-Color.swift"; sourceTree = "<group>"; };
 		AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionRowLabel.swift; sourceTree = "<group>"; };
 		AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDetailView.swift; sourceTree = "<group>"; };
+		AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertServiceError.swift; sourceTree = "<group>"; };
 		AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueMapView.swift; sourceTree = "<group>"; };
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			children = (
 				AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */,
 				AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */,
+				AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */,
 				AA62228E2B2A58F5004899A9 /* AlbumScrollView.swift in Sources */,
 				AA8A74862A32D5B1003E9B41 /* StubCollectionRowLabel.swift in Sources */,
+				AA97CF332BB1CDA8000A2725 /* ConcertServiceError.swift in Sources */,
 				AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */,
 				AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */,
 				AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */,

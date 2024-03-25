@@ -23,6 +23,7 @@ final class Concert: Codable {
     var isFavorite: Bool
     var venueLatitude: Double
     var venueLongitude: Double
+    //var venueCoordinates: (Double, Double)
     
     var artist: Artist?
     
@@ -41,6 +42,7 @@ final class Concert: Codable {
         isFavorite: Bool = false,
         venueLatitude: Double = 0.0,
         venueLongitude: Double = 0.0
+        //venueCoordinates: (Double, Double) = (0.0, 0.0)
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -53,7 +55,7 @@ final class Concert: Codable {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
-        
+        //self.venueCoordinates = venueCoordinates
         getMapSnapshot()
     }
     

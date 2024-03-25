@@ -16,7 +16,6 @@ struct VenueGridExpandedMapView: View {
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     @State private var interactionModes: MapInteractionModes = []
-    @State private var materialPresent = true
     
     private let gradient = LinearGradient(
         colors: [.black.opacity(0.7), .clear],
@@ -46,21 +45,12 @@ struct VenueGridExpandedMapView: View {
                         latitude: concert.venueLatitude,
                         longitude: concert.venueLongitude
                     )
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        
-                    }
                 }
             }
-//
-//            RoundedRectangle(cornerRadius: 10)
-//                .foregroundStyle(.ultraThinMaterial)
-//                .opacity(materialPresent ? 1 : 0)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(color: shadowColor, radius: 4)
+        .shadow(color: shadowColor, radius: 2)
         .padding(2)
-
     }
     
     private func updateMapPosition(latitude: Double, longitude: Double) {

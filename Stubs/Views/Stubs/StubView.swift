@@ -27,7 +27,7 @@ struct StubView: View {
                 Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: geo.size.height, maxHeight: geo.size.height)
+                    .frame(maxWidth: geo.size.width * 0.9, maxHeight: geo.size.height)
                     .clipShape(StubShape())
                 
                 StubShape()
@@ -36,7 +36,7 @@ struct StubView: View {
                 Image(systemName: concert.iconName)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 200)
+                    .frame(height: geo.size.height * 0.7)
                     .foregroundStyle(.thinMaterial)
                     .opacity(0.6)
                 
