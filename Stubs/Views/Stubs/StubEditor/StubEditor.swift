@@ -51,7 +51,7 @@ struct StubEditor: View {
         }
     }
     
-    private func saveConcert() async throws{
+    private func saveConcert() async throws {
         do {
             if let savedArtist = artists.first(where: {
                 $0.artistName == concertService.template.artistName
