@@ -98,7 +98,6 @@ struct ArtistsView: View {
                             listView: $listView,
                             sortOrder: $sortOrder
                         )
-                        //.popoverTip(viewOptionsTip, arrowEdge: .top)
                     }
                 }
                 .tint(.primary)

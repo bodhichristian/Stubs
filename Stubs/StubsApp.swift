@@ -21,25 +21,11 @@ struct StubsApp: App {
     }
     
     init() {
-        // Purge TipKit data
-        // try? Tips.resetDatastore()
-        
-        // Show passed Tip types regardless of validity
-        // Tips.showTipsForTesting([FavoriteConcertTip.self])
-        
-        // Hide passed Tip types regardless of validity
-        // Tips.hideTipsForTesting([ArtistsViewOptionsTip.self])
-        
-        // Tips.showAllTipsForTesting()
-        // Tips.hideAllTipsForTesting()
-        
-        // Configure with default options
-        // try? Tips.configure()
         
         try? Tips.configure(
             [
-                .datastoreLocation(.applicationDefault), // TipKit Data storage location
-                .displayFrequency(.hourly) // Set frequency of Tip presentation.
+                .datastoreLocation(.applicationDefault),
+                .displayFrequency(.hourly)
             ]
         )
         
