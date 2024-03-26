@@ -56,7 +56,7 @@ final class Concert: Codable {
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
         //self.venueCoordinates = venueCoordinates
-        getMapSnapshot()
+        //getMapSnapshot()
     }
     
     func getMapSnapshot() {

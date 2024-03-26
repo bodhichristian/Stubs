@@ -32,11 +32,7 @@ class MapKitService {
         // Ensure coordinates are available, else throw error
         guard let coordinates = response?.mapItems.first?.placemark.coordinate
         else  {
-            throw NSError(
-                domain: "LocationError",
-                code: 0,
-                userInfo: [NSLocalizedDescriptionKey: "Unable to find location"]
-            )
+            throw MapKitServiceError.failedToFetchCoordinates
         }
         
         latitude = coordinates.latitude
@@ -45,11 +41,11 @@ class MapKitService {
         return (coordinates.latitude, coordinates.longitude)
     }
     
-    func getMapSnapshot() {
+    func getMapSnapshot() async throws -> Data?  {
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
-        options.scale = UIScreen.main.scale
+        options.scale = await UIScreen.main.scale
         options.mapType = .satelliteFlyover
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
@@ -60,14 +56,14 @@ class MapKitService {
             pitch: 70,
             heading: 0
         )
-        
+
         let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            self.mapSnapshotData = snapshot.image.jpegData(compressionQuality: 1.0)
+
+        do {
+            let snapshot = try await snapshotter.start()
+            return snapshot.image.jpegData(compressionQuality: 1.0)
+        } catch {
+            throw MapKitServiceError.failedToFetchSnapshotData
         }
     }
  

@@ -32,7 +32,11 @@ struct FavoriteToggleLabel: View {
 
             Circle()
                 .foregroundStyle(.ultraThinMaterial)
-                .shadow(color: shadowColor, radius: 2)
+                //.shadow(color: shadowColor, radius: 2)
+            
+            Circle()
+                .stroke(style: StrokeStyle(lineWidth: 1))
+                .foregroundStyle(.gray.gradient)
 
             Image(
                 systemName: filteringFavorites

@@ -91,6 +91,7 @@
 		AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */; };
 		AADBF81F2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADBF81E2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift */; };
 		AADBF8212B9F767A002F36D6 /* FavoriteConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADBF8202B9F767A002F36D6 /* FavoriteConcertTip.swift */; };
+		AADD10302BB3269700E2DE4B /* MapKitServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD102F2BB3269700E2DE4B /* MapKitServiceError.swift */; };
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
@@ -229,6 +230,7 @@
 		AAD8B0B22B66039400693D14 /* VenueGridExpandedMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueGridExpandedMapView.swift; sourceTree = "<group>"; };
 		AADBF81E2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewOptionsTip.swift; sourceTree = "<group>"; };
 		AADBF8202B9F767A002F36D6 /* FavoriteConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConcertTip.swift; sourceTree = "<group>"; };
+		AADD102F2BB3269700E2DE4B /* MapKitServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServiceError.swift; sourceTree = "<group>"; };
 		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */,
 				AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */,
 				AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */,
+				AADD102F2BB3269700E2DE4B /* MapKitServiceError.swift */,
 				AA97CF342BB1FEF7000A2725 /* SaveError.swift */,
 			);
 			path = Errors;
@@ -758,6 +761,7 @@
 				AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */,
 				AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */,
 				AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */,
+				AADD10302BB3269700E2DE4B /* MapKitServiceError.swift in Sources */,
 				AADBF8212B9F767A002F36D6 /* FavoriteConcertTip.swift in Sources */,
 				AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */,
 				AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */,

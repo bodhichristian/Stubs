@@ -57,7 +57,11 @@ struct ToolbarButtonLabel: View {
 
             Capsule()
                 .foregroundStyle(.ultraThinMaterial)
-                .shadow(color: shadowColor, radius: 2)
+//                .shadow(color: shadowColor, radius: 2)
+            
+            Capsule()
+                .stroke(style: StrokeStyle(lineWidth: 1))
+                .foregroundStyle(.gray.gradient)
 
         }
     }

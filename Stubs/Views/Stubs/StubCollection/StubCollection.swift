@@ -16,6 +16,7 @@ struct StubCollection: View {
     @Query(sort: \Concert.date) private var concerts: [Concert]
     @Query private var artists: [Artist]
     
+    @State private var concertService = ConcertService()
     @State private var isAddingConcert = false
     @State private var searchText = ""
     @State private var filteringFavorites = false
@@ -76,18 +77,20 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                       addSampleConcert()
-                    } label: {
-                        ToolbarButtonLabel(
-                            text: "Demo",
-                            symbol: "sparkles.rectangle.stack",
-                            colors: [.blue, .purple]
-                        )
-                    }
-                }
-                
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button {
+//                       Task {
+//                           try await addSampleConcert()
+//                       }
+//                    } label: {
+//                        ToolbarButtonLabel(
+//                            text: "Demo",
+//                            symbol: "sparkles.rectangle.stack",
+//                            colors: [.blue, .purple]
+//                        )
+//                    }
+//                }
+//                
                 ToolbarItem {
                     Button {
                         withAnimation(.snappy){
@@ -157,68 +160,18 @@ extension StubCollection {
         }
     }
     
-    
-    
-    // MARK: addSampleConcert()
-    private func addSampleConcert()  {
-        
-        let artistName = DebugData.artists.randomElement()!
-        let venue = DebugData.venues.randomElement()!
-        let notes = DebugData.notes.randomElement()!
-        let icon = StubStyle.icons.randomElement()!
-        let color = StubStyle.colors.randomElement()!
-        let isFavorite = Bool.random()
-        let date = calendar.date(
-            from: DateComponents(
-                year: Int.random(
-                    in: 2015...2023),
-                month: Int.random(in: 1...12),
-                day: Int.random(in: 1...28)
-            )
-        )!
-        
-            Task {
-                do {
-                    try await service.search(for: artistName)
-                    
-                    let newConcert = Concert(
-                        artistName: artistName,
-                        venue: venue.name,
-                        city: venue.city,
-                        date: date,
-                        iconName: icon,
-                        accentColor: color,
-                        notes: notes,
-                        isFavorite: isFavorite,
-                        venueLatitude: venue.latitude,
-                        venueLongitude: venue.longitude
-                    )
-                    
-                    // Artist service
-                    if let savedArtist = artists.first(where: {$0.artistName == newConcert.artistName}) {
-                        newConcert.artist = savedArtist
-                    } else {
-                        try await service.search(for: newConcert.artistName)
-                        newConcert.artist = service.fetchedArtist
-                        
-                    }
-                    
-                    //newConcert.artist = service.fetchedArtist
-                    
-                    await ArtistsViewOptionsTip.addArtistEvent.donate()
-                    
-                    modelContext.insert(newConcert)
-                    
-                } catch {
-                    throw error
-                }
-            }
-            
-        
-        
-        
-        
-    }
+//    // MARK: addSampleConcert()
+//    private func addSampleConcert() async throws  {
+//        concertService.buildSampleConcert()
+//        
+//        if let savedArtist = artists.first(where: {$0.artistName == concertService.template.artistName}) {
+//            try await concertService.buildConcert(with: savedArtist)
+//        } else {
+//            try await concertService.buildConcert()
+//        }
+//        modelContext.insert(concertService.template)
+//        try? modelContext.save()
+//    }
     
     
     // Header for decade sections in list

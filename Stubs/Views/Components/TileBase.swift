@@ -27,8 +27,14 @@ struct TileBase: View {
     }
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .foregroundStyle(.thinMaterial)
-            .shadow(color: shadowColor, radius: 2)
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundStyle(.regularMaterial)
+               // .shadow(color: shadowColor, radius: 2)
+            
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(style: StrokeStyle(lineWidth: 1))
+                .foregroundStyle(.gray.gradient)
+        }
     }
 }
