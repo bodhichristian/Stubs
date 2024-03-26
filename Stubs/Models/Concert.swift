@@ -23,7 +23,6 @@ final class Concert: Codable {
     var isFavorite: Bool
     var venueLatitude: Double
     var venueLongitude: Double
-    //var venueCoordinates: (Double, Double)
     
     var artist: Artist?
     
@@ -36,13 +35,12 @@ final class Concert: Codable {
         venue: String = "",
         city: String = "",
         date: Date = Date.now,
-        iconName: String,
-        accentColor: String,
+        iconName: String = "speaker.wave.3",
+        accentColor: String = "blue",
         notes: String = "",
         isFavorite: Bool = false,
         venueLatitude: Double = 0.0,
         venueLongitude: Double = 0.0
-        //venueCoordinates: (Double, Double) = (0.0, 0.0)
     ) {
         self.uuid = uuid
         self.artistName = artistName

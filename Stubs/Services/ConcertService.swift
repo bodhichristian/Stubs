@@ -24,12 +24,17 @@ class ConcertService {
         try await getMapSnapshotData()
     }
     
-    func buildSampleConcert() {
-        template.artistName = DebugData.artists.randomElement()!
-        template.venue = DebugData.venues.randomElement()!.name
-        template.notes = DebugData.notes.randomElement()!
-        template.isFavorite = Bool.random()
-        template.date = calendar.date(
+    func buildSampleConcert(with artist: Artist? = nil) async throws -> Concert {
+        let sampleConcert = Concert()
+        let venue = DebugData.venues.randomElement()!
+        
+        sampleConcert.artistName = DebugData.artists.randomElement()!
+        sampleConcert.venue = venue.name
+        sampleConcert.venueLatitude = venue.latitude
+        sampleConcert.venueLongitude = venue.longitude
+        sampleConcert.notes = DebugData.notes.randomElement()!
+        sampleConcert.isFavorite = Bool.random()
+        sampleConcert.date = calendar.date(
             from: DateComponents(
                 year: Int.random(
                     in: 2015...2023),
@@ -37,9 +42,22 @@ class ConcertService {
                 day: Int.random(in: 1...28)
             )
         )!
+        // fetch artusts uses template not a passed string
+        if let artist {
+            sampleConcert.artist = artist
+        } else {
+            //template.artistName = sampleConcert.artistName
+            try await artistService.search(for: sampleConcert.artistName)
+            sampleConcert.artist = artistService.fetchedArtist
+        }
+        
+        try await getMapSnapshotData()
+        sampleConcert.mapSnapshotData = template.mapSnapshotData
+        
+        return sampleConcert
     }
     
-    private func fetchArtist(_ artist: Artist?) async throws {
+    private func fetchArtist(_ artist: Artist? = nil) async throws {
         if let savedArtist = artist {
             template.artist = savedArtist
         } else {

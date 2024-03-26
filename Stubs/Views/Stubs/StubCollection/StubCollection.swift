@@ -77,20 +77,20 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button {
-//                       Task {
-//                           try await addSampleConcert()
-//                       }
-//                    } label: {
-//                        ToolbarButtonLabel(
-//                            text: "Demo",
-//                            symbol: "sparkles.rectangle.stack",
-//                            colors: [.blue, .purple]
-//                        )
-//                    }
-//                }
-//                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                       Task {
+                           try await addSampleConcert()
+                       }
+                    } label: {
+                        ToolbarButtonLabel(
+                            text: "Demo",
+                            symbol: "sparkles.rectangle.stack",
+                            colors: [.blue, .purple]
+                        )
+                    }
+                }
+                
                 ToolbarItem {
                     Button {
                         withAnimation(.snappy){
@@ -160,18 +160,21 @@ extension StubCollection {
         }
     }
     
-//    // MARK: addSampleConcert()
-//    private func addSampleConcert() async throws  {
-//        concertService.buildSampleConcert()
-//        
-//        if let savedArtist = artists.first(where: {$0.artistName == concertService.template.artistName}) {
-//            try await concertService.buildConcert(with: savedArtist)
-//        } else {
-//            try await concertService.buildConcert()
-//        }
-//        modelContext.insert(concertService.template)
-//        try? modelContext.save()
-//    }
+    // MARK: addSampleConcert()
+    private func addSampleConcert() async throws  {
+        let sampleConcert: Concert
+        if let savedArtist = artists.first(where: {
+            $0.artistName == concertService.template.artistName
+        }) {
+            sampleConcert = try await concertService.buildSampleConcert(with: savedArtist)
+        } else {
+            print("hi")
+            sampleConcert = try await concertService.buildSampleConcert()
+            print(sampleConcert.artistName)
+        }
+        
+        modelContext.insert(sampleConcert)
+    }
     
     
     // Header for decade sections in list
