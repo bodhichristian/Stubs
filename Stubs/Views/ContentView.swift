@@ -29,7 +29,6 @@ struct ContentView: View {
                     tab: .venues,
                     selection: $tabSelection
                 )
-            
         }
     }
 }

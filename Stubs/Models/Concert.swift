@@ -53,34 +53,6 @@ final class Concert: Codable {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
-        //self.venueCoordinates = venueCoordinates
-        //getMapSnapshot()
-    }
-    
-    func getMapSnapshot() {
-        let options = MKMapSnapshotter.Options()
-        options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: venueLatitude, longitude: venueLongitude), latitudinalMeters: 200, longitudinalMeters: 200)
-        options.size = CGSize(width: 360, height: 150)
-        options.scale = UIScreen.main.scale
-        options.mapType = .satelliteFlyover
-        options.camera = MKMapCamera(
-            lookingAtCenter: CLLocationCoordinate2D(
-                latitude: venueLatitude,
-                longitude: venueLongitude
-            ),
-            fromDistance: 400,
-            pitch: 70,
-            heading: 0
-        )
-        
-        let snapshotter = MKMapSnapshotter(options: options)
-        snapshotter.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Error capturing snapshot: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            self.mapSnapshotData = snapshot.image.jpegData(compressionQuality: 1.0)
-        }
     }
     
     enum CodingKeys: String, CodingKey {
@@ -114,7 +86,6 @@ final class Concert: Codable {
         venueLongitude = try container.decode(Double.self, forKey: .venueLongitude)
         artist = try container.decodeIfPresent(Artist.self, forKey: .artist)
         mapSnapshotData = try container.decodeIfPresent(Data.self, forKey: .mapSnapshotData)
-        getMapSnapshot()
     }
     
     func encode(to encoder: Encoder) throws {

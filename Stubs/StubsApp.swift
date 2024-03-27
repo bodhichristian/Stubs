@@ -28,7 +28,6 @@ struct StubsApp: App {
                 .displayFrequency(.hourly)
             ]
         )
-        
     }
 }
 

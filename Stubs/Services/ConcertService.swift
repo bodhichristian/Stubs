@@ -18,13 +18,13 @@ class ConcertService {
         accentColor: StubStyle.colors.randomElement()!
     )
     
-    func buildConcert(with artist: Artist? = nil) async throws {
+    public func buildConcert(with artist: Artist? = nil) async throws {
         try await fetchArtist(artist)
         try await getVenueCoordinates()
         try await getMapSnapshotData()
     }
     
-    func buildSampleConcert(with artist: Artist? = nil) async throws -> Concert {
+    public func buildSampleConcert(with artist: Artist? = nil) async throws -> Concert {
         let sampleConcert = Concert()
         let venue = DebugData.venues.randomElement()!
         
@@ -53,7 +53,9 @@ class ConcertService {
             sampleConcert.artist = artistService.fetchedArtist
         }
         
-        sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot()
+        sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot(
+            for: (sampleConcert.venueLatitude, sampleConcert.venueLongitude)
+        )
         
         return sampleConcert
     }
@@ -74,9 +76,10 @@ class ConcertService {
     }
     
     private func getMapSnapshotData() async throws {
-        template.mapSnapshotData = try await mapKitService.getMapSnapshot()
+        template.mapSnapshotData = try await mapKitService.getMapSnapshot(
+            for: (template.venueLatitude, template.venueLongitude)
+        )
     }
-
 }
 
 

@@ -13,16 +13,14 @@ struct StubCollection: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
-    @Query(sort: \Concert.date) private var concerts: [Concert]
     @Query private var artists: [Artist]
-    
+    @Query(sort: \Concert.date) private var concerts: [Concert]
     @State private var concertService = ConcertService()
+    @State private var filteringFavorites = false
     @State private var isAddingConcert = false
     @State private var searchText = ""
-    @State private var filteringFavorites = false
     
     private let addConcertTip = AddConcertTip()
-    private let service = ArtistService()
     private let searchPrompt = "Search Concerts"
     
     var body: some View {
@@ -74,19 +72,19 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                       Task {
-                           try await addSampleConcert()
-                       }
-                    } label: {
-                        ToolbarButtonLabel(
-                            text: "Demo",
-                            symbol: "sparkles.rectangle.stack",
-                            colors: [.blue, .purple]
-                        )
-                    }
-                }
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button {
+//                       Task {
+//                           try await addSampleConcert()
+//                       }
+//                    } label: {
+//                        ToolbarButtonLabel(n
+//                            text: "Demo",
+//                            symbol: "sparkles.rectangle.stack",
+//                            colors: [.blue, .purple]
+//                        )
+//                    }
+//                }
                 
                 ToolbarItem {
                     Button {
