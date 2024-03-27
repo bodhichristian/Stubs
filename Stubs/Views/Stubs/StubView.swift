@@ -92,7 +92,7 @@ struct StubView: View {
         // Maximum height for GeometryReader
         .frame(maxWidth: 800, maxHeight: horizontalSizeClass == .compact ? 250 : 300)
         
-        .padding(.horizontal)
+       // .padding(.horizontal)
 
     }
 }

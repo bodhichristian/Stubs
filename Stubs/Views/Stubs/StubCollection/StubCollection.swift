@@ -66,12 +66,9 @@ struct StubCollection: View {
                         .padding(.horizontal)
                         .padding(.bottom, 65)
                         .searchable(text: $searchText, prompt: searchPrompt)
-                        
                     }
-                    
                 }
             }
-            
             .navigationTitle("Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor(addConcertTip: addConcertTip)
@@ -112,17 +109,40 @@ struct StubCollection: View {
                         )
                     }
                     .popoverTip(addConcertTip, arrowEdge: .top)
-                    
                 }
             }
             .tint(.primary)
-            
         }
-        
     }
 }
 
 extension StubCollection {
+    // MARK: addSampleConcert()
+    private func addSampleConcert() async throws  {
+        let sampleConcert: Concert
+        
+        if let savedArtist = artists.first(where: {
+            $0.artistName == concertService.template.artistName
+        }) {
+            sampleConcert = try await concertService.buildSampleConcert(with: savedArtist)
+        } else {
+            print("hi")
+            sampleConcert = try await concertService.buildSampleConcert()
+            print(sampleConcert.artistName)
+        }
+        
+        modelContext.insert(sampleConcert)
+    }
+    
+    // Delete concert
+    private func delete(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(concerts[index])
+            }
+        }
+    }
+    
     // Concerts whose data contains searchText
     private var filteredConcerts: [Concert] {
         if searchText.isEmpty {
@@ -142,14 +162,14 @@ extension StubCollection {
             }
         }
     }
-    // Concerts sorted into decade groups
+    
+    // Concerts sorted into year groups
     private var concertsByYear: [Int: [Concert]] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
         
         let groups = Dictionary(grouping: filteredConcerts) { concert in
             let year = Calendar.current.component(.year, from: concert.date)
-            //let decade = (year / 10) * 10 // Round down to the nearest decade
             return year
         }
         
@@ -159,23 +179,6 @@ extension StubCollection {
             }
         }
     }
-    
-    // MARK: addSampleConcert()
-    private func addSampleConcert() async throws  {
-        let sampleConcert: Concert
-        if let savedArtist = artists.first(where: {
-            $0.artistName == concertService.template.artistName
-        }) {
-            sampleConcert = try await concertService.buildSampleConcert(with: savedArtist)
-        } else {
-            print("hi")
-            sampleConcert = try await concertService.buildSampleConcert()
-            print(sampleConcert.artistName)
-        }
-        
-        modelContext.insert(sampleConcert)
-    }
-    
     
     // Header for decade sections in list
     private func yearHeader(_ decade: Int) -> some View {
@@ -192,15 +195,5 @@ extension StubCollection {
             }
         }
         .padding(.vertical, 15)
-        
-    }
-    
-    // Delete concert
-    private func delete(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(concerts[index])
-            }
-        }
     }
 }

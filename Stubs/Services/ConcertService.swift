@@ -29,9 +29,12 @@ class ConcertService {
         let venue = DebugData.venues.randomElement()!
         
         sampleConcert.artistName = DebugData.artists.randomElement()!
+        sampleConcert.city = venue.city
         sampleConcert.venue = venue.name
         sampleConcert.venueLatitude = venue.latitude
         sampleConcert.venueLongitude = venue.longitude
+        sampleConcert.accentColor = StubStyle.colors.randomElement()!
+        sampleConcert.iconName = StubStyle.icons.randomElement()!
         sampleConcert.notes = DebugData.notes.randomElement()!
         sampleConcert.isFavorite = Bool.random()
         sampleConcert.date = calendar.date(
@@ -42,17 +45,15 @@ class ConcertService {
                 day: Int.random(in: 1...28)
             )
         )!
-        // fetch artusts uses template not a passed string
+        
         if let artist {
             sampleConcert.artist = artist
         } else {
-            //template.artistName = sampleConcert.artistName
             try await artistService.search(for: sampleConcert.artistName)
             sampleConcert.artist = artistService.fetchedArtist
         }
         
-        try await getMapSnapshotData()
-        sampleConcert.mapSnapshotData = template.mapSnapshotData
+        sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot()
         
         return sampleConcert
     }
@@ -75,8 +76,7 @@ class ConcertService {
     private func getMapSnapshotData() async throws {
         template.mapSnapshotData = try await mapKitService.getMapSnapshot()
     }
-    
-    
+
 }
 
 

@@ -15,11 +15,11 @@ struct ToolbarButtonLabel: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    private var tileBackgroundColor: Color {
+    private var textColor: Color {
         if colorScheme == .dark {
-            return Color(white: 0.2)
+            return .black
         } else {
-            return Color(white: 0.95)
+            return .white
         }
     }
     
@@ -37,32 +37,16 @@ struct ToolbarButtonLabel: View {
             Spacer()
             
             Image(systemName: symbol)
-                .symbolRenderingMode(.multicolor)
+                .symbolRenderingMode(.hierarchical)
         }
         .font(.caption)
-        .fontWeight(.medium)
+        .foregroundStyle(textColor)
         .padding(.leading, 2)
         .padding(.vertical, 7)
         .padding(.horizontal, 15)
         .frame(width: 132, height: 36)
         .background {
-//            Capsule()
-//                .foregroundStyle(
-//                    LinearGradient(
-//                        colors: colors,
-//                        startPoint: .leading,
-//                        endPoint: .trailing
-//                    ).opacity(0.3)
-//                )
-
             Capsule()
-                .foregroundStyle(.ultraThinMaterial)
-//                .shadow(color: shadowColor, radius: 2)
-            
-            Capsule()
-                .stroke(style: StrokeStyle(lineWidth: 1))
-                .foregroundStyle(.gray.gradient)
-
         }
     }
 }

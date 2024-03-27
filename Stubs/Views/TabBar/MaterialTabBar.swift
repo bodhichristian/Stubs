@@ -43,7 +43,7 @@ struct MaterialTabBar: View {
             }
             .ignoresSafeArea(edges: .bottom)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: .secondary, radius: 3)
+            .shadow(radius: 5, y: 3)
             .padding(.horizontal)
             .onChange(of: selection) { _, newValue in
                 withAnimation(.bouncy(duration: 0.3)) {

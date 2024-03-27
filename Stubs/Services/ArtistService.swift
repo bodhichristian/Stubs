@@ -14,7 +14,6 @@ class ArtistService {
     var fetchFailed = false
     
     func search(for artistName: String) async throws {
-        
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
             "X-RapidAPI-Host": "theaudiodb.p.rapidapi.com"
@@ -44,9 +43,7 @@ class ArtistService {
             let response = try decoder.decode(ArtistSearchResponse.self, from: data)
             let artist = response.artists.first
             
-            //testing
             self.fetchedArtist = artist
-            
         } catch {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchArtist
@@ -58,12 +55,10 @@ class ArtistService {
             
             fetchedArtist?.artistImageData = artistImageData
             fetchedArtist?.bannerImageData = bannerImageData
-            
         } catch {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchImages
         }
-        
     }
     
     func fetchImageData(from urlString: String) async throws-> Data? {

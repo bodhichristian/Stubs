@@ -15,11 +15,11 @@ struct ArtistMenuLabel: View {
     @Environment(\.colorScheme) var colorScheme
     
     
-    private var shadowColor: Color {
+    private var textColor: Color {
         if colorScheme == .dark {
-            return Color(white: 0.9)
+            return .black
         } else {
-            return .secondary
+            return .white
         }
     }
     
@@ -78,23 +78,17 @@ struct ArtistMenuLabel: View {
                           : "circle.grid.3x3.circle"
                     )
                     .symbolRenderingMode(.hierarchical)
+
                 }
                 .font(.caption)
+                
+                .foregroundStyle(textColor)
                 .padding(.vertical, 5)
                 .padding(.horizontal, 15)
                 .frame(width: 132, height: 36)
                 .background {
-//                    Capsule()
-//                        .foregroundStyle(
-//                            LinearGradient(colors: [.purple, .yellow, .green], startPoint: .leading, endPoint: .trailing).opacity(0.3)
-//                        )
 
                     Capsule()
-                        .foregroundStyle(.ultraThinMaterial)
-                        //.shadow(color: shadowColor, radius: 2)
-                    Capsule()
-                        .stroke(style: StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(.gray.gradient)
                 }
                 
             }

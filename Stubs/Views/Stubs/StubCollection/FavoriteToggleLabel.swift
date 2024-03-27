@@ -25,19 +25,18 @@ struct FavoriteToggleLabel: View {
             if filteringFavorites {
                 Circle()
                     .foregroundStyle(
-                        LinearGradient(colors: [.orange, .yellow], startPoint: .leading, endPoint: .trailing).opacity(0.3)
+                        LinearGradient(
+                            colors: [.orange, .yellow],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ).opacity(0.3)
                     )
             }
-                
-
-            Circle()
-                .foregroundStyle(.ultraThinMaterial)
-                //.shadow(color: shadowColor, radius: 2)
             
             Circle()
                 .stroke(style: StrokeStyle(lineWidth: 1))
-                .foregroundStyle(.gray.gradient)
-
+                .foregroundStyle(.secondary)
+            
             Image(
                 systemName: filteringFavorites
                 ? "checkmark.seal.fill"

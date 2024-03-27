@@ -45,7 +45,7 @@ class MapKitService {
         let options = MKMapSnapshotter.Options()
         options.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), latitudinalMeters: 200, longitudinalMeters: 200)
         options.size = CGSize(width: 360, height: 150)
-        options.scale = await UIScreen.main.scale
+        //options.scale = await UIScreen.main.scale
         options.mapType = .satelliteFlyover
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
