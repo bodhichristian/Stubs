@@ -17,17 +17,14 @@ struct StubsApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Concert.self, Artist.self])
+        .modelContainer(for: Concert.self)
     }
     
     init() {
-        
-        try? Tips.configure(
-            [
-                .datastoreLocation(.applicationDefault),
-                .displayFrequency(.hourly)
-            ]
-        )
+        try? Tips.configure([
+            .datastoreLocation(.applicationDefault),
+            .displayFrequency(.hourly)
+        ])
     }
 }
 

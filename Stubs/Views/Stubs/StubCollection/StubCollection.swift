@@ -31,11 +31,8 @@ struct StubCollection: View {
                 } else  {
                     ScrollView{
                         VStack(alignment: .leading)  {
-                            // Sort concerts in reverse chronological order
                             ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
-                                // Create a section for each decade
                                 Section(header: yearHeader(year)) {
-                                    // Create a NavLink to StubDetailView for each concert
                                     ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
                                         NavigationLink {
                                             StubDetailView(concert: concert)
@@ -102,8 +99,7 @@ struct StubCollection: View {
                     } label: {
                         ToolbarButtonLabel(
                             text: "Add Concert",
-                            symbol: "plus.circle",
-                            colors: [.yellow, .orange, .red]
+                            symbol: "plus.circle"
                         )
                     }
                     .popoverTip(addConcertTip, arrowEdge: .top)

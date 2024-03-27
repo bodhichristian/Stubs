@@ -9,25 +9,16 @@ import SwiftUI
 import TipKit
 
 struct ToolbarButtonLabel: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let text: String
     let symbol: String
-    let colors: [Color]
-    
-    @Environment(\.colorScheme) var colorScheme
-    
+        
     private var textColor: Color {
         if colorScheme == .dark {
             return .black
         } else {
             return .white
-        }
-    }
-    
-    private var shadowColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.9)
-        } else {
-            return .secondary
         }
     }
     
