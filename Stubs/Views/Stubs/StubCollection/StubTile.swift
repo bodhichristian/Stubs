@@ -15,13 +15,13 @@ struct StubTile: View {
             Image(uiImage: UIImage(data: concert.artist?.bannerImageData ?? Data()) ?? UIImage())
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: 80)
+                .frame(maxWidth: .infinity, maxHeight: 90)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .clipped()
-            
                 
             TileBase()
         }
         .contentShape(RoundedRectangle(cornerRadius: 10)) 
+
     }
 }

@@ -10,26 +10,32 @@ import XCTest
 
 final class ArtistServiceTests: XCTestCase {
     
-    func testArtistServiceInitialization() {
+    func testArtistServiceInitDefaultValues() {
         let service = ArtistService()
         
-        XCTAssertNotNil(service)
+        XCTAssertNil(service.fetchedArtist)
+        XCTAssertFalse(service.fetchFailed)
     }
     
-    func testArtistServiceSearchResponseEmptyByDefault() {
+    func testArtistServiceParameterMutability() {
         let service = ArtistService()
+        let newArtist = Artist()
         
-        XCTAssertTrue(service.searchResponse.isEmpty)
+        service.fetchedArtist = newArtist // Simulate data fetch
+        service.fetchFailed = true // Simulate fetch failure
+        
+        XCTAssertEqual(service.fetchedArtist, newArtist)
+        XCTAssertTrue(service.fetchFailed)
     }
     
     func testArtistServiceSearchResponseSuccess() async {
         let service = ArtistService()
         let expectation = XCTestExpectation(description: "Retrieve artist data.")
-        let artistName = "Ariana Grande" // Example artist name
+        let artistName = "Ariana Grande" // Known good artist query
         
         do {
-            let artist = try await service.search(for: artistName)
-            XCTAssertEqual(artistName, artist?.artistName)
+            try await service.search(for: artistName)
+            XCTAssertEqual(artistName, service.fetchedArtist?.artistName)
             expectation.fulfill()
         } catch {
             XCTFail("Failed to retrieve artist data")
@@ -37,7 +43,6 @@ final class ArtistServiceTests: XCTestCase {
         
         await fulfillment(of: [expectation], timeout: 10.0)
     }
-
 }
 
 

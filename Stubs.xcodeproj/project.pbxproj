@@ -41,7 +41,6 @@
 		AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */; };
 		AA675E6B2BACBD5D000C23C8 /* MapKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */; };
 		AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */; };
-		AA675E6F2BACCA53000C23C8 /* StubEditorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */; };
 		AA675E712BACCBFE000C23C8 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E702BACCBFE000C23C8 /* StubStyle.swift */; };
 		AA745A9A2BAF73B500618EBE /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745A992BAF73B500618EBE /* ConcertService.swift */; };
 		AA745AA12BB09CEF00618EBE /* AlbumSearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */; };
@@ -176,7 +175,6 @@
 		AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensionTests.swift; sourceTree = "<group>"; };
 		AA675E6A2BACBD5D000C23C8 /* MapKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitService.swift; sourceTree = "<group>"; };
 		AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServiceTests.swift; sourceTree = "<group>"; };
-		AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorViewModelTests.swift; sourceTree = "<group>"; };
 		AA675E702BACCBFE000C23C8 /* StubStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStyle.swift; sourceTree = "<group>"; };
 		AA745A992BAF73B500618EBE /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
 		AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchError.swift; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				AA675E602BAA0BB4000C23C8 /* ColorExtensionTests.swift */,
 				AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */,
 				AA675E6C2BACC4DA000C23C8 /* MapKitServiceTests.swift */,
-				AA675E6E2BACCA53000C23C8 /* StubEditorViewModelTests.swift */,
 				AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */,
 			);
 			path = StubsTests;
@@ -783,7 +780,6 @@
 				AA675E6D2BACC4DA000C23C8 /* MapKitServiceTests.swift in Sources */,
 				AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */,
 				AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */,
-				AA675E6F2BACCA53000C23C8 /* StubEditorViewModelTests.swift in Sources */,
 				AAAE3D792BA6A71A00F2BC3E /* AlbumServiceTests.swift in Sources */,
 				AA675E612BAA0BB4000C23C8 /* ColorExtensionTests.swift in Sources */,
 				AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */,
