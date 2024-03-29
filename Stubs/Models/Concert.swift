@@ -40,7 +40,8 @@ final class Concert: Codable {
         notes: String = "",
         isFavorite: Bool = false,
         venueLatitude: Double = 0.0,
-        venueLongitude: Double = 0.0
+        venueLongitude: Double = 0.0,
+        artist: Artist? = nil
     ) {
         self.uuid = uuid
         self.artistName = artistName
@@ -53,6 +54,7 @@ final class Concert: Codable {
         self.isFavorite = isFavorite
         self.venueLatitude = venueLatitude
         self.venueLongitude = venueLongitude
+        self.artist = artist
     }
     
     enum CodingKeys: String, CodingKey {

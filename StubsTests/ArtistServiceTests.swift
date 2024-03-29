@@ -10,32 +10,43 @@ import XCTest
 
 final class ArtistServiceTests: XCTestCase {
     
+    var sut: ArtistService!
+    
+    override func setUp() {
+        super.setUp()
+        sut = ArtistService()
+    }
+    
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
     func testArtistServiceInitDefaultValues() {
-        let service = ArtistService()
-        
-        XCTAssertNil(service.fetchedArtist)
-        XCTAssertFalse(service.fetchFailed)
+        XCTAssertNil(sut.fetchedArtist)
+        XCTAssertFalse(sut.fetchFailed)
     }
     
     func testArtistServiceParameterMutability() {
-        let service = ArtistService()
-        let newArtist = Artist()
+        // Arrange (Given)
+        let newArtist = Artist(artistName: "Adele")
         
-        service.fetchedArtist = newArtist // Simulate data fetch
-        service.fetchFailed = true // Simulate fetch failure
+        // Act (When)
+        sut.fetchedArtist = newArtist // Simulate data fetch
+        sut.fetchFailed = true // Simulate fetch failure
         
-        XCTAssertEqual(service.fetchedArtist, newArtist)
-        XCTAssertTrue(service.fetchFailed)
+        // Assert (Then)
+        XCTAssertEqual(sut.fetchedArtist, newArtist)
+        XCTAssertTrue(sut.fetchFailed)
     }
     
-    func testArtistServiceSearchResponseSuccess() async {
-        let service = ArtistService()
+    func testArtistServiceSearchSuccess() async throws {
         let expectation = XCTestExpectation(description: "Retrieve artist data.")
         let artistName = "Ariana Grande" // Known good artist query
         
         do {
-            try await service.search(for: artistName)
-            XCTAssertEqual(artistName, service.fetchedArtist?.artistName)
+            try await sut.search(for: artistName)
+            XCTAssertEqual(artistName, sut.fetchedArtist?.artistName)
             expectation.fulfill()
         } catch {
             XCTFail("Failed to retrieve artist data")

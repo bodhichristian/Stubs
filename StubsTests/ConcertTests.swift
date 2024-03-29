@@ -12,42 +12,20 @@ final class ConcertTests: XCTestCase {
     
     func testConcertInitWithDefaultValues() {
         
-        // arrange
-        let artistName = "Artist"
-        let venue = "Venue"
-        let city = "City"
-        let date = Date()
-        let iconName = "person"
-        let accentColor = "blue"
-        let notes = "Notes"
-        let venueLatitude = -50.0
-        let venueLongitude = 140.0
-        
-        // act
-        let concert = Concert(
-            artistName: artistName,
-            venue: venue,
-            city: city,
-            date: date,
-            iconName: iconName,
-            accentColor: accentColor,
-            notes: notes,
-            venueLatitude: venueLatitude,
-            venueLongitude: venueLongitude
-        )
+        let concert = Concert()
         
         // assert
         XCTAssertNotNil(concert.uuid)
-        XCTAssertEqual(concert.artistName, artistName)
-        XCTAssertEqual(concert.venue, venue)
-        XCTAssertEqual(concert.city, city)
-        XCTAssertEqual(concert.date, date)
-        XCTAssertEqual(concert.iconName, iconName)
-        XCTAssertEqual(concert.accentColor, accentColor)
-        XCTAssertEqual(concert.notes, notes)
+        XCTAssertNotNil(concert.date)
+        XCTAssertTrue(concert.artistName.isEmpty)
+        XCTAssertTrue(concert.venue.isEmpty)
+        XCTAssertTrue(concert.city.isEmpty)
+        XCTAssertTrue(concert.notes.isEmpty)
+        XCTAssertFalse(concert.iconName.isEmpty)
+        XCTAssertFalse(concert.accentColor.isEmpty)
         XCTAssertFalse(concert.isFavorite)
-        XCTAssertEqual(concert.venueLatitude, venueLatitude)
-        XCTAssertEqual(concert.venueLongitude, venueLongitude)
+        XCTAssertEqual(concert.venueLatitude, 0.0)
+        XCTAssertEqual(concert.venueLongitude, 0.0)
     }
     
     func testConcertPropertyMutability() {

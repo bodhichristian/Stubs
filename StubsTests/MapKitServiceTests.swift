@@ -21,6 +21,7 @@ final class MapKitServiceTests: XCTestCase {
     func testMapKitServiceGetCoordinatesSuccess() async {
         let service = MapKitService()
         
+        // Known good query for MKLocalSearch
         let concert = Concert(venue: "Barclays", city: "Brooklyn")
         
         do {
