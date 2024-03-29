@@ -28,14 +28,11 @@ final class ArtistServiceTests: XCTestCase {
     }
     
     func testArtistServiceParameterMutability() {
-        // Arrange (Given)
         let newArtist = Artist(artistName: "Adele")
         
-        // Act (When)
         sut.fetchedArtist = newArtist // Simulate data fetch
         sut.fetchFailed = true // Simulate fetch failure
         
-        // Assert (Then)
         XCTAssertEqual(sut.fetchedArtist, newArtist)
         XCTAssertTrue(sut.fetchFailed)
     }
