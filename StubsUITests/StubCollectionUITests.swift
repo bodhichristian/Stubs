@@ -41,6 +41,6 @@ final class StubCollectionUITests: XCTestCase {
         let cancelButton = app.navigationBars["Stub Editor"]/*@START_MENU_TOKEN@*/.buttons["Cancel"]/*[[".otherElements[\"Cancel\"].buttons[\"Cancel\"]",".buttons[\"Cancel\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         cancelButton.tap()
                 
-        XCTAssertFalse//(app.staticTexts["Stub Editor"].exists)
+        XCTAssertFalse(app.staticTexts["Stub Editor"].exists)
     }
 }
