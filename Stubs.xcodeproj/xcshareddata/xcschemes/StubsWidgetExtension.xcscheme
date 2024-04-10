@@ -61,7 +61,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAC0A58A2BC4D963001CF3F6"
+               BlueprintIdentifier = "AAC0A59B2BC4DFF9001CF3F6"
                BuildableName = "StubsUITests.xctest"
                BlueprintName = "StubsUITests"
                ReferencedContainer = "container:Stubs.xcodeproj">
