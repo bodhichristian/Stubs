@@ -101,6 +101,7 @@ struct StubCollection: View {
                             text: "Add Concert",
                             symbol: "plus.circle"
                         )
+                        .accessibilityIdentifier("AddConcertButton")
                     }
                     .popoverTip(addConcertTip, arrowEdge: .top)
                 }
