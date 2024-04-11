@@ -80,6 +80,7 @@
 		AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */; };
 		AAC0A5D32BC6AA41001CF3F6 /* StubsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5D22BC6AA41001CF3F6 /* StubsUITestsLaunchTests.swift */; };
 		AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */; };
+		AAC0A5DE2BC83D42001CF3F6 /* ArtistsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */; };
 		AAC4D4CE2B2B41790098D28D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CD2B2B41790098D28D /* ContentView.swift */; };
 		AAC4D4D02B2E77F80098D28D /* StubEditorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */; };
 		AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
@@ -228,6 +229,7 @@
 		AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionUITests.swift; sourceTree = "<group>"; };
 		AAC0A5D22BC6AA41001CF3F6 /* StubsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorUITests.swift; sourceTree = "<group>"; };
+		AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewUITests.swift; sourceTree = "<group>"; };
 		AAC34E912B979FB400BBA44A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AAC34E932B979FB400BBA44A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 			children = (
 				AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */,
 				AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */,
+				AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */,
 				AAC0A5D22BC6AA41001CF3F6 /* StubsUITestsLaunchTests.swift */,
 			);
 			path = StubsUITests;
@@ -859,6 +862,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC0A5D32BC6AA41001CF3F6 /* StubsUITestsLaunchTests.swift in Sources */,
+				AAC0A5DE2BC83D42001CF3F6 /* ArtistsViewUITests.swift in Sources */,
 				AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */,
 				AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */,
 			);

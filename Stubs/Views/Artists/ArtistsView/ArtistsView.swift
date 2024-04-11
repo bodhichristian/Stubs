@@ -98,6 +98,7 @@ struct ArtistsView: View {
                             listView: $listView,
                             sortOrder: $sortOrder
                         )
+                        .accessibilityIdentifier("ViewOptionsButton")
                     }
                 }
                 .tint(.primary)
