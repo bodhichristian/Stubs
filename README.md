@@ -1,6 +1,8 @@
 # Stubs
 A SwiftUI app for storing digital representations of concert ticket stubs. The ticket stub data is used to search for venues on a map, and query related artist details, like images, biography, and discography. 
 
+![Stubs Showcase iPhone:iPad 3:4 001](https://github.com/bodhichristian/Stubs/assets/110639779/14f86821-b7af-4f97-9de7-bc0ba57bdc07)
+
 <b>Stubs</b> benefits from:
 * SwiftData for persistence
 * MapKit updates for SwiftUI
