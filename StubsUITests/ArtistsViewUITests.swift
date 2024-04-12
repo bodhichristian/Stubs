@@ -40,7 +40,6 @@ final class ArtistsViewUITests: XCTestCase {
         
         XCTAssertFalse(switchToGridViewButton.exists)
     }
-    
 }
 
 // MARK: Navigation Methods
@@ -55,3 +54,9 @@ extension ArtistsViewUITests {
         viewOptionsStaticText.tap()
     }
 }
+
+
+
+
+
+
