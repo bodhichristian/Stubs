@@ -77,11 +77,18 @@ extension StubEditorUITests {
         addConcertButton.tap()
     }
     
-    func delayedAssert(expectation: String, waitTime: TimeInterval = 2.0, assertion: () -> Void) {
+    func delayedAssert(
+        expectation: String,
+        waitTime: TimeInterval = 2.0,
+        assertion: () -> Void
+    ) {
         let expectation = XCTestExpectation(description: expectation)
-        let timer = Timer.scheduledTimer(withTimeInterval: waitTime, repeats: false) { _ in
-                    expectation.fulfill()
-                }
+        let timer = Timer.scheduledTimer(
+            withTimeInterval: waitTime,
+            repeats: false
+        ) { _ in
+            expectation.fulfill()
+        }
         
         wait(for: [expectation], timeout: 4.0)
         
