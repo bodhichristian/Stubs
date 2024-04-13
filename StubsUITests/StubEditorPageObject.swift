@@ -40,9 +40,9 @@ class StubEditorPageObject {
     }
     
     func clearForm() {
-        textFieldArtist.typeText("")
-        textFieldVenue.typeText("")
-        textFieldCity.typeText("")
+        app.clearTextOnElement(textFieldArtist)
+        app.clearTextOnElement(textFieldVenue)
+        app.clearTextOnElement(textFieldCity)
     }
     
     func fillFormWithKnownGoodData() {

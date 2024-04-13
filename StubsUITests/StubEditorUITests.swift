@@ -28,8 +28,6 @@ final class StubEditorUITests: XCTestCase {
         super.tearDown()
         app = nil
         pageObject = nil
-        
-       
     }
     
     func testCancelButtonDismissesStubEditor() {
@@ -43,18 +41,16 @@ final class StubEditorUITests: XCTestCase {
     }
     
     func testSaveButtonDisabledWhenFormIsIncomplete() {
-        pageObject.fillOutForm(artist: "Artist", venue: "Venue", city: "")
+        pageObject.fillOutForm(artist: "Artist", venue: "", city: "")
         XCTAssertFalse(pageObject.saveButton.isEnabled)
         app.clearTextOnElement(pageObject.textFieldArtist)
         
-        pageObject.fillOutForm(artist: "Artist", venue: "", city: "City")
+        pageObject.fillOutForm(artist: "", venue: "Venue", city: "")
         XCTAssertFalse(pageObject.saveButton.isEnabled)
-        pageObject.clearForm()
+        app.clearTextOnElement(pageObject.textFieldVenue)
         
-        pageObject.fillOutForm(artist: "", venue: "Venue", city: "City")
+        pageObject.fillOutForm(artist: "", venue: "", city: "City")
         XCTAssertFalse(pageObject.saveButton.isEnabled)
-        
-        pageObject.clearForm()
     }
     
     
