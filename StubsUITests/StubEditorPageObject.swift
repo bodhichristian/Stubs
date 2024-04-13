@@ -39,6 +39,12 @@ class StubEditorPageObject {
         textFieldCity.typeText(city)
     }
     
+    func clearForm() {
+        textFieldArtist.typeText("")
+        textFieldVenue.typeText("")
+        textFieldCity.typeText("")
+    }
+    
     func fillFormWithKnownGoodData() {
         fillOutForm(
             artist: "Green Day",

@@ -6,11 +6,14 @@
 //
 
 import XCTest
+import SwiftData
 
 final class StubEditorUITests: XCTestCase {
     
+    
     var app: XCUIApplication!
     var pageObject: StubEditorPageObject!
+    
     
     override func setUpWithError() throws {
         app = XCUIApplication()
@@ -22,8 +25,11 @@ final class StubEditorUITests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
+        super.tearDown()
         app = nil
         pageObject = nil
+        
+       
     }
     
     func testCancelButtonDismissesStubEditor() {
@@ -33,8 +39,24 @@ final class StubEditorUITests: XCTestCase {
     }
     
     func testSaveButtonDisabledByDefault() {
-        XCTAssert(!pageObject.saveButton.isEnabled)
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
     }
+    
+    func testSaveButtonDisabledWhenFormIsIncomplete() {
+        pageObject.fillOutForm(artist: "Artist", venue: "Venue", city: "")
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        app.clearTextOnElement(pageObject.textFieldArtist)
+        
+        pageObject.fillOutForm(artist: "Artist", venue: "", city: "City")
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        pageObject.clearForm()
+        
+        pageObject.fillOutForm(artist: "", venue: "Venue", city: "City")
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        
+        pageObject.clearForm()
+    }
+    
     
     func testSaveButtonEnabledWhenFormIsComplete() {
         pageObject.fillFormWithKnownGoodData()
@@ -55,8 +77,6 @@ final class StubEditorUITests: XCTestCase {
     }
     
     func testSaveFailureDoesNotDismissSheet() {
-        let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
-        
         pageObject.fillFormWithEmptyValues()
         pageObject.saveButton.tap()
         
@@ -65,8 +85,6 @@ final class StubEditorUITests: XCTestCase {
         }
     }
 }
-
-
 
 // MARK: Navigation
 extension StubEditorUITests {
@@ -97,3 +115,9 @@ extension StubEditorUITests {
     }
 }
 
+extension XCUIApplication {
+    func clearTextOnElement(_ element: XCUIElement) {
+        element.doubleTap()
+        menuItems["Cut"].tap()
+    }
+}
