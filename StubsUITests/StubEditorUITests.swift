@@ -43,20 +43,30 @@ final class StubEditorUITests: XCTestCase {
     }
     
     func testSaveSuccessDismissesSheet() {
+        let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
+        XCTAssertFalse(addConcertButton.isHittable)
+        
         pageObject.fillFormWithKnownGoodData()
         pageObject.saveButton.tap()
         
-        let expectation = XCTestExpectation(description: "Save async function complete")
-        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-                    expectation.fulfill()
-                }
-        wait(for: [expectation], timeout: 4.0)
-        XCTAssertFalse(pageObject.stubEditorNavBar.exists)
-        
-        timer.invalidate()
+        delayedAssert(expectation: "Data Fetch Successful") {
+            XCTAssert(addConcertButton.isHittable)
+        }
     }
-
+    
+    func testSaveFailureDoesNotDismissSheet() {
+        let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
+        
+        pageObject.fillFormWithEmptyValues()
+        pageObject.saveButton.tap()
+        
+        delayedAssert(expectation: "Fail to Fetch Artist data") {
+            XCTAssert(pageObject.stubEditorNavBar.exists)
+        }
+    }
 }
+
+
 
 // MARK: Navigation
 extension StubEditorUITests {
@@ -65,6 +75,18 @@ extension StubEditorUITests {
         let stubCollectionNavBar = app.navigationBars["Stubs"]
         let addConcertButton = stubCollectionNavBar.staticTexts["AddConcertButton"]
         addConcertButton.tap()
+    }
+    
+    func delayedAssert(expectation: String, waitTime: TimeInterval = 2.0, assertion: () -> Void) {
+        let expectation = XCTestExpectation(description: expectation)
+        let timer = Timer.scheduledTimer(withTimeInterval: waitTime, repeats: false) { _ in
+                    expectation.fulfill()
+                }
+        
+        wait(for: [expectation], timeout: 4.0)
+        
+        assertion()
+        timer.invalidate()
     }
 }
 

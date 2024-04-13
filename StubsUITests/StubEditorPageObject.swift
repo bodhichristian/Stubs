@@ -46,4 +46,8 @@ class StubEditorPageObject {
             city: "New York"
         )
     }
+    
+    func fillFormWithEmptyValues() {
+        fillOutForm(artist: " ", venue: " ", city: " ")
+    }
 }
