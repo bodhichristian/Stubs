@@ -10,62 +10,61 @@ import XCTest
 final class StubEditorUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var pageObject: StubEditorPageObject!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
-        continueAfterFailure = false
-        
+        pageObject = StubEditorPageObject(app: app)
         tapAddConcertButton()
+        
+        continueAfterFailure = true
     }
     
     override func tearDownWithError() throws {
         app = nil
+        pageObject = nil
     }
     
-    func testSaveButtonDisabledByDefault() {
-        let stubEditorNavBar = app.navigationBars["Stub Editor"]
-        let saveButton = stubEditorNavBar.buttons["Save"]
-                
-        XCTAssertFalse(saveButton.isEnabled)
-    }
-    
-    func testSaveButtonEnabledWhenSaveReady() {
-        let stubEditorNavBar = app.navigationBars["Stub Editor"]
-        let saveButton = stubEditorNavBar.buttons["Save"]
-
-        let collectionViewsQuery = app.collectionViews
-        let artistTextField = collectionViewsQuery/*@START_MENU_TOKEN@*/.textFields["Artist"]/*[[".cells.textFields[\"Artist\"]",".textFields[\"Artist\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        let venueTextField = collectionViewsQuery/*@START_MENU_TOKEN@*/.textFields["Venue"]/*[[".cells.textFields[\"Venue\"]",".textFields[\"Venue\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        let cityTextField = collectionViewsQuery/*@START_MENU_TOKEN@*/.textFields["City"]/*[[".cells.textFields[\"City\"]",".textFields[\"City\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-
-        let aKey = app.keys["A"]
-                
-        artistTextField.tap()
-        aKey.tap()
-        
-        venueTextField.tap()
-        aKey.tap()
-        
-        cityTextField.tap()
-        aKey.tap()
-
-        XCTAssert(saveButton.isEnabled)
-    }
-    
-    func testCancelButtonDismissesStubEditor() throws {
-        let cancelButton = app.navigationBars["Stub Editor"]/*@START_MENU_TOKEN@*/.buttons["Cancel"]/*[[".otherElements[\"Cancel\"].buttons[\"Cancel\"]",".buttons[\"Cancel\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        cancelButton.tap()
+    func testCancelButtonDismissesStubEditor() {
+        pageObject.cancelButton.tap()
         
         XCTAssertFalse(app.staticTexts["Stub Editor"].exists)
     }
+    
+    func testSaveButtonDisabledByDefault() {
+        XCTAssert(!pageObject.saveButton.isEnabled)
+    }
+    
+    func testSaveButtonEnabledWhenFormIsComplete() {
+        pageObject.fillFormWithKnownGoodData()
+        
+        XCTAssert(pageObject.saveButton.isEnabled)
+    }
+    
+    func testSaveSuccessDismissesSheet() {
+        pageObject.fillFormWithKnownGoodData()
+        pageObject.saveButton.tap()
+        
+        let expectation = XCTestExpectation(description: "Save async function complete")
+        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                    expectation.fulfill()
+                }
+        wait(for: [expectation], timeout: 4.0)
+        XCTAssertFalse(pageObject.stubEditorNavBar.exists)
+        
+        timer.invalidate()
+    }
+
 }
 
-// MARK: Navigation Methods
+// MARK: Navigation
 extension StubEditorUITests {
+    
     func tapAddConcertButton() {
         let stubCollectionNavBar = app.navigationBars["Stubs"]
         let addConcertButton = stubCollectionNavBar.staticTexts["AddConcertButton"]
         addConcertButton.tap()
     }
 }
+
