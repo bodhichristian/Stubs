@@ -10,10 +10,8 @@ import SwiftData
 
 final class StubEditorUITests: XCTestCase {
     
-    
     var app: XCUIApplication!
     var pageObject: StubEditorPageObject!
-    
     
     override func setUpWithError() throws {
         app = XCUIApplication()
@@ -40,7 +38,7 @@ final class StubEditorUITests: XCTestCase {
         XCTAssertFalse(pageObject.saveButton.isEnabled)
     }
     
-    func testSaveButtonDisabledWhenFormIsIncomplete() {
+    func testSaveButtonDisabledWhenFormIsIncompleteSingleValueAttempt() {
         pageObject.fillOutForm(artist: "Artist", venue: "", city: "")
         XCTAssertFalse(pageObject.saveButton.isEnabled)
         app.clearTextOnElement(pageObject.textFieldArtist)
@@ -53,6 +51,21 @@ final class StubEditorUITests: XCTestCase {
         XCTAssertFalse(pageObject.saveButton.isEnabled)
     }
     
+    func testSaveButtonDisabledWhenFormIsIncompleteMultiValueAttempt() {
+        pageObject.fillOutForm(artist: "Artist", venue: "Venue", city: "")
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        app.clearTextOnElement(pageObject.textFieldArtist)
+        app.clearTextOnElement(pageObject.textFieldVenue)
+        
+        pageObject.fillOutForm(artist: "Artist", venue: "", city: "City")
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        app.clearTextOnElement(pageObject.textFieldArtist)
+        app.clearTextOnElement(pageObject.textFieldCity)
+        
+        pageObject.fillOutForm(artist: "", venue: "Venue", city: "City")
+        
+        XCTAssertFalse(pageObject.saveButton.isEnabled)
+    }
     
     func testSaveButtonEnabledWhenFormIsComplete() {
         pageObject.fillFormWithKnownGoodData()
@@ -60,6 +73,15 @@ final class StubEditorUITests: XCTestCase {
         XCTAssert(pageObject.saveButton.isEnabled)
     }
     
+    func testSaveFailureDoesNotDismissSheet() {
+        pageObject.fillFormWithEmptyValues()
+        pageObject.saveButton.tap()
+        
+        delayedAssert(expectation: "Fail to Fetch Artist data") {
+            XCTAssert(pageObject.stubEditorNavBar.exists)
+        }
+    }
+
     func testSaveSuccessDismissesSheet() {
         let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
         XCTAssertFalse(addConcertButton.isHittable)
@@ -72,14 +94,6 @@ final class StubEditorUITests: XCTestCase {
         }
     }
     
-    func testSaveFailureDoesNotDismissSheet() {
-        pageObject.fillFormWithEmptyValues()
-        pageObject.saveButton.tap()
-        
-        delayedAssert(expectation: "Fail to Fetch Artist data") {
-            XCTAssert(pageObject.stubEditorNavBar.exists)
-        }
-    }
 }
 
 // MARK: Navigation
