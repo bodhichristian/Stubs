@@ -107,6 +107,16 @@ extension StubEditorUITests {
         addConcertButton.tap()
     }
     
+}
+
+extension XCUIApplication {
+    func clearTextOnElement(_ element: XCUIElement) {
+        element.doubleTap()
+        menuItems["Cut"].tap()
+    }
+}
+
+extension XCTestCase {
     /// Create a delay prior to assertion for testing UI components with asynchronus results.
     /// - Parameters:
     ///   - expectation: A description String for XCTestExpectation(description:).
@@ -125,7 +135,7 @@ extension StubEditorUITests {
     ///
     func delayedAssert(
         expectation: String,
-        waitTime: TimeInterval = 2.0,
+        waitTime: TimeInterval = 3.0,
         assertion: () -> Void
     ) {
         let expectation = XCTestExpectation(description: expectation)
@@ -136,16 +146,10 @@ extension StubEditorUITests {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 4.0)
+        wait(for: [expectation], timeout: waitTime + 1.0)
         
         assertion()
         timer.invalidate()
     }
-}
 
-extension XCUIApplication {
-    func clearTextOnElement(_ element: XCUIElement) {
-        element.doubleTap()
-        menuItems["Cut"].tap()
-    }
 }

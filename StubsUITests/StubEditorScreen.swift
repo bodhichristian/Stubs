@@ -16,6 +16,7 @@ class StubEditorScreen {
     let textFieldArtist: XCUIElement
     let textFieldVenue: XCUIElement
     let textFieldCity: XCUIElement
+    let textFieldNotes: XCUIElement
 
     init(app: XCUIApplication) {
         self.app = app
@@ -24,10 +25,11 @@ class StubEditorScreen {
         saveButton = stubEditorNavBar.buttons["Save"]
         cancelButton = stubEditorNavBar.buttons["Cancel"]
 
-        let collectionViewsQuery = app.collectionViews
-        textFieldArtist = collectionViewsQuery.textFields["Artist"]
-        textFieldVenue = collectionViewsQuery.textFields["Venue"]
-        textFieldCity = collectionViewsQuery.textFields["City"]
+        let collection = app.collectionViews
+        textFieldArtist = collection.textFields["Artist"]
+        textFieldVenue = collection.textFields["Venue"]
+        textFieldCity = collection.textFields["City"]
+        textFieldNotes = collection.textFields["Notes"]
     }
 
     func fillOutForm(artist: String, venue: String, city: String) {
