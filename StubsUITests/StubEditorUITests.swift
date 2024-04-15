@@ -7,78 +7,81 @@
 
 import XCTest
 import SwiftData
+@testable import Stubs
 
 final class StubEditorUITests: XCTestCase {
     
     var app: XCUIApplication!
-    var pageObject: StubEditorPageObject!
+    var screen: StubEditorScreen!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
-        pageObject = StubEditorPageObject(app: app)
+        screen = StubEditorScreen(app: app)
         tapAddConcertButton()
-        
         continueAfterFailure = true
     }
     
     override func tearDownWithError() throws {
         super.tearDown()
         app = nil
-        pageObject = nil
+        screen = nil
     }
     
     func testCancelButtonDismissesStubEditor() {
-        pageObject.cancelButton.tap()
+        screen.cancelButton.tap()
         
         XCTAssertFalse(app.staticTexts["Stub Editor"].exists)
     }
     
+    func testIconsOffScreenHittableAfterSwipe() {
+             
+    }
+    
     func testSaveButtonDisabledByDefault() {
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        XCTAssertFalse(screen.saveButton.isEnabled)
     }
     
     func testSaveButtonDisabledWhenFormIsIncompleteSingleValueAttempt() {
-        pageObject.fillOutForm(artist: "Artist", venue: "", city: "")
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
-        app.clearTextOnElement(pageObject.textFieldArtist)
+        screen.fillOutForm(artist: "Artist", venue: "", city: "")
+        XCTAssertFalse(screen.saveButton.isEnabled)
+        app.clearTextOnElement(screen.textFieldArtist)
         
-        pageObject.fillOutForm(artist: "", venue: "Venue", city: "")
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
-        app.clearTextOnElement(pageObject.textFieldVenue)
+        screen.fillOutForm(artist: "", venue: "Venue", city: "")
+        XCTAssertFalse(screen.saveButton.isEnabled)
+        app.clearTextOnElement(screen.textFieldVenue)
         
-        pageObject.fillOutForm(artist: "", venue: "", city: "City")
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        screen.fillOutForm(artist: "", venue: "", city: "City")
+        XCTAssertFalse(screen.saveButton.isEnabled)
     }
     
     func testSaveButtonDisabledWhenFormIsIncompleteMultiValueAttempt() {
-        pageObject.fillOutForm(artist: "Artist", venue: "Venue", city: "")
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
-        app.clearTextOnElement(pageObject.textFieldArtist)
-        app.clearTextOnElement(pageObject.textFieldVenue)
+        screen.fillOutForm(artist: "Artist", venue: "Venue", city: "")
+        XCTAssertFalse(screen.saveButton.isEnabled)
+        app.clearTextOnElement(screen.textFieldArtist)
+        app.clearTextOnElement(screen.textFieldVenue)
         
-        pageObject.fillOutForm(artist: "Artist", venue: "", city: "City")
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
-        app.clearTextOnElement(pageObject.textFieldArtist)
-        app.clearTextOnElement(pageObject.textFieldCity)
+        screen.fillOutForm(artist: "Artist", venue: "", city: "City")
+        XCTAssertFalse(screen.saveButton.isEnabled)
+        app.clearTextOnElement(screen.textFieldArtist)
+        app.clearTextOnElement(screen.textFieldCity)
         
-        pageObject.fillOutForm(artist: "", venue: "Venue", city: "City")
-        
-        XCTAssertFalse(pageObject.saveButton.isEnabled)
+        screen.fillOutForm(artist: "", venue: "Venue", city: "City")
+        XCTAssertFalse(screen.saveButton.isEnabled)
     }
     
     func testSaveButtonEnabledWhenFormIsComplete() {
-        pageObject.fillFormWithKnownGoodData()
+        screen.fillFormWithKnownGoodData()
         
-        XCTAssert(pageObject.saveButton.isEnabled)
+        XCTAssert(screen.saveButton.isEnabled)
     }
     
     func testSaveFailureDoesNotDismissSheet() {
-        pageObject.fillFormWithEmptyValues()
-        pageObject.saveButton.tap()
+        screen.fillFormWithEmptyValues()
+        screen.saveButton.tap()
         
         delayedAssert(expectation: "Fail to Fetch Artist data") {
-            XCTAssert(pageObject.stubEditorNavBar.exists)
+            XCTAssert(screen.stubEditorNavBar.exists)
         }
     }
 
@@ -86,14 +89,13 @@ final class StubEditorUITests: XCTestCase {
         let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
         XCTAssertFalse(addConcertButton.isHittable)
         
-        pageObject.fillFormWithKnownGoodData()
-        pageObject.saveButton.tap()
+        screen.fillFormWithKnownGoodData()
+        screen.saveButton.tap()
         
         delayedAssert(expectation: "Data Fetch Successful") {
             XCTAssert(addConcertButton.isHittable)
         }
     }
-    
 }
 
 // MARK: Navigation
@@ -105,6 +107,22 @@ extension StubEditorUITests {
         addConcertButton.tap()
     }
     
+    /// Create a delay prior to assertion for testing UI components with asynchronus results.
+    /// - Parameters:
+    ///   - expectation: A description String for XCTestExpectation(description:).
+    ///   - waitTime: The time interval preceding expectation fulfillment.
+    ///   - assertion: A closure from which to call your assertion.
+    ///
+    /// Example call with trailing closure syntax:
+    /// ```
+    /// delayedAssert(
+    ///     expectation: "Fetch data successfully.",
+    ///     waitTime: 3.2
+    ///     ) {
+    ///         XCTAssertFalse(screen.saveButton.exists)
+    ///     }
+    /// ```
+    ///
     func delayedAssert(
         expectation: String,
         waitTime: TimeInterval = 2.0,

@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 
-class StubEditorPageObject {
+class StubEditorScreen {
     let app: XCUIApplication
     let stubEditorNavBar: XCUIElement
     let saveButton: XCUIElement
