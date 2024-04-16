@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
 		AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* AddConcertTip.swift */; };
+		AA25B98A2BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */; };
@@ -157,6 +158,7 @@
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
 		AA19591B2B753CA600266267 /* AddConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertTip.swift; sourceTree = "<group>"; };
+		AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+DelayedAssert.swift"; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBioToggle.swift; sourceTree = "<group>"; };
 		AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRowLabel.swift; sourceTree = "<group>"; };
@@ -296,6 +298,14 @@
 				AADBF81E2B9F7640002F36D6 /* ArtistsViewOptionsTip.swift */,
 			);
 			path = Tips;
+			sourceTree = "<group>";
+		};
+		AA25B9882BCEF172003B11D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AA2A038F2B555A69002C1071 /* ArtistsView */ = {
@@ -528,6 +538,7 @@
 		AAC0A5CF2BC6AA41001CF3F6 /* StubsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AA25B9882BCEF172003B11D3 /* Extensions */,
 				AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */,
 				AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */,
 				AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */,
@@ -866,6 +877,7 @@
 			files = (
 				AAC0A5DE2BC83D42001CF3F6 /* ArtistsViewUITests.swift in Sources */,
 				AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */,
+				AA25B98A2BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift in Sources */,
 				AAC0A5E02BC954D2001CF3F6 /* VenuesViewUITests.swift in Sources */,
 				AAC0A61A2BCA2C40001CF3F6 /* StubEditorScreen.swift in Sources */,
 				AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */,

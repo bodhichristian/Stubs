@@ -7,18 +7,20 @@
 
 import XCTest
 import SwiftData
-@testable import Stubs
 
 final class StubEditorUITests: XCTestCase {
     
     var app: XCUIApplication!
     var screen: StubEditorScreen!
+    var parentViewAccessorElement: XCUIElement!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
         screen = StubEditorScreen(app: app)
-        tapAddConcertButton()
+        
+        parentViewAccessorElement = app.navigationBars["Stubs"].buttons["Add Concert"]
+        parentViewAccessorElement.tap()
         continueAfterFailure = true
     }
     
@@ -31,11 +33,7 @@ final class StubEditorUITests: XCTestCase {
     func testCancelButtonDismissesStubEditor() {
         screen.cancelButton.tap()
         
-        XCTAssertFalse(app.staticTexts["Stub Editor"].exists)
-    }
-    
-    func testIconsOffScreenHittableAfterSwipe() {
-             
+        XCTAssertFalse(screen.cancelButton.exists)
     }
     
     func testSaveButtonDisabledByDefault() {
@@ -98,17 +96,6 @@ final class StubEditorUITests: XCTestCase {
     }
 }
 
-// MARK: Navigation
-extension StubEditorUITests {
-    
-    func tapAddConcertButton() {
-        let stubCollectionNavBar = app.navigationBars["Stubs"]
-        let addConcertButton = stubCollectionNavBar.staticTexts["AddConcertButton"]
-        addConcertButton.tap()
-    }
-    
-}
-
 extension XCUIApplication {
     func clearTextOnElement(_ element: XCUIElement) {
         element.doubleTap()
@@ -116,40 +103,4 @@ extension XCUIApplication {
     }
 }
 
-extension XCTestCase {
-    /// Create a delay prior to assertion for testing UI components with asynchronus results.
-    /// - Parameters:
-    ///   - expectation: A description String for XCTestExpectation(description:).
-    ///   - waitTime: The time interval preceding expectation fulfillment.
-    ///   - assertion: A closure from which to call your assertion.
-    ///
-    /// Example call with trailing closure syntax:
-    /// ```
-    /// delayedAssert(
-    ///     expectation: "Fetch data successfully.",
-    ///     waitTime: 3.2
-    ///     ) {
-    ///         XCTAssertFalse(screen.saveButton.exists)
-    ///     }
-    /// ```
-    ///
-    func delayedAssert(
-        expectation: String,
-        waitTime: TimeInterval = 3.0,
-        assertion: () -> Void
-    ) {
-        let expectation = XCTestExpectation(description: expectation)
-        let timer = Timer.scheduledTimer(
-            withTimeInterval: waitTime,
-            repeats: false
-        ) { _ in
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: waitTime + 1.0)
-        
-        assertion()
-        timer.invalidate()
-    }
 
-}
