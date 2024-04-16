@@ -12,16 +12,18 @@ final class StubEditorUITests: XCTestCase {
     
     var app: XCUIApplication!
     var screen: StubEditorScreen!
-    var parentViewAccessorElement: XCUIElement!
+    var parentViewEntryPoint: XCUIElement!
     
     override func setUpWithError() throws {
+        // App and Screen Set Up
         app = XCUIApplication()
         app.launch()
         screen = StubEditorScreen(app: app)
-        
-        parentViewAccessorElement = app.navigationBars["Stubs"].buttons["Add Concert"]
-        parentViewAccessorElement.tap()
         continueAfterFailure = true
+
+        // Navigate to Stub Editor
+        parentViewEntryPoint = app.navigationBars["Stubs"].buttons["Add Concert"]
+        parentViewEntryPoint.tap()
     }
     
     override func tearDownWithError() throws {
@@ -30,14 +32,14 @@ final class StubEditorUITests: XCTestCase {
         screen = nil
     }
     
+    func testSaveButtonDisabledByDefault() {
+        XCTAssertFalse(screen.saveButton.isEnabled)
+    }
+    
     func testCancelButtonDismissesStubEditor() {
         screen.cancelButton.tap()
         
         XCTAssertFalse(screen.cancelButton.exists)
-    }
-    
-    func testSaveButtonDisabledByDefault() {
-        XCTAssertFalse(screen.saveButton.isEnabled)
     }
     
     func testSaveButtonDisabledWhenFormIsIncompleteSingleValueAttempt() {
@@ -93,13 +95,6 @@ final class StubEditorUITests: XCTestCase {
         delayedAssert(expectation: "Data Fetch Successful") {
             XCTAssert(addConcertButton.isHittable)
         }
-    }
-}
-
-extension XCUIApplication {
-    func clearTextOnElement(_ element: XCUIElement) {
-        element.doubleTap()
-        menuItems["Cut"].tap()
     }
 }
 
