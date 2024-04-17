@@ -46,6 +46,27 @@ final class StubCollectionUITests: XCTestCase {
         cancelButton.tap()
         XCTAssertFalse(cancelButton.exists)
     }
+    
+    func testAddConcertCreatesListItem() {
+        screen.addConcertButton.tap()
+        
+        let stubEditor = StubEditorScreen(app: app)
+        let artist = "Adele"
+        let venue = "Barclays"
+        let city = "New York"
+        stubEditor.fillOutForm(artist: artist, venue: venue, city: city)
+        
+        stubEditor.saveButton.tap()
+        let newConcertListItem = app.scrollViews.staticTexts[artist]
+
+        delayedAssert(
+            expectation: "Artist Object Fetched",
+            waitTime: 10.0
+        ) {
+
+            XCTAssert(newConcertListItem.exists)
+        }
+    }
 }
 
 
