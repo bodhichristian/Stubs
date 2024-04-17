@@ -12,7 +12,12 @@ class ArtistsViewScreen {
     let app: XCUIApplication
     let artistsViewNavBar: XCUIElement
 
+    let searchBar: XCUIElement
     let viewOptionsButton: XCUIElement
+    let switchToGridViewButton: XCUIElement
+    let switchToListViewButton: XCUIElement
+    let sortAlphaAscending: XCUIElement
+    let sortAlphaDescending: XCUIElement
 
     init(app: XCUIApplication) {
         self.app = app
@@ -20,7 +25,11 @@ class ArtistsViewScreen {
         artistsViewNavBar = app.navigationBars["Artists"]
 
         let views = app.collectionViews
-        viewOptionsButton = views.buttons["View Options"]
+        searchBar = views.textFields["Search Artists"]
+        viewOptionsButton = artistsViewNavBar.buttons["View Options"]
+        switchToGridViewButton = views.buttons["Switch to Grid View"]
+        switchToListViewButton = views.buttons["Switch to List View"]
+        sortAlphaAscending = views.buttons["Sort by Name A-Z"]
+        sortAlphaDescending = views.buttons["Sort by Name Z-A"]
     }
-    
 }
