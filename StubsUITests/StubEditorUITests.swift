@@ -86,14 +86,13 @@ final class StubEditorUITests: XCTestCase {
     }
 
     func testSaveSuccessDismissesSheet() {
-        let addConcertButton = app.navigationBars.staticTexts["AddConcertButton"]
-        XCTAssertFalse(addConcertButton.isHittable)
+        XCTAssertFalse(parentViewEntryPoint.isHittable)
         
         screen.fillFormWithKnownGoodData()
         screen.saveButton.tap()
         
         delayedAssert(expectation: "Data Fetch Successful") {
-            XCTAssert(addConcertButton.isHittable)
+            XCTAssert(parentViewEntryPoint.isHittable)
         }
     }
 }

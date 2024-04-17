@@ -11,6 +11,7 @@
 		AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* AddConcertTip.swift */; };
 		AA25B98A2BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */; };
 		AA25B98C2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */; };
+		AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */; };
@@ -161,6 +162,7 @@
 		AA19591B2B753CA600266267 /* AddConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertTip.swift; sourceTree = "<group>"; };
 		AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+DelayedAssert.swift"; sourceTree = "<group>"; };
 		AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+ClearTextField.swift"; sourceTree = "<group>"; };
+		AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewScreen.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBioToggle.swift; sourceTree = "<group>"; };
 		AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRowLabel.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			children = (
 				AA25B9882BCEF172003B11D3 /* Extensions */,
 				AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */,
+				AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */,
 				AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */,
 				AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */,
 				AAC0A6192BCA2C40001CF3F6 /* StubEditorScreen.swift */,
@@ -885,6 +888,7 @@
 				AAC0A61A2BCA2C40001CF3F6 /* StubEditorScreen.swift in Sources */,
 				AA25B98C2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift in Sources */,
 				AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */,
+				AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
