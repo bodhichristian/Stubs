@@ -57,7 +57,9 @@ struct ArtistMenuLabel: View {
                         sortOrder == .byNameAscending 
                         ? "Sort by Name Z-A"
                         : "Sort by Name A-Z",
-                        systemImage: "a.square"
+                        systemImage: sortOrder == .byNameAscending
+                        ? "a.square"
+                        : "z.square"
                     )
                 }
             }

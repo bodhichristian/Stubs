@@ -55,13 +55,13 @@ final class ArtistsViewUITests: XCTestCase {
         XCTAssert(screen.sortAlphaAscending.exists)
     }
     
-    func testTapFirstElementInScrollView() {
-
-        // Find the ScrollView element
-        let scrollView = app.scrollViews.matching(identifier: "ArtistsScrollView")
-
-      
-    }
+//    func testTapFirstElementInScrollView() {
+//
+//        // Find the ScrollView element
+//        let scrollView = app.scrollViews.matching(identifier: "ArtistsScrollView")
+//
+//      
+//    }
 }
 
 

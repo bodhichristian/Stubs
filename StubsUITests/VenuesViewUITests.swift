@@ -10,13 +10,17 @@ import XCTest
 final class VenuesViewUITests: XCTestCase {
 
     var app: XCUIApplication!
+    var screen: VenuesViewScreen!
+    var entryPoint: XCUIElement!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
         continueAfterFailure = false
-
-        tapVenuesTab()
+        
+        screen = VenuesViewScreen(app: app)
+        entryPoint = app.staticTexts["Venues, tab"]
+        entryPoint.tap()
     }
 
     override func tearDownWithError() throws {
@@ -24,28 +28,15 @@ final class VenuesViewUITests: XCTestCase {
     }
 
     
-    func testVenueViewSortButtonOpensMenu() {
-        XCTAssertFalse(app.buttons["Sort by Venue A-Z"].exists)
-
-        tapSortButton()
-        
-        XCTAssert(app.buttons["Sort by Venue A-Z"].isEnabled)
-    }
-
-}
-
-// MARK: Navigation Methods
-extension VenuesViewUITests {
-    func tapVenuesTab() {
-        let venuesTab = app.staticTexts["Venues, tab"]
-        venuesTab.tap()
+    func testSortButtonOpensMenu() {
+        XCTAssertFalse(screen.sortAlphaByCityDescendingButton.exists)
+        screen.sortButton.tap()
+        XCTAssert(screen.sortAlphaByCityDescendingButton.exists)
     }
     
-    func tapSortButton() {
-        let sortButton = app.navigationBars["Venues"].staticTexts["Sort"]
-        sortButton.tap()
-    }
+    
 }
+
 
 
 
