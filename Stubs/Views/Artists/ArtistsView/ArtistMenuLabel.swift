@@ -45,23 +45,19 @@ struct ArtistMenuLabel: View {
             Section {
                 Button {
                     withAnimation(.snappy){
-                        sortOrder = .byNameAscending
+                        switch sortOrder {
+                        case .byNameAscending:
+                            sortOrder = .byNameDescending
+                        default:
+                            sortOrder = .byNameAscending
+                        }
                     }
                 } label: {
                     Label(
-                        "Sort by Name A-Z",
+                        sortOrder == .byNameAscending 
+                        ? "Sort by Name Z-A"
+                        : "Sort by Name A-Z",
                         systemImage: "a.square"
-                    )
-                }
-                
-                Button {
-                    withAnimation(.snappy){
-                        sortOrder = .byNameDescending
-                    }
-                } label: {
-                    Label(
-                        "Sort by Name Z-A",
-                        systemImage: "z.square"
                     )
                 }
             }

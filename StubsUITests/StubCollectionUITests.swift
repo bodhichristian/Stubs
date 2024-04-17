@@ -10,11 +10,14 @@ import XCTest
 final class StubCollectionUITests: XCTestCase {
     
     var app: XCUIApplication!
+    var screen: StubCollectionScreen!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
-        continueAfterFailure = false
+        continueAfterFailure = true
+        
+        screen = StubCollectionScreen(app: app)
     }
 
     override func tearDownWithError() throws {
@@ -22,33 +25,22 @@ final class StubCollectionUITests: XCTestCase {
     }
 
     func testAddConcertButtonPresentsStubEditor() throws {
-        let stubsNavigationBar = app.navigationBars["Stubs"]
-        let addConcertButton = stubsNavigationBar/*@START_MENU_TOKEN@*/.staticTexts["Add Concert"]/*[[".otherElements[\"Add Concert\"]",".buttons[\"Add Concert\"].staticTexts[\"Add Concert\"]",".staticTexts[\"Add Concert\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-        
-        addConcertButton.tap()
-                
+        screen.addConcertButton.tap()
         XCTAssertTrue(app.staticTexts["Stub Editor"].exists)
     }
     
     func testStubEditorCancelButtonDismissesStubEditor() throws {
-        let stubsNavigationBar = app.navigationBars["Stubs"]
-        let addConcertButton = stubsNavigationBar/*@START_MENU_TOKEN@*/.staticTexts["Add Concert"]/*[[".otherElements[\"Add Concert\"]",".buttons[\"Add Concert\"].staticTexts[\"Add Concert\"]",".staticTexts[\"Add Concert\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-        addConcertButton.tap()
+        screen.addConcertButton.tap()
         
-        let cancelButton = app.navigationBars["Stub Editor"]/*@START_MENU_TOKEN@*/.buttons["Cancel"]/*[[".otherElements[\"Cancel\"].buttons[\"Cancel\"]",".buttons[\"Cancel\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        cancelButton.tap()
-                
-        XCTAssertFalse(app.staticTexts["Stub Editor"].exists)
+        screen.stubEditorCancelButton.tap()
+        XCTAssertFalse(screen.stubEditorCancelButton.exists)
     }
     
     func testSearchFieldFocusCancellable() {
-        let stubsNavigationBar = app.navigationBars["Stubs"]
-        let cancelButton = stubsNavigationBar.buttons["Cancel"]
-        let searchConcertsSearchField = stubsNavigationBar.searchFields["Search Concerts"]
-        
+        let cancelButton = screen.navBar.buttons["Cancel"]
         XCTAssertFalse(cancelButton.exists)
         
-        searchConcertsSearchField.tap()
+        screen.searchBar.tap()
         XCTAssertTrue(cancelButton.exists)
         
         cancelButton.tap()

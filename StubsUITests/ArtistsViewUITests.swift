@@ -28,33 +28,41 @@ final class ArtistsViewUITests: XCTestCase {
     }
 
     func testViewOptionsButtonOpensMenu() {
+        XCTAssertFalse(screen.switchToGridViewButton.exists)
         screen.viewOptionsButton.tap()
- 
-        let switchToGridViewButton = app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Switch to Grid View"]/*[[".cells.buttons[\"Switch to Grid View\"]",".buttons[\"Switch to Grid View\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        
-        XCTAssert(switchToGridViewButton.isEnabled)
+        XCTAssert(screen.switchToGridViewButton.exists)
     }
     
     func testGridViewListViewToggleUpdatesButtonLabel() {
-        tapViewOptionsButton()
+        screen.viewOptionsButton.tap()
         
-        let switchToGridViewButton = app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Switch to Grid View"]/*[[".cells.buttons[\"Switch to Grid View\"]",".buttons[\"Switch to Grid View\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        switchToGridViewButton.tap()
-        tapViewOptionsButton()
+        XCTAssertFalse(screen.switchToListViewButton.exists)
+        screen.switchToGridViewButton.tap()
         
-        XCTAssertFalse(switchToGridViewButton.exists)
+        screen.viewOptionsButton.tap()
+        XCTAssertFalse(screen.switchToGridViewButton.exists)
+        XCTAssert(screen.switchToListViewButton.exists)
     }
-}
-
-// MARK: Navigation Methods
-extension ArtistsViewUITests {
     
-    func tapViewOptionsButton() {
-        let viewOptionsStaticText = app.navigationBars["Artists"]/*@START_MENU_TOKEN@*/.staticTexts["View Options"]/*[[".otherElements[\"View Options\"]",".buttons[\"View Options\"]",".buttons.staticTexts[\"View Options\"]",".staticTexts[\"View Options\"]"],[[[-1,3],[-1,2],[-1,1,2],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0]]@END_MENU_TOKEN@*/
-        viewOptionsStaticText.tap()
+    func testAlphabeticalSortToggleUpdatesButtonLabel() {
+        screen.viewOptionsButton.tap()
+        
+        XCTAssertFalse(screen.sortAlphaAscending.exists)
+        screen.sortAlphaDescending.tap()
+        
+        screen.viewOptionsButton.tap()
+        XCTAssertFalse(screen.sortAlphaDescending.exists)
+        XCTAssert(screen.sortAlphaAscending.exists)
+    }
+    
+    func testTapFirstElementInScrollView() {
+
+        // Find the ScrollView element
+        let scrollView = app.scrollViews.matching(identifier: "ArtistsScrollView")
+
+      
     }
 }
-
 
 
 

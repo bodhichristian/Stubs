@@ -72,11 +72,11 @@ struct ArtistsView: View {
                     
                     if listView {
                         ArtistListView(
-                            groupedArtists: groupedArtists,
-                            sortedKeys: sortedKeys,
+                            artists: sortedArtists,
                             listView: listView,
                             namespace: namespace
                         )
+                        
                     } else {
                         ArtistGridView(
                             artists: sortedArtists,
@@ -85,7 +85,7 @@ struct ArtistsView: View {
                         )
                     }
                 }
-                
+                .accessibilityIdentifier("ArtistsScrollView")
                 .navigationTitle("Artists")
                 .searchable(
                     text: $searchText,

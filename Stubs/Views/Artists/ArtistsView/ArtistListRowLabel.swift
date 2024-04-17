@@ -56,5 +56,6 @@ struct ArtistListRowLabel: View {
             .padding(.horizontal)
             .padding(.vertical, 10)
         }
+        .accessibilityLabel(artist.artistName ?? "")
     }
 }
