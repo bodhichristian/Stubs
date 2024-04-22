@@ -308,13 +308,13 @@
 			path = Tips;
 			sourceTree = "<group>";
 		};
-		AA25B9882BCEF172003B11D3 /* Extensions */ = {
+		AA25B9882BCEF172003B11D3 /* XCTest Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */,
 				AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */,
 			);
-			path = Extensions;
+			path = "XCTest Extensions";
 			sourceTree = "<group>";
 		};
 		AA2A038F2B555A69002C1071 /* ArtistsView */ = {
@@ -547,7 +547,7 @@
 		AAC0A5CF2BC6AA41001CF3F6 /* StubsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AA25B9882BCEF172003B11D3 /* Extensions */,
+				AA25B9882BCEF172003B11D3 /* XCTest Extensions */,
 				AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */,
 				AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */,
 				AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */,
