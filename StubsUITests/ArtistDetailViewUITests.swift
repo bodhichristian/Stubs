@@ -10,24 +10,31 @@ import XCTest
 final class ArtistDetailViewUITests: XCTestCase {
     var app: XCUIApplication!
     var screen: ArtistDetailViewScreen!
+    var entryPoint: XCUIElement!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
         continueAfterFailure = true
         
+        
         screen = ArtistDetailViewScreen(app: app)
+        entryPoint = app.scrollViews.images.firstMatch
+        entryPoint.tap()
     }
 
     override func tearDownWithError() throws {
         app = nil
     }
     
-    func testRunCL() {
-  
-        let scrollViewsQuery = app.scrollViews
+    func testEditingNotesUpdatesNotesValue() {
+        let newNotes = "The concert was incredible"
 
-        scrollViewsQuery.images.firstMatch.tap()
-                
+        screen.editNotesButton.tap()
+        
+        app.typeText(newNotes)
+        screen.doneEditingButton.tap()
+        
+        XCTAssert(app.textViews[newNotes].exists)
     }
 }
