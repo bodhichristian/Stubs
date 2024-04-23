@@ -8,8 +8,11 @@
 import Foundation
 import XCTest
 
-class StubCollectionScreen {
-    let app: XCUIApplication
+class StubCollectionScreen: Screen {
+    // Conform to Screen protocol
+    var app: XCUIApplication
+    
+    // Screen-specific elements
     let navBar: XCUIElement
     let addConcertButton: XCUIElement
     let searchBar: XCUIElement

@@ -8,10 +8,12 @@
 import Foundation
 import XCTest
 
-class ArtistsViewScreen {
-    let app: XCUIApplication
+class ArtistsViewScreen: Screen {
+    // Conform to Screen protocol
+    var app: XCUIApplication
+    
+    // Screen-specific elements
     let artistsViewNavBar: XCUIElement
-
     let searchBar: XCUIElement
     let viewOptionsButton: XCUIElement
     let switchToGridViewButton: XCUIElement

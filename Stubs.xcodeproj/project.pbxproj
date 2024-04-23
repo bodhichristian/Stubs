@@ -14,6 +14,9 @@
 		AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */; };
 		AA25B9902BD01D02003B11D3 /* StubCollectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98F2BD01D02003B11D3 /* StubCollectionScreen.swift */; };
 		AA25B9922BD02440003B11D3 /* VenuesViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9912BD02440003B11D3 /* VenuesViewScreen.swift */; };
+		AA25B9952BD73E47003B11D3 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9942BD73E47003B11D3 /* Screen.swift */; };
+		AA25B9982BD7431F003B11D3 /* ArtistDetailViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9972BD7431F003B11D3 /* ArtistDetailViewScreen.swift */; };
+		AA25B99A2BD74372003B11D3 /* ArtistDetailViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9992BD74372003B11D3 /* ArtistDetailViewUITests.swift */; };
 		AA2A03932B555ACA002C1071 /* StubCountIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */; };
 		AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AA3C72372B93B56C00C24B2B /* ArtistListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */; };
@@ -167,6 +170,9 @@
 		AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewScreen.swift; sourceTree = "<group>"; };
 		AA25B98F2BD01D02003B11D3 /* StubCollectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCollectionScreen.swift; sourceTree = "<group>"; };
 		AA25B9912BD02440003B11D3 /* VenuesViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewScreen.swift; sourceTree = "<group>"; };
+		AA25B9942BD73E47003B11D3 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		AA25B9972BD7431F003B11D3 /* ArtistDetailViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewScreen.swift; sourceTree = "<group>"; };
+		AA25B9992BD74372003B11D3 /* ArtistDetailViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewUITests.swift; sourceTree = "<group>"; };
 		AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCountIndicator.swift; sourceTree = "<group>"; };
 		AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBioToggle.swift; sourceTree = "<group>"; };
 		AA3C72362B93B56C00C24B2B /* ArtistListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRowLabel.swift; sourceTree = "<group>"; };
@@ -315,6 +321,26 @@
 				AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */,
 			);
 			path = "XCTest Extensions";
+			sourceTree = "<group>";
+		};
+		AA25B9932BD73E3C003B11D3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AA25B9942BD73E47003B11D3 /* Screen.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AA25B9962BD7417F003B11D3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */,
+				AA25B9972BD7431F003B11D3 /* ArtistDetailViewScreen.swift */,
+				AA25B98F2BD01D02003B11D3 /* StubCollectionScreen.swift */,
+				AAC0A6192BCA2C40001CF3F6 /* StubEditorScreen.swift */,
+				AA25B9912BD02440003B11D3 /* VenuesViewScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		AA2A038F2B555A69002C1071 /* ArtistsView */ = {
@@ -547,15 +573,14 @@
 		AAC0A5CF2BC6AA41001CF3F6 /* StubsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AA25B9882BCEF172003B11D3 /* XCTest Extensions */,
 				AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */,
-				AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */,
+				AA25B9992BD74372003B11D3 /* ArtistDetailViewUITests.swift */,
 				AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */,
-				AA25B98F2BD01D02003B11D3 /* StubCollectionScreen.swift */,
 				AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */,
-				AAC0A6192BCA2C40001CF3F6 /* StubEditorScreen.swift */,
 				AAC0A5DF2BC954D2001CF3F6 /* VenuesViewUITests.swift */,
-				AA25B9912BD02440003B11D3 /* VenuesViewScreen.swift */,
+				AA25B9932BD73E3C003B11D3 /* Protocols */,
+				AA25B9962BD7417F003B11D3 /* Screens */,
+				AA25B9882BCEF172003B11D3 /* XCTest Extensions */,
 			);
 			path = StubsUITests;
 			sourceTree = "<group>";
@@ -891,9 +916,12 @@
 				AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */,
 				AA25B98A2BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift in Sources */,
 				AAC0A5E02BC954D2001CF3F6 /* VenuesViewUITests.swift in Sources */,
+				AA25B9952BD73E47003B11D3 /* Screen.swift in Sources */,
+				AA25B99A2BD74372003B11D3 /* ArtistDetailViewUITests.swift in Sources */,
 				AAC0A61A2BCA2C40001CF3F6 /* StubEditorScreen.swift in Sources */,
 				AA25B98C2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift in Sources */,
 				AA25B9922BD02440003B11D3 /* VenuesViewScreen.swift in Sources */,
+				AA25B9982BD7431F003B11D3 /* ArtistDetailViewScreen.swift in Sources */,
 				AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */,
 				AA25B9902BD01D02003B11D3 /* StubCollectionScreen.swift in Sources */,
 				AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */,

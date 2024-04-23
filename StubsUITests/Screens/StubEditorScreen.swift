@@ -8,8 +8,11 @@
 import Foundation
 import XCTest
 
-class StubEditorScreen {
-    let app: XCUIApplication
+class StubEditorScreen: Screen {
+    // Conform to Screen protocol
+    var app: XCUIApplication
+    
+    // Screen-specific elements
     let stubEditorNavBar: XCUIElement
     let saveButton: XCUIElement
     let cancelButton: XCUIElement

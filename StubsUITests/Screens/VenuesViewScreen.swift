@@ -8,8 +8,11 @@
 import Foundation
 import XCTest
 
-class VenuesViewScreen {
-    let app: XCUIApplication
+class VenuesViewScreen: Screen {
+    // Conform to Screen protocol
+    var app: XCUIApplication
+    
+    // Screen-specific elements
     let navBar: XCUIElement
     let sortButton: XCUIElement
     let sortAlphaByVenueAscendingButton: XCUIElement
