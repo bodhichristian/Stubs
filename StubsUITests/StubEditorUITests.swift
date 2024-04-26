@@ -101,9 +101,7 @@ final class StubEditorUITests: XCTestCase {
         let artist = "Adele"
         let venue = "Barclays"
         let city = "Brooklyn"
-        
-        //XCTAssertFalse(app.staticTexts["\(artist)"].exists)
-        
+                
         screen.fillOutForm(
             artist: artist,
             venue: venue,

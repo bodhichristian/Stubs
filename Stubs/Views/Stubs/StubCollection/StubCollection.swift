@@ -96,10 +96,10 @@ struct StubCollection: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        Task {
-                            try await addSampleConcert()
-                        }
-                        //isAddingConcert = true
+//                        Task {
+//                            try await addSampleConcert()
+//                        }
+                        isAddingConcert = true
                     } label: {
                         ToolbarButtonLabel(
                             text: "Add Concert",
