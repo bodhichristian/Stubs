@@ -7,6 +7,7 @@
 
 import XCTest
 import SwiftData
+@testable import Stubs
 
 final class StubEditorUITests: XCTestCase {
     
@@ -93,6 +94,25 @@ final class StubEditorUITests: XCTestCase {
         
         delayedAssert(expectation: "Data Fetch Successful") {
             XCTAssert(parentViewEntryPoint.isHittable)
+        }
+    }
+    
+    func testSaveSuccessCreatesConcertObjectInParentView() {
+        let artist = "Adele"
+        let venue = "Barclays"
+        let city = "Brooklyn"
+        
+        //XCTAssertFalse(app.staticTexts["\(artist)"].exists)
+        
+        screen.fillOutForm(
+            artist: artist,
+            venue: venue,
+            city: city
+        )
+        screen.saveButton.tap()
+        
+        delayedAssert(expectation: "\(artist) Artist object has been created") {
+            XCTAssert(app.staticTexts["\(artist)"].exists)
         }
     }
 }

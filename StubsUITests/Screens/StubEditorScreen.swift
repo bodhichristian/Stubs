@@ -17,7 +17,7 @@ class StubEditorScreen: Screen {
     let saveButton: XCUIElement
     let cancelButton: XCUIElement
     let textFieldArtist: XCUIElement
-    let textFieldVenue: XCUIElement
+    let textFieldVenue: XCUIElement 
     let textFieldCity: XCUIElement
     let textFieldNotes: XCUIElement
 

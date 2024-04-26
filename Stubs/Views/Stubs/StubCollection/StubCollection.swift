@@ -69,19 +69,20 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button {
-//                       Task {
-//                           try await addSampleConcert()
-//                       }
-//                    } label: {
-//                        ToolbarButtonLabel(n
-//                            text: "Demo",
-//                            symbol: "sparkles.rectangle.stack",
-//                            colors: [.blue, .purple]
-//                        )
-//                    }
-//                }
+                //                ToolbarItem(placement: .topBarLeading) {
+                //                    Button {
+                //                       Task {
+                //                           try await addSampleConcert()
+                //                       }
+                //                    } label: {
+                //                        ToolbarButtonLabel(
+                //                            text: "Demo",
+                //                            symbol: "sparkles.rectangle.stack",
+                //                            colors: [.blue, .purple]
+                //                        )
+                //                    }
+                //                }
+                
                 
                 ToolbarItem {
                     Button {
@@ -95,7 +96,10 @@ struct StubCollection: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        isAddingConcert = true
+                        Task {
+                            try await addSampleConcert()
+                        }
+                        //isAddingConcert = true
                     } label: {
                         ToolbarButtonLabel(
                             text: "Add Concert",
