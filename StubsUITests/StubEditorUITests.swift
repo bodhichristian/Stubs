@@ -101,7 +101,10 @@ final class StubEditorUITests: XCTestCase {
         let artist = "Adele"
         let venue = "Barclays"
         let city = "Brooklyn"
-                
+        
+        // Check current count of concerts for artist
+        let oldConcertCount = app.elementCount(for: artist)
+        
         screen.fillOutForm(
             artist: artist,
             venue: venue,
@@ -109,8 +112,11 @@ final class StubEditorUITests: XCTestCase {
         )
         screen.saveButton.tap()
         
+        // Gather new count of concerts for artist
+        let newConcertCount = app.elementCount(for: artist)
+        
         delayedAssert(expectation: "\(artist) Artist object has been created") {
-            XCTAssert(app.staticTexts["\(artist)"].exists)
+            XCTAssert(newConcertCount > oldConcertCount)
         }
     }
 }

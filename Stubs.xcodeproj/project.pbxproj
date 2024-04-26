@@ -53,6 +53,7 @@
 		AA745A9A2BAF73B500618EBE /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745A992BAF73B500618EBE /* ConcertService.swift */; };
 		AA745AA12BB09CEF00618EBE /* AlbumSearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */; };
 		AA745AA32BB09D5200618EBE /* ArtistServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */; };
+		AA7A0BA42BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A0BA32BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift */; };
 		AA7B228A2B7CE0030017B3F0 /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */; };
 		AA7B228E2B818E320017B3F0 /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA7B22902B819F380017B3F0 /* ArtistTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228F2B819F380017B3F0 /* ArtistTile.swift */; };
@@ -208,6 +209,7 @@
 		AA745A992BAF73B500618EBE /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
 		AA745AA02BB09CEF00618EBE /* AlbumSearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchError.swift; sourceTree = "<group>"; };
 		AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceError.swift; sourceTree = "<group>"; };
+		AA7A0BA32BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+ElementCount.swift"; sourceTree = "<group>"; };
 		AA7B22892B7CE0030017B3F0 /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		AA7B228D2B818E320017B3F0 /* TileBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBase.swift; sourceTree = "<group>"; };
 		AA7B228F2B819F380017B3F0 /* ArtistTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTile.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */,
+				AA7A0BA32BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift */,
 				AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */,
 			);
 			path = "XCTest Extensions";
@@ -922,6 +925,7 @@
 				AA25B98C2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift in Sources */,
 				AA25B9922BD02440003B11D3 /* VenuesViewScreen.swift in Sources */,
 				AA25B9982BD7431F003B11D3 /* ArtistDetailViewScreen.swift in Sources */,
+				AA7A0BA42BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift in Sources */,
 				AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */,
 				AA25B9902BD01D02003B11D3 /* StubCollectionScreen.swift in Sources */,
 				AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */,
