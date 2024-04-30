@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: swift build -v
     - name: Capture Build Error
-      if: ${{failure}}
+      if: ${{ failure() }}
       run: |
         echo "Build failed with error: ${{ steps.build.outputs.error }}
     - name: Run tests
