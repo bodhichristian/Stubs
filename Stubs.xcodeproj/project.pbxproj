@@ -320,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */,
-				AA7A0BA32BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift */,
 				AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */,
+				AA7A0BA32BDC23C6005B85A2 /* XCUIApplication+ElementCount.swift */,
 			);
 			path = "XCTest Extensions";
 			sourceTree = "<group>";
