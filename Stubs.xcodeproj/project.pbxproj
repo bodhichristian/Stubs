@@ -441,6 +441,24 @@
 			path = Artists;
 			sourceTree = "<group>";
 		};
+		AA6FC6712BE0980D001546D9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A746A2A32BDF3003E9B41 /* Stubs */,
+				AA4588382B9A1A470099D6C0 /* StubsWidget */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AA6FC6722BE09823001546D9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AAB57E572BA34C8400F1ED56 /* StubsUnitTests */,
+				AAC0A5CF2BC6AA41001CF3F6 /* StubsUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		AA745A9F2BB09CD100618EBE /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,10 +484,8 @@
 		AA8A745F2A32BDF3003E9B41 = {
 			isa = PBXGroup;
 			children = (
-				AA8A746A2A32BDF3003E9B41 /* Stubs */,
-				AA4588382B9A1A470099D6C0 /* StubsWidget */,
-				AAB57E572BA34C8400F1ED56 /* StubsUnitTests */,
-				AAC0A5CF2BC6AA41001CF3F6 /* StubsUITests */,
+				AA6FC6712BE0980D001546D9 /* Sources */,
+				AA6FC6722BE09823001546D9 /* Tests */,
 				AAC34E902B979FB400BBA44A /* Frameworks */,
 				AA8A74692A32BDF3003E9B41 /* Products */,
 			);
