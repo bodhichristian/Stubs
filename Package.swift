@@ -17,7 +17,7 @@ let package = Package(
         .target(
             name: "Stubs",
             dependencies: [],
-            path: "Sources"),
+            path: "Sources/Stubs"),
         .testTarget(
             name: "StubsTests",
             dependencies: ["Stubs"],
