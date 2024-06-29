@@ -9,32 +9,32 @@ import Foundation
 import SwiftUI
 
 enum TabBarItem: CaseIterable, Hashable {
-    case stubs, artists, profile, venues
+    case stubs, artists, venues, profile
     
     var iconName: String {
         switch self {
         case .stubs: return "ticket"
-        case .profile: return "person.fill"
         case .artists: return "music.mic"
         case .venues: return "map"
+        case .profile: return "person.fill"
         }
     }
     
     var title: String {
         switch self {
         case .stubs: return "Stubs"
-        case .profile: return "Profile"
         case .artists: return "Artists"
         case .venues: return "Venues"
+        case .profile: return "Profile"
         }
     }
     
     var color: Color {
         switch self {
         case .stubs: return .black
-        case .profile: return .black
         case .artists: return .black
         case .venues: return .black
+        case .profile: return .black
         }
     }
 }
