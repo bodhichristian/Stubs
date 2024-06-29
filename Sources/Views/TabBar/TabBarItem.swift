@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum TabBarItem: Hashable {
+enum TabBarItem: CaseIterable, Hashable {
     case stubs, artists, profile, venues
     
     var iconName: String {

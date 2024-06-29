@@ -28,12 +28,6 @@
 		AA3C72452B94320800C24B2B /* FavoriteToggleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C72442B94320800C24B2B /* FavoriteToggleLabel.swift */; };
 		AA4202F02A38C8F1002EA5CD /* StubEditorColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */; };
 		AA4202F22A38E749002EA5CD /* StubEditorIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */; };
-		AA4588362B9A1A470099D6C0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC34E912B979FB400BBA44A /* WidgetKit.framework */; };
-		AA4588372B9A1A470099D6C0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC34E932B979FB400BBA44A /* SwiftUI.framework */; };
-		AA45883A2B9A1A470099D6C0 /* StubsWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4588392B9A1A470099D6C0 /* StubsWidgetBundle.swift */; };
-		AA45883C2B9A1A470099D6C0 /* StubsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45883B2B9A1A470099D6C0 /* StubsWidget.swift */; };
-		AA45883E2B9A1A4A0099D6C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA45883D2B9A1A4A0099D6C0 /* Assets.xcassets */; };
-		AA4588422B9A1A4A0099D6C0 /* StubsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA4588352B9A1A470099D6C0 /* StubsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA5615F82B27AB5B00A35D4A /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5615F72B27AB5B00A35D4A /* AlbumService.swift */; };
 		AA59EF9E2B3B152900EC82EB /* StubEditorStubPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59EF9D2B3B152900EC82EB /* StubEditorStubPreview.swift */; };
 		AA5E74E32B3DA67F005DBD87 /* ArtistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */; };
@@ -62,14 +56,14 @@
 		AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
 		AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
-		AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */; };
+		AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */; platformFilter = ios; };
 		AA87B0DD2B4A24D20071DB44 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DC2B4A24D20071DB44 /* Artist.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
-		AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */; };
+		AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746D2A32BDF3003E9B41 /* StubCollection.swift */; platformFilter = ios; };
 		AA8A74702A32BDF4003E9B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */; };
 		AA8A74732A32BDF4003E9B41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8A74722A32BDF4003E9B41 /* Preview Assets.xcassets */; };
 		AA8A74752A32BDF4003E9B41 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
-		AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A747E2A32BF79003E9B41 /* StubEditor.swift */; };
+		AA8A747F2A32BF79003E9B41 /* StubEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A747E2A32BF79003E9B41 /* StubEditor.swift */; platformFilter = ios; };
 		AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA8A74862A32D5B1003E9B41 /* StubCollectionRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */; };
 		AA8A748C2A33A43E003E9B41 /* StubDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A748B2A33A43E003E9B41 /* StubDetailView.swift */; };
@@ -109,20 +103,25 @@
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
-		AAF75E682B9A1AD100DFEA89 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
-		AAF75E692B9A1AD100DFEA89 /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
-		AAF75E6A2B9A1BB500DFEA89 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DC2B4A24D20071DB44 /* Artist.swift */; };
-		AAF75E6B2B9A1BB500DFEA89 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
+		AAF044682C306EAC005821A9 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044672C306EAC005821A9 /* Stubs.swift */; };
+		AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044692C306EAC005821A9 /* ContentView.swift */; };
+		AAF0446C2C306EAC005821A9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0446B2C306EAC005821A9 /* Item.swift */; };
+		AAF0446E2C306EAD005821A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0446D2C306EAD005821A9 /* Assets.xcassets */; };
+		AAF044712C306EAD005821A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF044702C306EAD005821A9 /* Preview Assets.xcassets */; };
+		AAF0447C2C306EAD005821A9 /* StubsMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0447B2C306EAD005821A9 /* StubsMacTests.swift */; };
+		AAF044862C306EAD005821A9 /* StubsMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044852C306EAD005821A9 /* StubsMacUITests.swift */; };
+		AAF044882C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044872C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift */; };
+		AAF044922C306ED5005821A9 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DC2B4A24D20071DB44 /* Artist.swift */; };
+		AAF044932C306ED5005821A9 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
+		AAF044942C306ED5005821A9 /* StubStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA675E702BACCBFE000C23C8 /* StubStyle.swift */; };
+		AAF044952C306ED5005821A9 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D742BA6A52500F2BC3E /* Album.swift */; };
+		AAF044962C306ED5005821A9 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
+		AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
+		AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F62B3EFDDE005DBD87 /* TabBarItem.swift */; };
+		AAF044AF2C307155005821A9 /* Sidebarview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044AE2C307155005821A9 /* Sidebarview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA4588402B9A1A4A0099D6C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA4588342B9A1A470099D6C0;
-			remoteInfo = StubsWidgetExtension;
-		};
 		AAB57E5A2BA34C8400F1ED56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
@@ -136,6 +135,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA8A74672A32BDF3003E9B41;
 			remoteInfo = Stubs;
+		};
+		AAF044782C306EAD005821A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAF044642C306EAC005821A9;
+			remoteInfo = StubsMac;
+		};
+		AAF044822C306EAD005821A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8A74602A32BDF3003E9B41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAF044642C306EAC005821A9;
+			remoteInfo = StubsMac;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -156,7 +169,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AA4588422B9A1A4A0099D6C0 /* StubsWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,11 +197,6 @@
 		AA3C72442B94320800C24B2B /* FavoriteToggleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteToggleLabel.swift; sourceTree = "<group>"; };
 		AA4202EF2A38C8F1002EA5CD /* StubEditorColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorColorSelector.swift; sourceTree = "<group>"; };
 		AA4202F12A38E749002EA5CD /* StubEditorIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorIconSelector.swift; sourceTree = "<group>"; };
-		AA4588352B9A1A470099D6C0 /* StubsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StubsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA4588392B9A1A470099D6C0 /* StubsWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsWidgetBundle.swift; sourceTree = "<group>"; };
-		AA45883B2B9A1A470099D6C0 /* StubsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsWidget.swift; sourceTree = "<group>"; };
-		AA45883D2B9A1A4A0099D6C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA45883F2B9A1A4A0099D6C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA5615F72B27AB5B00A35D4A /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		AA59EF9D2B3B152900EC82EB /* StubEditorStubPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorStubPreview.swift; sourceTree = "<group>"; };
 		AA5E74E22B3DA67F005DBD87 /* ArtistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistService.swift; sourceTree = "<group>"; };
@@ -250,8 +257,6 @@
 		AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewUITests.swift; sourceTree = "<group>"; };
 		AAC0A5DF2BC954D2001CF3F6 /* VenuesViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewUITests.swift; sourceTree = "<group>"; };
 		AAC0A6192BCA2C40001CF3F6 /* StubEditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorScreen.swift; sourceTree = "<group>"; };
-		AAC34E912B979FB400BBA44A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		AAC34E932B979FB400BBA44A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AAC4D4CD2B2B41790098D28D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAC4D4CF2B2E77F80098D28D /* StubEditorDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorDetails.swift; sourceTree = "<group>"; };
 		AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLineBoundary.swift; sourceTree = "<group>"; };
@@ -270,18 +275,22 @@
 		AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAEDF07E2B596BC50059F8B6 /* DebugData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugData.swift; sourceTree = "<group>"; };
+		AAF044652C306EAC005821A9 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAF044672C306EAC005821A9 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		AAF044692C306EAC005821A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AAF0446B2C306EAC005821A9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AAF0446D2C306EAD005821A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAF044702C306EAD005821A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAF044722C306EAD005821A9 /* StubsMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StubsMac.entitlements; sourceTree = "<group>"; };
+		AAF044772C306EAD005821A9 /* StubsMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAF0447B2C306EAD005821A9 /* StubsMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsMacTests.swift; sourceTree = "<group>"; };
+		AAF044812C306EAD005821A9 /* StubsMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAF044852C306EAD005821A9 /* StubsMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsMacUITests.swift; sourceTree = "<group>"; };
+		AAF044872C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AAF044AE2C307155005821A9 /* Sidebarview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebarview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA4588322B9A1A470099D6C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA4588372B9A1A470099D6C0 /* SwiftUI.framework in Frameworks */,
-				AA4588362B9A1A470099D6C0 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA8A74652A32BDF3003E9B41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +306,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AAC0A5CB2BC6AA41001CF3F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF044622C306EAC005821A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF044742C306EAD005821A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF0447E2C306EAD005821A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,17 +390,6 @@
 				AA2A03922B555ACA002C1071 /* StubCountIndicator.swift */,
 			);
 			path = ArtistsView;
-			sourceTree = "<group>";
-		};
-		AA4588382B9A1A470099D6C0 /* StubsWidget */ = {
-			isa = PBXGroup;
-			children = (
-				AA4588392B9A1A470099D6C0 /* StubsWidgetBundle.swift */,
-				AA45883B2B9A1A470099D6C0 /* StubsWidget.swift */,
-				AA45883D2B9A1A4A0099D6C0 /* Assets.xcassets */,
-				AA45883F2B9A1A4A0099D6C0 /* Info.plist */,
-			);
-			path = StubsWidget;
 			sourceTree = "<group>";
 		};
 		AA48FED32A64E51C005BA775 /* StubCollection */ = {
@@ -444,8 +463,15 @@
 		AA6FC6712BE0980D001546D9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AA8A746A2A32BDF3003E9B41 /* Stubs */,
-				AA4588382B9A1A470099D6C0 /* StubsWidget */,
+				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
+				AA8A747B2A32BE0A003E9B41 /* Models */,
+				AA745A9F2BB09CD100618EBE /* Errors */,
+				AA8A74802A32C8FE003E9B41 /* Extensions */,
+				AAAE3D6B2BA69CCE00F2BC3E /* Services */,
+				AA19591A2B753C8400266267 /* Tips */,
+				AA8A747C2A32BE12003E9B41 /* Views */,
+				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
+				AA8A74712A32BDF4003E9B41 /* Preview Content */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -486,7 +512,9 @@
 			children = (
 				AA6FC6712BE0980D001546D9 /* Sources */,
 				AA6FC6722BE09823001546D9 /* Tests */,
-				AAC34E902B979FB400BBA44A /* Frameworks */,
+				AAF044662C306EAC005821A9 /* StubsMac */,
+				AAF0447A2C306EAD005821A9 /* StubsMacTests */,
+				AAF044842C306EAD005821A9 /* StubsMacUITests */,
 				AA8A74692A32BDF3003E9B41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -495,27 +523,13 @@
 			isa = PBXGroup;
 			children = (
 				AA8A74682A32BDF3003E9B41 /* Stubs.app */,
-				AA4588352B9A1A470099D6C0 /* StubsWidgetExtension.appex */,
 				AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */,
 				AAC0A5CE2BC6AA41001CF3F6 /* StubsUITests.xctest */,
+				AAF044652C306EAC005821A9 /* Stubs.app */,
+				AAF044772C306EAD005821A9 /* StubsMacTests.xctest */,
+				AAF044812C306EAD005821A9 /* StubsMacUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		AA8A746A2A32BDF3003E9B41 /* Stubs */ = {
-			isa = PBXGroup;
-			children = (
-				AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */,
-				AA8A747B2A32BE0A003E9B41 /* Models */,
-				AA745A9F2BB09CD100618EBE /* Errors */,
-				AA8A74802A32C8FE003E9B41 /* Extensions */,
-				AAAE3D6B2BA69CCE00F2BC3E /* Services */,
-				AA19591A2B753C8400266267 /* Tips */,
-				AA8A747C2A32BE12003E9B41 /* Views */,
-				AA8A746F2A32BDF4003E9B41 /* Assets.xcassets */,
-				AA8A74712A32BDF4003E9B41 /* Preview Content */,
-			);
-			path = Stubs;
 			sourceTree = "<group>";
 		};
 		AA8A74712A32BDF4003E9B41 /* Preview Content */ = {
@@ -604,15 +618,6 @@
 			path = StubsUITests;
 			sourceTree = "<group>";
 		};
-		AAC34E902B979FB400BBA44A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AAC34E912B979FB400BBA44A /* WidgetKit.framework */,
-				AAC34E932B979FB400BBA44A /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AAC4D4D12B2E79CB0098D28D /* StubEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,26 +663,48 @@
 			path = Venues;
 			sourceTree = "<group>";
 		};
+		AAF044662C306EAC005821A9 /* StubsMac */ = {
+			isa = PBXGroup;
+			children = (
+				AAF044672C306EAC005821A9 /* Stubs.swift */,
+				AAF044692C306EAC005821A9 /* ContentView.swift */,
+				AAF044AE2C307155005821A9 /* Sidebarview.swift */,
+				AAF0446B2C306EAC005821A9 /* Item.swift */,
+				AAF0446D2C306EAD005821A9 /* Assets.xcassets */,
+				AAF044722C306EAD005821A9 /* StubsMac.entitlements */,
+				AAF0446F2C306EAD005821A9 /* Preview Content */,
+			);
+			path = StubsMac;
+			sourceTree = "<group>";
+		};
+		AAF0446F2C306EAD005821A9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AAF044702C306EAD005821A9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AAF0447A2C306EAD005821A9 /* StubsMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAF0447B2C306EAD005821A9 /* StubsMacTests.swift */,
+			);
+			path = StubsMacTests;
+			sourceTree = "<group>";
+		};
+		AAF044842C306EAD005821A9 /* StubsMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AAF044852C306EAD005821A9 /* StubsMacUITests.swift */,
+				AAF044872C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift */,
+			);
+			path = StubsMacUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA4588342B9A1A470099D6C0 /* StubsWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AA4588432B9A1A4A0099D6C0 /* Build configuration list for PBXNativeTarget "StubsWidgetExtension" */;
-			buildPhases = (
-				AA4588312B9A1A470099D6C0 /* Sources */,
-				AA4588322B9A1A470099D6C0 /* Frameworks */,
-				AA4588332B9A1A470099D6C0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = StubsWidgetExtension;
-			productName = StubsWidgetExtension;
-			productReference = AA4588352B9A1A470099D6C0 /* StubsWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		AA8A74672A32BDF3003E9B41 /* Stubs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA8A74782A32BDF4003E9B41 /* Build configuration list for PBXNativeTarget "Stubs" */;
@@ -691,7 +718,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AA4588412B9A1A4A0099D6C0 /* PBXTargetDependency */,
 			);
 			name = Stubs;
 			packageProductDependencies = (
@@ -736,6 +762,59 @@
 			productReference = AAC0A5CE2BC6AA41001CF3F6 /* StubsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		AAF044642C306EAC005821A9 /* StubsMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAF044892C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMac" */;
+			buildPhases = (
+				AAF044612C306EAC005821A9 /* Sources */,
+				AAF044622C306EAC005821A9 /* Frameworks */,
+				AAF044632C306EAC005821A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StubsMac;
+			productName = StubsMac;
+			productReference = AAF044652C306EAC005821A9 /* Stubs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAF044762C306EAD005821A9 /* StubsMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAF0448C2C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMacTests" */;
+			buildPhases = (
+				AAF044732C306EAD005821A9 /* Sources */,
+				AAF044742C306EAD005821A9 /* Frameworks */,
+				AAF044752C306EAD005821A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAF044792C306EAD005821A9 /* PBXTargetDependency */,
+			);
+			name = StubsMacTests;
+			productName = StubsMacTests;
+			productReference = AAF044772C306EAD005821A9 /* StubsMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AAF044802C306EAD005821A9 /* StubsMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAF0448F2C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMacUITests" */;
+			buildPhases = (
+				AAF0447D2C306EAD005821A9 /* Sources */,
+				AAF0447E2C306EAD005821A9 /* Frameworks */,
+				AAF0447F2C306EAD005821A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAF044832C306EAD005821A9 /* PBXTargetDependency */,
+			);
+			name = StubsMacUITests;
+			productName = StubsMacUITests;
+			productReference = AAF044812C306EAD005821A9 /* StubsMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -743,12 +822,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					AA4588342B9A1A470099D6C0 = {
-						CreatedOnToolsVersion = 15.3;
-					};
 					AA8A74672A32BDF3003E9B41 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -759,6 +835,17 @@
 					AAC0A5CD2BC6AA41001CF3F6 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = AA8A74672A32BDF3003E9B41;
+					};
+					AAF044642C306EAC005821A9 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					AAF044762C306EAD005821A9 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = AAF044642C306EAC005821A9;
+					};
+					AAF044802C306EAD005821A9 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = AAF044642C306EAC005821A9;
 					};
 				};
 			};
@@ -778,22 +865,16 @@
 			projectRoot = "";
 			targets = (
 				AA8A74672A32BDF3003E9B41 /* Stubs */,
-				AA4588342B9A1A470099D6C0 /* StubsWidgetExtension */,
 				AAB57E552BA34C8400F1ED56 /* StubsTests */,
 				AAC0A5CD2BC6AA41001CF3F6 /* StubsUITests */,
+				AAF044642C306EAC005821A9 /* StubsMac */,
+				AAF044762C306EAD005821A9 /* StubsMacTests */,
+				AAF044802C306EAD005821A9 /* StubsMacUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA4588332B9A1A470099D6C0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA45883E2B9A1A4A0099D6C0 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA8A74662A32BDF3003E9B41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -817,22 +898,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		AA4588312B9A1A470099D6C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		AAF044632C306EAC005821A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA45883A2B9A1A470099D6C0 /* StubsWidgetBundle.swift in Sources */,
-				AA45883C2B9A1A470099D6C0 /* StubsWidget.swift in Sources */,
-				AAF75E6A2B9A1BB500DFEA89 /* Artist.swift in Sources */,
-				AAF75E6B2B9A1BB500DFEA89 /* Concert.swift in Sources */,
-				AAF75E682B9A1AD100DFEA89 /* StubShape.swift in Sources */,
-				AAF75E692B9A1AD100DFEA89 /* VerticalLineBoundary.swift in Sources */,
+				AAF044712C306EAD005821A9 /* Preview Assets.xcassets in Resources */,
+				AAF0446E2C306EAD005821A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAF044752C306EAD005821A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF0447F2C306EAD005821A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		AA8A74642A32BDF3003E9B41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -948,14 +1039,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAF044612C306EAC005821A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */,
+				AAF044922C306ED5005821A9 /* Artist.swift in Sources */,
+				AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */,
+				AAF044932C306ED5005821A9 /* DebugData.swift in Sources */,
+				AAF044942C306ED5005821A9 /* StubStyle.swift in Sources */,
+				AAF044AF2C307155005821A9 /* Sidebarview.swift in Sources */,
+				AAF044952C306ED5005821A9 /* Album.swift in Sources */,
+				AAF044962C306ED5005821A9 /* Concert.swift in Sources */,
+				AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */,
+				AAF0446C2C306EAC005821A9 /* Item.swift in Sources */,
+				AAF044682C306EAC005821A9 /* Stubs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF044732C306EAD005821A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAF0447C2C306EAD005821A9 /* StubsMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAF0447D2C306EAD005821A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAF044882C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift in Sources */,
+				AAF044862C306EAD005821A9 /* StubsMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA4588412B9A1A4A0099D6C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AA4588342B9A1A470099D6C0 /* StubsWidgetExtension */;
-			targetProxy = AA4588402B9A1A4A0099D6C0 /* PBXContainerItemProxy */;
-		};
 		AAB57E5B2BA34C8400F1ED56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AA8A74672A32BDF3003E9B41 /* Stubs */;
@@ -966,65 +1087,19 @@
 			target = AA8A74672A32BDF3003E9B41 /* Stubs */;
 			targetProxy = AAC0A5D42BC6AA41001CF3F6 /* PBXContainerItemProxy */;
 		};
+		AAF044792C306EAD005821A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAF044642C306EAC005821A9 /* StubsMac */;
+			targetProxy = AAF044782C306EAD005821A9 /* PBXContainerItemProxy */;
+		};
+		AAF044832C306EAD005821A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAF044642C306EAC005821A9 /* StubsMac */;
+			targetProxy = AAF044822C306EAD005821A9 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AA4588442B9A1A4A0099D6C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6RF4M6NH8;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StubsWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = StubsWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs.StubsWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AA4588452B9A1A4A0099D6C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N6RF4M6NH8;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StubsWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = StubsWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs.StubsWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		AA8A74762A32BDF4003E9B41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1147,12 +1222,11 @@
 		AA8A74792A32BDF4003E9B41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Stubs/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1166,8 +1240,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1177,12 +1256,11 @@
 		AA8A747A2A32BDF4003E9B41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Stubs/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = N6RF4M6NH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1196,8 +1274,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.Stubs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1278,18 +1361,143 @@
 			};
 			name = Release;
 		};
+		AAF0448A2C306EAD005821A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StubsMac/StubsMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StubsMac/Preview Content\"";
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stubs;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMac;
+				PRODUCT_NAME = Stubs;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AAF0448B2C306EAD005821A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StubsMac/StubsMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StubsMac/Preview Content\"";
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stubs;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMac;
+				PRODUCT_NAME = Stubs;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AAF0448D2C306EAD005821A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StubsMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StubsMac";
+			};
+			name = Debug;
+		};
+		AAF0448E2C306EAD005821A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StubsMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StubsMac";
+			};
+			name = Release;
+		};
+		AAF044902C306EAD005821A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StubsMac;
+			};
+			name = Debug;
+		};
+		AAF044912C306EAD005821A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6RF4M6NH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.christianlavelle.StubsMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StubsMac;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA4588432B9A1A4A0099D6C0 /* Build configuration list for PBXNativeTarget "StubsWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AA4588442B9A1A4A0099D6C0 /* Debug */,
-				AA4588452B9A1A4A0099D6C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AA8A74632A32BDF3003E9B41 /* Build configuration list for PBXProject "Stubs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1322,6 +1530,33 @@
 			buildConfigurations = (
 				AAC0A5D72BC6AA41001CF3F6 /* Debug */,
 				AAC0A5D82BC6AA41001CF3F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAF044892C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAF0448A2C306EAD005821A9 /* Debug */,
+				AAF0448B2C306EAD005821A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAF0448C2C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAF0448D2C306EAD005821A9 /* Debug */,
+				AAF0448E2C306EAD005821A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAF0448F2C306EAD005821A9 /* Build configuration list for PBXNativeTarget "StubsMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAF044902C306EAD005821A9 /* Debug */,
+				AAF044912C306EAD005821A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

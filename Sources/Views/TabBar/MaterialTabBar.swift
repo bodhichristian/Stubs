@@ -38,7 +38,7 @@ struct MaterialTabBar: View {
                 contentShape
                     .foregroundStyle(.ultraThinMaterial)
                     .background {
-                        LinearGradient(colors: colors, startPoint: .bottom, endPoint: .top).opacity(0.7)
+                        LinearGradient(colors: colors, startPoint: .top, endPoint: .bottom).opacity(0.7)
                     }
             }
             .ignoresSafeArea(edges: .bottom)
