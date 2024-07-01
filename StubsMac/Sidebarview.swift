@@ -13,7 +13,7 @@ struct Sidebarview: View {
     var body: some View {
         List(selection: $selection) {
             ForEach(TabBarItem.allCases, id: \.self) { item in
-                Label(item.title, image: item.iconName)
+                Label(item.title, systemImage: item.iconName)
             }
         }
     }
