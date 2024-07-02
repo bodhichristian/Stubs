@@ -16,6 +16,19 @@ struct Sidebarview: View {
                 Label(item.title, systemImage: item.iconName)
             }
         }
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                // Access Profile
+            } label: {
+                Label("Profile", systemImage: "person.circle")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .keyboardShortcut(KeyEquivalent("n"), modifiers: [.shift, .command])
+            .foregroundStyle(.blue)
+            .buttonStyle(.borderless)
+            .padding(.leading, 12)
+            .padding(.bottom, 8)
+        }
     }
 }
 
