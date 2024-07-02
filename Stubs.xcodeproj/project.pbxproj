@@ -54,6 +54,12 @@
 		AA7B22922B837D9C0017B3F0 /* StubTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22912B837D9C0017B3F0 /* StubTile.swift */; };
 		AA7B22962B86F7A80017B3F0 /* StatViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */; };
 		AA7C57EE2B249B7B006843C4 /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
+		AA81E9B92C345B480077812E /* StubCollectionRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74852A32D5B1003E9B41 /* StubCollectionRowLabel.swift */; };
+		AA81E9BA2C345B750077812E /* StubThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */; };
+		AA81E9BB2C345B8C0077812E /* StubShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7C57ED2B249B7B006843C4 /* StubShape.swift */; };
+		AA81E9BC2C345B910077812E /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
+		AA81E9BD2C345BB20077812E /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
+		AA81E9BE2C345BC40077812E /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
 		AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
 		AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */; platformFilter = ios; };
@@ -1044,12 +1050,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */,
+				AA81E9B92C345B480077812E /* StubCollectionRowLabel.swift in Sources */,
+				AA81E9BA2C345B750077812E /* StubThumbnail.swift in Sources */,
 				AAF044922C306ED5005821A9 /* Artist.swift in Sources */,
 				AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */,
 				AAF044932C306ED5005821A9 /* DebugData.swift in Sources */,
 				AAF044942C306ED5005821A9 /* StubStyle.swift in Sources */,
 				AAF044AF2C307155005821A9 /* Sidebarview.swift in Sources */,
 				AAF044952C306ED5005821A9 /* Album.swift in Sources */,
+				AA81E9BD2C345BB20077812E /* Extension-Color.swift in Sources */,
+				AA81E9BB2C345B8C0077812E /* StubShape.swift in Sources */,
+				AA81E9BC2C345B910077812E /* FavoriteIcon.swift in Sources */,
+				AA81E9BE2C345BC40077812E /* VerticalLineBoundary.swift in Sources */,
 				AAF044962C306ED5005821A9 /* Concert.swift in Sources */,
 				AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */,
 				AAF0446C2C306EAC005821A9 /* Item.swift in Sources */,

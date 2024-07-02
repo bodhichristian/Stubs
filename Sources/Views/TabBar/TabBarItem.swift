@@ -9,14 +9,13 @@ import Foundation
 import SwiftUI
 
 enum TabBarItem: CaseIterable, Hashable {
-    case stubs, artists, venues, profile
+    case stubs, artists, venues
     
     var iconName: String {
         switch self {
         case .stubs: return "ticket"
         case .artists: return "music.mic"
         case .venues: return "map"
-        case .profile: return "person.fill"
         }
     }
     
@@ -25,7 +24,6 @@ enum TabBarItem: CaseIterable, Hashable {
         case .stubs: return "Stubs"
         case .artists: return "Artists"
         case .venues: return "Venues"
-        case .profile: return "Profile"
         }
     }
     
@@ -34,7 +32,6 @@ enum TabBarItem: CaseIterable, Hashable {
         case .stubs: return .black
         case .artists: return .black
         case .venues: return .black
-        case .profile: return .black
         }
     }
 }
