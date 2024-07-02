@@ -6,7 +6,6 @@
 //
 
 import Testing
-@testable import StubsMac
 
 struct StubsMacTests {
 

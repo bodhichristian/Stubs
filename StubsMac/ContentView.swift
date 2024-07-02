@@ -15,18 +15,31 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             Sidebarview(selection: $selection)
-        } detail: {
+        } content: {
             switch selection {
             case .stubs:
                 Text("Stubs")
             case .artists:
                 Text("Artists")
+            case .venues:
+                Text("Venues")
+            case .profile:
+                Text("Profile")
+            case nil:
+                Text("Select a tab")
+            }
+        } detail: {
+            switch selection {
+            case .stubs:
+                Text("Stub Detail")
+            case .artists:
+                Text("Artist Detail")
             case .profile:
                 Text("Profile")
             case .venues:
-                Text("Venues")
+                Text("Venue Detail")
             case nil:
-                Text("Select a category")
+                Text("Select a tab")
             }
         }
 
