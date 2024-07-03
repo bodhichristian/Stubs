@@ -40,7 +40,7 @@ struct StubDetailView: View {
         
         
         VStack{
-            StubView(concert: concert)
+            NewStubView(concert: concert)
                 .onChange(of: concert) { _, _ in
                     isEditingNotes = false
                 }

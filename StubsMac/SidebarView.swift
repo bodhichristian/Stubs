@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Sidebarview: View {
+struct SidebarView: View {
     @Binding var selection: TabBarItem?
     
     var body: some View {
@@ -16,6 +16,7 @@ struct Sidebarview: View {
                 Label(item.title, systemImage: item.iconName)
             }
         }
+        .frame(minWidth: 100)
         .safeAreaInset(edge: .bottom) {
             Button {
                 // Access Profile
@@ -33,5 +34,5 @@ struct Sidebarview: View {
 }
 
 #Preview {
-    Sidebarview(selection: .constant(.stubs))
+    SidebarView(selection: .constant(.stubs))
 }

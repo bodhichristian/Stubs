@@ -60,6 +60,7 @@
 		AA81E9BC2C345B910077812E /* FavoriteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4DD2B2FD6420098D28D /* FavoriteIcon.swift */; };
 		AA81E9BD2C345BB20077812E /* Extension-Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74812A32C912003E9B41 /* Extension-Color.swift */; };
 		AA81E9BE2C345BC40077812E /* VerticalLineBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */; };
+		AA81E9D02C34DE150077812E /* TileBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B228D2B818E320017B3F0 /* TileBase.swift */; };
 		AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AA87B0D42B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
 		AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */; platformFilter = ios; };
@@ -82,7 +83,7 @@
 		AAAE3D732BA6A2B000F2BC3E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D722BA6A2B000F2BC3E /* Keys.swift */; };
 		AAAE3D752BA6A52500F2BC3E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D742BA6A52500F2BC3E /* Album.swift */; };
 		AAAE3D792BA6A71A00F2BC3E /* AlbumServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D782BA6A71A00F2BC3E /* AlbumServiceTests.swift */; };
-		AAB050192A59D88600EB88BD /* StubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* StubView.swift */; };
+		AAB050192A59D88600EB88BD /* NewStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB050182A59D88600EB88BD /* NewStubView.swift */; };
 		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
 		AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */; };
@@ -111,7 +112,6 @@
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 		AAF044682C306EAC005821A9 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044672C306EAC005821A9 /* Stubs.swift */; };
 		AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044692C306EAC005821A9 /* ContentView.swift */; };
-		AAF0446C2C306EAC005821A9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0446B2C306EAC005821A9 /* Item.swift */; };
 		AAF0446E2C306EAD005821A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0446D2C306EAD005821A9 /* Assets.xcassets */; };
 		AAF044712C306EAD005821A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF044702C306EAD005821A9 /* Preview Assets.xcassets */; };
 		AAF0447C2C306EAD005821A9 /* StubsMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0447B2C306EAD005821A9 /* StubsMacTests.swift */; };
@@ -124,7 +124,7 @@
 		AAF044962C306ED5005821A9 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A74742A32BDF4003E9B41 /* Concert.swift */; };
 		AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
 		AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E74F62B3EFDDE005DBD87 /* TabBarItem.swift */; };
-		AAF044AF2C307155005821A9 /* Sidebarview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044AE2C307155005821A9 /* Sidebarview.swift */; };
+		AAF044AF2C307155005821A9 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044AE2C307155005821A9 /* SidebarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,7 +252,7 @@
 		AAAE3D722BA6A2B000F2BC3E /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AAAE3D742BA6A52500F2BC3E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		AAAE3D782BA6A71A00F2BC3E /* AlbumServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumServiceTests.swift; sourceTree = "<group>"; };
-		AAB050182A59D88600EB88BD /* StubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubView.swift; sourceTree = "<group>"; };
+		AAB050182A59D88600EB88BD /* NewStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStubView.swift; sourceTree = "<group>"; };
 		AAB57E562BA34C8400F1ED56 /* StubsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTests.swift; sourceTree = "<group>"; };
 		AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
@@ -284,7 +284,6 @@
 		AAF044652C306EAC005821A9 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF044672C306EAC005821A9 /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		AAF044692C306EAC005821A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AAF0446B2C306EAC005821A9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AAF0446D2C306EAD005821A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAF044702C306EAD005821A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAF044722C306EAD005821A9 /* StubsMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StubsMac.entitlements; sourceTree = "<group>"; };
@@ -293,7 +292,7 @@
 		AAF044812C306EAD005821A9 /* StubsMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF044852C306EAD005821A9 /* StubsMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsMacUITests.swift; sourceTree = "<group>"; };
 		AAF044872C306EAD005821A9 /* StubsMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubsMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AAF044AE2C307155005821A9 /* Sidebarview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebarview.swift; sourceTree = "<group>"; };
+		AAF044AE2C307155005821A9 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,7 +639,7 @@
 		AAC4D4D62B2F4AC10098D28D /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
-				AAB050182A59D88600EB88BD /* StubView.swift */,
+				AAB050182A59D88600EB88BD /* NewStubView.swift */,
 				AA7C57ED2B249B7B006843C4 /* StubShape.swift */,
 				AAC4D4DF2B2FF4E00098D28D /* StubThumbnail.swift */,
 				AAC4D4D92B2F594F0098D28D /* VerticalLineBoundary.swift */,
@@ -674,8 +673,7 @@
 			children = (
 				AAF044672C306EAC005821A9 /* Stubs.swift */,
 				AAF044692C306EAC005821A9 /* ContentView.swift */,
-				AAF044AE2C307155005821A9 /* Sidebarview.swift */,
-				AAF0446B2C306EAC005821A9 /* Item.swift */,
+				AAF044AE2C307155005821A9 /* SidebarView.swift */,
 				AAF0446D2C306EAD005821A9 /* Assets.xcassets */,
 				AAF044722C306EAD005821A9 /* StubsMac.entitlements */,
 				AAF0446F2C306EAD005821A9 /* Preview Content */,
@@ -943,7 +941,7 @@
 				AA3C71F22B916F7100C24B2B /* FullBioToggle.swift in Sources */,
 				AA3C72432B941B2000C24B2B /* ToolbarButtonLabel.swift in Sources */,
 				AA5E74E82B3DE0BC005DBD87 /* ArtistDetailVenuesMap.swift in Sources */,
-				AAB050192A59D88600EB88BD /* StubView.swift in Sources */,
+				AAB050192A59D88600EB88BD /* NewStubView.swift in Sources */,
 				AA5E74F32B3EFD81005DBD87 /* TabBarContainer.swift in Sources */,
 				AA87B0DD2B4A24D20071DB44 /* Artist.swift in Sources */,
 				AAC4D4E42B2FFF400098D28D /* ArtistStubsLabel.swift in Sources */,
@@ -1056,7 +1054,8 @@
 				AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */,
 				AAF044932C306ED5005821A9 /* DebugData.swift in Sources */,
 				AAF044942C306ED5005821A9 /* StubStyle.swift in Sources */,
-				AAF044AF2C307155005821A9 /* Sidebarview.swift in Sources */,
+				AAF044AF2C307155005821A9 /* SidebarView.swift in Sources */,
+				AA81E9D02C34DE150077812E /* TileBase.swift in Sources */,
 				AAF044952C306ED5005821A9 /* Album.swift in Sources */,
 				AA81E9BD2C345BB20077812E /* Extension-Color.swift in Sources */,
 				AA81E9BB2C345B8C0077812E /* StubShape.swift in Sources */,
@@ -1064,7 +1063,6 @@
 				AA81E9BE2C345BC40077812E /* VerticalLineBoundary.swift in Sources */,
 				AAF044962C306ED5005821A9 /* Concert.swift in Sources */,
 				AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */,
-				AAF0446C2C306EAC005821A9 /* Item.swift in Sources */,
 				AAF044682C306EAC005821A9 /* Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

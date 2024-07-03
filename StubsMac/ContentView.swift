@@ -11,20 +11,32 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var concerts: [Concert]
+    @Query var artists: [Artist]
     @State private var selection: TabBarItem? = .stubs
     
     
     var body: some View {
         NavigationSplitView {
-            Sidebarview(selection: $selection)
+            SidebarView(selection: $selection)
         } content: {
             switch selection {
             case .stubs:
                 List(concerts) { concert in
                     StubCollectionRowLabel(concert: concert)
+                        .padding(.vertical, 6)
+                        .contextMenu {
+                            Button("Delete Concert") {
+                                delete(concert)
+                            }
+                        }
                 }
             case .artists:
-                Text("Artists")
+                List(artists) { artist in
+                    HStack {
+                        Image(nsImage: NSImage(data: artist.artistImageData ?? Data())!)
+                        Text(artist.artistName ?? "")
+                    }
+                }
             case .venues:
                 Text("Venues")
             case nil:
@@ -45,28 +57,37 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    let artistName = DebugData.artists.randomElement()!
-                    let venue = DebugData.venues.randomElement()!
-                    let notes = DebugData.notes.randomElement()!
-                    let color = ["red", "orange", "yellow", "purple", "green", "blue"].randomElement()!
-                    
-                    let concert = Concert(
-                        artistName: artistName,
-                        venue: venue.name,
-                        city: venue.city,
-                        accentColor: color,
-                        notes: notes,
-                        venueLatitude: venue.latitude,
-                        venueLongitude: venue.longitude
-                    )
-                    modelContext.insert(concert)
-                    
+                    addSampleConert()
                 } label: {
                     Label("Add Concert", systemImage: "plus")
                 }
                 .keyboardShortcut(KeyEquivalent("n"), modifiers: [.command])
             }
         }
+    }
+    
+    private func addSampleConert() {
+        let artistName = DebugData.artists.randomElement()!
+        let venue = DebugData.venues.randomElement()!
+        let notes = DebugData.notes.randomElement()!
+        let color = ["red", "orange", "yellow", "purple", "green", "blue"].randomElement()!
+        let iconName = StubStyle.icons.randomElement()!
+        
+        let concert = Concert(
+            artistName: artistName,
+            venue: venue.name,
+            city: venue.city,
+            iconName: iconName,
+            accentColor: color,
+            notes: notes,
+            venueLatitude: venue.latitude,
+            venueLongitude: venue.longitude
+        )
+        modelContext.insert(concert)
+    }
+    
+    private func delete(_ concert: Concert) {
+        modelContext.delete(concert)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StubView: View {
+struct NewStubView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var iconTapped = false // For icon animation
     
