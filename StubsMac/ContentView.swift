@@ -12,18 +12,21 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var concerts: [Concert]
     @Query var artists: [Artist]
-    @State private var selection: TabBarItem? = .stubs
+    @State private var selectedTab: TabBarItem? = .stubs
+    @State private var selectedConcert: Concert? = nil
+    @State private var selectedArtist: Artist? = nil
     
     
     var body: some View {
         NavigationSplitView {
-            SidebarView(selection: $selection)
+            SidebarView(selection: $selectedTab)
         } content: {
-            switch selection {
+            switch selectedTab {
             case .stubs:
-                List(concerts) { concert in
+                List(concerts, selection: $selectedConcert) { concert in
                     StubCollectionRowLabel(concert: concert)
                         .padding(.vertical, 6)
+                        .tag(concert)
                         .contextMenu {
                             Button("Delete Concert") {
                                 delete(concert)
@@ -43,9 +46,9 @@ struct ContentView: View {
                 Text("Select a tab")
             }
         } detail: {
-            switch selection {
+            switch selectedTab {
             case .stubs:
-                Text("Stub Detail")
+                StubDetailViewMac(concert: selectedConcert ?? Concert())
             case .artists:
                 Text("Artist Detail")
             case .venues:

@@ -11,7 +11,9 @@ import SwiftUI
 @Observable
 class ConcertService {
     let artistService = ArtistService()
+#if os(iOS)
     let mapKitService = MapKitService()
+    #endif
     
     var template = Concert(
         iconName: StubStyle.icons.randomElement()!,
@@ -52,11 +54,11 @@ class ConcertService {
             try await artistService.search(for: sampleConcert.artistName)
             sampleConcert.artist = artistService.fetchedArtist
         }
-        
+        #if os(iOS)
         sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot(
             for: (sampleConcert.venueLatitude, sampleConcert.venueLongitude)
         )
-        
+        #endif
         return sampleConcert
     }
     
@@ -70,15 +72,19 @@ class ConcertService {
     }
     
     private func getVenueCoordinates() async throws {
+        #if os(iOS)
         let coordinates = try await mapKitService.getCoordinates(for: template)
         template.venueLatitude = coordinates.0
         template.venueLatitude = coordinates.1
+        #endif
     }
     
     private func getMapSnapshotData() async throws {
+        #if os(iOS)
         template.mapSnapshotData = try await mapKitService.getMapSnapshot(
             for: (template.venueLatitude, template.venueLongitude)
         )
+        #endif
     }
 }
 
