@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var selectedConcert: Concert? = nil
     @State private var selectedArtist: Artist? = nil
     
+    let artistService = ArtistService()
     
     var body: some View {
         NavigationSplitView {
@@ -60,7 +61,9 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem {
                 Button {
-                    addSampleConert()
+                    Task {
+                        try await addSampleConert()
+                    }
                 } label: {
                     Label("Add Concert", systemImage: "plus")
                 }
@@ -69,8 +72,15 @@ struct ContentView: View {
         }
     }
     
-    private func addSampleConert() {
+    private func addSampleConert() async throws {
         let artistName = DebugData.artists.randomElement()!
+        
+        do {
+            try await artistService.search(for: artistName)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         let venue = DebugData.venues.randomElement()!
         let notes = DebugData.notes.randomElement()!
         let color = ["red", "orange", "yellow", "purple", "green", "blue"].randomElement()!
@@ -86,6 +96,10 @@ struct ContentView: View {
             venueLatitude: venue.latitude,
             venueLongitude: venue.longitude
         )
+        
+        if let artist = artistService.fetchedArtist {
+            concert.artist = artist
+        }
         modelContext.insert(concert)
     }
     

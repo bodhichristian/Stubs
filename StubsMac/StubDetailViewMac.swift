@@ -18,7 +18,7 @@ struct StubDetailViewMac: View {
                 .frame(maxWidth: 500, maxHeight: 300)
                 .padding()
             
-                .foregroundStyle(.black)
+                .foregroundStyle(Color(colorName: concert.accentColor)!)
         }
     }
 }

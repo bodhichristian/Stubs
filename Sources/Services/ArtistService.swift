@@ -44,6 +44,7 @@ class ArtistService {
             let artist = response.artists.first
             
             self.fetchedArtist = artist
+            print(artist?.artistName ?? "Artist" + " retreived.")
         } catch {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchArtist
