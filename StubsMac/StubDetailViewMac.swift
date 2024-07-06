@@ -12,12 +12,15 @@ struct StubDetailViewMac: View {
     var body: some View {
         if let imageData = concert.artist?.artistImageData {
             Image(nsImage: NSImage(data: imageData)!)
+                .resizable()
+                .scaledToFill()
                 .clipShape(StubShape())
+                .frame(width: 800)
+                .frame(maxHeight: 300)
         } else {
             StubShape()
                 .frame(maxWidth: 500, maxHeight: 300)
                 .padding()
-            
                 .foregroundStyle(Color(colorName: concert.accentColor)!)
         }
     }
