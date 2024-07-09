@@ -9,19 +9,28 @@ import SwiftUI
 
 struct StubDetailViewMac: View {
     @Bindable var concert: Concert
+    
     var body: some View {
-        if let imageData = concert.artist?.artistImageData {
-            Image(nsImage: NSImage(data: imageData)!)
-                .resizable()
-                .scaledToFill()
-                .clipShape(StubShape())
-                .frame(width: 800)
-                .frame(maxHeight: 300)
-        } else {
-            StubShape()
-                .frame(maxWidth: 500, maxHeight: 300)
+        ZStack(alignment: .bottom) {
+            StubBaseLayer(concert: concert)
+            
+            // Footer
+            HStack {
+                
+                // Artist Name, Date
+                VStack {
+                    Text(concert.artistName)
+                        .font(.largeTitle)
+                        .fontWeight(.medium)
+                    
+                    Text(concert.venue)
+                        .font(.headline)
+                    
+                    Text(concert.date.formatted(date: .long, time: .omitted))
+                }
                 .padding()
-                .foregroundStyle(Color(colorName: concert.accentColor)!)
+            }
+            
         }
     }
 }

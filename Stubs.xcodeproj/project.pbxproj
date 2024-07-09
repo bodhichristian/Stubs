@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */; };
 		AA19591C2B753CA600266267 /* AddConcertTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19591B2B753CA600266267 /* AddConcertTip.swift */; };
+		AA1BF2822C3D8B5300680523 /* StubBaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BF2812C3D8B5300680523 /* StubBaseLayer.swift */; };
 		AA25B98A2BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */; };
 		AA25B98C2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */; };
 		AA25B98E2BD0091E003B11D3 /* ArtistsViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */; };
@@ -195,6 +196,7 @@
 /* Begin PBXFileReference section */
 		AA127E902B474E0E0058CE06 /* StubEditorNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEditorNotes.swift; sourceTree = "<group>"; };
 		AA19591B2B753CA600266267 /* AddConcertTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertTip.swift; sourceTree = "<group>"; };
+		AA1BF2812C3D8B5300680523 /* StubBaseLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubBaseLayer.swift; sourceTree = "<group>"; };
 		AA25B9892BCEF183003B11D3 /* XCTestCase+DelayedAssert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+DelayedAssert.swift"; sourceTree = "<group>"; };
 		AA25B98B2BCEF374003B11D3 /* XCUIApplication+ClearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+ClearTextField.swift"; sourceTree = "<group>"; };
 		AA25B98D2BD0091E003B11D3 /* ArtistsViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewScreen.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 			children = (
 				AAF044672C306EAC005821A9 /* Stubs.swift */,
 				AA81E9D72C34E5540077812E /* StubDetailViewMac.swift */,
+				AA1BF2812C3D8B5300680523 /* StubBaseLayer.swift */,
 				AAF044692C306EAC005821A9 /* ContentView.swift */,
 				AAF044AE2C307155005821A9 /* SidebarView.swift */,
 				AAF0446D2C306EAD005821A9 /* Assets.xcassets */,
@@ -1061,6 +1064,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */,
+				AA1BF2822C3D8B5300680523 /* StubBaseLayer.swift in Sources */,
 				AA81E9B92C345B480077812E /* StubCollectionRowLabel.swift in Sources */,
 				AA81E9BA2C345B750077812E /* StubThumbnail.swift in Sources */,
 				AAF044922C306ED5005821A9 /* Artist.swift in Sources */,
