@@ -34,6 +34,7 @@ struct ContentView: View {
                             }
                         }
                 }
+                .frame(minWidth: 300)
             case .artists:
                 List(artists) { artist in
                     HStack {

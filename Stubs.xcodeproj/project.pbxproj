@@ -99,6 +99,7 @@
 		AAB57E602BA34D0B00F1ED56 /* ConcertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E5F2BA34D0B00F1ED56 /* ConcertTests.swift */; };
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
 		AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */; };
+		AAB683452C4A0A98007FFB64 /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
 		AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */; };
 		AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */; };
 		AAC0A5DE2BC83D42001CF3F6 /* ArtistsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */; };
@@ -1091,6 +1092,7 @@
 				AAF044962C306ED5005821A9 /* Concert.swift in Sources */,
 				AA81E9D82C34E5540077812E /* StubDetailViewMac.swift in Sources */,
 				AAF044972C306ED5005821A9 /* SortOrder.swift in Sources */,
+				AAB683452C4A0A98007FFB64 /* StubNotesView.swift in Sources */,
 				AAF044682C306EAC005821A9 /* Stubs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

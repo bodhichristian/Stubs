@@ -86,6 +86,7 @@ struct StubBaseNew: View {
         }
         .clipShape(StubShape())
         .frame(width: 500, height: 300 )
+        .shadow(radius: 10)
     }
 }
 

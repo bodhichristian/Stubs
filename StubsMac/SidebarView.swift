@@ -16,7 +16,7 @@ struct SidebarView: View {
                 Label(item.title, systemImage: item.iconName)
             }
         }
-        .frame(minWidth: 100)
+        .frame(minWidth: 200)
         .safeAreaInset(edge: .bottom) {
             Button {
                 // Access Profile
