@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RelatedStubScrollView: View {
     @Binding var selectedConcert: Concert
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let concerts: [Concert]
+    
     
     var artist: String {
         concerts.first?.artistName ?? ""
@@ -18,7 +18,7 @@ struct RelatedStubScrollView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0 ) {
-            Text("\(artist) Stubs")
+            Text("\(artist) Stub Collection")
                 .font(.title2.bold())
             
             ScrollView(.horizontal) {

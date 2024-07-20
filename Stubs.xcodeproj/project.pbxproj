@@ -100,6 +100,8 @@
 		AAB57E622BA3506B00F1ED56 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E612BA3506B00F1ED56 /* TestFunctions.swift */; };
 		AAB57E642BA3D82B00F1ED56 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB57E632BA3D82B00F1ED56 /* ArtistTests.swift */; };
 		AAB683452C4A0A98007FFB64 /* StubNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E52B31B7470098D28D /* StubNotesView.swift */; };
+		AAB683462C4AEE78007FFB64 /* RelatedStubScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E12B2FF5A40098D28D /* RelatedStubScrollView.swift */; };
+		AAB683472C4AEE90007FFB64 /* ArtistStubsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4D4E32B2FFF400098D28D /* ArtistStubsLabel.swift */; };
 		AAC0A5D12BC6AA41001CF3F6 /* StubCollectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5D02BC6AA41001CF3F6 /* StubCollectionUITests.swift */; };
 		AAC0A5DC2BC70DF5001CF3F6 /* StubEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DB2BC70DF5001CF3F6 /* StubEditorUITests.swift */; };
 		AAC0A5DE2BC83D42001CF3F6 /* ArtistsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC0A5DD2BC83D42001CF3F6 /* ArtistsViewUITests.swift */; };
@@ -1066,6 +1068,7 @@
 			files = (
 				AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */,
 				AA81E9B92C345B480077812E /* StubCollectionRowLabel.swift in Sources */,
+				AAB683462C4AEE78007FFB64 /* RelatedStubScrollView.swift in Sources */,
 				AA81E9BA2C345B750077812E /* StubThumbnail.swift in Sources */,
 				AAF044922C306ED5005821A9 /* Artist.swift in Sources */,
 				AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */,
@@ -1088,6 +1091,7 @@
 				AA81E9BD2C345BB20077812E /* Extension-Color.swift in Sources */,
 				AA81E9BB2C345B8C0077812E /* StubShape.swift in Sources */,
 				AA81E9BC2C345B910077812E /* FavoriteIcon.swift in Sources */,
+				AAB683472C4AEE90007FFB64 /* ArtistStubsLabel.swift in Sources */,
 				AA81E9BE2C345BC40077812E /* VerticalLineBoundary.swift in Sources */,
 				AAF044962C306ED5005821A9 /* Concert.swift in Sources */,
 				AA81E9D82C34E5540077812E /* StubDetailViewMac.swift in Sources */,
