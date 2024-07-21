@@ -22,7 +22,6 @@ struct StubDetailViewMac: View {
             StubBaseNew(concert: concert)
                 .padding(.top, 100)
             
-            
             Text(concert.notes)
                 //.frame(width: 500)
                 .multilineTextAlignment(.center)

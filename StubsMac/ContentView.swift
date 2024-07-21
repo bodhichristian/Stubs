@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var selectedConcert: Concert? = nil
     @State private var selectedArtist: Artist? = nil
     
+    @Namespace var namespace
+    
     let artistService = ArtistService()
     
     var body: some View {
@@ -37,10 +39,7 @@ struct ContentView: View {
                 .frame(minWidth: 300)
             case .artists:
                 List(artists) { artist in
-                    HStack {
-                        Image(nsImage: NSImage(data: artist.artistImageData ?? Data())!)
-                        Text(artist.artistName ?? "")
-                    }
+                    ArtistListRowLabel(artist: artist, listView: true, namespace: namespace)
                 }
             case .venues:
                 Text("Venues")
