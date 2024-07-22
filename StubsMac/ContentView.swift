@@ -38,8 +38,25 @@ struct ContentView: View {
                 }
                 .frame(minWidth: 300)
             case .artists:
-                List(artists) { artist in
-                    ArtistListRowLabel(artist: artist, listView: true, namespace: namespace)
+                List(artists, selection: $selectedArtist) { artist in
+                    
+                    
+                    HStack {
+                        Image(nsImage: NSImage(data: artist.artistImageData ?? Data()) ?? NSImage())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50)
+                            .clipShape(Circle())
+                            .shadow(radius: 7)
+                        
+                        Text(artist.artistName ?? "")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                        
+                    }
+                    .tag(artist)
+                    .padding(.vertical, 4)
+                    
                 }
             case .venues:
                 Text("Venues")
@@ -55,7 +72,11 @@ struct ContentView: View {
                     Text("Select a concert")
                 }
             case .artists:
-                Text("Artist Detail")
+                if let selectedArtist {
+                    ArtistDetailViewMac(artist: selectedArtist)
+                } else {
+                    Text("Select an artist")
+                }
             case .venues:
                 Text("Venue Detail")
             case nil:
