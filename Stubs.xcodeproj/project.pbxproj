@@ -94,7 +94,6 @@
 		AA97CF332BB1CDA8000A2725 /* ConcertServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */; };
 		AA97CF352BB1FEF7000A2725 /* SaveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97CF342BB1FEF7000A2725 /* SaveError.swift */; };
 		AA992B2F2C4ED96C004B2806 /* ArtistDetailViewMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA992B2E2C4ED96C004B2806 /* ArtistDetailViewMac.swift */; };
-		AA992B312C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA992B302C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift */; };
 		AA992B322C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA992B302C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift */; };
 		AA992B332C4EDA1B004B2806 /* FullBioToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C71F12B916F7100C24B2B /* FullBioToggle.swift */; };
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
@@ -132,6 +131,10 @@
 		AADD10302BB3269700E2DE4B /* MapKitServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD102F2BB3269700E2DE4B /* MapKitServiceError.swift */; };
 		AADD10712BB6D47D00E2DE4B /* ConcertServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD10702BB6D47D00E2DE4B /* ConcertServiceTests.swift */; };
 		AADE4FBB2B601E31000C7DF3 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE4FBA2B601E31000C7DF3 /* SortOrder.swift */; };
+		AAE4594F2C4F4A32000D6514 /* AlbumScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA62228D2B2A58F5004899A9 /* AlbumScrollView.swift */; };
+		AAE459502C4F4A52000D6514 /* AlbumScrollViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D32B47ADEC0071DB44 /* AlbumScrollViewPlaceholder.swift */; };
+		AAE459512C4F4A65000D6514 /* StatViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */; };
+		AAE459522C4F4A8A000D6514 /* AlbumScrollViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0D12B47AB1D0071DB44 /* AlbumScrollViewLabel.swift */; };
 		AAE8AB372A3CD89F0069DAF4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB362A3CD89F0069DAF4 /* ActionButton.swift */; };
 		AAEDF07F2B596BC50059F8B6 /* DebugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEDF07E2B596BC50059F8B6 /* DebugData.swift */; };
 		AAF044682C306EAC005821A9 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF044672C306EAC005821A9 /* Stubs.swift */; };
@@ -707,9 +710,9 @@
 				AAF044692C306EAC005821A9 /* ContentView.swift */,
 				AA81E9D72C34E5540077812E /* StubDetailViewMac.swift */,
 				AA1BF2852C3DB09100680523 /* StubBaseNew.swift */,
+				AA992B2E2C4ED96C004B2806 /* ArtistDetailViewMac.swift */,
 				AA992B302C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift */,
 				AA8FA6FC2C4D9FF900831748 /* ArtistImageViewMac.swift */,
-				AA992B2E2C4ED96C004B2806 /* ArtistDetailViewMac.swift */,
 				AA8FA6FE2C4DA04800831748 /* ArtistTileMac.swift */,
 				AAF044AE2C307155005821A9 /* SidebarView.swift */,
 				AAF0446D2C306EAD005821A9 /* Assets.xcassets */,
@@ -998,7 +1001,6 @@
 				AA97CF332BB1CDA8000A2725 /* ConcertServiceError.swift in Sources */,
 				AAC4D4DA2B2F594F0098D28D /* VerticalLineBoundary.swift in Sources */,
 				AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */,
-				AA992B312C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift in Sources */,
 				AAD8B0B32B66039400693D14 /* VenueGridExpandedMapView.swift in Sources */,
 				AA127E912B474E0E0058CE06 /* StubEditorNotes.swift in Sources */,
 				AA87B0D22B47AB1D0071DB44 /* AlbumScrollViewLabel.swift in Sources */,
@@ -1088,14 +1090,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF0446A2C306EAC005821A9 /* ContentView.swift in Sources */,
+				AAE459512C4F4A65000D6514 /* StatViewLabel.swift in Sources */,
 				AA81E9B92C345B480077812E /* StubCollectionRowLabel.swift in Sources */,
 				AAB683462C4AEE78007FFB64 /* RelatedStubScrollView.swift in Sources */,
+				AAE4594F2C4F4A32000D6514 /* AlbumScrollView.swift in Sources */,
 				AA8FA6FB2C4D9F2C00831748 /* MultiPlatformImage.swift in Sources */,
 				AA81E9BA2C345B750077812E /* StubThumbnail.swift in Sources */,
+				AAE459522C4F4A8A000D6514 /* AlbumScrollViewLabel.swift in Sources */,
 				AAF044922C306ED5005821A9 /* Artist.swift in Sources */,
 				AAF044982C306FEB005821A9 /* TabBarItem.swift in Sources */,
 				AAF044932C306ED5005821A9 /* DebugData.swift in Sources */,
 				AAF044942C306ED5005821A9 /* StubStyle.swift in Sources */,
+				AAE459502C4F4A52000D6514 /* AlbumScrollViewPlaceholder.swift in Sources */,
 				AAF044AF2C307155005821A9 /* SidebarView.swift in Sources */,
 				AA81E9D02C34DE150077812E /* TileBase.swift in Sources */,
 				AAF044952C306ED5005821A9 /* Album.swift in Sources */,

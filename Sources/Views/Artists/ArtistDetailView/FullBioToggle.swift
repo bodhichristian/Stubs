@@ -20,11 +20,7 @@ struct FullBioToggle: View {
     }
     
     var body: some View {
-        Button {
-            withAnimation(.smooth){
-                showingFullBio.toggle()
-            }
-        } label: {
+        
             HStack {
                 Text(
                     showingFullBio
@@ -32,16 +28,19 @@ struct FullBioToggle: View {
                     : "More"
                 )
                 
-                Image(
-                    systemName: showingFullBio
-                    ? "chevron.up"
-                    : "chevron.down"
-                )
+//                Image(
+//                    systemName: showingFullBio
+//                    ? "chevron.up"
+//                    : "chevron.down"
+//                )
             }
-            .buttonStyle(.borderless)
             .font(.caption.bold())
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(showingFullBio ? .all : .horizontal)
-        }
+            .onTapGesture {
+                withAnimation(.smooth){
+                    showingFullBio.toggle()
+                }
+            }
     }
 }
