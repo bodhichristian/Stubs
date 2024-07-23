@@ -78,11 +78,13 @@ struct ContentView: View {
         } detail: {
             switch selectedTab {
             case .stubs:
-//                if let selectedConcert {
+                if selectedConcert.artist == nil {
+                    Text("Select a concert.")
+                } else {
                     StubDetailViewMac(concert: selectedConcert, selectedConcert: $selectedConcert)
-//                } else {
-//                    Text("Select a concert")
-//                }
+
+                }
+
             case .artists:
                 if let selectedArtist {
                     ArtistDetailViewMac(artist: selectedArtist)

@@ -64,9 +64,9 @@ struct ArtistDetailViewMac: View {
                             } else {
                                 Text(artist.bio ?? "")
                                     .lineLimit(showingFullBio ? .none : 2)
-                                    
                             }
                         }
+                        .multilineTextAlignment(.center)
                         .padding(.horizontal)
                         .frame(width: geo.size.width)
                         .foregroundStyle(.primary)
@@ -81,9 +81,12 @@ struct ArtistDetailViewMac: View {
                                     .matchedGeometryEffect(id: "moreLess", in: namespace)
                             }
                         }
-                        AlbumScrollView(artistID: artist.artistID ?? "")
-                            .padding(.top, 4)
-                        
+                        if !showingFullBio {
+                            AlbumScrollView(artistID: artist.artistID ?? "")
+                                .padding(.top, 4)
+                                .animation(.smooth, value: 10)
+                            
+                        }
 //                        if let concerts = artist.concerts{
 //                            ArtistDetailVenuesMap(concerts: concerts)
 //                        }
