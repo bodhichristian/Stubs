@@ -704,12 +704,12 @@
 			isa = PBXGroup;
 			children = (
 				AAF044672C306EAC005821A9 /* Stubs.swift */,
+				AAF044692C306EAC005821A9 /* ContentView.swift */,
 				AA81E9D72C34E5540077812E /* StubDetailViewMac.swift */,
 				AA1BF2852C3DB09100680523 /* StubBaseNew.swift */,
 				AA992B302C4ED9CE004B2806 /* ArtistDetailBannerViewMac.swift */,
 				AA8FA6FC2C4D9FF900831748 /* ArtistImageViewMac.swift */,
 				AA992B2E2C4ED96C004B2806 /* ArtistDetailViewMac.swift */,
-				AAF044692C306EAC005821A9 /* ContentView.swift */,
 				AA8FA6FE2C4DA04800831748 /* ArtistTileMac.swift */,
 				AAF044AE2C307155005821A9 /* SidebarView.swift */,
 				AAF0446D2C306EAD005821A9 /* Assets.xcassets */,

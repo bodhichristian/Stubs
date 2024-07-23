@@ -38,6 +38,7 @@ struct FullBioToggle: View {
                     : "chevron.down"
                 )
             }
+            .buttonStyle(.borderless)
             .font(.caption.bold())
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(showingFullBio ? .all : .horizontal)
