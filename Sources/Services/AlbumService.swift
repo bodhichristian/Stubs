@@ -37,14 +37,34 @@ class AlbumService {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            print("****")
 
             let albumSearchResponse = try JSONDecoder().decode(AlbumSearchResponse.self, from: data)
             self.albums = albumSearchResponse.album
+            
+            for i in 0..<albums.count {
+                do {
+                    let data = try await fetchImageData(from: albums[i].albumArtURL ?? "")
+                    albums[i].imageData = data
+                } catch {
+                    print("********")
+                }
+            }
         } catch {
             print(error.localizedDescription)
             throw error
-            
+        }
+    }
+    
+    private func fetchImageData(from urlString: String) async throws-> Data? {
+        guard let url = URL(string: urlString) else {
+            throw ArtistServiceError.invalidImageURL
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        } catch {
+            throw ArtistServiceError.failedToFetchImages
         }
     }
 }
