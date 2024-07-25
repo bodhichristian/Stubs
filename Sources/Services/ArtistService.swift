@@ -64,21 +64,21 @@ class ArtistService {
             throw ArtistServiceError.failedToFetchImages
         }
         
-        if let artistID = fetchedArtist?.artistID {
-            do {
-                print("1")
-                
-                
-                try await albumService.searchAlbums(for: artistID)
-                
-                print("2")
-                fetchedArtist!.albums = albumService.albums
-                print("3")
-
-            } catch {
-//                throw AlbumSearchError.unknownArtistID
-            }
-        }
+//        if let artistID = fetchedArtist?.artistID {
+//            do {
+//                print("1")
+//                
+//                
+//                try await albumService.searchAlbums(for: artistID)
+//                
+//                print("2")
+//                fetchedArtist!.albums = albumService.albums
+//                print("3")
+//
+//            } catch {
+////                throw AlbumSearchError.unknownArtistID
+//            }
+//        }
         
 //        if let albums = fetchedArtist?.albums {
 //            for i in 0..<albums.count {
