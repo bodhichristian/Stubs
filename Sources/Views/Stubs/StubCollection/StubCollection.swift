@@ -96,9 +96,9 @@ struct StubCollection: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-//                        Task {
-//                            try await addSampleConcert()
-//                        }
+                        //                        Task {
+                        //                            try await addSampleConcert()
+                        //                        }
                         isAddingConcert = true
                     } label: {
                         ToolbarButtonLabel(
@@ -112,25 +112,32 @@ struct StubCollection: View {
             }
             .tint(.primary)
         }
+        //         Clear SwiftData store
+        //                    .onAppear {
+        //                        modelContext.container.deleteAllData()
+        //                    }
     }
+    
 }
 
 extension StubCollection {
     // MARK: addSampleConcert()
-    private func addSampleConcert() async throws  {
-        let sampleConcert: Concert
+    private func addSampleConert() async throws {
+        let artistName = DebugData.artists.randomElement()!
         
-        if let savedArtist = artists.first(where: {
-            $0.artistName == concertService.template.artistName
-        }) {
-            sampleConcert = try await concertService.buildSampleConcert(with: savedArtist)
+        let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == artistName })
+        let existingArtists = try modelContext.fetch(descriptor)
+        
+        if let existingArtist = existingArtists.first {
+            print("➡️ Building concert with existing artist: \(existingArtist.artistName ?? "")")
+            let concert = try await concertService.buildSampleConcert(with: existingArtist)
+            modelContext.insert(concert)
+            
         } else {
-            print("hi")
-            sampleConcert = try await concertService.buildSampleConcert()
-            print(sampleConcert.artistName)
+            print("🆕 Building concert with new artist: \(artistName)")
+            let concert = try await concertService.buildSampleConcert()
+            modelContext.insert(concert)
         }
-        
-        modelContext.insert(sampleConcert)
     }
     
     // Delete concert

@@ -63,16 +63,6 @@ class ArtistService {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchImages
         }
-        
-        if let artistID = fetchedArtist?.artistID {
-            do {
-                try await albumService.searchAlbums(for: artistID)
-                fetchedArtist!.albums = albumService.albums
-            } catch {
-                throw AlbumSearchError.unknownArtistID
-            }
-        }
-    }
     
     private func fetchImageData(from urlString: String) async throws-> Data? {
         guard let url = URL(string: urlString) else {

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Album: Codable, Hashable {
+class Album: Codable {
     enum CodingKeys: String, CodingKey {
         case albumID = "idAlbum"
         case albumName = "strAlbum"
@@ -62,14 +62,14 @@ class Album: Codable, Hashable {
         try container.encodeIfPresent(releaseYear, forKey: .releaseYear)
     }
     
-    // MARK: - Hashable Conformance
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(albumID)
-    }
-    
-    static func ==(lhs: Album, rhs: Album) -> Bool {
-        return lhs.albumID == rhs.albumID
-    }
+//    // MARK: - Hashable Conformance
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(albumID)
+//    }
+//    
+//    static func ==(lhs: Album, rhs: Album) -> Bool {
+//        return lhs.albumID == rhs.albumID
+//    }
 }
 
 
