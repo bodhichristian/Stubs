@@ -46,20 +46,20 @@ class Album: Codable, Hashable {
     // MARK: - Codable Conformance
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        albumID = try container.decode(String.self, forKey: .albumID)
-        albumName = try container.decode(String.self, forKey: .albumName)
-        albumArtURL = try container.decode(String.self, forKey: .albumArtURL)
-        albumDescription = try container.decode(String.self, forKey: .albumDescription)
-        releaseYear = try container.decode(String.self, forKey: .releaseYear)
+        albumID = try container.decodeIfPresent(String.self, forKey: .albumID)
+        albumName = try container.decodeIfPresent(String.self, forKey: .albumName)
+        albumArtURL = try container.decodeIfPresent(String.self, forKey: .albumArtURL)
+        albumDescription = try container.decodeIfPresent(String.self, forKey: .albumDescription)
+        releaseYear = try container.decodeIfPresent(String.self, forKey: .releaseYear)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(albumID, forKey: .albumID)
-        try container.encode(albumName, forKey: .albumName)
-        try container.encode(albumArtURL, forKey: .albumArtURL)
-        try container.encode(albumDescription, forKey: .albumDescription)
-        try container.encode(releaseYear, forKey: .releaseYear)
+        try container.encodeIfPresent(albumID, forKey: .albumID)
+        try container.encodeIfPresent(albumName, forKey: .albumName)
+        try container.encodeIfPresent(albumArtURL, forKey: .albumArtURL)
+        try container.encodeIfPresent(albumDescription, forKey: .albumDescription)
+        try container.encodeIfPresent(releaseYear, forKey: .releaseYear)
     }
     
     // MARK: - Hashable Conformance
