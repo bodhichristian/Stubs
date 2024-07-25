@@ -44,8 +44,8 @@ struct AlbumScrollView: View {
                     if let albums = artist.albums {
                         ForEach(
                             albums.sorted {
-                                $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
-                            }, id: \.idAlbum
+                                $0.releaseYear ?? "" > $1.releaseYear ?? ""
+                            }, id: \.albumID
                         ) { album in
                             AlbumScrollViewLabel(album: album)
                         }

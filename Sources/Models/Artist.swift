@@ -37,12 +37,11 @@ class Artist: Codable, Hashable {
     var bannerImageURL: String? = nil
     
     // Image data is fetched after initialization
-    @Attribute(.externalStorage)
-    var artistImageData: Data?
-    @Attribute(.externalStorage)
-    var bannerImageData: Data?
+    @Attribute(.externalStorage) var artistImageData: Data?
+    @Attribute(.externalStorage) var bannerImageData: Data?
     
-    init(artistID: String? = nil,
+    init(
+        artistID: String? = nil,
          artistName: String? = nil,
          style: String? = nil,
          genre: String? = nil,
@@ -50,8 +49,8 @@ class Artist: Codable, Hashable {
          bio: String? = nil,
          geo: String? = nil,
          artistImageURL: String? = nil,
-         bannerImageURL: String? = nil,
-         albums: [Album]? = nil) {
+         bannerImageURL: String? = nil
+    ) {
         self.artistID = artistID
         self.artistName = artistName
         self.style = style
@@ -61,8 +60,7 @@ class Artist: Codable, Hashable {
         self.geo = geo
         self.artistImageURL = artistImageURL
         self.bannerImageURL = bannerImageURL
-        self.albums = albums
-        print("a new artist has been born")
+        
     }
     
     // MARK: - Codable Conformance
