@@ -15,25 +15,14 @@ struct AlbumScrollViewLabel: View {
             TileBase()
             
             VStack(alignment: .leading) {
-                
                 Image(nsImage: NSImage(data: album.imageData ?? Data()) ?? NSImage())
-//                AsyncImage(
-//                    url: URL(
-//                        string: album.strAlbumThumb ?? ""
-//                    )
-//                ) { image in
-//                    image
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 90, height: 90)
-//
-//                } placeholder: {
-//                    Color.secondary.opacity(0.1)
-//                }
-//                .clipShape(RoundedRectangle(cornerRadius: 10))
-//                .frame(width: 90, height: 90)
-//                .shadow(radius: 5, y: 3)
-
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 90, height: 90)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .frame(width: 90, height: 90)
+                    .shadow(radius: 5, y: 3)
+                
                 Text(album.albumName ?? "")
                     .font(.headline)
                     .frame(maxWidth: 90, alignment: .leading)
