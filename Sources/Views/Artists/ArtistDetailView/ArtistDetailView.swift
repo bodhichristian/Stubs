@@ -82,8 +82,8 @@ struct ArtistDetailView: View {
                                     .matchedGeometryEffect(id: "moreLess", in: namespace)
                             }
                         }
-                        AlbumScrollView(artistID: artist.artistID ?? "")
-                            .padding(.top, 4)
+//                        AlbumScrollView(artistID: artist.artistID ?? "")
+//                            .padding(.top, 4)
                         
                         if let concerts = artist.concerts{
                             ArtistDetailVenuesMap(concerts: concerts)

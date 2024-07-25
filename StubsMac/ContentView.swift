@@ -124,23 +124,12 @@ struct ContentView: View {
         if let existingArtist = existingArtists.first {
             print("➡️ Building concert with existing artist: \(existingArtist.artistName ?? "")")
             let concert = try await concertService.buildSampleConcert(with: existingArtist)
+            modelContext.insert(concert)
         } else {
             print("🆕 Building concert with new artist: \(artistName)")
             let concert = try await concertService.buildSampleConcert()
             modelContext.insert(concert)
         }
-        
-        
-        //        let artistName = DebugData.artists.randomElement()!
-        //
-        //
-        //        if let existingArtist = artists.first(where: {$0.artistName?.lowercased() == artistName.lowercased()})  {
-        //            let concert = try await concertService.buildSampleConcert(with: existingArtist)
-        //            modelContext.insert(concert)
-        //        } else {
-        //            let concert = try await concertService.buildSampleConcert()
-        //            modelContext.insert(concert)
-        //        }
     }
     
     private func delete(_ concert: Concert) {

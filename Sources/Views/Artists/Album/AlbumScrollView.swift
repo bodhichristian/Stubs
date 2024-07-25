@@ -47,7 +47,7 @@ struct AlbumScrollView: View {
                                 $0.releaseYear ?? "" > $1.releaseYear ?? ""
                             }, id: \.albumID
                         ) { album in
-                            AlbumScrollViewLabel(album: album)
+                           // AlbumScrollViewLabel(album: album)
                         }
                     }
                 }
