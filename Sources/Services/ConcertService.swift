@@ -11,6 +11,7 @@ import SwiftUI
 @Observable
 class ConcertService {
     let artistService = ArtistService()
+    
 #if os(iOS)
     let mapKitService = MapKitService()
     #endif

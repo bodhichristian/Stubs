@@ -22,7 +22,8 @@ class Artist: Codable, Hashable {
         case bannerImageURL = "strArtistFanart2"
         
     }
-
+    
+    var albums: [Album]?
     var concerts: [Concert]?
     
     var artistID: String? = nil
@@ -49,7 +50,8 @@ class Artist: Codable, Hashable {
          bio: String? = nil,
          geo: String? = nil,
          artistImageURL: String? = nil,
-         bannerImageURL: String? = nil) {
+         bannerImageURL: String? = nil,
+         albums: [Album]? = nil) {
         self.artistID = artistID
         self.artistName = artistName
         self.style = style
@@ -59,6 +61,7 @@ class Artist: Codable, Hashable {
         self.geo = geo
         self.artistImageURL = artistImageURL
         self.bannerImageURL = bannerImageURL
+        self.albums = albums
         print("a new artist has been born")
     }
     

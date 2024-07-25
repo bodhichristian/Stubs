@@ -82,7 +82,7 @@ struct ArtistDetailViewMac: View {
                             }
                         }
                         if !showingFullBio {
-                            AlbumScrollView(artistID: artist.artistID ?? "")
+                            AlbumScrollView(artist: artist)
                                 .padding(.top, 4)
                                 .animation(.smooth, value: 10)
                             

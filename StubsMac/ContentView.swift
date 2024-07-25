@@ -82,7 +82,6 @@ struct ContentView: View {
                     Text("Select a concert.")
                 } else {
                     StubDetailViewMac(concert: selectedConcert, selectedConcert: $selectedConcert)
-
                 }
 
             case .artists:
@@ -109,7 +108,7 @@ struct ContentView: View {
                 .keyboardShortcut(KeyEquivalent("n"), modifiers: [.command])
             }
         }
-        // Clear SwiftData store
+//         Clear SwiftData store
 //        .onAppear {
 //            modelContext.container.deleteAllData()
 //        }

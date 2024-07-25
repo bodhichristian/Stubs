@@ -13,18 +13,12 @@ import Combine
 
 
 struct AlbumScrollView: View {
-    let artistID: String
-    
-    @State private var model = AlbumService()
-    
-    private var albumCount: Int {
-        return model.albums.count
-    }
+    let artist: Artist
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                if model.albums.isEmpty {
+                if artist.albums == nil {
                     AlbumScrollViewPlaceholder()
                 } else {
                         ZStack {
@@ -36,7 +30,7 @@ struct AlbumScrollView: View {
                                     .foregroundStyle(.secondary)
                                 
                                 StatViewLabel(
-                                    count: albumCount,
+                                    count: artist.albums?.count ?? 0,
                                     statNameSingular: "Release",
                                     statNamePlural: "Releases"
                                 )
@@ -47,12 +41,14 @@ struct AlbumScrollView: View {
                     .frame(width: 130)
                     .padding(.horizontal, 2)
                     
-                    ForEach(
-                        model.albums.sorted {
-                            $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
-                        }, id: \.idAlbum
-                    ) { album in
-                        AlbumScrollViewLabel(album: album)
+                    if let albums = artist.albums {
+                        ForEach(
+                            albums.sorted {
+                                $0.intYearReleased ?? "" > $1.intYearReleased ?? ""
+                            }, id: \.idAlbum
+                        ) { album in
+                            AlbumScrollViewLabel(album: album)
+                        }
                     }
                 }
             }
@@ -61,11 +57,11 @@ struct AlbumScrollView: View {
         }
         
         .padding(.horizontal)
-        .onAppear {
-            Task {
-                try await model.searchAlbums(for: artistID)
-            }
-        }
+//        .onAppear {
+//            Task {
+//                try await model.searchAlbums(for: artistID)
+//            }
+//        }
     }
 }
 

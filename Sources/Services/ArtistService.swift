@@ -11,7 +11,10 @@ import Foundation
 class ArtistService {
     
     var fetchedArtist: Artist?
+    var fetchedAlbums: [Album]?
     var fetchFailed = false
+    
+    let albumService = AlbumService()
     
     func search(for artistName: String) async throws {
         let headers = [
@@ -23,8 +26,8 @@ class ArtistService {
         let formattedArtistName = artistName.replacingOccurrences(of: " ", with: "_")
         
         let urlString = urlStringPrefix + formattedArtistName
-        guard let url = URL(string: urlString)
-        else {
+        
+        guard let url = URL(string: urlString) else {
             fetchFailed = true
             throw ArtistServiceError.invalidArtistURL
         }
@@ -60,6 +63,18 @@ class ArtistService {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchImages
         }
+        
+        if let artistID = fetchedArtist?.artistID {
+            do {
+                try await albumService.searchAlbums(for: artistID)
+                fetchedArtist!.albums = albumService.albums
+            } catch {
+                throw AlbumSearchError.unknownArtistID
+            }
+        }
+        
+        
+    
     }
     
     func fetchImageData(from urlString: String) async throws-> Data? {
