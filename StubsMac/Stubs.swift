@@ -16,7 +16,7 @@ struct Stubs: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Concert.self, Artist.self])
+        .modelContainer(for: [Concert.self, Artist.self, Album.self])
         
     }
 }

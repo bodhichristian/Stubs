@@ -37,10 +37,14 @@ class AlbumService {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
+            print("****")
+
             let albumSearchResponse = try JSONDecoder().decode(AlbumSearchResponse.self, from: data)
             self.albums = albumSearchResponse.album
         } catch {
+            print(error.localizedDescription)
             throw error
+            
         }
     }
 }
