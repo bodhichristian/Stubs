@@ -53,7 +53,7 @@ struct ArtistDetailVenuesMap: View {
                 )
             )
             .frame(maxWidth: .infinity)
-            .frame(height: sizeClass == .compact ? 150 : 380)
+            .frame(height: sizeClass == .compact ? 270 : 380)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
                 updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
