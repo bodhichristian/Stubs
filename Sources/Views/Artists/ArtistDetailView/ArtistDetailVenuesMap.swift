@@ -33,7 +33,7 @@ struct ArtistDetailVenuesMap: View {
             return false
         }
     }
-        
+    
     var body: some View {
         VStack(alignment: .leading) {
             Map(position: $position) {
