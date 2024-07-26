@@ -23,7 +23,6 @@ class Artist: Codable, Hashable {
         
     }
     
-    var albums: [Album]?
     var concerts: [Concert]?
     
     var artistID: String? = nil
