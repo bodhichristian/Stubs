@@ -63,6 +63,7 @@ class ArtistService {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchImages
         }
+    }
     
     private func fetchImageData(from urlString: String) async throws-> Data? {
         guard let url = URL(string: urlString) else {

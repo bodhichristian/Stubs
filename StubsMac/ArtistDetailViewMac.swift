@@ -22,7 +22,7 @@ struct ArtistDetailViewMac: View {
     
     
     private var artistImage: NSImage {
-        if let data = artist.artistImageData {
+        if let data = artist.bannerImageData {
             return NSImage(data: data) ?? NSImage()
         } else {
             return NSImage()

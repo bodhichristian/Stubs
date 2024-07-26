@@ -20,19 +20,6 @@ struct ContentView: View {
     
     let concertService = ConcertService()
     
-    //    var uniqueArtists: [Artist] {
-    //        var array: [Artist] = []
-    //
-    //        for artist in artists {
-    //            if array.contains(artist) {
-    //                continue
-    //            } else {
-    //                array.append(artist)
-    //            }
-    //        }
-    //        return array.sorted(by: {$0.artistName ?? "" < $1.artistName ?? ""})
-    //    }
-    
     var body: some View {
         NavigationSplitView {
             SidebarView(selection: $selectedTab)
@@ -53,14 +40,20 @@ struct ContentView: View {
             case .artists:
                 List(artists, selection: $selectedArtist) { artist in
                     HStack {
-                        Image(nsImage: NSImage(data: artist.artistImageData ?? Data()) ?? NSImage())
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 56)
-                            .clipShape(Circle())
+                        Circle()
+                            .foregroundStyle(.tertiary)
+                            .frame(width: 60)
                             .shadow(radius: 7)
-                            .padding(.leading, 10)
-                            .padding(.trailing, 20)
+                            .overlay {
+                                Image(nsImage: NSImage(data: artist.artistImageData ?? Data()) ?? NSImage())
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 56)
+                                    .clipShape(Circle())
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 20)
+                                    .offset(x: 5)
+                            }
                         
                         Text(artist.artistName ?? "")
                             .font(.title3)
@@ -109,9 +102,9 @@ struct ContentView: View {
             }
         }
         //         Clear SwiftData store
-//                .onAppear {
-//                    modelContext.container.deleteAllData()
-//                }
+        //                .onAppear {
+        //                    modelContext.container.deleteAllData()
+        //                }
     }
     
     
