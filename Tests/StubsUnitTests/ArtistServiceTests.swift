@@ -6,6 +6,8 @@
 //
 
 import XCTest
+
+import Testing
 @testable import Stubs
 
 final class ArtistServiceTests: XCTestCase {
@@ -21,7 +23,7 @@ final class ArtistServiceTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
+
     func testArtistServiceInitDefaultValues() {
         XCTAssertNil(sut.fetchedArtist)
         XCTAssertFalse(sut.fetchFailed)

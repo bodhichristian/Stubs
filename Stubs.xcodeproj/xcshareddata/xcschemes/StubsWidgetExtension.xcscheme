@@ -67,6 +67,17 @@
                ReferencedContainer = "container:Stubs.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AAA830142C532D610073AA02"
+               BuildableName = "StubsMacSwiftTesting.xctest"
+               BlueprintName = "StubsMacSwiftTesting"
+               ReferencedContainer = "container:Stubs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
