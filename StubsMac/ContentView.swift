@@ -20,19 +20,6 @@ struct ContentView: View {
     
     let concertService = ConcertService()
     
-    //    var uniqueArtists: [Artist] {
-    //        var array: [Artist] = []
-    //
-    //        for artist in artists {
-    //            if array.contains(artist) {
-    //                continue
-    //            } else {
-    //                array.append(artist)
-    //            }
-    //        }
-    //        return array.sorted(by: {$0.artistName ?? "" < $1.artistName ?? ""})
-    //    }
-    
     var body: some View {
         NavigationSplitView {
             SidebarView(selection: $selectedTab)
