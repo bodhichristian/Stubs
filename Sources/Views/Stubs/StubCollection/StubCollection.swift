@@ -64,7 +64,7 @@ struct StubCollection: View {
                     }
                 }
             }
-            .navigationTitle("Stubs")
+            .navigationTitle("\(concerts.count) Stubs")
             .sheet(isPresented: $isAddingConcert) {
                 StubEditor(addConcertTip: addConcertTip)
             }
@@ -126,18 +126,21 @@ struct StubCollection: View {
 extension StubCollection {
     // MARK: addSampleConcert()
     private func addSampleConcert() async throws {
-        let artistName = DebugData.artists.randomElement()!
+        let artistName = DebugData.artists.randomElement()!.lowercased()
         
-        let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == artistName })
+        let artistID = artists.first(where: {$0.artistName?.lowercased() == artistName})?.artistID
+        
+        let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistID == artistID })
         let existingArtists = try modelContext.fetch(descriptor)
         
         if let existingArtist = existingArtists.first {
             let concert = try await concertService.buildSampleConcert(with: existingArtist)
-            modelContext.insert(concert)
-            
+            modelContext.insert(concert) 
+            try modelContext.save()
         } else {
             let concert = try await concertService.buildSampleConcert()
             modelContext.insert(concert)
+            try modelContext.save()
         }
     }
     
