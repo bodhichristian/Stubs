@@ -53,7 +53,7 @@ class ConcertService {
             print("➡️ Building concert with existing artist: \(artist.artistName ?? "")")
             sampleConcert.artist = artist
         } else {
-            print("Fetching new artist for concert")
+            print("🆕 Fetching new artist for concert")
             try await artistService.search(for: sampleConcert.artistName)
             sampleConcert.artist = artistService.fetchedArtist
         }

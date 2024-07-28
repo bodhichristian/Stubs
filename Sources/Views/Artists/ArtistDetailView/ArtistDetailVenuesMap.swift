@@ -18,9 +18,9 @@ struct ArtistDetailVenuesMap: View {
     @State private var location: MKMapItem?
     @State private var position: MapCameraPosition = .automatic
     
-    private var displayStub: Concert {
-        return concerts[0]
-    }
+//    private var displayStub: Concert {
+//        return concerts[0]
+//    }
     
     private var venues: [Concert] {
         var uniqueVenues = Set<String>()
@@ -56,7 +56,7 @@ struct ArtistDetailVenuesMap: View {
             .frame(height: sizeClass == .compact ? 270 : 380)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
-                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
+                //updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
             }
             
             ScrollView(.horizontal) {

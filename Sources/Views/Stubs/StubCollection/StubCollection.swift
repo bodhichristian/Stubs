@@ -116,9 +116,9 @@ struct StubCollection: View {
             .tint(.primary)
         }
         //         Clear SwiftData store
-        //                    .onAppear {
-        //                        modelContext.container.deleteAllData()
-        //                    }
+//                            .onAppear {
+//                                modelContext.container.deleteAllData()
+//                            }
     }
     
 }
@@ -132,12 +132,10 @@ extension StubCollection {
         let existingArtists = try modelContext.fetch(descriptor)
         
         if let existingArtist = existingArtists.first {
-            print("➡️ Building concert with existing artist: \(existingArtist.artistName ?? "")")
             let concert = try await concertService.buildSampleConcert(with: existingArtist)
             modelContext.insert(concert)
             
         } else {
-            print("🆕 Building concert with new artist: \(artistName)")
             let concert = try await concertService.buildSampleConcert()
             modelContext.insert(concert)
         }

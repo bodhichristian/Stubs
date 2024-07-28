@@ -15,7 +15,7 @@ struct ArtistsView: View {
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
     
-    @Query var artists: [Artist]
+    @Query(sort: \Artist.artistName) var artists: [Artist]
     
     @State private var artistImageWidth: CGFloat = 44
     @State private var listView = true
