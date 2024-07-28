@@ -50,20 +50,6 @@ struct ArtistsView: View {
         }
     }
     
-    private var groupedArtists: [String: [Artist]] {
-        Dictionary(grouping: sortedArtists) { $0.artistName?.first?.uppercased() ?? "#" }
-    }
-    
-    private var sortedKeys: [String] {
-        switch sortOrder {
-        case .byNameDescending:
-            groupedArtists.keys.sorted().reversed()
-        default:
-            groupedArtists.keys.sorted()
-        }
-    }
-    
-    
     var body: some View {
         ZStack {
             NavigationStack {

@@ -69,26 +69,29 @@ struct StubCollection: View {
                 StubEditor(addConcertTip: addConcertTip)
             }
             .toolbar {
-                //                ToolbarItem(placement: .topBarLeading) {
-                //                    Button {
-                //                       Task {
-                //                           try await addSampleConcert()
-                //                       }
-                //                    } label: {
-                //                        ToolbarButtonLabel(
-                //                            text: "Demo",
-                //                            symbol: "sparkles.rectangle.stack",
-                //                            colors: [.blue, .purple]
-                //                        )
-                //                    }
-                //                }
+//                                ToolbarItem(placement: .topBarLeading) {
+//                                    Button {
+//                                       Task {
+//                                           try await addSampleConcert()
+//                                       }
+//                                    } label: {
+//                                        ToolbarButtonLabel(
+//                                            text: "Demo",
+//                                            symbol: "sparkles.rectangle.stack",
+//                                            colors: [.blue, .purple]
+//                                        )
+//                                    }
+//                                }
                 
                 
                 ToolbarItem {
                     Button {
-                        withAnimation(.snappy){
-                            filteringFavorites.toggle()
+                        Task {
+                            try await addSampleConcert()
                         }
+//                        withAnimation(.snappy){
+//                            filteringFavorites.toggle()
+//                        }
                     } label: {
                         FavoriteToggleLabel(filteringFavorites: filteringFavorites)
                     }
@@ -122,7 +125,7 @@ struct StubCollection: View {
 
 extension StubCollection {
     // MARK: addSampleConcert()
-    private func addSampleConert() async throws {
+    private func addSampleConcert() async throws {
         let artistName = DebugData.artists.randomElement()!
         
         let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == artistName })
