@@ -11,11 +11,8 @@ import Foundation
 class ArtistService {
     
     var fetchedArtist: Artist?
-    var fetchedAlbums: [Album]?
     var fetchFailed = false
-    
-    let albumService = AlbumService()
-    
+        
     func search(for artistName: String) async throws {
         let headers = [
             "X-RapidAPI-Key": rapidAPIKey,
@@ -63,33 +60,6 @@ class ArtistService {
             self.fetchFailed = true
             throw ArtistServiceError.failedToFetchImages
         }
-        
-        if let artistID = fetchedArtist?.artistID {
-            do {
-                print("1")
-                
-                
-                try await albumService.searchAlbums(for: artistID)
-                
-                print("2")
-                fetchedArtist!.albums = albumService.albums
-                print("3")
-
-            } catch {
-//                throw AlbumSearchError.unknownArtistID
-            }
-        }
-        
-//        if let albums = fetchedArtist?.albums {
-//            for i in 0..<albums.count {
-//                do {
-//                    let data = try await fetchImageData(from: albums[i].albumArtURL ?? "")
-//                    fetchedArtist?.albums?[i].imageData = data
-//                } catch {
-//                    print("********")
-//                }
-//            }
-//        }
     }
     
     private func fetchImageData(from urlString: String) async throws-> Data? {

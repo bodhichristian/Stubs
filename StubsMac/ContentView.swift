@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var concerts: [Concert]
-    @Query var artists: [Artist]
+    @Query(sort: \Artist.artistName) var artists: [Artist]
     @State private var selectedTab: TabBarItem? = .stubs
     @State private var selectedConcert: Concert = Concert()
     @State private var selectedArtist: Artist? = nil
@@ -19,19 +19,6 @@ struct ContentView: View {
     @Namespace var namespace
     
     let concertService = ConcertService()
-    
-    var uniqueArtists: [Artist] {
-        var array: [Artist] = []
-        
-        for artist in artists {
-            if array.contains(artist) {
-                continue
-            } else {
-                array.append(artist)
-            }
-        }
-        return array.sorted(by: {$0.artistName ?? "" < $1.artistName ?? ""})
-    }
     
     var body: some View {
         NavigationSplitView {
@@ -51,7 +38,7 @@ struct ContentView: View {
                 }
                 .frame(minWidth: 300)
             case .artists:
-                List(uniqueArtists, selection: $selectedArtist) { artist in
+                List(artists, selection: $selectedArtist) { artist in
                     HStack {
                         Image(nsImage: NSImage(data: artist.artistImageData ?? Data()) ?? NSImage())
                             .resizable()
@@ -83,7 +70,7 @@ struct ContentView: View {
                 } else {
                     StubDetailViewMac(concert: selectedConcert, selectedConcert: $selectedConcert)
                 }
-
+                
             case .artists:
                 if let selectedArtist {
                     ArtistDetailViewMac(artist: selectedArtist)
@@ -108,21 +95,25 @@ struct ContentView: View {
                 .keyboardShortcut(KeyEquivalent("n"), modifiers: [.command])
             }
         }
-//         Clear SwiftData store
-//        .onAppear {
-//            modelContext.container.deleteAllData()
-//        }
+        //         Clear SwiftData store
+//                .onAppear {
+//                    modelContext.container.deleteAllData()
+//                }
     }
-        
+    
     
     private func addSampleConert() async throws {
         let artistName = DebugData.artists.randomElement()!
         
-        if artists.contains(where: {$0.artistName == artistName}) {
-            let concert = try await concertService.buildSampleConcert(with: artists.first(where: {$0.artistName == $0.artistName}))
-            
+        let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == artistName })
+        let existingArtists = try modelContext.fetch(descriptor)
+        
+        if let existingArtist = existingArtists.first {
+            print("➡️ Building concert with existing artist: \(existingArtist.artistName ?? "")")
+            let concert = try await concertService.buildSampleConcert(with: existingArtist)
             modelContext.insert(concert)
         } else {
+            print("🆕 Building concert with new artist: \(artistName)")
             let concert = try await concertService.buildSampleConcert()
             modelContext.insert(concert)
         }

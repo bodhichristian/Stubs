@@ -24,9 +24,7 @@ struct StubBaseNew: View {
                                 .scaledToFill()
                         }
                     }
-                
-                
-                
+
                 VStack(alignment: .trailing) {
                     Text(concert.artistName)
                         .font(.largeTitle)

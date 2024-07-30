@@ -16,7 +16,7 @@ struct ArtistListView: View {
     
     var body: some View {
         LazyVStack {
-            ForEach(artists, id: \.self) { artist in
+            ForEach(artists, id: \.artistID) { artist in
                 NavigationLink {
                     ArtistDetailView(artist: artist)
                 } label: {

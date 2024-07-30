@@ -23,7 +23,6 @@ class Artist: Codable, Hashable {
         
     }
     
-    var albums: [Album]?
     var concerts: [Concert]?
     
     var artistID: String? = nil
@@ -66,29 +65,29 @@ class Artist: Codable, Hashable {
     // MARK: - Codable Conformance
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        artistID = try container.decode(String.self, forKey: .artistID)
-        artistName = try container.decode(String.self, forKey: .artistName)
-        style = try container.decode(String.self, forKey: .style)
-        genre = try container.decode(String.self, forKey: .genre)
-        mood = try container.decode(String.self, forKey: .mood)
-        bio = try container.decode(String.self, forKey: .bio)
-        geo = try container.decode(String.self, forKey: .geo)
-        artistImageURL = try container.decode(String.self, forKey: .artistImageURL)
-        bannerImageURL = try container.decode(String.self, forKey: .bannerImageURL)
+        artistID = try container.decodeIfPresent(String.self, forKey: .artistID)
+        artistName = try container.decodeIfPresent(String.self, forKey: .artistName)
+        style = try container.decodeIfPresent(String.self, forKey: .style)
+        genre = try container.decodeIfPresent(String.self, forKey: .genre)
+        mood = try container.decodeIfPresent(String.self, forKey: .mood)
+        bio = try container.decodeIfPresent(String.self, forKey: .bio)
+        geo = try container.decodeIfPresent(String.self, forKey: .geo)
+        artistImageURL = try container.decodeIfPresent(String.self, forKey: .artistImageURL)
+        bannerImageURL = try container.decodeIfPresent(String.self, forKey: .bannerImageURL)
         
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(artistID, forKey: .artistID)
-        try container.encode(artistName, forKey: .artistName)
-        try container.encode(style, forKey: .style)
-        try container.encode(genre, forKey: .genre)
-        try container.encode(mood, forKey: .mood)
-        try container.encode(bio, forKey: .bio)
-        try container.encode(geo, forKey: .geo)
-        try container.encode(artistImageURL, forKey: .artistImageURL)
-        try container.encode(bannerImageURL, forKey: .bannerImageURL)
+        try container.encodeIfPresent(artistID, forKey: .artistID)
+        try container.encodeIfPresent(artistName, forKey: .artistName)
+        try container.encodeIfPresent(style, forKey: .style)
+        try container.encodeIfPresent(genre, forKey: .genre)
+        try container.encodeIfPresent(mood, forKey: .mood)
+        try container.encodeIfPresent(bio, forKey: .bio)
+        try container.encodeIfPresent(geo, forKey: .geo)
+        try container.encodeIfPresent(artistImageURL, forKey: .artistImageURL)
+        try container.encodeIfPresent(bannerImageURL, forKey: .bannerImageURL)
     }
     
     // MARK: - Hashable Conformance
