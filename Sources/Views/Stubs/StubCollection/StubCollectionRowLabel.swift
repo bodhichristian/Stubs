@@ -15,7 +15,7 @@ struct StubCollectionRowLabel: View {
     
     var body: some View {
         HStack {
-            ZStack(alignment: .bottomTrailing){
+            ZStack(alignment: .bottomTrailing) {
                 StubThumbnail(concert: concert)
                     
                 if concert.isFavorite {

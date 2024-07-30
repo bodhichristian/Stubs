@@ -1,4 +1,4 @@
-//
+	//
 //  ArtistDetailHeaderView.swift
 //  Stubs
 //

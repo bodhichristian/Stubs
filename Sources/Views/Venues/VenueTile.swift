@@ -11,7 +11,7 @@ import SwiftUI
 
 struct VenueTile: View {
     let concert: Concert
-    @Binding var listView: Bool
+    let listView: Bool
     
     var body: some View {
         ZStack() {

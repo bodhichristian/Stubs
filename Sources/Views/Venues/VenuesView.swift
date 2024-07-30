@@ -75,7 +75,7 @@ struct VenuesView: View {
                             ForEach(sortedVenues, id: \.venue) { concert in
                                 VenueTile(
                                     concert: concert,
-                                    listView: .constant(true)
+                                    listView: true
                                 )
                                 .matchedGeometryEffect(
                                     id: concert.uuid,
@@ -108,7 +108,7 @@ struct VenuesView: View {
                                 
                                 VenueTile(
                                     concert: selectedVenue,
-                                    listView: .constant(true)
+                                    listView: true
                                 )
                                 .matchedGeometryEffect(
                                     id: selectedVenue.uuid,

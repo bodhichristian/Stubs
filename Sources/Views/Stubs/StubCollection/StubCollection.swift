@@ -30,7 +30,7 @@ struct StubCollection: View {
                     NoStubsView()
                 } else  {
                     ScrollView{
-                        VStack(alignment: .leading)  {
+                        LazyVStack(alignment: .leading)  {
                             ForEach(concertsByYear.keys.sorted().reversed(), id: \.self) { year in
                                 Section(header: yearHeader(year)) {
                                     ForEach(concertsByYear[year] ?? [Concert](), id: \.id) { concert in
@@ -52,7 +52,7 @@ struct StubCollection: View {
                                                 .padding(.leading, 20)
                                             }
                                         }
-                                        .buttonStyle(PlainButtonStyle())
+                                        //.buttonStyle(PlainButtonStyle())
                                     }
                                 }
                             }
