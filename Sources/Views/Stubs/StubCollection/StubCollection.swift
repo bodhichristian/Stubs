@@ -86,9 +86,12 @@ struct StubCollection: View {
                 
                 ToolbarItem {
                     Button {
-                        withAnimation(.snappy){
-                            filteringFavorites.toggle()
+                        Task {
+                            try await addSampleConcert()
                         }
+//                        withAnimation(.snappy){
+//                          filteringFavorites.toggle()
+//                        }
                     } label: {
                         FavoriteToggleLabel(filteringFavorites: filteringFavorites)
                     }
@@ -96,9 +99,7 @@ struct StubCollection: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        //                        Task {
-                        //                            try await addSampleConcert()
-                        //                        }
+
                         isAddingConcert = true
                     } label: {
                         ToolbarButtonLabel(
@@ -122,19 +123,17 @@ struct StubCollection: View {
 
 extension StubCollection {
     // MARK: addSampleConcert()
-    private func addSampleConert() async throws {
+    private func addSampleConcert() async throws {
         let artistName = DebugData.artists.randomElement()!
         
         let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == artistName })
         let existingArtists = try modelContext.fetch(descriptor)
         
         if let existingArtist = existingArtists.first {
-            print("➡️ Building concert with existing artist: \(existingArtist.artistName ?? "")")
             let concert = try await concertService.buildSampleConcert(with: existingArtist)
             modelContext.insert(concert)
             
         } else {
-            print("🆕 Building concert with new artist: \(artistName)")
             let concert = try await concertService.buildSampleConcert()
             modelContext.insert(concert)
         }

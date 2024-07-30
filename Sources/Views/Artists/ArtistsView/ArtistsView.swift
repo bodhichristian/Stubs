@@ -15,7 +15,7 @@ struct ArtistsView: View {
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
     
-    @Query var artists: [Artist]
+    @Query(sort: \Artist.artistName) var artists: [Artist]
     
     @State private var artistImageWidth: CGFloat = 44
     @State private var listView = true
@@ -26,11 +26,15 @@ struct ArtistsView: View {
     private let viewOptionsTip = ArtistsViewOptionsTip()
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
     
+    private var uniqueArtists: [Artist] {
+        Array(Set(artists))
+    }
+    
     private var filteredArtists: [Artist] {
         if searchText.isEmpty {
-            return artists
+            return uniqueArtists
         } else {
-            return artists.filter { artist in
+            return uniqueArtists.filter { artist in
                 if let artistName = artist.artistName {
                     return artistName.lowercased().contains(searchText.lowercased())
                 } else {
@@ -49,20 +53,6 @@ struct ArtistsView: View {
         default:  return filteredArtists
         }
     }
-    
-    private var groupedArtists: [String: [Artist]] {
-        Dictionary(grouping: sortedArtists) { $0.artistName?.first?.uppercased() ?? "#" }
-    }
-    
-    private var sortedKeys: [String] {
-        switch sortOrder {
-        case .byNameDescending:
-            groupedArtists.keys.sorted().reversed()
-        default:
-            groupedArtists.keys.sorted()
-        }
-    }
-    
     
     var body: some View {
         ZStack {
