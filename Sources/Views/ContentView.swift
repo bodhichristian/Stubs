@@ -29,6 +29,12 @@ struct ContentView: View {
                     tab: .venues,
                     selection: $tabSelection
                 )
+            
+            ProfileView()
+                .tabBarItem(
+                    tab: .profile,
+                    selection: $tabSelection
+                )
         }
     }
 }
