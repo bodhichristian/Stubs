@@ -11,7 +11,6 @@ struct NewStubView: View {
     
     let concert: Concert
 
-
     var body: some View {
         HStack(spacing: 0) {
             
