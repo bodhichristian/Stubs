@@ -63,7 +63,7 @@ struct ProfileView: View {
                     }
                     .padding(.bottom)
                     
-                    // Top Stat View
+                    // Top Venues
                     VStack(alignment: .leading) {
                         Text("Top Venues")
                             .font(.title3)
@@ -78,7 +78,7 @@ struct ProfileView: View {
                                 Text("\(i)")
                                     .fontWeight(.bold)
                                 
-                                Text(DebugData.artists.randomElement()!)
+                                Text(DebugData.venues.randomElement()!.name)
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Text("7 Visits")
@@ -86,14 +86,12 @@ struct ProfileView: View {
                             }
                         }
                     }
+                    .padding(.bottom, 80)
+                    .ignoresSafeArea()
                 }
                 .padding()
-                .padding(.bottom, 100)
-
             }
         }
-        
-        
     }
 }
 
