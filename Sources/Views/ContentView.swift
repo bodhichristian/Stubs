@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var tabSelection: TabBarItem = .stubs
+    @Environment(\.modelContext) var modelContext
+    
+    @Query var concerts: [Concert]
+    @Query var artists: [Artist]
+    
+    @State private var tabSelection: TabBarItem = .profile
     
     var body: some View {
         TabBarContainer(selection: $tabSelection){
@@ -30,7 +36,7 @@ struct ContentView: View {
                     selection: $tabSelection
                 )
             
-            ProfileView()
+            ProfileView(concerts: concerts, artists: artists)
                 .tabBarItem(
                     tab: .profile,
                     selection: $tabSelection

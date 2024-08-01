@@ -95,6 +95,7 @@
 		AAA3B7542A4A0E01002D2215 /* VenueMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3B7532A4A0E01002D2215 /* VenueMapView.swift */; };
 		AAA418472B29DC2400E59B51 /* RapidAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */; };
 		AAA8301F2C5335560073AA02 /* ColorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA8301E2C5335560073AA02 /* ColorExtensionTests.swift */; };
+		AAAB06142C5C459900B49761 /* ProfileStatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAB06132C5C459900B49761 /* ProfileStatLabel.swift */; };
 		AAACA44B2B69217B0078DE2F /* VenueTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAACA44A2B69217B0078DE2F /* VenueTile.swift */; };
 		AAAE3D672BA4BC2400F2BC3E /* ArtistServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */; };
 		AAAE3D732BA6A2B000F2BC3E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAE3D722BA6A2B000F2BC3E /* Keys.swift */; };
@@ -286,6 +287,7 @@
 		AAA418462B29DC2400E59B51 /* RapidAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIKey.swift; sourceTree = "<group>"; };
 		AAA830152C532D610073AA02 /* StubsMacSwiftTesting.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StubsMacSwiftTesting.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA8301E2C5335560073AA02 /* ColorExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensionTests.swift; sourceTree = "<group>"; };
+		AAAB06132C5C459900B49761 /* ProfileStatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatLabel.swift; sourceTree = "<group>"; };
 		AAACA44A2B69217B0078DE2F /* VenueTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTile.swift; sourceTree = "<group>"; };
 		AAAE3D662BA4BC2400F2BC3E /* ArtistServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistServiceTests.swift; sourceTree = "<group>"; };
 		AAAE3D722BA6A2B000F2BC3E /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 			children = (
 				AACBD17D2B5B09710093EAB7 /* OldProfileView.swift */,
 				AA2517F72C5BC55900FD8CB4 /* ProfileView.swift */,
+				AAAB06132C5C459900B49761 /* ProfileStatLabel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 			files = (
 				AAC4D4E22B2FF5A40098D28D /* RelatedStubScrollView.swift in Sources */,
 				AAAE3D732BA6A2B000F2BC3E /* Keys.swift in Sources */,
+				AAAB06142C5C459900B49761 /* ProfileStatLabel.swift in Sources */,
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
 				AA5E74F42B3EFD81005DBD87 /* TabBarItemPreferenceKey.swift in Sources */,
