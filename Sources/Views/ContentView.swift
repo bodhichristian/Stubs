@@ -11,14 +11,14 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     
-    @Query var concerts: [Concert]
-    @Query var artists: [Artist]
+    @Query(sort: \Concert.date) var concerts: [Concert]
+    @Query(sort: \Artist.artistName) var artists: [Artist]
     
     @State private var tabSelection: TabBarItem = .profile
     
     var body: some View {
         TabBarContainer(selection: $tabSelection){
-            StubCollection()
+            StubCollection(concerts: concerts)
                 .tabBarItem(
                     tab: .stubs,
                     selection: $tabSelection

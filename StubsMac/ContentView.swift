@@ -61,6 +61,8 @@ struct ContentView: View {
                 Text("Venues")
             case nil:
                 Text("Select a tab")
+            default:
+                Text("Default")
             }
         } detail: {
             switch selectedTab {
@@ -81,6 +83,8 @@ struct ContentView: View {
                 Text("Venue Detail")
             case nil:
                 Text("Select a tab")
+            default:
+                Text("Default")
             }
         }
         .toolbar {
