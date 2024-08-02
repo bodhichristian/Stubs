@@ -11,12 +11,19 @@ struct ProfileView: View {
     let concerts: [Concert]
     let artists: [Artist]
     
-    var firstArtist: Artist {
-        if let artist = artists.last {
-            return artist
-        } else {
-            return Artist()
+    private var topArtists: [Artist] {
+        let sortedArtists = artists.sorted(by: {$0.concerts?.count ?? 0 > $1.concerts?.count ?? 0})
+        var topArtists: [Artist] = []
+        
+        
+        for i in 0..<3 {
+   // guard the count!
+            
+                topArtists.append(sortedArtists[i])
+            
         }
+        
+        return topArtists
     }
     
     private var venues: [Concert] {
