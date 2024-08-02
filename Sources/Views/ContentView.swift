@@ -16,6 +16,10 @@ struct ContentView: View {
     
     @State private var tabSelection: TabBarItem = .profile
     
+    private var uniqueArtists: [Artist] {
+        Array(Set(artists))
+    }
+    
     var body: some View {
         TabBarContainer(selection: $tabSelection){
             StubCollection(concerts: concerts)
@@ -24,13 +28,13 @@ struct ContentView: View {
                     selection: $tabSelection
                 )
             
-            ArtistsView()
+            ArtistsView(artists: uniqueArtists)
                 .tabBarItem(
                     tab: .artists,
                     selection: $tabSelection
                 )
             
-            VenuesView()
+            VenuesView(concerts: concerts)
                 .tabBarItem(
                     tab: .venues,
                     selection: $tabSelection

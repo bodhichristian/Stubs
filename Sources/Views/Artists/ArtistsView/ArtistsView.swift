@@ -10,13 +10,13 @@ import SwiftData
 import TipKit
 
 struct ArtistsView: View {
+    let artists: [Artist]
+    
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
-    
-    @Query(sort: \Artist.artistName) var artists: [Artist]
-    
+        
     @State private var artistImageWidth: CGFloat = 44
     @State private var listView = true
     @State private var searchPrompt = "Search Artists"
@@ -25,16 +25,12 @@ struct ArtistsView: View {
     
     private let viewOptionsTip = ArtistsViewOptionsTip()
     private let artistsViewOptionsTip = ArtistsViewOptionsTip()
-    
-    private var uniqueArtists: [Artist] {
-        Array(Set(artists))
-    }
-    
+        
     private var filteredArtists: [Artist] {
         if searchText.isEmpty {
-            return uniqueArtists
+            return artists
         } else {
-            return uniqueArtists.filter { artist in
+            return artists.filter { artist in
                 if let artistName = artist.artistName {
                     return artistName.lowercased().contains(searchText.lowercased())
                 } else {

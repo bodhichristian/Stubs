@@ -11,7 +11,7 @@ import SwiftData
 struct StubEditor: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
-    @Query var artists: [Artist]
+
     @State private var concertService = ConcertService()
     @State private var isSaving = false
     
@@ -62,10 +62,11 @@ struct StubEditor: View {
     
     private func saveConcert() async throws {
         do {
-            if let savedArtist = artists.first(where: {
-                $0.artistName == concertService.template.artistName
-            }) {
-                try await concertService.buildConcert(with: savedArtist)
+            let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == concertService.template.artistName })
+            let existingArtists = try modelContext.fetch(descriptor)
+            
+            if let existingArtist = existingArtists.first {
+                try await concertService.buildConcert(with: existingArtist)
             } else {
                 try await concertService.buildConcert()
             }

@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct VenuesView: View {
+    let concerts: [Concert]
+    
     @Namespace var namespace
-    @Query var concerts: [Concert]
     
     @State private var searchText = ""
     @State private var showingAllVenues = true
