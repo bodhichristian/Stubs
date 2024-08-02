@@ -10,11 +10,12 @@ import SwiftData
 import TipKit
 
 struct StubCollection: View {
+    let concerts: [Concert]
+
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     @Namespace var namespace
-    @Query private var artists: [Artist]
-    @Query(sort: \Concert.date) private var concerts: [Concert]
+    
     @State private var concertService = ConcertService()
     @State private var filteringFavorites = false
     @State private var isAddingConcert = false

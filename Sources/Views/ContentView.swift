@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var tabSelection: TabBarItem = .stubs
+    @Environment(\.modelContext) var modelContext
+    
+    @Query(sort: \Concert.date) var concerts: [Concert]
+    @Query(sort: \Artist.artistName) var artists: [Artist]
+    
+    @State private var tabSelection: TabBarItem = .profile
     
     var body: some View {
         TabBarContainer(selection: $tabSelection){
-            StubCollection()
+            StubCollection(concerts: concerts)
                 .tabBarItem(
                     tab: .stubs,
                     selection: $tabSelection
@@ -27,6 +33,12 @@ struct ContentView: View {
             VenuesView()
                 .tabBarItem(
                     tab: .venues,
+                    selection: $tabSelection
+                )
+            
+            ProfileView(concerts: concerts, artists: artists)
+                .tabBarItem(
+                    tab: .profile,
                     selection: $tabSelection
                 )
         }

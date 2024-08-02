@@ -45,7 +45,7 @@ struct ArtistGridView: View {
                         )
                     }
                 }
-                .frame(minHeight: 150)
+                .frame(minHeight: 100)
                 .buttonStyle(PlainButtonStyle())
             }
         }

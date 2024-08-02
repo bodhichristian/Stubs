@@ -2,156 +2,145 @@
 //  ProfileView.swift
 //  Stubs
 //
-//  Created by christian on 1/19/24.
+//  Created by christian on 8/1/24.
 //
 
 import SwiftUI
-import PhotosUI
 
 struct ProfileView: View {
-    @Environment(\.colorScheme) var colorScheme
+    let concerts: [Concert]
+    let artists: [Artist]
     
-    @State private var imageSelection: PhotosPickerItem?
-    @State private var imageData: Data?
-    @State private var selectedImage: UIImage?
-    
-    private let columns = [
-        GridItem(.adaptive(minimum: 120))
-    ]
-    
-    private var tileBackgroundColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.2)
+    var firstArtist: Artist {
+        if let artist = artists.last {
+            return artist
         } else {
-            return Color(white: 0.95)
+            return Artist()
         }
     }
     
-    private var shadowColor: Color {
-        if colorScheme == .dark {
-            return Color(white: 0.9)
-        } else {
-            return .secondary
+    private var venues: [Concert] {
+        var uniqueVenues = Set<String>()
+        
+        return concerts.filter { concert in
+            if !uniqueVenues.contains(concert.venue) {
+                uniqueVenues.insert(concert.venue)
+                return true
+            }
+            return false
         }
     }
     
     var body: some View {
         NavigationStack {
-            GeometryReader { geo in
-                VStack {
-                    
-                    // Profile Ticket Stub
-                    ZStack{
-                        // Base Layer
-                        StubShape()
-                            .foregroundStyle(.ultraThinMaterial)
-                            .shadow(color: .secondary, radius: 5)
-                        
-                        StubShape()
-                            .foregroundStyle(StubStyle.gradientOverlay)
-                        
-                        
-                        // Veritcal Lines
-                        HStack {
-                            VerticalLineBoundary()
-                            VStack(alignment: .leading) {
-                                Text("Username")
-                                    .font(.largeTitle)
-                                    .fontWeight(.semibold)
-                                
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("User since Jan 2024")
-                                            .foregroundStyle(.secondary)
-                                        Text("Favorite Venue")
-                                        Spacer()
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    VStack {
-                                        Spacer()
-                                        
-                                        Circle()
-                                            .frame(width: geo.size.width / 4)
-                                            .overlay(alignment: .bottomTrailing) {
-                                                
-                                                if let selectedImage = selectedImage {
-                                                    Image(uiImage: selectedImage)
-                                                        .resizable()
-                                                        .scaledToFill()
-                                                        .clipShape(Circle())
-                                                        .frame(width: geo.size.width / 4)
-                                                }
-                                                
-                                                
-                                                PhotosPicker(selection: $imageSelection,
-                                                             matching: .images,
-                                                             photoLibrary: .shared()) {
-                                                    Image(systemName: "camera.circle.fill")
-                                                        .symbolRenderingMode(.multicolor)
-                                                        .font(.system(size: 30))
-                                                        .foregroundColor(.purple.opacity(0.8))
-                                                }
-                                                             .onChange(of: imageSelection) { _, newItem in
-                                                                 // When a new item is selected, load the image
-                                                                 guard let newItem = newItem else { return }
-                                                                 Task {
-                                                                     if let data = try? await newItem.loadTransferable(type: Data.self) {
-                                                                         imageData = data
-                                                                         selectedImage = UIImage(data: data)
-                                                                     }
-                                                                 }
-                                                             }
-                                                             .buttonStyle(.borderless)
-                                            }
-                                        
-                                    }
-                                }
-                            }
-                            .padding(.horizontal, 10)
-                            Spacer()
-                            
-                            
-                            
-                            VerticalLineBoundary()
-                        }
-                        .frame(width: geo.size.width * 0.78)
-                        .padding(.vertical, 30)
-                        
-                        
-                    }
-                    .frame(maxHeight: geo.size.height / 3)
-                    .padding()
-                    
-                    Spacer()
-                    ScrollView {
-                        
-                        // LazyVGrid with bento box stats
-                        LazyVGrid(columns: columns) {
-                            ForEach(0..<9) { _ in
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(tileBackgroundColor)
-                                    .shadow(color: shadowColor, radius: 2)
-                                    .frame(height: 120)
-                            }
-                        }
-                        .padding()
+            VStack {
+                ScrollView {
 
+                    VStack {
+                        // Top Stats
+                        ZStack  {
+                            LinearGradient(colors: [.orange, .brown, .green, .blue, .yellow, .red, .orange, .brown, .green, .yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
+                                .clipShape(StubShape())
+                            
+                            StubShape()
+                                .foregroundStyle(.thinMaterial)
+                            
+                            HStack  {
+                                VerticalLineBoundary()
+                                    .padding(.leading, 20)
+                                
+                                ProfileStatLabel(number: concerts.count, label: "Concerts")
+                                ProfileStatLabel(number: artists.count, label: "Artists")
+                                ProfileStatLabel(number: venues.count, label: "Venues")
+                                
+                                VerticalLineBoundary()
+                                    .padding(.trailing, 20)
+                            }
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            
+                        }
+                        .frame(height: 200)
+                        .padding(.horizontal, 2)
+                        .padding(.vertical)
+                        
+                        Text("Top Artists")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        ForEach(0..<3){ i in
+                            HStack {
+                                Circle()
+                                    .frame(width: 44)
+                                
+                                Text("\(i + 1)")
+                                    .fontWeight(.bold)
+                                
+                                Text(DebugData.artists.randomElement()!)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                Text("\(i + 4) Stubs")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
                     }
+                    .padding(.bottom)
+                    
+                    // Top Venues
+                    VStack(alignment: .leading) {
+                        Text("Top Venues")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        ForEach(0..<3){ i in
+                            HStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(width: 44, height: 44)
+                                
+                                Text("\(i + 1)")
+                                    .fontWeight(.bold)
+                                
+                                Text(DebugData.venues.randomElement()!.name)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                Text("7 Visits")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 80)
+                    .ignoresSafeArea()
                 }
-                
+                .padding(.horizontal)
             }
-            .navigationTitle("Profile")
+            .navigationTitle("Christian")
             .toolbar {
                 ToolbarItem {
                     Button {
-                        // open settings
+                        // Open Settings
                     } label: {
-                        Label("Settings", systemImage: "gear")
+                        ToolbarButtonLabel(text: "Settings", symbol: "gear")
+                        
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
     }
 }
+
+#Preview {
+    
+    TabBarContainer(selection: .constant(TabBarItem.profile)){
+        NavigationStack {
+            ProfileView(concerts: [Concert](), artists: [Artist]())
+                .navigationTitle("Christian")
+        }
+    }
+}
+
+
+
+
