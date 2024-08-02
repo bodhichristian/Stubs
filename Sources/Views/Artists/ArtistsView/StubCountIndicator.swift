@@ -12,7 +12,6 @@ struct StubCountIndicator: View {
     let artist: Artist
     
     @Environment(\.colorScheme) var colorScheme
-    @Query var concerts: [Concert]
 
     private var stubCount: Int {
         artist.concerts?.count ?? 1
