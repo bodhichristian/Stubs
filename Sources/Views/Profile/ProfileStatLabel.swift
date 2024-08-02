@@ -16,8 +16,8 @@ struct ProfileStatLabel: View {
             Text("\(number)")
                 .font(.system(size: 48))
                 .fontWeight(.black)
-                .foregroundStyle(.white.gradient)
-                .shadow(color: .black.opacity(0.3), radius: 3)
+                //.foregroundStyle(.white.gradient)
+                //.shadow(color: .black.opacity(0.3), radius: 3)
             Text("\(label)")
                 .fontWeight(.semibold)
         }

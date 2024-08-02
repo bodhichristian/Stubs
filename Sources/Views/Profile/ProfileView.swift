@@ -40,9 +40,9 @@ struct ProfileView: View {
                         // Top Stats
                         ZStack  {
                             LinearGradient(colors: [.orange, .brown, .green, .blue, .yellow, .red, .orange, .brown, .green, .yellow, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                .clipShape(StubShape())
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             
-                            StubShape()
+                            TileBase()
                                 .foregroundStyle(.thinMaterial)
                             
                             HStack  {
