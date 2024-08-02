@@ -61,25 +61,25 @@ struct StubEditor: View {
     }
     
     private func saveConcert() async throws {
-        do {
-            let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == concertService.template.artistName })
-            let existingArtists = try modelContext.fetch(descriptor)
-            
-            if let existingArtist = existingArtists.first {
-                try await concertService.buildConcert(with: existingArtist)
-            } else {
-                try await concertService.buildConcert()
-            }
-            
-            modelContext.insert(concertService.template)
-            try? modelContext.save()
-            isSaving = false
-            
-            addConcertTip.invalidate(reason: .actionPerformed)
-            dismiss()
-        } catch {
-            throw SaveError.failedToSaveConcert
-        }
+//        do {
+//            let descriptor = FetchDescriptor<Artist>(predicate: #Predicate { $0.artistName == concertService.template.artistName })
+//            let existingArtists = try modelContext.fetch(descriptor)
+//            
+//            if let existingArtist = existingArtists.first {
+//                try await concertService.buildConcert(with: existingArtist)
+//            } else {
+//                try await concertService.buildConcert()
+//            }
+//            
+//            modelContext.insert(concertService.template)
+//            try? modelContext.save()
+//            isSaving = false
+//            
+//            addConcertTip.invalidate(reason: .actionPerformed)
+//            dismiss()
+//        } catch {
+//            throw SaveError.failedToSaveConcert
+//        }
     }
 }
 

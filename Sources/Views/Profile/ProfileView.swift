@@ -49,7 +49,7 @@ struct ProfileView: View {
                                 VerticalLineBoundary()
                                     .padding(.leading, 20)
                                 
-                                ProfileStatLabel(number: concerts.count, label: "Concerts")
+                                ProfileStatLabel(number: concerts.count, label: "Stubs")
                                 ProfileStatLabel(number: artists.count, label: "Artists")
                                 ProfileStatLabel(number: venues.count, label: "Venues")
                                 
@@ -60,7 +60,7 @@ struct ProfileView: View {
                             .frame(maxWidth: .infinity)
                             
                         }
-                        .frame(height: 200)
+                        .frame(height: 160)
                         .padding(.horizontal, 2)
                         .padding(.vertical)
                         
