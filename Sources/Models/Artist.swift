@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Artist: Codable, Hashable {
+class Artist: Codable, Hashable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case artistID = "idArtist"
         case artistName = "strArtist"

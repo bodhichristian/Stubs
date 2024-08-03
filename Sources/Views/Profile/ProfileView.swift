@@ -13,17 +13,8 @@ struct ProfileView: View {
     
     private var topArtists: [Artist] {
         let sortedArtists = artists.sorted(by: {$0.concerts?.count ?? 0 > $1.concerts?.count ?? 0})
-        var topArtists: [Artist] = []
         
-        
-        for i in 0..<3 {
-   // guard the count!
-            
-                topArtists.append(sortedArtists[i])
-            
-        }
-        
-        return topArtists
+        return Array(sortedArtists.prefix(3))
     }
     
     private var venues: [Concert] {
@@ -71,28 +62,8 @@ struct ProfileView: View {
                         .padding(.horizontal, 2)
                         .padding(.vertical)
                         
-                        Text("Top Artists")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        ForEach(0..<3){ i in
-                            HStack {
-                                Circle()
-                                    .frame(width: 44)
-                                
-                                Text("\(i + 1)")
-                                    .fontWeight(.bold)
-                                
-                                Text(DebugData.artists.randomElement()!)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                Text("\(i + 4) Stubs")
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+                        TopArtistsView(artists: topArtists)
                     }
-                    .padding(.bottom)
                     
                     // Top Venues
                     VStack(alignment: .leading) {

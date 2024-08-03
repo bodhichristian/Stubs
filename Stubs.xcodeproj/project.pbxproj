@@ -71,6 +71,7 @@
 		AA81E9E12C34E7690077812E /* ArtistServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA745AA22BB09D5200618EBE /* ArtistServiceError.swift */; };
 		AA81E9E22C34E7690077812E /* ConcertServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97CF322BB1CDA8000A2725 /* ConcertServiceError.swift */; };
 		AA81E9E32C34E7690077812E /* MapKitServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADD102F2BB3269700E2DE4B /* MapKitServiceError.swift */; };
+		AA8501BA2C5EAE1400851349 /* TopArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8501B92C5EAE1300851349 /* TopArtistsView.swift */; };
 		AA87B0DB2B48F6530071DB44 /* ArtistDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */; platformFilter = ios; };
 		AA87B0DD2B4A24D20071DB44 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B0DC2B4A24D20071DB44 /* Artist.swift */; };
 		AA8A746C2A32BDF3003E9B41 /* StubsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A746B2A32BDF3003E9B41 /* StubsApp.swift */; };
@@ -264,6 +265,7 @@
 		AA7B22952B86F7A80017B3F0 /* StatViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewLabel.swift; sourceTree = "<group>"; };
 		AA7C57ED2B249B7B006843C4 /* StubShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubShape.swift; sourceTree = "<group>"; };
 		AA81E9D72C34E5540077812E /* StubDetailViewMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDetailViewMac.swift; sourceTree = "<group>"; };
+		AA8501B92C5EAE1300851349 /* TopArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistsView.swift; sourceTree = "<group>"; };
 		AA87B0DA2B48F6530071DB44 /* ArtistDetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailBannerView.swift; sourceTree = "<group>"; };
 		AA87B0DC2B4A24D20071DB44 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		AA8A74682A32BDF3003E9B41 /* Stubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -697,6 +699,7 @@
 			children = (
 				AACBD17D2B5B09710093EAB7 /* OldProfileView.swift */,
 				AA2517F72C5BC55900FD8CB4 /* ProfileView.swift */,
+				AA8501B92C5EAE1300851349 /* TopArtistsView.swift */,
 				AAAB06132C5C459900B49761 /* ProfileStatLabel.swift */,
 			);
 			path = Profile;
@@ -1052,6 +1055,7 @@
 			files = (
 				AAC4D4E22B2FF5A40098D28D /* RelatedStubScrollView.swift in Sources */,
 				AAAE3D732BA6A2B000F2BC3E /* Keys.swift in Sources */,
+				AA8501BA2C5EAE1400851349 /* TopArtistsView.swift in Sources */,
 				AAAB06142C5C459900B49761 /* ProfileStatLabel.swift in Sources */,
 				AA8A746E2A32BDF3003E9B41 /* StubCollection.swift in Sources */,
 				AA8A74822A32C912003E9B41 /* Extension-Color.swift in Sources */,
