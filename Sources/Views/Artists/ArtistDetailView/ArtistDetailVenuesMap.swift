@@ -26,8 +26,8 @@ struct ArtistDetailVenuesMap: View {
         var uniqueVenues = Set<String>()
         
         return concerts.filter { concert in
-            if !uniqueVenues.contains(concert.venue) {
-                uniqueVenues.insert(concert.venue)
+            if !uniqueVenues.contains(concert.venueName) {
+                uniqueVenues.insert(concert.venueName)
                 return true
             }
             return false
@@ -39,10 +39,10 @@ struct ArtistDetailVenuesMap: View {
             Map(position: $position) {
                 ForEach(concerts, id: \.uuid) { concert in
                     Marker(
-                        concert.venue,
+                        concert.venueName,
                         coordinate: CLLocationCoordinate2D(
-                            latitude: concert.venueLatitude,
-                            longitude: concert.venueLongitude
+                            latitude: concert.venue?.latitude ?? 0.0,
+                            longitude: concert.venue?.longitude ?? 0.0
                         )
                     )
                 }
@@ -56,7 +56,7 @@ struct ArtistDetailVenuesMap: View {
             .frame(height: sizeClass == .compact ? 270 : 380)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .onAppear {
-                updateMapPosition(latitude: displayStub.venueLatitude, longitude: displayStub.venueLongitude)
+                updateMapPosition(latitude: displayStub.venue?.latitude ?? 0.0, longitude: displayStub.venue?.longitude ?? 0.0)
             }
             
             ScrollView(.horizontal) {
@@ -89,7 +89,7 @@ struct ArtistDetailVenuesMap: View {
                         ArtistStubsLabel(concert: concert)
                             .onTapGesture {
                                 withAnimation(.easeInOut){
-                                    updateMapPosition(latitude: concert.venueLatitude, longitude: concert.venueLongitude)
+                                    updateMapPosition(latitude: concert.venue?.latitude ?? 0.0, longitude: concert.venue?.longitude ?? 0.0)
                                 }
                             }
                     }

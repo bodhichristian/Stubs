@@ -18,7 +18,7 @@ final class ConcertTests: XCTestCase {
         XCTAssertNotNil(concert.uuid)
         XCTAssertNotNil(concert.date)
         XCTAssertTrue(concert.artistName.isEmpty)
-        XCTAssertTrue(concert.venue.isEmpty)
+        XCTAssertTrue(concert.venueName.isEmpty)
         XCTAssertTrue(concert.city.isEmpty)
         XCTAssertTrue(concert.notes.isEmpty)
         XCTAssertFalse(concert.iconName.isEmpty)
@@ -57,7 +57,7 @@ final class ConcertTests: XCTestCase {
         XCTAssertFalse(concert.isFavorite)
         
         concert.artistName = artistName
-        concert.venue = venue
+        concert.venueName = venue
         concert.city = city
         concert.date = date
         concert.iconName = iconName
@@ -69,7 +69,7 @@ final class ConcertTests: XCTestCase {
         
         // assert
         XCTAssertEqual(concert.artistName, artistName)
-        XCTAssertEqual(concert.venue, venue)
+        XCTAssertEqual(concert.venueName, venue)
         XCTAssertEqual(concert.city, city)
         XCTAssertEqual(concert.date, date)
         XCTAssertEqual(concert.iconName, iconName)

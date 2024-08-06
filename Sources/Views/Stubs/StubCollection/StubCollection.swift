@@ -115,9 +115,9 @@ struct StubCollection: View {
             .tint(.primary)
         }
         //         Clear SwiftData store
-        //                    .onAppear {
-        //                        modelContext.container.deleteAllData()
-        //                    }
+//                            .onAppear {
+//                                modelContext.container.deleteAllData()
+//                            }
     }
     
 }
@@ -162,7 +162,7 @@ extension StubCollection {
             // Search filter
             return concerts.filter { concert in
                 return concert.artistName.lowercased().contains(searchText.lowercased()) ||
-                concert.venue.lowercased().contains(searchText.lowercased()) ||
+                concert.venueName.lowercased().contains(searchText.lowercased()) ||
                 concert.city.lowercased().contains(searchText.lowercased()) ||
                 concert.date.formatted().contains(searchText)
             }

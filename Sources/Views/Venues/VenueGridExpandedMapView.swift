@@ -42,8 +42,8 @@ struct VenueGridExpandedMapView: View {
             .onAppear {
                 withAnimation(.easeInOut(duration: 5.0)){
                     updateMapPosition(
-                        latitude: concert.venueLatitude,
-                        longitude: concert.venueLongitude
+                        latitude: concert.venue?.latitude ?? 0.0,
+                        longitude: concert.venue?.longitude ?? 0.0
                     )
                 }
             }

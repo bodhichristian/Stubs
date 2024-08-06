@@ -10,16 +10,40 @@ import SwiftData
 import MapKit
 
 @Model
-class Venue {
+class Venue: Identifiable, Codable {
     var id: UUID
     var name: String
-    var coordinates: CLLocationCoordinate2D
+    var latitude: Double
+    var longitude: Double
     
     var concerts: [Concert]?
     
     init(name: String, coordinates: CLLocationCoordinate2D) {
         self.id = UUID()
         self.name = name
-        self.coordinates = coordinates
+        self.latitude = coordinates.latitude
+        self.longitude = coordinates.longitude
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id, name, latitude, longitude
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        latitude = try container.decode(Double.self, forKey: .latitude)
+        longitude = try container.decode(Double.self, forKey: .longitude)
+       
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
+
     }
 }

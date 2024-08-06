@@ -16,9 +16,9 @@ class MapKitService {
     
     func getCoordinates(
         for concert: Concert
-    ) async throws -> (Double, Double) {
+    ) async throws -> CLLocationCoordinate2D {
         let request = MKLocalSearch.Request()
-        let query = concert.venue + " venue " + concert.city
+        let query = concert.venueName + " venue " + concert.city
         
         request.naturalLanguageQuery = query
         request.resultTypes = .pointOfInterest
@@ -31,18 +31,20 @@ class MapKitService {
             throw MapKitServiceError.failedToFetchCoordinates
         }
         
-        return (coordinates.latitude, coordinates.longitude)
+        let location = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        
+        return location
     }
     
     func getMapSnapshot(
-        for coordinates: (Double, Double)
+        for coordinates: CLLocationCoordinate2D
     ) async throws -> Data?  {
         let options = MKMapSnapshotter.Options()
         
         options.camera = MKMapCamera(
             lookingAtCenter: CLLocationCoordinate2D(
-                latitude: coordinates.0,
-                longitude: coordinates.1
+                latitude: coordinates.latitude,
+                longitude: coordinates.longitude
             ),
             fromDistance: 400,
             pitch: 70,
@@ -52,8 +54,8 @@ class MapKitService {
         options.size = CGSize(width: 360, height: 150)
         options.region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(
-                latitude: coordinates.0,
-                longitude: coordinates.1
+                latitude: coordinates.latitude,
+                longitude: coordinates.longitude
             ),
             latitudinalMeters: 200,
             longitudinalMeters: 200

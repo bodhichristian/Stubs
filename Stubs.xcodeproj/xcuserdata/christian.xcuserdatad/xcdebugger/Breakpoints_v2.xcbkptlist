@@ -3,4 +3,52 @@
    uuid = "52AB0142-DB1C-4EC7-8A84-65F3C737035D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8897515C-1603-4025-8777-1C53BD600E69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/Services/MapKitService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getCoordinates(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8897515C-1603-4025-8777-1C53BD600E69 - b00d11ddeb2db976"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Stubs.MapKitService.getCoordinates(for: Stubs.Concert) async throws -&gt; __C.CLLocationCoordinate2D"
+                  moduleName = "Stubs.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christian/Documents/GitHub/Stubs/Sources/Services/MapKitService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29">
+               </Location>
+               <Location
+                  uuid = "8897515C-1603-4025-8777-1C53BD600E69 - dd2db241c7dd5977"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Stubs.MapKitService.getCoordinates(for: Stubs.Concert) async throws -&gt; __C.CLLocationCoordinate2D"
+                  moduleName = "Stubs.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/christian/Documents/GitHub/Stubs/Sources/Services/MapKitService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

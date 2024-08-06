@@ -56,7 +56,7 @@ struct StubEditorStubPreview: View {
                             .fontWeight(.bold)
                             .foregroundStyle(.primary)
                         // Venue Details
-                        Text(concert.venue)
+                        Text(concert.venueName)
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)

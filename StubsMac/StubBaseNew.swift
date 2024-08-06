@@ -30,7 +30,7 @@ struct StubBaseNew: View {
                         .font(.largeTitle)
                         .lineSpacing(1)
                     
-                    Text(concert.venue)
+                    Text(concert.venueName)
                         .font(.headline)
                     
                     Text(concert.city)

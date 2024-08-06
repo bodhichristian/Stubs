@@ -22,8 +22,8 @@ struct VenuesView: View {
         var uniqueVenues = Set<String>()
         
         return concerts.filter { concert in
-            if !uniqueVenues.contains(concert.venue) {
-                uniqueVenues.insert(concert.venue)
+            if !uniqueVenues.contains(concert.venueName) {
+                uniqueVenues.insert(concert.venueName)
                 return true
             }
             return false
@@ -35,7 +35,7 @@ struct VenuesView: View {
             return venues
         } else {
             return venues.filter {
-                $0.venue.lowercased().contains(searchText.lowercased())
+                $0.venueName.lowercased().contains(searchText.lowercased())
             }
         }
     }
@@ -44,7 +44,7 @@ struct VenuesView: View {
         switch sortOrder {
         case .byNameDescending:
             return filteredVenues.sorted {
-                $0.venue > $1.venue
+                $0.venueName > $1.venueName
             }
 
         case .byCityAscending:
@@ -57,7 +57,7 @@ struct VenuesView: View {
             }
         default:
             return filteredVenues.sorted {
-                $0.venue < $1.venue
+                $0.venueName < $1.venueName
             }
         }
         
@@ -73,7 +73,7 @@ struct VenuesView: View {
                 if showingAllVenues {
                     ScrollView {
                         VStack {
-                            ForEach(sortedVenues, id: \.venue) { concert in
+                            ForEach(sortedVenues, id: \.venueName) { concert in
                                 VenueTile(
                                     concert: concert,
                                     listView: .constant(true)

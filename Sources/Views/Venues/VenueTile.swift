@@ -25,7 +25,7 @@ struct VenueTile: View {
             TileBase()
             
             VStack(alignment: .leading) {
-                Text(concert.venue)
+                Text(concert.venueName)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .lineLimit(2)

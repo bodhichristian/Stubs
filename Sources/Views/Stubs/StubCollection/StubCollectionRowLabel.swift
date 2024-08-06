@@ -29,7 +29,7 @@ struct StubCollectionRowLabel: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                 
-                Text(concert.venue)
+                Text(concert.venueName)
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundStyle(.secondary)

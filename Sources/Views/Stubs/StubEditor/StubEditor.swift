@@ -19,7 +19,7 @@ struct StubEditor: View {
     
     private var saveReady: Bool {
         !concertService.template.artistName.isEmpty
-        && !concertService.template.venue.isEmpty
+        && !concertService.template.venueName.isEmpty
         && !concertService.template.city.isEmpty
     }
     

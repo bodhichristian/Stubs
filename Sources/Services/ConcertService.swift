@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 @Observable
 class ConcertService {
@@ -33,9 +34,9 @@ class ConcertService {
         
         sampleConcert.artistName = DebugData.artists.randomElement()!
         sampleConcert.city = venue.city
-        sampleConcert.venue = venue.name
-        sampleConcert.venueLatitude = venue.latitude
-        sampleConcert.venueLongitude = venue.longitude
+        sampleConcert.venueName = venue.name
+        sampleConcert.venue?.latitude = venue.latitude
+        sampleConcert.venue?.longitude = venue.longitude
         sampleConcert.accentColor = StubStyle.colors.randomElement()!
         sampleConcert.iconName = StubStyle.icons.randomElement()!
         sampleConcert.notes = DebugData.notes.randomElement()!
@@ -58,9 +59,11 @@ class ConcertService {
             sampleConcert.artist = artistService.fetchedArtist
         }
         #if os(iOS)
-        sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot(
-            for: (sampleConcert.venueLatitude, sampleConcert.venueLongitude)
-        )
+        if let venue = sampleConcert.venue {
+            sampleConcert.mapSnapshotData = try await mapKitService.getMapSnapshot(
+                for: CLLocationCoordinate2D(latitude: venue.latitude, longitude: venue.longitude)
+            )
+        }
         #endif
         return sampleConcert
     }
@@ -76,17 +79,22 @@ class ConcertService {
     
     private func getVenueCoordinates() async throws {
         #if os(iOS)
-        let coordinates = try await mapKitService.getCoordinates(for: template)
-        template.venueLatitude = coordinates.0
-        template.venueLatitude = coordinates.1
+        if let venue = template.venue {
+            let coordinates = try await mapKitService.getCoordinates(for: template)
+            venue.latitude = coordinates.latitude
+            venue.latitude = coordinates.longitude
+        }
         #endif
+
     }
     
     private func getMapSnapshotData() async throws {
         #if os(iOS)
-        template.mapSnapshotData = try await mapKitService.getMapSnapshot(
-            for: (template.venueLatitude, template.venueLongitude)
-        )
+        if let venue = template.venue {
+            template.mapSnapshotData = try await mapKitService.getMapSnapshot(
+                for: CLLocationCoordinate2D(latitude: venue.latitude, longitude: venue.longitude)
+            )
+        }
         #endif
     }
 }

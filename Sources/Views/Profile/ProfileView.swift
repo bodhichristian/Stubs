@@ -21,13 +21,24 @@ struct ProfileView: View {
         var uniqueVenues = Set<String>()
         
         return concerts.filter { concert in
-            if !uniqueVenues.contains(concert.venue) {
-                uniqueVenues.insert(concert.venue)
+            if !uniqueVenues.contains(concert.venueName) {
+                uniqueVenues.insert(concert.venueName)
                 return true
             }
             return false
         }
     }
+    
+//    private var topVenues: [(Venue, Int)] {
+//        var rankedVenues = [(Venue, Int)]()
+//        
+//        for concert in concerts {
+//            if rankedVenues.contains(where: {$0.0.name == concert.venueName}) {
+//                rankedVenues.first(where: {$0.0.name == concert.venue})!.1 += 1
+//            }
+//        }
+//        
+//    }
     
     var body: some View {
         NavigationStack {
@@ -66,28 +77,7 @@ struct ProfileView: View {
                     }
                     
                     // Top Venues
-                    VStack(alignment: .leading) {
-                        Text("Top Venues")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        ForEach(0..<3){ i in
-                            HStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 44, height: 44)
-                                
-                                Text("\(i + 1)")
-                                    .fontWeight(.bold)
-                                
-                                Text(DebugData.venues.randomElement()!.name)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                Text("7 Visits")
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
+                    TopVenuesView(venues: [Venue]())
                     .padding(.bottom, 80)
                     .ignoresSafeArea()
                 }

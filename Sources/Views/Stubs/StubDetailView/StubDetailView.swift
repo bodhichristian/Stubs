@@ -60,7 +60,7 @@ struct StubDetailView: View {
         }
         
         
-        .navigationTitle("\(concert.artistName) | \(concert.venue)" )
+        .navigationTitle("\(concert.artistName) | \(concert.venueName)" )
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
         

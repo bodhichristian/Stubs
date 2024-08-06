@@ -22,13 +22,13 @@ struct VenueMapView: View {
     private let defaultCoordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     
     private var query: String { // Creates the location query
-        return concert.venue + " venue " + concert.city
+        return concert.venueName + " venue " + concert.city
     }
     
     private var venueCoordinates: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(
-            latitude: concert.venueLatitude,
-            longitude: concert.venueLongitude
+            latitude: concert.venue?.latitude ?? 0.0,
+            longitude: concert.venue?.longitude ?? 0.0
         )
     }
     
@@ -38,7 +38,7 @@ struct VenueMapView: View {
                 // Apple Maps base
                 Map(position: $position, selection: $location) {
                     // Default Map Marker
-                    Marker(concert.venue, coordinate: venueCoordinates)
+                    Marker(concert.venueName, coordinate: venueCoordinates)
                 }
                 .mapStyle(
                     .imagery(
@@ -65,13 +65,13 @@ struct VenueMapView: View {
                 }
             }
             .onAppear {
-                location = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: concert.venueLatitude, longitude: concert.venueLongitude)))
+                location = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: concert.venue?.latitude ?? 0.0, longitude: concert.venue?.longitude ?? 0.0)))
                 
                 position = .camera(
                     MapCamera(
                         centerCoordinate: CLLocationCoordinate2D(
-                            latitude: concert.venueLatitude,
-                            longitude: concert.venueLongitude
+                            latitude: concert.venue?.latitude ?? 0.0,
+                            longitude: concert.venue?.longitude ?? 0.0
                         ),
                         
                         distance: 1200,

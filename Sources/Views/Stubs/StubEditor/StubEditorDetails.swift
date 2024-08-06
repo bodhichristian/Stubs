@@ -27,15 +27,15 @@ struct StubEditorDetails: View {
             }
             
             HStack {
-                TextField("Venue", text: $concert.venue)
+                TextField("Venue", text: $concert.venueName)
                     
                 Image(
-                    systemName: concert.venue.isEmpty
+                    systemName: concert.venueName.isEmpty
                       ? "mappin.circle"
                       : "mappin.circle.fill"
                 )
                     .foregroundStyle(
-                        concert.venue.isEmpty
+                        concert.venueName.isEmpty
                         ? .gray
                         : .green
                 )

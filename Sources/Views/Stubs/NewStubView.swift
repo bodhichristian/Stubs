@@ -31,7 +31,7 @@ struct NewStubView: View {
                         .font(.title2)
                         .lineSpacing(1)
                     
-                    Text(concert.venue)
+                    Text(concert.venueName)
                         .font(.headline)
                     
                     Text(concert.city)
