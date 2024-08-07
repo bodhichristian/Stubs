@@ -53,7 +53,7 @@ final class Concert: Codable {
         self.accentColor = accentColor
         self.notes = notes
         self.isFavorite = isFavorite
-        self.venue = Venue(name: venueName, coordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
+        self.venue = Venue(name: venueName, city: city, coordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
         self.artist = artist
     }
     

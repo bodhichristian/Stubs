@@ -7,34 +7,35 @@
 
 import Foundation
 import SwiftData
+import MapKit
 
 let calendar = Calendar.current
 
 struct DebugData {
     static let artists = ["Adele", "Beyoncé", "Green Day", "Metallica", "Kendrick Lamar", "Fall Out Boy",  "John Mayer", "Paramore", "Red Hot Chili Peppers", "My Chemical Romance", "Coheed & Cambria", "Circa Survive", "Thrice", "Eminem", "Madonna", "Bruno Mars" ,"The Weeknd", "Ariana Grande","Billie Eilish", "A Day to Remember", "AC/DC", "Dua Lipa" ,"Travis Scott", "Taking Back Sunday", "Deftones", "Bad Bunny", "Harry Styles", "Lana Del Rey" ,"Sia", "Yellowcard", "Khalid", "Sam Smith", "Tame Impala", "Avenged Sevenfold", "Incubus", "Linkin Park", "Explosions in the Sky", "System of a Down"]
     
-    static let venues: [(name: String, city: String, latitude: Double, longitude: Double)] = [
-        ("Madison Square Garden", "New York", 40.7505, -73.9934),
-        ("The O2 Arena", "London", 51.5033, 0.0032),
-        ("Sydney Opera House", "Sydney", -33.8568, 151.2153),
-        ("Red Rocks Amphitheatre", "Denver", 39.6654, -105.2057),
-        ("Wembley Stadium", "London", 51.556, -0.2795),
-        ("Hollywood Bowl", "Los Angeles", 34.1122, -118.3391),
-        ("AT&T Stadium", "Arlington", 32.7473, -97.0945),
-        ("Barclays", "Brooklyn", 40.6829, -73.9752),
-        ("The Moody Theatre", "Austin", 30.2652, -97.7470),
-        ("Tokyo Dome", "Tokyo", 35.6251, 139.7752),
-        ("NRG Stadium", "Houston", 29.6847, -95.4107),
-        ("The Forum", "Inglewood", 33.9581, -118.3417),
-        ("The Gorge Amphitheatre", "George", 47.6133, -122.3315),
-        ("Paramount Theatre", "Seattle", 47.6133, -122.3315),
-        ("Ryman Auditorium", "Nashville", 36.1616, -86.7782),
-        ("The Fillmore", "San Francisco", 37.7840, -122.4333),
-        ("The Tabernacle", "Atlanta", 33.7580, -84.3915),
-        ("House of Blues", "Chicago", 41.8884, -87.6265),
-        ("The Bowery Ballroom", "New York", 40.7209, -73.9938),
-        ("First Avenue", "Minneapolis", 44.9784, -93.2760),
-        ("The Orpheum Theatre", "Los Angeles", 34.0448, -118.2550)
+    static let venues: [Venue] = [
+        Venue(name: "Madison Square Garden", city: "New York", coordinates: CLLocationCoordinate2D(latitude: 40.7505, longitude: -73.9934)),
+        Venue(name: "The O2 Arena", city: "London", coordinates: CLLocationCoordinate2D(latitude: 51.5033, longitude: 0.0032)),
+        Venue(name: "Sydney Opera House", city: "Sydney", coordinates: CLLocationCoordinate2D(latitude: -33.8568, longitude: 151.2153)),
+        Venue(name: "Red Rocks Amphitheatre", city: "Denver", coordinates: CLLocationCoordinate2D(latitude: 39.6654, longitude: -105.2057)),
+        Venue(name: "Wembley Stadium", city: "London", coordinates: CLLocationCoordinate2D(latitude: 51.556, longitude: -0.2795)),
+        Venue(name: "Hollywood Bowl", city: "Los Angeles", coordinates: CLLocationCoordinate2D(latitude: 34.1122, longitude: -118.3391)),
+        Venue(name: "AT&T Stadium", city: "Arlington", coordinates: CLLocationCoordinate2D(latitude: 32.7473, longitude: -97.0945)),
+        Venue(name: "Barclays", city: "Brooklyn", coordinates: CLLocationCoordinate2D(latitude: 40.6829, longitude: -73.9752)),
+        Venue(name: "The Moody Theatre", city: "Austin", coordinates: CLLocationCoordinate2D(latitude: 30.2652, longitude: -97.7470)),
+        Venue(name: "Tokyo Dome", city: "Tokyo", coordinates: CLLocationCoordinate2D(latitude: 35.6251, longitude: 139.7752)),
+        Venue(name: "NRG Stadium", city: "Houston", coordinates: CLLocationCoordinate2D(latitude: 29.6847, longitude: -95.4107)),
+        Venue(name: "The Forum", city: "Inglewood", coordinates: CLLocationCoordinate2D(latitude: 33.9581, longitude: -118.3417)),
+        Venue(name: "The Gorge Amphitheatre", city: "George", coordinates: CLLocationCoordinate2D(latitude: 47.6133, longitude: -122.3315)),
+        Venue(name: "Paramount Theatre", city: "Seattle", coordinates: CLLocationCoordinate2D(latitude: 47.6133, longitude: -122.3315)),
+        Venue(name: "Ryman Auditorium", city: "Nashville", coordinates: CLLocationCoordinate2D(latitude: 36.1616, longitude: -86.7782)),
+        Venue(name: "The Fillmore", city: "San Francisco", coordinates: CLLocationCoordinate2D(latitude: 37.7840, longitude: -122.4333)),
+        Venue(name: "The Tabernacle", city: "Atlanta", coordinates: CLLocationCoordinate2D(latitude: 33.7580, longitude: -84.3915)),
+        Venue(name: "House of Blues", city: "Chicago", coordinates: CLLocationCoordinate2D(latitude: 41.8884, longitude: -87.6265)),
+        Venue(name: "The Bowery Ballroom", city: "New York", coordinates: CLLocationCoordinate2D(latitude: 40.7209, longitude: -73.9938)),
+        Venue(name: "First Avenue", city: "Minneapolis", coordinates: CLLocationCoordinate2D(latitude: 44.9784, longitude: -93.2760)),
+        Venue(name: "The Orpheum Theatre", city: "Los Angeles", coordinates: CLLocationCoordinate2D(latitude: 34.0448, longitude: -118.2550))
     ]
     
     static let notes = [
